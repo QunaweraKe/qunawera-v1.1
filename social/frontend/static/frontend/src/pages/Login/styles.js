@@ -50,6 +50,11 @@ const useStyles = makeStyles((theme) => ({
 
 
   },
+
+  login:{
+  fontWeight:800,
+
+  },
 }));
 
 export default useStyles;

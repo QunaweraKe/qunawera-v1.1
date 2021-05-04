@@ -85,6 +85,7 @@ const Login = () => {
               className={classes.toUpper}
               color="primary"
               variant="h6"
+              className={classes.login}
             >
               Login to {APP_NAME}
             </Typography>
@@ -173,13 +174,13 @@ const Login = () => {
         </Card>
 
         <Typography className={classes.register}>
-              Don't have an account  {'?'}
-          <TextLink to={route.register}>{'  '} Register now.</TextLink>
+              Don't have an account  {'?'}{'  '}
+          <TextLink to={route.register}>Register now.</TextLink>
 
         </Typography>
        <Divider classes={{root:classes.divider}} />
               <Typography className={classes.forgot} >
-              <TextLink to={classes.none}>Forgot your password?</TextLink>
+              <TextLink to={classes.none}>Forgot your password  </TextLink><span style={{color:"#1877F2",fontWeight:"bold"}}>{'?'}</span>
                </Typography>
 
         <Footer/>

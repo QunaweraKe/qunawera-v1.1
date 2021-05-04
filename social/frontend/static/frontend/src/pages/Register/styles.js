@@ -5,6 +5,9 @@ const useStyles = makeStyles((theme) => ({
   alert: {
     marginBottom: theme.spacing(2),
   },
+  toUpper:{
+    fontWeight:800,
+  },
   button: {
     marginTop: theme.spacing(3),
   },

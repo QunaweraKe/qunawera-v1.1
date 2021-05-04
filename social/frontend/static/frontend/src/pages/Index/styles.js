@@ -1,9 +1,12 @@
 import { fade, makeStyles } from '@material-ui/core/styles';
 
+
+
 const useStyles = makeStyles((theme) => ({
   asideContainer: {
-    alignItems: 'center',
-    backgroundColor: fade(theme.palette.primary.main, 0.8),
+    marginTop:40,
+    marginBottom:10,
+    backgroundColor: '#FFEFBA',
     display: 'flex',
     justifyContent: 'center',
     padding: theme.spacing(0, 2),
@@ -16,15 +19,17 @@ const useStyles = makeStyles((theme) => ({
   },
   asideList: {
     '& .MuiListItem-root': {
+       marginTop:20,
+       marginBottom:0,
       alignItems: 'flex-start',
-      color: theme.palette.common.white,
+      color: 'primary',
       display: 'flex',
     },
     '& .MuiTypography-root': {
-      fontSize: 20,
+      fontSize:18,
     },
     '& .MuiSvgIcon-root': {
-      color: theme.palette.common.white,
+      color: 'primary',
       fontSize: 30,
       marginTop: theme.spacing(0.5),
     },
@@ -45,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   ctaContainer: {
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(5),
     marginBottom: theme.spacing(2),
   },
   indexLayout: {
