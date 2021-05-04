@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 // Material UI
+import Divider from '@material-ui/core/Divider';
 import EmailIcon from '@material-ui/icons/Email';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -125,7 +126,7 @@ const Register = () => {
                 fullWidth
                 helperText={errors.username}
                 id="login"
-                label="Username"
+                label="Preferred Username"
                 name="username"
                 onChange={handleChange}
                 type="text"
@@ -203,11 +204,11 @@ const Register = () => {
 
 
        <Typography className={classes.login}>
-         Already a member  {'?'}
+        Existing member  {'?'}  {'  '}
        <TextLink to={route.login}>
-       {'  '} Login.</TextLink>
+      Login.</TextLink>
         </Typography>
-
+ <Divider classes={{root:classes.divider}} />
            <Footer/>
       </Container>
 

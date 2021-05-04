@@ -85,7 +85,7 @@ const Login = () => {
               className={classes.toUpper}
               color="primary"
               variant="h6"
-              className={classes.login}
+
             >
               Login to {APP_NAME}
             </Typography>
@@ -153,7 +153,7 @@ const Login = () => {
 
                   />
                 )}
-                label={<span style={{fontSize:"10px",fontWeight:"bold"}}>Keep me logged in</span>}
+                label={<span style={{fontSize:"10px",fontWeight:"bold",color:"grey"}}>Keep me logged in</span>}
               />
 
              <Button
@@ -179,8 +179,8 @@ const Login = () => {
 
         </Typography>
        <Divider classes={{root:classes.divider}} />
-              <Typography className={classes.forgot} >
-              <TextLink to={classes.none}>Forgot your password  </TextLink><span style={{color:"#1877F2",fontWeight:"bold"}}>{'?'}</span>
+              <Typography className={classes.forgot}  >
+              <TextLink >Forgot your password  </TextLink><span style={{color:"#1877F2",fontWeight:"bold"}}>{'?'}</span>
                </Typography>
 
         <Footer/>

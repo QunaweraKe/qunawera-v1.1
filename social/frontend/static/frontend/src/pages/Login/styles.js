@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize:12,
     fontWeight:600,
      letterSpacing:'2',
+     marginBottom:theme.spacing(3),
   },
   forgot:{
 
-     marginTop: theme.spacing(2),
-    textAlign: 'center',
+    marginTop: theme.spacing(5),
+    textAlign: 'right',
     fontSize:12,
-    fontWeight:600,
     letterSpacing:'2',
 
   },
@@ -47,11 +47,9 @@ const useStyles = makeStyles((theme) => ({
   marginBottom:10,
   marginTop:10,
 
-
-
   },
 
-  login:{
+  toUpper:{
   fontWeight:800,
 
   },
