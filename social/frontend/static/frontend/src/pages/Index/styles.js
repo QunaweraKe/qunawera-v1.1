@@ -44,13 +44,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
-    maxWidth: 380,
+    maxWidth: 400,
   },
   ctaItem: {
     marginBottom: theme.spacing(2),
   },
   ctaContainer: {
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2),
   },
   indexLayout: {

@@ -22,7 +22,7 @@ import Footer from '../../components/Footer';
 import CircularProgress from '../../components/CircularProgress';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-
+import DividerWithText from '../../components/DividerWithText';
 import { route,APP_NAME } from '../../constants';
 
 import useUI from '../../hooks/useUI';
@@ -178,9 +178,10 @@ const Login = () => {
           <TextLink to={route.register}>Register now.</TextLink>
 
         </Typography>
-       <Divider classes={{root:classes.divider}} />
+       <DividerWithText>Or</DividerWithText>
+
               <Typography className={classes.forgot}  >
-              <TextLink >Forgot your password  </TextLink><span style={{color:"#1877F2",fontWeight:"bold"}}>{'?'}</span>
+              <TextLink >Reset password  </TextLink>
                </Typography>
 
         <Footer/>

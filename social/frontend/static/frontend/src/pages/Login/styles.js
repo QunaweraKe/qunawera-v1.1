@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   forgot:{
 
     marginTop: theme.spacing(5),
-    textAlign: 'right',
+    textAlign: 'center',
     fontSize:12,
     letterSpacing:'2',
 
@@ -38,16 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 
   },
-  divider:{
-  padding:2,
-  height:4,
-  height:4,
-  width: '100%',
-  background:theme.palette.grey[50],
-  marginBottom:10,
-  marginTop:10,
 
-  },
 
   toUpper:{
   fontWeight:800,

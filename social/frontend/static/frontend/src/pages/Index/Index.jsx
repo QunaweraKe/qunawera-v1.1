@@ -19,7 +19,7 @@ import Footer from '../../components/Footer';
 import IndexLoginForm from '../../components/IndexLoginForm';
 import { APP_NAME, route } from '../../constants';
 import useStyles from './styles';
-
+import DividerWithText from '../../components/DividerWithText';
 
 const Index = () => {
   const classes = useStyles();
@@ -29,7 +29,6 @@ const Index = () => {
       <main className={classes.mainContainer}>
        <IndexLoginForm/>
         <div className={classes.content}>
-
 
           <div className={classes.ctaContainer}>
              <div className="container">
@@ -67,7 +66,11 @@ const Index = () => {
             >
               Register
             </Button>
-            <Button
+
+          </div>
+    <DividerWithText>Or</DividerWithText>
+    <div className={classes.ctaContainer}>
+    <Button
               className={classes.ctaItem}
               color="primary"
               component={Link}
@@ -79,9 +82,7 @@ const Index = () => {
             >
               Login
             </Button>
-
-          </div>
-
+            </div>
         </div>
 
       </main>
