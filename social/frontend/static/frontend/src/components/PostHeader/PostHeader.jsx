@@ -40,9 +40,12 @@ const PostHeader = ({ post, repost }) => {
         color="textSecondary"
         component="span"
       >
-        {`@${post.author.slug}`}
-        {' - '}
-        {dayjs(post.created_at).fromNow()}
+
+
+      </Typography>
+      <Typography className={classes.headerTime} color="textSecondary">
+        <span style={{fontSize:"15px"}}>&#183;</span>{'  '} {dayjs(post.created_at).fromNow()}
+
       </Typography>
     </div>
   );
@@ -64,3 +67,4 @@ PostHeader.propTypes = {
 };
 
 export default PostHeader;
+ //TODO:ADD tab on home header

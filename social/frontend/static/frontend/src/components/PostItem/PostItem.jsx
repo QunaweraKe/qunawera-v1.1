@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 // Material UI
-import Badge from '@material-ui/core/Badge';
+
+import ChatIcon from '@material-ui/icons/CommentRounded';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
@@ -14,11 +15,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
+import { borders } from '@material-ui/system';
+import DetailsIcon from '@material-ui/icons/ExpandMoreOutlined';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import Divider from '@material-ui/core/Divider';
 
-import MoreIcon from '@material-ui/icons/MoreOutlined';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import RepeatIcon from '@material-ui/icons/Repeat';
-import ReplyIcon from '@material-ui/icons/Reply';
 
 // Local
 import Avatar from '../Avatar';
@@ -46,7 +47,6 @@ import {
 } from '../../redux/post';
 
 import useStyles from './styles';
-
 const PostItem = ({ expandReplies, postId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -93,7 +93,7 @@ const PostItem = ({ expandReplies, postId }) => {
         className={classes.postAction}
         onClick={handleMenuOpen}
       >
-        <MoreVertIcon />
+        <MoreHorizIcon />
       </IconButton>
       <Menu
         anchorEl={anchorEl}
@@ -132,64 +132,90 @@ const PostItem = ({ expandReplies, postId }) => {
           )}
         >
           <ListItemIcon>
-            <MoreIcon fontSize="small" />
+            <DetailsIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Details" />
         </MenuItem>
       </Menu>
       <div className={classes.postContainer}>
         <div className={classes.avatarContainer}>
-          {post.parent && <RepeatIcon className={classes.repeatIcon} />}
+
           <Avatar user={post.author} />
         </div>
         <div className={classes.post}>
           {post.parent
             && (
+
               <Typography
-                color="textSecondary"
-                variant="body2"
+                color="black"
+                variant="body10"
+
+                alignItems="right"
+                className={classes.headerReshare}
               >
-                {post.author.display_name}
-                {' '}
-                reposted
+
+             Reposted
+
               </Typography>
+
+
             )}
           <PostHeader post={post} />
+
           {post.body
             && (
-              <Typography>
-                {post.body}
-              </Typography>
+
+              <Typography  variant="subtitle8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
+                  {post.body.charAt(0).toUpperCase()+post.body.slice(1)}
+              </Typography >
+
             )}
+
+
+              <Typography className={classes.postBody}  variant="body8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
           {post.parent && <PostParent post={post.parent} />}
+           </Typography>
         </div>
+
       </div>
+       <Divider variant="inset"  classes={{root:classes.divider}} />
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
       >
         <div className={classes.likeContainer}>
+
           <LikePost
             postId={post.id}
             size="default"
             type="post"
           />
+
         </div>
-        <div className={classes.replyContainer}>
+        <div >
+
           <IconButton
             className={classes.replies}
             disabled={loading}
             onClick={handleReplies}
+
           >
-            <Badge
-              badgeContent={post.reply_ids?.length || 0}
-              max={9999}
-            >
-              <ReplyIcon />
-            </Badge>
+
+
+
+              < ChatIcon
+              color="secondary"
+              style={{fontSize:"20px"}} />
+    <Typography color="textSecondary"
+               className={classes.textSize}
+               >
+         {"   "}    &#183;   {"  "} {post.reply_ids?.length || 0}{'  '}
+        </Typography>
             {loading && <CircularProgress />}
           </IconButton>
+
         </div>
+
         <div className={classes.repostContainer}>
           <Repost postId={postId} />
         </div>
@@ -233,3 +259,10 @@ PostItem.propTypes = {
 };
 
 export default PostItem;
+
+//TODO: USER TYPING & floating action button
+
+ //TODO: BID ONLY PARENT POST,ARRANGE CARD CONTENTS PROPERLY
+
+
+ //semantic ui for items
