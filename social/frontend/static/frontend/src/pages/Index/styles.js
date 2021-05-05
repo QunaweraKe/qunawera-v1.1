@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   asideList: {
     '& .MuiListItem-root': {
-       marginTop:20,
+       marginTop:40,
        marginBottom:0,
       alignItems: 'flex-start',
       color: 'primary',

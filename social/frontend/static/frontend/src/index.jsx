@@ -9,9 +9,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 // Local
 import App from './components/App';
-
 import theme from './theme';
-
 import store from './redux/store';
 
 ReactDOM.render(

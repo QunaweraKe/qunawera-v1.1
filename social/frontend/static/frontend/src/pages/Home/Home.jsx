@@ -12,6 +12,7 @@ import Heading from '../../components/Heading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
+import Welcome from '../../components/Files/Images/welcomehome.svg';
 import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
 import PostForm from '../../components/PostForm';
@@ -65,6 +66,9 @@ const Home = () => {
                 {APP_NAME}
                 !
               </Typography>
+              <div>
+              <Welcome  style={{height:"300px",width:"300px"}}/>
+              </div>
               <Typography
                 color="textSecondary"
                 paragraph

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+//EVERGREEN UI
+import { LinkIcon } from 'evergreen-ui'
 // Material UI
 import Button from '@material-ui/core/Button';
 
@@ -34,16 +35,18 @@ const FollowButton = ({ className, user, size }) => {
 
   return (
     <Button
-      className={className}
       color="primary"
+      className={className}
       disabled={loading}
       edge="end"
       onClick={handleFollow}
-      size={size}
+      size="small"
       variant="outlined"
+      style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
     >
-      {following ? 'Following' : 'Follow'}
+      {following ? 'linked' : 'link'}
       {loading && <CircularProgress />}
+      <LinkIcon/>
     </Button>
   );
 };

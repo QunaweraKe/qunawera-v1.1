@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
+import IndexImage from '../../components/Files/Images/Index.svg';
 import WorldIcon from '@material-ui/icons/PublicTwoTone';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -87,19 +88,15 @@ const Index = () => {
 
       </main>
       <aside  className={classes.asideContainer}>
-
+<IndexImage/>
                   <List className={classes.asideList}>
           <ListItem>
 
-           <ListItemIcon>
-              <PeopleAltOutlinedIcon />
-            </ListItemIcon>
+
             <ListItemText primary="Earn money doing simple tasks for others. " />
              </ListItem>
             <ListItem>
-                 <ListItemIcon>
-              <PeopleAltOutlinedIcon />
-            </ListItemIcon>
+
             <ListItemText primary="Easy job sharing platform. " />
           </ListItem>
         </List>
