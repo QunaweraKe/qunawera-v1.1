@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+// Evergreen  UI
+import { CommentIcon } from 'evergreen-ui'
 // Material UI
 
-import ChatIcon from '@material-ui/icons/CommentRounded';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
@@ -16,7 +16,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { borders } from '@material-ui/system';
-import DetailsIcon from '@material-ui/icons/ExpandMoreOutlined';
+import DetailsIcon from '@material-ui/icons/UnfoldMore';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Divider from '@material-ui/core/Divider';
 
@@ -134,7 +135,17 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <DetailsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Details" />
+          <ListItemText primary="Details"  className={classes.listItemSize}/>
+        </MenuItem>
+           <MenuItem
+          onClick={() => (
+            history.push(route.profilePosts(post.author.slug))
+          )}
+        >
+          <ListItemIcon>
+            <EmojiPeopleIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="More from author" />
         </MenuItem>
       </Menu>
       <div className={classes.postContainer}>
@@ -178,7 +189,7 @@ const PostItem = ({ expandReplies, postId }) => {
         </div>
 
       </div>
-       <Divider variant="inset"  classes={{root:classes.divider}} />
+       <Divider   classes={{root:classes.divider}} />
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
@@ -203,7 +214,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
 
-              < ChatIcon
+              < CommentIcon
               color="secondary"
               style={{fontSize:"20px"}} />
     <Typography color="textSecondary"

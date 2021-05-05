@@ -22,7 +22,6 @@ import Footer from '../../components/Footer';
 import CircularProgress from '../../components/CircularProgress';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import DividerWithText from '../../components/DividerWithText';
 import { route,APP_NAME } from '../../constants';
 
 import useUI from '../../hooks/useUI';
@@ -171,14 +170,15 @@ const Login = () => {
               </Button>
             </form>
           </CardContent>
-        </Card>
-
-        <Typography className={classes.register}>
+            <Typography className={classes.register}>
               Don't have an account  {'?'}{'  '}
           <TextLink to={route.register}>Register now.</TextLink>
 
         </Typography>
-       <DividerWithText>Or</DividerWithText>
+        </Card>
+
+
+
 
               <Typography className={classes.forgot}  >
               <TextLink >Reset password  </TextLink>

@@ -60,19 +60,19 @@ const DeletePost = React.forwardRef((props, ref) => {
       >
         <ListItemIcon>
           <DeleteIcon
-            color="primary"
+            color="error"
             fontSize="small"
           />
         </ListItemIcon>
         <ListItemText
           primary="Delete"
           primaryTypographyProps={{
-            color: 'primary',
+            color: 'error',
           }}
         />
       </MenuItem>
       <ConfirmationDialog
-        buttontext="Delete"
+        buttontext="Yes,Delete"
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}
@@ -80,9 +80,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         onClose={handleClose}
         onEntered={handleEntered}
         text={`
-          This can’t be undone and it will be removed from your profile, the
-          timeline of any accounts that follow you, and from Social search
-          results.
+          This can’t be undone and it will be remove everything associated to this post.
         `}
         title={`Delete ${type}?`}
       />

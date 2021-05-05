@@ -11,14 +11,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize:8,
   },
   divider:{
-  padding:2,
-  height:0,
-  width: '80%',
+  padding:1,
+  height:1,
+  width: '100%',
   background:theme.palette.grey[50],
-  marginBottom:10,
+  marginBottom:5,
+  },
+  listItemSize:{
 
-
-
+    color:theme.palette.primary.main,
   },
   cardActionsRoot: {
     paddingTop: 0,

@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   contentContainer: {
     flexGrow: 1,
   },
+   textSize:{
+  fontSize:12,
+  },
   dialogTitle: {
     margin: 0,
   },

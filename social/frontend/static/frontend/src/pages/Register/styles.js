@@ -26,16 +26,7 @@ const useStyles = makeStyles((theme) => ({
    fontWeight:600,
    letterSpacing:'2',
   },
-  divider:{
-  padding:2,
-  height:4,
-  height:4,
-  width: '100%',
-  background:theme.palette.grey[50],
-  marginBottom:5,
-  marginTop:5,
 
-  },
 }));
 
 export default useStyles;

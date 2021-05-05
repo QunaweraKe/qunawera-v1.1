@@ -3,7 +3,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+// Evergreen  UI
+import { ShareIcon } from 'evergreen-ui'
 // Material UI
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
@@ -15,7 +16,6 @@ import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
 
-import RepeatIcon from '@material-ui/icons/Repeat';
 
 // Local
 import Avatar from '../Avatar';
@@ -73,13 +73,16 @@ const Repost = ({ postId }) => {
       <IconButton
         onClick={handleOpen}
       >
-        <Badge
-          badgeContent={post.repost_ids?.length || 0}
-          max={9999}
-        >
-          <RepeatIcon />
-        </Badge>
+
+          <ShareIcon
+          color="secondary"
+          style={{fontSize:"25px"}}
+          />
+
       </IconButton>
+
+
+
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
@@ -87,12 +90,13 @@ const Repost = ({ postId }) => {
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography variant="h6">
-            Repost
+            Repost Task
           </Typography>
         </DialogTitle>
         <DialogContent
           dividers
           className={classes.postContainer}
+
         >
           <div className={classes.avatarContainer}>
             <Avatar user={user} />
@@ -105,7 +109,7 @@ const Repost = ({ postId }) => {
               fullWidth
               multiline
               onChange={handleChange}
-              placeholder="What's your repost status? (optional)"
+              placeholder="What's your  reason for reposting?(optional)"
               rowsMax={7}
               spellCheck
               value={body}
@@ -116,7 +120,9 @@ const Repost = ({ postId }) => {
         <DialogActions>
           <Button
             onClick={handleClose}
-            variant="contained"
+            variant="outlined"
+            size="small"
+            color="blue"
           >
             Cancel
           </Button>
@@ -124,9 +130,10 @@ const Repost = ({ postId }) => {
             color="primary"
             disabled={loading}
             onClick={handleSubmit}
-            variant="contained"
+            variant="outlined"
+            size="small"
           >
-            Repost
+           post
             {loading && <CircularProgress />}
           </Button>
         </DialogActions>

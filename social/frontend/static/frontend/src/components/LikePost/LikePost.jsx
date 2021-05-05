@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+// Evergreen  UI
+import { ThumbsUpIcon } from 'evergreen-ui'
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -73,8 +74,8 @@ const LikePost = ({ postId, size, type }) => {
         onClick={handleLike}
       >
         {isLiked
-          ? <ThumbUpIcon fontSize={size} />
-          : <ThumbUpOutlinedIcon fontSize={size} />}
+          ? <ThumbsUpIcon fontSize={size} />
+          : <ThumbsUpIcon fontSize={size} />}
         {loading && <CircularProgress />}
       </IconButton>
       <Typography

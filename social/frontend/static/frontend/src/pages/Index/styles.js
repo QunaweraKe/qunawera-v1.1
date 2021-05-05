@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   asideContainer: {
     marginTop:40,
     marginBottom:10,
-    backgroundColor: '#FFEFBA',
+    backgroundColor: 'rgba(255,136,0,.1)',
     display: 'flex',
     justifyContent: 'center',
     padding: theme.spacing(0, 2),
@@ -19,14 +19,15 @@ const useStyles = makeStyles((theme) => ({
   },
   asideList: {
     '& .MuiListItem-root': {
-       marginTop:40,
+       marginTop:80,
        marginBottom:0,
       alignItems: 'flex-start',
       color: 'primary',
-      display: 'flex',
+      display: 'flex-end',
     },
     '& .MuiTypography-root': {
-      fontSize:18,
+      fontSize:14,
+
     },
     '& .MuiSvgIcon-root': {
       color: 'primary',

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
-import IndexImage from '../../components/Files/Images/Index.svg';
+import IndexImage from '../../components/Files/Images/index2.svg';
 import WorldIcon from '@material-ui/icons/PublicTwoTone';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -15,6 +15,7 @@ import Box from '@material-ui/core/Box';
 import shadows from '@material-ui/system';
 
 // Local
+
 import './index.css'
 import Footer from '../../components/Footer';
 import IndexLoginForm from '../../components/IndexLoginForm';
@@ -84,6 +85,7 @@ const Index = () => {
               Login
             </Button>
             </div>
+
         </div>
 
       </main>
@@ -102,10 +104,10 @@ const Index = () => {
         </List>
 
       </aside>
+<div style={{marginTop:"50px",marginLeft:"2px"}}>
+<Footer/>
 
-
-
-
+</div>
     </div>
   );
 };

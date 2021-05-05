@@ -46,17 +46,22 @@ const IndexLoginForm = () => {
       onSubmit={handleSubmit}
     >
       <TextField
+        required
         autoComplete="email"
         className={classes.textField}
         id="login"
-        label="Username or email"
+        label="Username or Email"
         name="login"
         onChange={handleChange}
         type="text"
         value={formData.login}
         variant="filled"
+        InputLabelProps={{style:{fontSize:14}}}
+
+
       />
       <TextField
+        required
         autoComplete="current-password"
         className={classes.textField}
         id="password"
@@ -64,15 +69,21 @@ const IndexLoginForm = () => {
         name="password"
         onChange={handleChange}
         type="password"
-        value={formData.password}
         variant="filled"
+        value={formData.password}
+         InputLabelProps={{style:{fontSize:14}}}
+
+
       />
       <Button
         className={classes.button}
         color="primary"
         disabled={loading}
         type="submit"
+        size="small"
         variant="outlined"
+         style={{ boxShadow: '2px 3px  rgba(0,0,0,.2)'}}
+
       >
         Login
         {loading && <CircularProgress />}

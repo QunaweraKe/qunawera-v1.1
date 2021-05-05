@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 600,
       padding: theme.spacing(0, 2),
       position: 'absolute',
-      top: theme.spacing(2),
-      width: '100%',
+      top: theme.spacing(5),
+      width: '80%',
     },
   },
 }));

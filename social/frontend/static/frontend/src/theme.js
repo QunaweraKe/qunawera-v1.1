@@ -174,13 +174,15 @@ theme.overrides = {
   },
   MuiListItemIcon: {
     root: {
-      marginRight: 5,
+      marginRight:2,
       minWidth: 0,
+
     },
   },
   MuiMenu: {
     list: {
-      padding: 2,
+      padding: 1,
+       backgroundColor: theme.palette.grey[100],
     },
   },
   MuiPaper: {
