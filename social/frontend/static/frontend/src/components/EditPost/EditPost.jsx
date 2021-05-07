@@ -71,7 +71,7 @@ const EditPost = React.forwardRef((props, ref) => {
         <ListItemIcon>
           <EditIcon fontSize="small" />
         </ListItemIcon>
-        <ListItemText primary="Edit" />
+        <ListItemText primary="Edit Post" style={{color:"primary"}}/>
       </MenuItem>
       <Dialog
         open={dialogOpen}
@@ -90,7 +90,7 @@ const EditPost = React.forwardRef((props, ref) => {
             fullWidth
             multiline
             onChange={handleChange}
-            placeholder="What's on your mind?"
+            placeholder="Which task do you have in mind?"
             rowsMax={5}
             spellCheck
             value={body}
@@ -100,6 +100,7 @@ const EditPost = React.forwardRef((props, ref) => {
           <Button
             onClick={handleClose}
             variant="contained"
+            size="small"
           >
             Cancel
           </Button>
@@ -107,7 +108,8 @@ const EditPost = React.forwardRef((props, ref) => {
             color="primary"
             disabled={loading || body.trim().length === 0}
             onClick={handleEdit}
-            variant="contained"
+            variant="outlined"
+             size="small"
           >
             Save
             {loading && <CircularProgress />}

@@ -109,7 +109,7 @@ const PostItem = ({ expandReplies, postId }) => {
         onClose={handleMenuClose}
         transformOrigin={{
           horizontal: 'right',
-          vertical: 'bottom',
+          vertical: 'top',
         }}
       >
         {post.is_author
@@ -135,7 +135,7 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <DetailsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Details"  className={classes.listItemSize}/>
+          <ListItemText primary="Post Details"  className={classes.listItemSize}/>
         </MenuItem>
            <MenuItem
           onClick={() => (
@@ -145,7 +145,7 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <EmojiPeopleIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="More from author" />
+          <ListItemText primary="Author's Profile" className={classes.listItemSize}/>
         </MenuItem>
       </Menu>
       <div className={classes.postContainer}>
@@ -159,13 +159,12 @@ const PostItem = ({ expandReplies, postId }) => {
 
               <Typography
                 color="black"
-                variant="body10"
+                variant="subtitle3"
 
-                alignItems="right"
                 className={classes.headerReshare}
               >
 
-             Reposted
+             Reposted by
 
               </Typography>
 
@@ -189,20 +188,12 @@ const PostItem = ({ expandReplies, postId }) => {
         </div>
 
       </div>
-       <Divider   classes={{root:classes.divider}} />
+       <Divider variant="inset"   classes={{root:classes.divider}} />
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
       >
-        <div className={classes.likeContainer}>
 
-          <LikePost
-            postId={post.id}
-            size="default"
-            type="post"
-          />
-
-        </div>
         <div >
 
           <IconButton
@@ -226,7 +217,15 @@ const PostItem = ({ expandReplies, postId }) => {
           </IconButton>
 
         </div>
+           <div className={classes.likeContainer}>
 
+          <LikePost
+            postId={post.id}
+            size="default"
+            type="post"
+          />
+
+        </div>
         <div className={classes.repostContainer}>
           <Repost postId={postId} />
         </div>

@@ -54,7 +54,7 @@ const PostForm = () => {
             fullWidth
             multiline
             onChange={handleChange}
-            placeholder="What's on your mind?"
+            placeholder="Which task would you like to post today?"
             spellCheck
             value={postText}
           />
@@ -65,7 +65,7 @@ const PostForm = () => {
             color="primary"
             disabled={loading || postText.trim().length === 0}
             type="submit"
-            variant="contained"
+            size="small"
           >
             Post
             {loading && <CircularProgress />}

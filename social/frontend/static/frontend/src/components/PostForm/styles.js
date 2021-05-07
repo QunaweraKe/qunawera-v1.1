@@ -17,19 +17,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     overflow: 'hidden',
+
   },
   root: {
     ...theme.custom.borders,
-    borderBottomWidth: 10,
+    borderBottomWidth:5,
     padding: theme.spacing(2),
+
   },
   submitButton: {
-    paddingLeft: theme.spacing(3),
-    paddingRight: theme.spacing(3),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
   textField: {
     flexGrow: 1,
     margin: theme.spacing(0, 3, 0, 2),
+    backgroundColor: theme.palette.grey[10],
   },
 }));
 
