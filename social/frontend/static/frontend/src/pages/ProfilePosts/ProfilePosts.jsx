@@ -16,7 +16,6 @@ import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
 import ProfileInfo from '../../components/ProfileInfo';
 import ProfileNav from '../../components/ProfileNav';
-
 import useProfileUser from '../../hooks/useProfileUser';
 import useUI from '../../hooks/useUI';
 
@@ -81,6 +80,7 @@ const ProfilePosts = () => {
                   >
                     You haven&apos;t posted yet
                   </Typography>
+
                   <Typography
                     color="textSecondary"
                     paragraph

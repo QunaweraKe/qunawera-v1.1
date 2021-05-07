@@ -12,15 +12,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   container: {
-    marginTop: 50,
+    marginTop: 30,
     maxWidth: 450,
   },
   formField: {
     marginTop: theme.spacing(2),
   },
   login: {
-    marginTop: theme.spacing(2),
-     marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(1),
+     marginBottom: theme.spacing(2),
     textAlign: 'center',
     fontSize:12,
    fontWeight:600,

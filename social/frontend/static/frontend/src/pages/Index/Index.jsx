@@ -10,8 +10,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
-import Box from '@material-ui/core/Box';
 import shadows from '@material-ui/system';
 
 // Local
@@ -49,12 +47,17 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6" align="center">
-         <span>&ldquo;</span>    simple task sharing...   <span>&rdquo;</span>
+        <p><Typography variant="subtitle3" align="center">
+
+           Get manual work done
          </Typography></p>
       </div>
     </div>
     </div>
+
+    <Typography variant="h6" align="center" className={classes.Upper}>
+          Lets get started ..
+         </Typography>
             <Button
 
               className={classes.ctaItem}
@@ -62,11 +65,10 @@ const Index = () => {
               component={Link}
               fullWidth
               to={route.register}
-              variant="outlined"
+             variant="contained"
               size="small"
-              style={{ boxShadow: '2px 4px  rgba(0,0,0,.1)'}}
             >
-              Register
+              Create Account
             </Button>
 
           </div>
@@ -79,8 +81,10 @@ const Index = () => {
 
               fullWidth
               to={route.login}
-              variant="contained"
-               size="small"
+
+               variant="outlined"
+              size="small"
+              style={{ boxShadow: '2px 4px  rgba(0,0,0,.1)'}}
             >
               Login
             </Button>

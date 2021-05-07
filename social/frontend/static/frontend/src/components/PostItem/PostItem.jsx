@@ -109,7 +109,7 @@ const PostItem = ({ expandReplies, postId }) => {
         onClose={handleMenuClose}
         transformOrigin={{
           horizontal: 'right',
-          vertical: 'top',
+          vertical: 'bottom',
         }}
       >
         {post.is_author

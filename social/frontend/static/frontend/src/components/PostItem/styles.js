@@ -12,10 +12,11 @@ const useStyles = makeStyles((theme) => ({
   },
   divider:{
   padding:1,
-  height:1,
+  height:2,
   width: '100%',
   background:theme.palette.grey[50],
-  marginBottom:5,
+  marginBottom:7,
+   marginTop:2,
   },
   listItemSize:{
 
@@ -30,8 +31,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   post: {
-    width: '100%',
+    width: '90%',
     marginBottom: theme.spacing(3),
+    marginLeft : theme.spacing(2),
   },
   postAction: {
     position: 'absolute',
@@ -43,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 2, 0.5, 2),
   },
  headerReshare:{
-  fontSize:11,
+  fontSize:12,
   },
   textSize:{
   fontSize:12,

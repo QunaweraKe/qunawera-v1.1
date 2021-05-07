@@ -1,11 +1,12 @@
 import React from 'react'
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 
 //Material UI
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 //local imports
-import { APP_NAME } from '../../constants';
+
+import { APP_NAME,route } from '../../constants';
 import useStyles from './styles';
 const Footer = () => {
 
@@ -33,7 +34,7 @@ return(
 
       </Grid >
        <Grid item xs={6} >
-       <Link color="primary"  style={{fontSize:"10px",fontWeight:"bold"}}>
+       <Link color="primary" to={route.termsAndPrivacy} style={{fontSize:"10px",fontWeight:"bold"}}>
         Terms {'&'} Privacy
       </Link>
        </Grid >

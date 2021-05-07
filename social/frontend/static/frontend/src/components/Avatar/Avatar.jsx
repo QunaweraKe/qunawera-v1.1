@@ -47,7 +47,7 @@ const Avatar = ({
 Avatar.defaultProps = {
   className: null,
   linkable: true,
-  size: 50,
+  size: 40,
 };
 
 Avatar.propTypes = {

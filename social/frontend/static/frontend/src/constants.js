@@ -8,6 +8,7 @@ export const route = {
   following: (slug) => `/users/${slug}/following/`,
   home: '/home/',
   index: '/',
+  termsAndPrivacy: '/termsAndPrivacy/',
   notifications: '/notifications/',
   postDetail: (postId) => `/post/${postId}/`,
   postLikes: (postId) => `/post/${postId}/likes/`,

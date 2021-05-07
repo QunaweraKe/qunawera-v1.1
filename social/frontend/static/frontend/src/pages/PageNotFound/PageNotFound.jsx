@@ -7,7 +7,7 @@ import Error from '../../components/Files/Images/error404.svg';
 const PageNotFound = () => (
   <>
     <PageTitle title="Page not found" />
- <Error style={{height:"700px",width:"700px"}} />
+ <Error style={{height:"500px",width:"500px"}} />
 
   </>
 );

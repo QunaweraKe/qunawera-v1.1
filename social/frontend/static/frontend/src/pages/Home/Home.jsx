@@ -1,11 +1,15 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Material UI
+import Grid from '@material-ui/core/Grid';
+import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import SearchIcon from '@material-ui/icons/Search';
+import NIcon from '@material-ui/icons/Notifications';
+import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 // Local
 import AuthLayout from '../../components/AuthLayout';
 import Heading from '../../components/Heading';
@@ -20,14 +24,15 @@ import PostForm from '../../components/PostForm';
 import useUI from '../../hooks/useUI';
 
 import { getFeed, key, selectFeed } from '../../redux/post';
-
+import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { APP_NAME, route } from '../../constants';
 
 const Home = () => {
+ const location = useLocation();
   const dispatch = useDispatch();
-
+  const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const feed = useSelector(selectFeed);
-
+  const active = (pathname) => location.pathname === pathname;
   const { fetched, loading, nextLoading } = useUI(key.feed, key.feedNext);
 
   React.useEffect(() => {
@@ -47,9 +52,44 @@ const Home = () => {
       <AuthLayout>
         <Heading>
           <MobileMenu />
-          <Typography variant="h6">
-            Home
+          <Typography variant="subtitle1">
+            Recents
           </Typography>
+         <Grid  container justify="flex-end">
+         <Grid item >
+          <Button
+              color='textSecondary'
+              component={Link}
+              size='large'
+              startIcon={<SearchIcon />}
+              to={route.search}
+
+            >
+
+              <span style={{fontSize:14}}>Search</span>
+            </Button>
+           </Grid>
+           <Grid item>
+              <Button
+              color={active(route.notifications) ?  'primary' : 'secondary.main'}
+              component={Link}
+              startIcon={(
+                <Badge
+                  badgeContent={unreadNotificationsCount}
+                  color="primary"
+                >
+                  {active(route.notifications)
+                    ? <NIcon />
+                    : <NOutlinedIcon />}
+                </Badge>
+              )}
+              size='large'
+              to={route.notifications}
+            >
+              <span className="nav-button-text" style={{fontSize:14}}>Activities</span>
+            </Button>
+              </Grid>
+                </Grid>
         </Heading>
         <PostForm />
         <Posts

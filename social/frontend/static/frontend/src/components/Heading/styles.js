@@ -5,12 +5,13 @@ const useStyles = makeStyles((theme) => ({
     ...theme.custom.borders,
     alignItems: 'center',
     backgroundColor: 'white',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0,
     display: 'flex',
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(0, 1),
     position: 'sticky',
-    top: 0,
+    top:-0,
     zIndex: 1,
+    height:80,
   },
 }));
 

@@ -51,7 +51,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     objects = PostManager.as_manager()
 
     def __str__(self):
-        ellipsis = "..." if len(self.body) > 100 else ""
+        ellipsis = "..." if len(self.body) > 60 else ""
         return f"{self.body[:100]}{ellipsis}"
 
     def get_replies(self):

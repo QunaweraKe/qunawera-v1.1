@@ -3,39 +3,34 @@ import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 // Material UI
+import Typography from '@material-ui/core/Typography';
+import {sizing} from '@material-ui/system';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-
+import Box from '@material-ui/core/Box';
 import HomeIcon from '@material-ui/icons/Home';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import NIcon from '@material-ui/icons/Notifications';
-import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import PersonIcon from '@material-ui/icons/Person';
-import PersonOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
-import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import TextsmsIcon from '@material-ui/icons/Textsms';
+
 
 // Local
-import DialogPostForm from '../DialogPostForm';
+
 import UserControl from '../UserControl';
-
 import { route } from '../../constants';
-
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { selectUser } from '../../redux/user';
-
 import useStyles from './styles';
 
 const Header = () => {
   const classes = useStyles();
   const location = useLocation();
 
-  const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
 
   const active = (pathname) => location.pathname === pathname;
@@ -43,22 +38,15 @@ const Header = () => {
   return (
     <div className={classes.headerContainer}>
       <div className={classes.pushContainer}>
-        <div className={classes.branding}>
-          <IconButton
-            color="primary"
-            component={Link}
-            to={route.home}
-          >
-            <TextsmsIcon />
-          </IconButton>
-        </div>
+
+
         <List
           className={classes.navList}
           component="nav"
         >
           <ListItem disableGutters>
             <Button
-              color={active(route.home) ? 'primary' : 'default'}
+              color={active(route.home) ? 'primary': 'secondary.main' }
               component={Link}
               size="large"
               startIcon={
@@ -74,56 +62,24 @@ const Header = () => {
           <ListItem disableGutters>
             <Button
               color={
-                active(route.profilePosts(user.slug))
-                  ? 'primary'
-                  : 'default'
-              }
+                active(route.profilePosts(user.slug))  ? 'primary' : 'secondary.main' }
               component={Link}
               size="large"
               startIcon={
                 active(route.profilePosts(user.slug))
-                  ? <PersonIcon />
-                  : <PersonOutlinedIcon />
+                  ? <AccountCircleIcon />
+                  : <AccountCircleOutlinedIcon />
               }
               to={route.profilePosts(user.slug)}
             >
               <span className="nav-button-text">Profile</span>
             </Button>
           </ListItem>
+
+
           <ListItem disableGutters>
             <Button
-              color={active(route.notifications) ? 'primary' : 'default'}
-              component={Link}
-              startIcon={(
-                <Badge
-                  badgeContent={unreadNotificationsCount}
-                  color="primary"
-                >
-                  {active(route.notifications)
-                    ? <NIcon />
-                    : <NOutlinedIcon />}
-                </Badge>
-              )}
-              size="large"
-              to={route.notifications}
-            >
-              <span className="nav-button-text">Notifications</span>
-            </Button>
-          </ListItem>
-          <ListItem disableGutters>
-            <Button
-              color={active(route.search) ? 'primary' : 'default'}
-              component={Link}
-              size="large"
-              startIcon={<SearchIcon />}
-              to={route.search}
-            >
-              <span className="nav-button-text">Search</span>
-            </Button>
-          </ListItem>
-          <ListItem disableGutters>
-            <Button
-              color={active(route.settings) ? 'primary' : 'default'}
+              color={active(route.settings) ?  'primary' : 'secondary.main'}
               component={Link}
               size="large"
               startIcon={
@@ -137,7 +93,7 @@ const Header = () => {
             </Button>
           </ListItem>
         </List>
-        <DialogPostForm />
+
       </div>
       <div className={classes.userControlContainer}>
         <UserControl />

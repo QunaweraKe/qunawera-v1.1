@@ -13,7 +13,6 @@ import NoData from '../../components/NoData';
 import PageTitle from '../../components/PageTitle';
 import SearchInput from '../../components/SearchInput';
 import UserList from '../../components/UserList';
-
 import useUI from '../../hooks/useUI';
 
 import {
@@ -50,13 +49,7 @@ const Search = () => {
             {searchString}
             &quot;
           </Typography>
-          <Typography
-            color="textSecondary"
-            paragraphy
-            variant="body2"
-          >
-            The term you entered did not bring up any results.
-          </Typography>
+
         </NoData>
       );
     }
