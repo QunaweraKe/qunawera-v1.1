@@ -55,6 +55,7 @@ const ReplyForm = ({ postId }) => {
         className={classes.textField}
         fullWidth
         InputProps={{
+
           classes: { notchedOutline: classes.notchedOutline },
           className: classes.input,
           endAdornment: (
@@ -73,16 +74,17 @@ const ReplyForm = ({ postId }) => {
             </InputAdornment>
           ),
         }}
+        InputLabelProps={{style:{fontSize:13}}}
         label={
           replies.length
-            ? 'What\'s your reply?'
-            : 'Be the first to reply!'
+            ? 'What\'s your comment?'
+            : 'Leave a comment'
         }
         multiline
         onChange={handleChange}
         spellCheck
         value={replyText}
-        variant="outlined"
+        variant="filled"
       />
     </form>
   );

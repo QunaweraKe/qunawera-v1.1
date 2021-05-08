@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 // Material UI
 import Badge from '@material-ui/core/Badge';
 import Drawer from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
@@ -50,15 +50,22 @@ const MobileMenu = () => {
 
   return (
     <>
+      <IconButton
+       className={classes.buttonAvatar}
+
+        onClick={handleToggleDrawer}
+
+      >
+        <MenuIcon/>
+      </IconButton>
       <Avatar
         className={classes.buttonAvatar}
-        linkable={false}
-        onClick={handleToggleDrawer}
+        linkable={true}
         size={30}
         user={user}
       />
       <Drawer
-        anchor="left"
+        anchor="bottom"
         className={classes.drawer}
         open={drawerOpen}
         onClose={handleToggleDrawer}
@@ -67,6 +74,8 @@ const MobileMenu = () => {
           <Typography
             className={classes.title}
             variant="h6"
+            color="primary"
+
           >
             {APP_NAME}
           </Typography>

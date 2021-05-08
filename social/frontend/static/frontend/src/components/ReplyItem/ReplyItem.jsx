@@ -3,17 +3,17 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+
 // Material UI
+import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
-import MuiLink from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 // Local
 import Avatar from '../Avatar';
-
+import TextLink from '../TextLink'
 import DeletePost from '../DeletePost';
 import EditPost from '../EditPost';
 import LikePost from '../LikePost';
@@ -26,6 +26,7 @@ import useStyles from './styles';
 
 const ReplyItem = ({ replyId }) => {
   const classes = useStyles();
+
 
   const reply = useSelector((s) => selectPost(s, replyId));
 
@@ -40,7 +41,9 @@ const ReplyItem = ({ replyId }) => {
   };
 
   return (
+
     <div className={classes.root}>
+      <Divider light  variant="inset"/>
       <Avatar
         className={classes.avatar}
         user={reply.author}
@@ -48,21 +51,28 @@ const ReplyItem = ({ replyId }) => {
       <div className={classes.textAndInteractContainer}>
         <div className={classes.textAndControl}>
           <div className={classes.text}>
-            <MuiLink
+            <TextLink
               className={classes.displayName}
-              color="primary"
+              color="secondary"
               component={Link}
               to={route.profilePosts(reply.author.slug)}
-              variant="body1"
+              variant="h10"
             >
-              {reply.author.display_name}
-            </MuiLink>
+              {reply.author.display_name.charAt(0).toUpperCase()+reply.author.display_name.slice(1)}
+            </TextLink>
+
             <Typography
               color="textSecondary"
               component="span"
+              align ="center"
+              display="inline"
+              variant="body8"
             >
+
               {reply.body}
+
             </Typography>
+
           </div>
           {reply.is_author
             && (
@@ -92,6 +102,7 @@ const ReplyItem = ({ replyId }) => {
                     setAnchorEl={setAnchorEl}
                     postId={reply.id}
                     type="reply"
+
                   />
                   <EditPost
                     setAnchorEl={setAnchorEl}
@@ -101,15 +112,10 @@ const ReplyItem = ({ replyId }) => {
               </div>
             )}
         </div>
-        <div className={classes.likeContainer}>
-          <LikePost
-            postId={reply.id}
-            size="small"
-            type="reply"
-          />
-        </div>
+
       </div>
     </div>
+
   );
 };
 

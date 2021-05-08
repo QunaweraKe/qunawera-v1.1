@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-
+import { selectUser } from '../../redux/user';
 // Material UI
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
@@ -10,9 +10,14 @@ import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import NIcon from '@material-ui/icons/Notifications';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+import SortIcon from '@material-ui/icons/Sort';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
+
 // Local
+import IndexImage from '../../components/Files/Images/home.svg';
 import AuthLayout from '../../components/AuthLayout';
 import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
@@ -27,8 +32,10 @@ import { getFeed, key, selectFeed } from '../../redux/post';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { APP_NAME, route } from '../../constants';
 
+
 const Home = () => {
- const location = useLocation();
+  const user = useSelector(selectUser);
+  const location = useLocation();
   const dispatch = useDispatch();
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const feed = useSelector(selectFeed);
@@ -51,29 +58,19 @@ const Home = () => {
 
       <AuthLayout>
         <Heading>
-          <MobileMenu />
-          <Typography variant="subtitle1">
-            Recents
+
+ <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
+            {APP_NAME}
           </Typography>
-         <Grid  container justify="flex-end">
+
+         <Grid  container justify="center">
+
+
          <Grid item >
           <Button
-              color='textSecondary'
-              component={Link}
-              size='large'
-              startIcon={<SearchIcon />}
-              to={route.search}
-
-            >
-
-              <span style={{fontSize:14}}>Search</span>
-            </Button>
-           </Grid>
-           <Grid item>
-              <Button
               color={active(route.notifications) ?  'primary' : 'secondary.main'}
               component={Link}
-              startIcon={(
+              endIcon={(
                 <Badge
                   badgeContent={unreadNotificationsCount}
                   color="primary"
@@ -86,11 +83,49 @@ const Home = () => {
               size='large'
               to={route.notifications}
             >
-              <span className="nav-button-text" style={{fontSize:14}}>Activities</span>
+              <span className="nav-button-text" style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Activities</span>
+            </Button>
+           </Grid>
+           <Grid item>
+                 <Button
+              color='textSecondary'
+              component={Link}
+              size='large'
+              endIcon={<EmojiObjectsIcon/>}
+              to={route.recommendedUsers}
+
+            >
+
+              <span style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Suggestions</span>
             </Button>
               </Grid>
                 </Grid>
+                <IndexImage style={{height:"100px",width:"100px"}}/>
         </Heading>
+             <SubHeading>
+          <MobileMenu />
+          <Typography variant="h6" color="textSecondary" style={{fontWeight:"bold"}} >
+            Recents
+          </Typography>
+
+         <Grid  container justify="flex-end">
+
+          <Button
+              color='textSecondary'
+              component={Link}
+              size='large'
+              endIcon={<SearchIcon />}
+              to={route.search}
+
+            >
+
+              <span style={{fontSize:"13px",color:"textSecondary"}}>Explore</span>
+            </Button>
+
+
+
+             </Grid>
+        </SubHeading>
         <PostForm />
         <Posts
           loading={loading}
@@ -114,14 +149,14 @@ const Home = () => {
                 paragraph
                 variant="body2"
               >
-                This is the best place to see what&apos;s happening in your
-                world. Find some people to follow and let&apos;s get started!
+                We enable you get and post tasks around your location  .First you need to find some people around you  to follow.Let's get started!
               </Typography>
               <Button
                 color="primary"
                 component={Link}
                 to={route.recommendedUsers}
-                variant="contained"
+                variant="outlined"
+                size="small"
               >
                 Let&apos;s go!
               </Button>

@@ -10,9 +10,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     padding: theme.spacing(0, 1),
     position: 'sticky',
-    top:0,
+    top:-0,
     zIndex: 1,
-    height:70,
+    height:80,
   },
 }));
 

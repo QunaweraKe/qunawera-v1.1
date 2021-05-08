@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // Evergreen  UI
-import { CommentIcon } from 'evergreen-ui'
+import { ChatIcon } from 'evergreen-ui'
 // Material UI
 
 import CardActions from '@material-ui/core/CardActions';
@@ -205,13 +205,15 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
 
-              < CommentIcon
+              < ChatIcon
               color="secondary"
               style={{fontSize:"20px"}} />
-    <Typography color="textSecondary"
+
+
+    <Typography color="secondary"
                className={classes.textSize}
                >
-         {"   "}    &#183;   {"  "} {post.reply_ids?.length || 0}{'  '}
+         {"   "}   <span style={{display:"inline-block",margin:"0 2px",transform:"scale(0.8)"}}> &#183; </span>  {"  "} {post.reply_ids?.length || 0}{'  '}
         </Typography>
             {loading && <CircularProgress />}
           </IconButton>

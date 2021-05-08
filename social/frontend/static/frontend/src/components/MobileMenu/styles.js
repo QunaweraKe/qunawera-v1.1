@@ -41,10 +41,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     borderBottomColor: theme.custom.border.color,
     borderBottomStyle: theme.custom.border.style,
-    borderBottomWidth: 1,
+    borderBottomWidth: 5,
     display: 'flex',
     marginBottom: theme.spacing(2),
     padding: theme.spacing(1, 2),
+
+
   },
   userInfoContainer: {
     marginBottom: theme.spacing(2),

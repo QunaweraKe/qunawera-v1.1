@@ -80,9 +80,6 @@ const Repost = ({ postId }) => {
           />
 
       </IconButton>
-    <Typography style={{fontSize:"12px",color:"textSecondary"}}>
-         repost
-    </Typography>
 
 
       <Dialog

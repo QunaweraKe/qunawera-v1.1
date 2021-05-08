@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import Typography from '@material-ui/core/Typography';
 
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import MoreHorizSharpIcon from '@material-ui/icons/MoreHorizSharp';
 
 // Local
 import Avatar from '../Avatar';
@@ -40,6 +40,7 @@ const UserControl = () => {
         className={classes.button}
         color="primary"
         onClick={handleMenuOpen}
+        size="small"
       >
         <Avatar
           linkable={false}
@@ -49,16 +50,11 @@ const UserControl = () => {
         <div className={classes.container}>
           <div className={classes.userAndSlug}>
             <Typography className={`${classes.displayName} ${classes.text}`}>
-              {truncate(user.display_name, 16)}
+              {truncate(user.display_name.charAt(0).toUpperCase()+user.display_name.slice(1), 16)}
             </Typography>
-            <Typography
-              className={classes.text}
-              color="textSecondary"
-            >
-              {`@${user.slug}`}
-            </Typography>
+
           </div>
-          <MoreVertIcon className={classes.icon} />
+          <MoreHorizSharpIcon className={classes.icon} />
         </div>
       </Button>
       <Menu
@@ -79,19 +75,14 @@ const UserControl = () => {
       >
         <div className={classes.menuHeader}>
           <Avatar
-            size={50}
+            size={40}
             user={user}
           />
           <div className={classes.userAndSlug}>
             <Typography className={`${classes.displayName} ${classes.text}`}>
-              {user.display_name}
+             Hey, {user.display_name.charAt(0).toUpperCase()+user.display_name.slice(1)} are you sure you want to logout?
             </Typography>
-            <Typography
-              className={classes.text}
-              color="textSecondary"
-            >
-              {`@${user.slug}`}
-            </Typography>
+
           </div>
         </div>
         <Logout handleMenuClose={handleMenuClose} />
