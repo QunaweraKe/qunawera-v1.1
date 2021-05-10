@@ -11,6 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Chip from '@material-ui/core/Chip';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -19,6 +20,7 @@ import { borders } from '@material-ui/system';
 import DetailsIcon from '@material-ui/icons/UnfoldMore';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import LoopIcon from '@material-ui/icons/Loop';
 import Divider from '@material-ui/core/Divider';
 
 
@@ -157,16 +159,15 @@ const PostItem = ({ expandReplies, postId }) => {
           {post.parent
             && (
 
-              <Typography
-                color="black"
-                variant="subtitle3"
+              <Chip
+              variant="outlined"
 
-                className={classes.headerReshare}
-              >
+              label="reposted"
+              className={classes.chip }
+              icon={<LoopIcon/>}
+              size="small"
+              />
 
-             Reposted by
-
-              </Typography>
 
 
             )}

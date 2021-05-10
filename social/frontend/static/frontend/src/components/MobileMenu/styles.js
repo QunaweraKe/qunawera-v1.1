@@ -13,9 +13,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   follow: {
+   fontWeight:"bold",
     color: theme.palette.text.secondary,
     '&:last-child': {
       marginLeft: theme.spacing(2),
+
     },
   },
   followContainer: {
@@ -23,11 +25,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 2),
   },
   followCount: {
-    color: theme.palette.text.primary,
+    color: theme.palette.primary.main,
     fontWeight: 'bold',
   },
   list: {
-    width: 250,
+    width: 350,
   },
   logout: {
     borderTopColor: theme.custom.border.color,
@@ -36,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontWeight:"bold"
   },
   titleContainer: {
     alignItems: 'center',
@@ -49,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   userInfoContainer: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(4),
     padding: theme.spacing(0, 2),
   },
 }));

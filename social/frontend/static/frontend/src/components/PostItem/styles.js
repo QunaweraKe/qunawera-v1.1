@@ -25,6 +25,17 @@ const useStyles = makeStyles((theme) => ({
   cardActionsRoot: {
     paddingTop: 0,
   },
+  chip :{
+  color:theme.palette.grey[500],
+  justifyContent:"center",
+   marginBottom:theme.spacing(1),
+    marginLeft:theme.spacing(47),
+  flexWrap:"wrap",
+  "& > *":{
+  margin:theme.spacing(0.1),
+
+  },
+  },
   likeContainer: {
     alignItems: 'center',
     display: 'flex',
@@ -44,9 +55,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     padding: theme.spacing(2, 2, 0.5, 2),
   },
- headerReshare:{
-  fontSize:12,
-  },
+
   textSize:{
   fontSize:12,
 

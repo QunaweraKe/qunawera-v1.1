@@ -12,7 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
+import CancelIcon from '@material-ui/icons/Cancel';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
@@ -79,7 +79,7 @@ const MobileMenu = () => {
             onClick={handleToggleDrawer}
             size="small"
           >
-            <CloseIcon />
+            <CancelIcon />
           </IconButton>
         </div>
         <div className={classes.userInfoContainer}>
@@ -91,17 +91,13 @@ const MobileMenu = () => {
           <Typography variant="subtitle2">
             {user.display_name}
           </Typography>
-          <Typography
-            color="textSecondary"
-            variant="body2"
-          >
-            {`@${user.slug}`}
-          </Typography>
+
         </div>
+
         <div className={classes.followContainer}>
           <TextLink
             className={classes.follow}
-            color="textSecondary"
+
             to={route.following(user.slug)}
             variant="body2"
           >
@@ -113,7 +109,7 @@ const MobileMenu = () => {
           </TextLink>
           <TextLink
             className={classes.follow}
-            color="textSecondary"
+
             to={route.followers(user.slug)}
             variant="body2"
           >
@@ -158,18 +154,9 @@ const MobileMenu = () => {
                 <NOutlinedIcon />
               </Badge>
             </ListItemIcon>
-            <ListItemText primary="Notifications" />
+            <ListItemText primary="Activities" />
           </ListItem>
-          <ListItem
-            component={Link}
-            button
-            to={route.search}
-          >
-            <ListItemIcon>
-              <SearchIcon />
-            </ListItemIcon>
-            <ListItemText primary="Search" />
-          </ListItem>
+
           <ListItem
             component={Link}
             button

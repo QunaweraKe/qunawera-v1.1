@@ -15,14 +15,14 @@ import SortIcon from '@material-ui/icons/Sort';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
 
 // Local
-import IndexImage from '../../components/Files/Images/home2.svg';
+import IndexImage from '../../components/Files/Images/repair.svg';
 import AuthLayout from '../../components/AuthLayout';
 import Heading from '../../components/Heading';
 import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
-import Welcome from '../../components/Files/Images/index2.svg';
+import Welcome from '../../components/Files/Images/newhome.svg';
 import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
 import PostForm from '../../components/PostForm';
@@ -77,7 +77,7 @@ const Home = () => {
 
                 </Badge>
               )}
-              size='large'
+              size='small'
               to={route.notifications}
             >
               <span className="nav-button-text" style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Activities</span>
@@ -86,9 +86,9 @@ const Home = () => {
                  <Button
               color='primary'
               component={Link}
-              size='large'
+              size='small'
               endIcon={<EmojiObjectsIcon/>}
-              to={route.recommendedUsers}
+              to={route.recommendedPosts}
 
             >
 
@@ -104,26 +104,19 @@ const Home = () => {
           <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
             {APP_NAME}
           </Typography>
-          <Grid container justify="center">
-  <IndexImage style={{height:"100px",width:"100px",marginTop:"-20px"}}/>
+          <Grid container justify="right">
+  <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
             </Grid>
-         <Grid  container justify="flex-end">
-
-          <Button
+<Button
               color='primary'
               component={Link}
               size='small'
               endIcon={<SearchIcon />}
               to={route.search}
-             variant="outlined"
+
             >
 
-              <span style={{fontSize:"13px",color:"textSecondary",fontWeight:"bold"}}>Explore</span>
             </Button>
-
-
-
-             </Grid>
         </SubHeading>
         <PostForm />
         <Posts
