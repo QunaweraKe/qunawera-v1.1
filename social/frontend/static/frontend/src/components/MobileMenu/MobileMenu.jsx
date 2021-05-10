@@ -58,12 +58,7 @@ const MobileMenu = () => {
       >
         <MenuIcon/>
       </IconButton>
-      <Avatar
-        className={classes.buttonAvatar}
-        linkable={true}
-        size={30}
-        user={user}
-      />
+
       <Drawer
         anchor="bottom"
         className={classes.drawer}

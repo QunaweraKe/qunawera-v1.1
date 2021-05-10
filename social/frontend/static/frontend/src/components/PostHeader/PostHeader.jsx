@@ -35,14 +35,7 @@ const PostHeader = ({ post, repost }) => {
       >
         {post.author.display_name}
       </TextLink>
-      <Typography
-        className={classes.headerItem}
-        color="textSecondary"
-        component="span"
-      >
 
-
-      </Typography>
       <Typography className={classes.headerTime} color="textSecondary">
         <span style={{fontSize:"15px"}}>&#183;</span>{'  '} {dayjs(post.created_at).fromNow()}
 

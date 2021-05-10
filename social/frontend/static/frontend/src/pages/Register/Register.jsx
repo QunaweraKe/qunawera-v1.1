@@ -38,6 +38,7 @@ const Register = () => {
     password: '',
     password2: '',
     username: '',
+
   });
 
   const handleSubmit = (event) => {
@@ -132,6 +133,7 @@ const Register = () => {
                 value={formData.username}
                 InputLabelProps={{style:{fontSize:14}}}
               />
+
               <TextField
                  required={true}
                 autoComplete="email"

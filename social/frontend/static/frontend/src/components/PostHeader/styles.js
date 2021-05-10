@@ -7,17 +7,10 @@ const useStyles = makeStyles(() => ({
     flexWrap: 'wrap',
   },
   headerAvatar: {
-    marginRight: 4,
+    marginRight: 2,
   },
-  headerItem: {
-    fontSize:16,
-    marginLeft: 4,
-    lineHeight:2,
 
-    '&:first-child': {
-      marginLeft: 0,
-    },
-  },
+
 
   headerTime : {
      fontSize:12,

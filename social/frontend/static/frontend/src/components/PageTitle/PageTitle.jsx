@@ -6,10 +6,8 @@ import { APP_NAME } from '../../constants';
 
 const PageTitle = ({ title }) => (
   <Helmet>
-    <title>
+    <title >
       {title}
-      {' · '}
-      {APP_NAME}
     </title>
   </Helmet>
 );

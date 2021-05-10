@@ -19,7 +19,7 @@ import { route } from '../../constants';
 
 import EditProfile from '../EditProfile';
 import FollowButton from '../FollowButton';
-import UserSlug from '../UserSlug';
+
 
 import { editProfile, selectUser } from '../../redux/user';
 
@@ -109,7 +109,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
             <Typography variant="h6">
               {profileUser.display_name}
             </Typography>
-            <UserSlug profileUser={profileUser} />
+
             {profileUser.profile.bio
               && (
                 <Typography className={classes.bio}>

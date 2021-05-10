@@ -3,25 +3,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { selectUser } from '../../redux/user';
 // Material UI
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
-import NIcon from '@material-ui/icons/Notifications';
+
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import SortIcon from '@material-ui/icons/Sort';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
 
 // Local
-import IndexImage from '../../components/Files/Images/home.svg';
+import IndexImage from '../../components/Files/Images/home2.svg';
 import AuthLayout from '../../components/AuthLayout';
 import Heading from '../../components/Heading';
 import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
-import Welcome from '../../components/Files/Images/welcomehome.svg';
+import Welcome from '../../components/Files/Images/index2.svg';
 import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
 import PostForm from '../../components/PostForm';
@@ -35,11 +36,10 @@ import { APP_NAME, route } from '../../constants';
 
 const Home = () => {
   const user = useSelector(selectUser);
-  const location = useLocation();
   const dispatch = useDispatch();
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const feed = useSelector(selectFeed);
-  const active = (pathname) => location.pathname === pathname;
+
   const { fetched, loading, nextLoading } = useUI(key.feed, key.feedNext);
 
   React.useEffect(() => {
@@ -59,25 +59,22 @@ const Home = () => {
       <AuthLayout>
         <Heading>
 
- <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
-            {APP_NAME}
-          </Typography>
 
-         <Grid  container justify="center">
+    <Grid  container justify="center">
+
+<ButtonGroup variant="outlined" color="primary" size="small">
 
 
-         <Grid item >
           <Button
-              color={active(route.notifications) ?  'primary' : 'secondary.main'}
+               color='primary'
               component={Link}
               endIcon={(
                 <Badge
                   badgeContent={unreadNotificationsCount}
                   color="primary"
                 >
-                  {active(route.notifications)
-                    ? <NIcon />
-                    : <NOutlinedIcon />}
+                   <NOutlinedIcon/>
+
                 </Badge>
               )}
               size='large'
@@ -85,10 +82,9 @@ const Home = () => {
             >
               <span className="nav-button-text" style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Activities</span>
             </Button>
-           </Grid>
-           <Grid item>
+
                  <Button
-              color='textSecondary'
+              color='primary'
               component={Link}
               size='large'
               endIcon={<EmojiObjectsIcon/>}
@@ -96,30 +92,33 @@ const Home = () => {
 
             >
 
-              <span style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Suggestions</span>
+              <span style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Recommended Tasks</span>
             </Button>
-              </Grid>
-                </Grid>
-                <IndexImage style={{height:"100px",width:"100px"}}/>
+
+         </ButtonGroup >
+           </Grid>
+
         </Heading>
              <SubHeading>
           <MobileMenu />
-          <Typography variant="h6" color="textSecondary" style={{fontWeight:"bold"}} >
-            Recents
+          <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
+            {APP_NAME}
           </Typography>
-
+          <Grid container justify="center">
+  <IndexImage style={{height:"100px",width:"100px",marginTop:"-20px"}}/>
+            </Grid>
          <Grid  container justify="flex-end">
 
           <Button
-              color='textSecondary'
+              color='primary'
               component={Link}
-              size='large'
+              size='small'
               endIcon={<SearchIcon />}
               to={route.search}
-
+             variant="outlined"
             >
 
-              <span style={{fontSize:"13px",color:"textSecondary"}}>Explore</span>
+              <span style={{fontSize:"13px",color:"textSecondary",fontWeight:"bold"}}>Explore</span>
             </Button>
 
 

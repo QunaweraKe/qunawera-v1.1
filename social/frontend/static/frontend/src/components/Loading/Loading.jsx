@@ -14,14 +14,14 @@ const Loading = ({ spacing }) => {
     <div className={classes.root}>
       <CircularProgress
         size={25}
-        thickness={5}
+        thickness={10}
       />
     </div>
   );
 };
 
 Loading.defaultProps = {
-  spacing: 3,
+  spacing: 8,
 };
 
 Loading.propTypes = {
