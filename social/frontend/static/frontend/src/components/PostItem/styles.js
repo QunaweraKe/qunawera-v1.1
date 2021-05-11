@@ -26,13 +26,17 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 0,
   },
   chip :{
-  color:theme.palette.grey[500],
+  color:theme.palette.primary.main,
   justifyContent:"center",
-   marginBottom:theme.spacing(1),
-    marginLeft:theme.spacing(47),
+   marginBottom:theme.spacing(0),
+   marginTop:theme.spacing(0),
+    marginLeft:theme.spacing(0),
+    borderWidth:".5px",
+    borderColor:theme.palette.textSecondary,
+    border:"none",
   flexWrap:"wrap",
   "& > *":{
-  margin:theme.spacing(0.1),
+  margin:theme.spacing(.1),
 
   },
   },
@@ -40,6 +44,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     flexGrow: 1,
+  },
+
+  pluralize : {
+  fontSize:"10px",
+  fontWeight:"bold",
+  marginLeft:theme.spacing(2)
+
   },
   post: {
     width: '90%',
@@ -61,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
 postBody: {
-marginTop:2,
+marginTop:6,
 marginBottom:2,
 padding: theme.spacing(2, 2, 0.5, 2),
 },

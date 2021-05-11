@@ -22,7 +22,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import LoopIcon from '@material-ui/icons/Loop';
 import Divider from '@material-ui/core/Divider';
-
+import Grid from '@material-ui/core/Grid';
 
 // Local
 import Avatar from '../Avatar';
@@ -51,6 +51,7 @@ import {
 
 import useStyles from './styles';
 const PostItem = ({ expandReplies, postId }) => {
+  const pluralizeOther = (length) =>  (length !== 1 ? 'comments' : 'comment') ;
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -151,26 +152,15 @@ const PostItem = ({ expandReplies, postId }) => {
         </MenuItem>
       </Menu>
       <div className={classes.postContainer}>
+
+
         <div className={classes.avatarContainer}>
 
           <Avatar user={post.author} />
+
         </div>
         <div className={classes.post}>
-          {post.parent
-            && (
 
-              <Chip
-              variant="outlined"
-
-              label="reposted"
-              className={classes.chip }
-              icon={<LoopIcon/>}
-              size="small"
-              />
-
-
-
-            )}
           <PostHeader post={post} />
 
           {post.body
@@ -189,6 +179,31 @@ const PostItem = ({ expandReplies, postId }) => {
         </div>
 
       </div>
+
+        <Grid item>
+          <Typography className={classes.pluralize}>
+            {post.reply_ids?.length || 0}{ ' '}{pluralizeOther(post.reply_ids?.length)}
+            </Typography>
+          </Grid>
+          <Grid container justify="flex-end">
+          <Grid>
+                {post.parent
+            && (
+
+              <Chip
+              variant="contained"
+              fullWidth
+              label="reposted"
+              className={classes.chip }
+              icon={<LoopIcon/>}
+              size="small"
+              />
+
+
+
+            )}
+                   </Grid>
+                    </Grid>
        <Divider variant="inset"   classes={{root:classes.divider}} />
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
@@ -208,14 +223,10 @@ const PostItem = ({ expandReplies, postId }) => {
 
               < ChatIcon
               color="secondary"
-              style={{fontSize:"20px"}} />
+              style={{fontSize:"30px"}} />
 
 
-    <Typography color="secondary"
-               className={classes.textSize}
-               >
-         {"   "}   <span style={{display:"inline-block",margin:"0 2px",transform:"scale(0.8)"}}> &#183; </span>  {"  "} {post.reply_ids?.length || 0}{'  '}
-        </Typography>
+
             {loading && <CircularProgress />}
           </IconButton>
 
@@ -229,9 +240,11 @@ const PostItem = ({ expandReplies, postId }) => {
           />
 
         </div>
-        <div className={classes.repostContainer}>
+           <div className={classes.repostContainer}>
           <Repost postId={postId} />
         </div>
+
+
       </CardActions>
       {expanded && !loading
         && (

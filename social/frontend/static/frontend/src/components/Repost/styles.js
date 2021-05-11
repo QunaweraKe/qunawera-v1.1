@@ -34,6 +34,21 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     margin: theme.spacing(1, 0),
   },
+    chip :{
+  color:theme.palette.primary.main,
+  justifyContent:"center",
+   marginBottom:theme.spacing(0),
+   marginTop:theme.spacing(0),
+    marginLeft:theme.spacing(0),
+    borderWidth:".5px",
+    borderColor:theme.palette.textSecondary,
+    border:"solid",
+  flexWrap:"wrap",
+  "& > *":{
+  margin:theme.spacing(.1),
+
+  },
+  },
   postContainer: {
     display: 'flex',
   },

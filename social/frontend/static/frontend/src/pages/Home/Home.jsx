@@ -105,12 +105,12 @@ const Home = () => {
             {APP_NAME}
           </Typography>
           <Grid container justify="right">
-  <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
+           <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
             </Grid>
-<Button
+              <Button
               color='primary'
               component={Link}
-              size='small'
+              size='large'
               endIcon={<SearchIcon />}
               to={route.search}
 

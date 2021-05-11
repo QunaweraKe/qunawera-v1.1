@@ -15,7 +15,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
-
+import Chip from '@material-ui/core/Chip';
 
 // Local
 import Avatar from '../Avatar';
@@ -70,18 +70,15 @@ const Repost = ({ postId }) => {
 
   return (
     <>
-      <IconButton
-        onClick={handleOpen}
-      >
 
-          <ShareIcon
-          color="secondary"
-          style={{fontSize:"25px"}}
-          />
-
-      </IconButton>
-share
-
+   <Chip      onClick={handleOpen}
+              variant="contained"
+              fullWidth
+              label="repost task"
+              className={classes.chip }
+              icon={<ShareIcon/>}
+              size="small"
+              />
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
