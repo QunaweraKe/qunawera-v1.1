@@ -86,7 +86,7 @@ const Login = () => {
               variant="h6"
 
             >
-              Login to {APP_NAME}
+              Login
             </Typography>
             <form
               onSubmit={handleSubmit}
@@ -139,7 +139,9 @@ const Login = () => {
                   {showPassword ? <Visibility style={{fontSize:"18px"}}/> : <VisibilityOff style={{fontSize:"18px"}} />}
                 </IconButton>
 
-
+  <Typography className={classes.forgot}  >
+              <TextLink >Forgot Password {"?"} </TextLink>
+               </Typography>
               <FormControlLabel
                 className={classes.formField}
                 control={(
@@ -171,8 +173,8 @@ const Login = () => {
             </form>
           </CardContent>
             <Typography className={classes.register}>
-              Don't have an account  {'?'}{'  '}
-          <TextLink to={route.register}>Register now.</TextLink>
+              New to {APP_NAME}  {'?'}{'  '}
+          <TextLink to={route.register}>Create Account</TextLink>
 
         </Typography>
         </Card>
@@ -180,9 +182,7 @@ const Login = () => {
 
 
 
-              <Typography className={classes.forgot}  >
-              <TextLink >Reset password  </TextLink>
-               </Typography>
+
 
         <Footer/>
       </Container>

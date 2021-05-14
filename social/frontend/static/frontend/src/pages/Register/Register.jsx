@@ -205,9 +205,9 @@ const Register = () => {
 
 
        <Typography className={classes.login}>
-        Existing member  {'?'}  {'  '}
+        Returning member  {'?'}  {'  '}
        <TextLink to={route.login}>
-      Login.</TextLink>
+      Login</TextLink>
         </Typography>
 
            <Footer/>

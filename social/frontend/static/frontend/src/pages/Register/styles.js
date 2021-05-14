@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toUpper:{
     fontWeight:800,
+    textAlign:"center",
   },
   button: {
     marginTop: theme.spacing(3),

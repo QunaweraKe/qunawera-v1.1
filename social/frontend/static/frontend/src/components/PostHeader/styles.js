@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 
   headerTime : {
-     fontSize:12,
+     fontSize:10,
   },
 
 }));

@@ -2,17 +2,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-
-    color: '#1877F2',
+//'#1877F2',
+    color: theme.palette. secondary,
     fontFamily:'cursive',
-    letterSpacing:'2',
+    letterSpacing:'1px',
     fontSize:14,
-     lineHeight:'1',
-     fontWeight:'500',
+     lineHeight:'1px',
+     fontWeight:'700',
     textDecoration: 'none',
     '&:hover, &:focus': {
       textDecoration: 'underline',
-      textDecorationColor: '#1877F2',
+      textDecorationColor:theme.palette. secondary,
 
 
 

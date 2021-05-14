@@ -25,6 +25,7 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
 // Local
+import { REPLIES } from '../../constants';
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import NextButton from '../NextButton';
@@ -115,14 +116,7 @@ const PostItem = ({ expandReplies, postId }) => {
           vertical: 'top',
         }}
       >
-        {post.is_author
-          && (
-            <DeletePost
-              setAnchorEl={setAnchorEl}
-              postId={post.id}
-              type="post"
-            />
-          )}
+
         {post.is_author
           && (
             <EditPost
@@ -138,7 +132,7 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <DetailsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Post Details"  className={classes.listItemSize}/>
+          <ListItemText primary="View more"  className={classes.listItemSize}/>
         </MenuItem>
            <MenuItem
           onClick={() => (
@@ -150,7 +144,16 @@ const PostItem = ({ expandReplies, postId }) => {
           </ListItemIcon>
           <ListItemText primary="Author's Profile" className={classes.listItemSize}/>
         </MenuItem>
+         {post.is_author
+          && (
+            <DeletePost
+              setAnchorEl={setAnchorEl}
+              postId={post.id}
+              type="post"
+            />
+          )}
       </Menu>
+
       <div className={classes.postContainer}>
 
 
@@ -181,9 +184,10 @@ const PostItem = ({ expandReplies, postId }) => {
       </div>
 
         <Grid item>
-          <Typography className={classes.pluralize}>
+          <IconButton className={classes.pluralize}
+            onClick={handleReplies}>
             {post.reply_ids?.length || 0}{ ' '}{pluralizeOther(post.reply_ids?.length)}
-            </Typography>
+            </IconButton>
           </Grid>
           <Grid container justify="flex-end">
           <Grid>
@@ -246,6 +250,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       </CardActions>
+
       {expanded && !loading
         && (
           <Collapse
@@ -255,7 +260,11 @@ const PostItem = ({ expandReplies, postId }) => {
           >
             <CardContent
               className={classes.replyContent}
+
             >
+            <Typography variant="subtitle2" style={{fontWeight:"bold",textDecoration:"underline",marginBottom:"10px",alignText:"center",marginLeft:"50%"}}>
+            Comments
+            </Typography>
               <NextButton
                 callback={handleNext}
                 loading={nextLoading}

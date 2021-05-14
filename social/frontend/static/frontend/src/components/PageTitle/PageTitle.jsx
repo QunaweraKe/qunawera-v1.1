@@ -7,6 +7,7 @@ import { APP_NAME } from '../../constants';
 const PageTitle = ({ title }) => (
   <Helmet>
     <title >
+    Q{"/"}
       {title}
     </title>
   </Helmet>

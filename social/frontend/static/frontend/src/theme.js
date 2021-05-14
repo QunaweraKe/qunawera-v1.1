@@ -182,20 +182,21 @@ theme.overrides = {
   MuiMenu: {
     list: {
       padding: 1,
-       backgroundColor: theme.palette.grey[100],
+       backgroundColor:"#fff",
     },
   },
   MuiPaper: {
     elevation1: {
-      boxShadow: '1',
+      boxShadow: '2',
     },
     elevation24: {
       boxShadow: '4',
     },
     root: {
-      borderColor: theme.custom.borders.borderColor,
+      borderColor: "orange",
       borderStyle: 'solid',
       borderWidth: 1,
+      variant:"outlined",
 
     },
   },

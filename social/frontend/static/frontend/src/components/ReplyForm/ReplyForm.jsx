@@ -78,7 +78,7 @@ const ReplyForm = ({ postId }) => {
         label={
           replies.length
             ? 'What\'s your comment?'
-            : 'Leave a comment'
+            : 'Leave a comment...'
         }
         multiline
         onChange={handleChange}

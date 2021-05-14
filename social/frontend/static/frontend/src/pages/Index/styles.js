@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   asideContainer: {
     marginTop:40,
     marginBottom:10,
-    backgroundColor: 'rgba(255,136,0,.1)',
+    backgroundColor: 'rgba(255,136,0,.3)',
     display: 'flex',
     justifyContent: 'center',
     padding: theme.spacing(0, 2),
@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   Upper:{
      marginBottom: theme.spacing(2),
+
   },
   ctaContainer: {
     marginTop: theme.spacing(3),

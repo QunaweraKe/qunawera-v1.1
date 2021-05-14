@@ -37,7 +37,7 @@ const PostHeader = ({ post, repost }) => {
       </TextLink>
 
       <Typography className={classes.headerTime} color="textSecondary">
-        <span style={{fontSize:"15px"}}>&#183;</span>{'  '} {dayjs(post.created_at).fromNow()}
+        <span style={{fontSize:"15px"}}>&#183;</span>Posted{'  '} {dayjs(post.created_at).fromNow()}
 
       </Typography>
     </div>

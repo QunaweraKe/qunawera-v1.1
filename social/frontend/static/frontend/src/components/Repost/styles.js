@@ -40,9 +40,8 @@ const useStyles = makeStyles((theme) => ({
    marginBottom:theme.spacing(0),
    marginTop:theme.spacing(0),
     marginLeft:theme.spacing(0),
-    borderWidth:".5px",
-    borderColor:theme.palette.textSecondary,
-    border:"solid",
+
+    border:"none",
   flexWrap:"wrap",
   "& > *":{
   margin:theme.spacing(.1),

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
-import IndexImage from '../../components/Files/Images/index2.svg';
+import IndexImage from '../../components/Files/Images/home2.svg';
 import WorldIcon from '@material-ui/icons/PublicTwoTone';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -56,7 +56,7 @@ const Index = () => {
     </div>
 
     <Typography variant="h6" align="center" className={classes.Upper}>
-          Lets get started ..
+          Lets get started {"..."}
          </Typography>
             <Button
 

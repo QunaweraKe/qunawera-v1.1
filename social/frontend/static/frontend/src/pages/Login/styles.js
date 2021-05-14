@@ -25,8 +25,9 @@ const useStyles = makeStyles((theme) => ({
   },
   forgot:{
 
-    marginTop: theme.spacing(5),
-    textAlign: 'center',
+    marginTop: theme.spacing(0),
+     marginBottom: theme.spacing(1),
+    textAlign: 'left',
     fontSize:12,
     letterSpacing:'2',
 
@@ -42,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 
   toUpper:{
   fontWeight:800,
+
+  textAlign:"center",
 
   },
 }));
