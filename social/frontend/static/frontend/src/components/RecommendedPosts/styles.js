@@ -49,13 +49,14 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     ...theme.custom.borders,
-    backgroundColor: theme.palette.grey[50],
+    backgroundColor: "#FFF",
     borderWidth: 1,
     position: 'relative',
     marginBottom: theme.spacing(2),
   },
   title: {
     fontWeight: 'bold',
+    textAlign:"center",
   },
 }));
 

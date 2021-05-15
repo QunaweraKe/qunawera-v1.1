@@ -427,7 +427,7 @@ The following definitions shall have the same meaning regardless of whether they
         <DialogActions>
 
           <Button onClick={handleClose} color="secondary" fullWidth variant="outlined" size="small">
-           Read and Understood
+           I have Read and Understood
          </Button>
         </DialogActions>
       </Dialog>

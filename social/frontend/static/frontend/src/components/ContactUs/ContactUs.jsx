@@ -32,7 +32,7 @@ const ContactUs = ({ children }) => {
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Contact {APP_NAME} Team</DialogTitle>
 
-        <Divider style={{marginBottom:"40px"}}/>
+        <Divider style={{marginBottom:"10px"}}/>
         <DialogContent>
           <DialogContentText>
             Thank you for reaching out to us.Let us know how we can help you and we will get back to you almost immediately.
@@ -48,7 +48,7 @@ const ContactUs = ({ children }) => {
           />
              <TextField
           multiline
-          rows={3}
+          rows={2}
             margin="dense"
             id="name"
             label="Reason for contacting us"
@@ -63,7 +63,7 @@ const ContactUs = ({ children }) => {
           <Button onClick={handleClose} color="primary" variant="outlined" size="small">
             Send
           </Button>
-          <IndexImage style={{width:"200px",height:"200px",marginLeft:"40px"}} />
+          <IndexImage style={{width:"250px",height:"200px",marginLeft:"40px",marginBottom:"20px"}} />
         </DialogActions>
       </Dialog>
     </div>

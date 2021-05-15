@@ -189,14 +189,16 @@ theme.overrides = {
     elevation1: {
       boxShadow: '2',
     },
-    elevation24: {
+    elevation2: {
       boxShadow: '4',
     },
     root: {
-      borderColor: "orange",
+      borderColor: theme.palette.grey[100],
       borderStyle: 'solid',
-      borderWidth: 1,
+      borderWidth: "1px",
       variant:"outlined",
+      boxShadow: '4px 5px  rgba(0,0,0,.2)',
+
 
     },
   },

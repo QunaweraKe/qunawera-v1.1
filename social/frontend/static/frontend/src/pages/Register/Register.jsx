@@ -194,7 +194,7 @@ const Register = () => {
                 fullWidth
                 type="submit"
                 variant="outlined"
-                style={{ boxShadow: '2px 4px  rgba(0,0,0,.1)'}}
+
               >
                 Create Account
                 {loading && <CircularProgress />}

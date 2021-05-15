@@ -165,7 +165,7 @@ const Login = () => {
                 type="submit"
                 variant="outlined"
                 size="small"
-                style={{ boxShadow: '2px 4px  rgba(0,0,0,.1)'}}
+                style={{ boxShadow: '2px 6jhpx  rgba(0,0,0,.1)'}}
               >
                 Login
                 {loading && <CircularProgress />}
