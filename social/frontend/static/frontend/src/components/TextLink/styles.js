@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
 //'#1877F2',
-    color: theme.palette. secondary,
-    fontFamily:'cursive',
+    color: "#0000CD",
+    fontFamily:'roboto',
     letterSpacing:'1px',
     fontSize:14,
      lineHeight:'1px',

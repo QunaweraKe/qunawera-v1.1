@@ -53,9 +53,10 @@ const Terms = () => {
         open={open}
         onClose={handleClose}
         scroll={scroll}
-
+    fullWidth
+     maxWidth="md"
       >
-        <DialogTitle>{APP_NAME}:Terms{"&"}Privacy</DialogTitle>
+        <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}}>{APP_NAME}:Terms{"&"}Privacy</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText
 
@@ -426,8 +427,8 @@ The following definitions shall have the same meaning regardless of whether they
         </DialogContent>
         <DialogActions>
 
-          <Button onClick={handleClose} color="secondary" fullWidth variant="outlined" size="small">
-           I have Read and Understood
+          <Button onClick={handleClose} color="secondary" fullWidth variant="outlined" size="small" style={{fontWeight:"bold"}}>
+           I have Read and Understood the Terms
          </Button>
         </DialogActions>
       </Dialog>

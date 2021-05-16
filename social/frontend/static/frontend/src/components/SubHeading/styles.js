@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: '#FFF',
     display: 'flex',
     padding: theme.spacing(0, 1),
-    position: 'sticky',
+    position: 'inherit',
     top:-0,
     zIndex: 1,
     height:80,

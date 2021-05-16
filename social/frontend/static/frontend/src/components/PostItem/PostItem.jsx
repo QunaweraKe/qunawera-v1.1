@@ -262,7 +262,7 @@ const PostItem = ({ expandReplies, postId }) => {
               className={classes.replyContent}
 
             >
-            <Typography variant="subtitle2" style={{fontWeight:"bold",textDecoration:"underline",marginBottom:"10px",alignText:"center",marginLeft:"50%"}}>
+            <Typography variant="subtitle2" style={{fontWeight:"bold",marginBottom:"10px",alignText:"center",marginLeft:"50%"}}>
             Comments
             </Typography>
               <NextButton

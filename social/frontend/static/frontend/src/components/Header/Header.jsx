@@ -17,7 +17,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-
+import SearchIcon from '@material-ui/icons/Search';
 
 // Local
 
@@ -90,6 +90,17 @@ const Header = () => {
               to={route.settings}
             >
               <span className="nav-button-text">Settings</span>
+            </Button>
+          </ListItem>
+           <ListItem disableGutters>
+            <Button
+              color={active(route.search) ? 'primary' : 'default'}
+              component={Link}
+              size="large"
+              startIcon={<SearchIcon />}
+              to={route.search}
+            >
+              <span className="nav-button-text">Search</span>
             </Button>
           </ListItem>
         </List>

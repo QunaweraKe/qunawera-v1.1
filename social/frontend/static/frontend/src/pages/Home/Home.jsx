@@ -57,6 +57,25 @@ const Home = () => {
       <PageTitle title="Home" />
 
       <AuthLayout>
+        <SubHeading>
+          <MobileMenu />
+          <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
+            {APP_NAME}
+          </Typography>
+          <Grid container justify="right">
+           <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
+            </Grid>
+              <Button
+              color='primary'
+              component={Link}
+              size='large'
+              endIcon={<SearchIcon />}
+              to={route.search}
+
+            >
+
+            </Button>
+        </SubHeading>
         <Heading>
 
 
@@ -92,32 +111,14 @@ const Home = () => {
 
             >
 
-              <span style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Recommended Tasks</span>
+              <span style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}> Recommended Tasks</span>
             </Button>
 
          </ButtonGroup >
            </Grid>
 
         </Heading>
-             <SubHeading>
-          <MobileMenu />
-          <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
-            {APP_NAME}
-          </Typography>
-          <Grid container justify="right">
-           <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
-            </Grid>
-              <Button
-              color='primary'
-              component={Link}
-              size='large'
-              endIcon={<SearchIcon />}
-              to={route.search}
 
-            >
-
-            </Button>
-        </SubHeading>
         <PostForm />
         <Posts
           loading={loading}

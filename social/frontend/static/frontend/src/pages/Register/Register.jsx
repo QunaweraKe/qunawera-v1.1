@@ -1,7 +1,9 @@
-import React from 'react';
+import React,  { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import validator from 'validator'
 
 // Material UI
+import HelpOutline from '@material-ui/icons/HelpOutline';
 import EmailIcon from '@material-ui/icons/Email';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -18,7 +20,7 @@ import Footer from '../../components/Footer';
 import CircularProgress from '../../components/CircularProgress';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { route } from '../../constants';
+import { route,APP_NAME } from '../../constants';
 import useUI from '../../hooks/useUI';
 import { createUser, key } from '../../redux/user';
 import { isEmpty } from '../../utils';
@@ -26,10 +28,22 @@ import useStyles from './styles';
 
 
 const Register = () => {
+
   const classes = useStyles();
   const dispatch = useDispatch();
-
+  const [errorMessage, setErrorMessage] = useState('')
   const { errors, loading } = useUI(key.createUser, null, false);
+  const validate = (value) => {
+
+    if (validator.isStrongPassword(value, {
+      minLength: 8, minLowercase: 1,
+      minUppercase: 1, minNumbers: 1, minSymbols: 1
+    })) {
+      setErrorMessage("Strong password")
+    } else {
+      setErrorMessage('Your password is weak,provide at least 8 characters,1 uppercase & 1 symbol')
+    }
+  }
 
   const [formData, setFormData] = React.useState({
     email: '',
@@ -51,6 +65,7 @@ const Register = () => {
       ...formData,
       [event.target.name]: event.target.value,
       [event.target.lastname]: event.target.value,
+      [event.target.password]: validate(event.target.value),
     });
   };
 
@@ -75,7 +90,7 @@ const Register = () => {
               color="primary"
               variant="h5"
             >
-              Join Us
+              Join {APP_NAME}
             </Typography>
             <form
               onSubmit={handleSubmit}
@@ -153,6 +168,7 @@ const Register = () => {
              <Grid item xs={12} sm={6}>
               <TextField
                required={true}
+
                 autoComplete="new-password"
                 className={classes.formField}
                 error={Boolean(errors.password)}
@@ -166,6 +182,20 @@ const Register = () => {
                 value={formData.password}
                  InputLabelProps={{style:{fontSize:14}}}
               />
+              <Grid container spacing={2}>
+              <Grid item>
+
+              <HelpOutline className={classes.helpOutline}/>
+
+              </Grid>
+              <Grid item>
+              <span style={{
+          fontWeight: '500px',
+          fontSize:"10px",
+          color: 'green',
+        }}>{errorMessage}</span>
+        </Grid>
+        </Grid>
               </Grid >
 
             <Grid item xs={12} sm={6}>

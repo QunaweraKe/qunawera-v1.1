@@ -25,6 +25,20 @@ class ValidatePasswordMixin:
                     "password2": "Passwords do not match.",
                 }
             )
+        '''                  
+           if not any (char.isdigit() for char in data):
+               raise serializers.ValidationError(
+                   {
+                       "password": "No numerals found",
+                   }
+               )
+           
+        if len(data) < 8:
+            raise serializers.ValidationError(
+                {
+                    "password": "Passwords is less than 8 char.",
+                }
+            )   '''
         return data
 
 

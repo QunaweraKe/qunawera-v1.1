@@ -4,12 +4,12 @@ const useStyles = makeStyles((theme) => ({
   authLayout: {
     display: 'grid',
     gridGap: 10,
-    gridTemplateColumns: 'minmax(0, 520px)',
+    gridTemplateColumns: 'minmax(0, 620px)',
     margin: '0 auto',
 
     [theme.breakpoints.up('sm')]: {
       // gridTemplateColumns: '225px 600px 350px',
-      gridTemplateColumns: '60px minmax(400px, 600px)',
+      gridTemplateColumns: '60px minmax(400px, 620px)',
       padding: `0 ${theme.spacing(1)}px`,
     },
 
@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
     // backgroundColor: 'green',
     borderColor: theme.custom.border.color,
     borderLeftStyle: theme.custom.border.style,
-    borderLeftWidth: 1,
+    borderLeftWidth: 2,
     borderRightStyle: theme.custom.border.style,
-    borderRightWidth: 1,
+    borderRightWidth: 2,
   },
   asideContainer: {
     display: 'none',

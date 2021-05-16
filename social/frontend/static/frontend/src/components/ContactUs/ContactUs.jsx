@@ -29,8 +29,8 @@ const ContactUs = ({ children }) => {
       <Button  color="secondary" onClick={handleClickOpen} size="small">
         Contact Us
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Contact {APP_NAME} Team</DialogTitle>
+      <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">Contact {APP_NAME} Support</DialogTitle>
 
         <Divider style={{marginBottom:"10px"}}/>
         <DialogContent>
@@ -47,8 +47,7 @@ const ContactUs = ({ children }) => {
             fullWidth
           />
              <TextField
-          multiline
-          rows={2}
+             multiline
             margin="dense"
             id="name"
             label="Reason for contacting us"
@@ -72,3 +71,4 @@ const ContactUs = ({ children }) => {
 
 
 export default ContactUs;
+//TODO:ADD SENT NOTIFICATION AFTER CONTACTING US.

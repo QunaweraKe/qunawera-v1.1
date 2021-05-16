@@ -41,7 +41,7 @@ return(
        </Grid >
   <Grid item  >
        <Link color="primary" to={route.termsAndPrivacy} style={{fontSize:"10px",fontWeight:"bold"}}>
-     About Us
+      How It Works
       </Link>
         <Grid item  >
 

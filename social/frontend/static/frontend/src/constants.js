@@ -1,4 +1,4 @@
-export const REPLIES= 'Replies';
+
 export const APP_NAME = 'Qunawera';
 export const IS_HANDHELD = 'ontouchstart' in document.documentElement;
 
