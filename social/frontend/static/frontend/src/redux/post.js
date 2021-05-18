@@ -243,7 +243,7 @@ export const createPost = (author, body) => async (dispatch) => {
       parent_id: null,
     }));
     dispatch(setPost(data));
-    dispatch(setToast('Post sent'));
+    dispatch(setToast('task submitted successfully'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

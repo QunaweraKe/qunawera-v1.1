@@ -39,9 +39,9 @@ const Register = () => {
       minLength: 8, minLowercase: 1,
       minUppercase: 1, minNumbers: 1, minSymbols: 1
     })) {
-      setErrorMessage("Strong password")
+      setErrorMessage("Recommended ")
     } else {
-      setErrorMessage('Your password is weak,provide at least 8 characters,1 uppercase & 1 symbol')
+      setErrorMessage('Weak password (a strong password has Min 8 characters,1 uppercase & 1 symbol)')
     }
   }
 
@@ -89,12 +89,13 @@ const Register = () => {
               className={classes.toUpper}
               color="primary"
               variant="h5"
+              style={{textDecoration:"underline"}}
             >
               Join {APP_NAME}
             </Typography>
             <form
               onSubmit={handleSubmit}
-              noValidate
+
             >
              <Grid container spacing={2}>
              <Grid item xs={12} sm={6}>
@@ -165,7 +166,7 @@ const Register = () => {
                 InputLabelProps={{style:{fontSize:14}}}
               />
               <Grid container spacing={2}>
-             <Grid item xs={12} sm={6}>
+             <Grid item >
               <TextField
                required={true}
 
@@ -182,23 +183,18 @@ const Register = () => {
                 value={formData.password}
                  InputLabelProps={{style:{fontSize:14}}}
               />
-              <Grid container spacing={2}>
-              <Grid item>
 
-              <HelpOutline className={classes.helpOutline}/>
 
-              </Grid>
-              <Grid item>
               <span style={{
-          fontWeight: '500px',
+          fontWeight: 'bold',
           fontSize:"10px",
           color: 'green',
-        }}>{errorMessage}</span>
-        </Grid>
-        </Grid>
+        }}><span style={{color:"gray"}}>Password checker for both fields{"  "}</span>{errorMessage}</span>
+
+
               </Grid >
 
-            <Grid item xs={12} sm={6}>
+            <Grid >
               <TextField
                 required={true}
                 autoComplete="new-password"
@@ -224,7 +220,7 @@ const Register = () => {
                 fullWidth
                 type="submit"
                 variant="outlined"
-
+               style={{ boxShadow: '2px 6px  rgba(0,0,0,.1)'}}
               >
                 Create Account
                 {loading && <CircularProgress />}

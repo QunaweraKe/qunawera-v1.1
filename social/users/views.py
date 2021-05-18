@@ -2,16 +2,24 @@ from rest_framework import generics as rest_generics, status, views as rest_view
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.shortcuts import get_object_or_404
 
 from notifications.models import Notification
 from social.views import PaginationMixin
 from .pagination import UserPagination
-from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer
+from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer,ContactUsSerializer
 
 User = get_user_model()
+class ContactUsView(rest_views.APIView):
+
+     def post(self,request,format=None):
+         serializer = ContactUsSerializer(data=request.data)
+         if serializer.is_valid():
+             serializer.save()
+             return  Response(serializer.data,status=status.HTTP_201_CREATED)
+         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class EditPasswordAPIView(rest_generics.UpdateAPIView):
