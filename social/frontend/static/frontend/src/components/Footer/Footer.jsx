@@ -19,15 +19,7 @@ return(
 <div className={classes.footer}>
 
 
-    <Typography variant="body10" color="textSecondary" align="center"  style={{fontSize:"10px",fontWeight:"bold"}}>
-      {'© '}
-        {new Date().getFullYear()}
-      { '  '}
 
-      {APP_NAME} {' ,'} LLC .All rights reserved.
-
-     
-    </Typography>
       <Grid container spacing={2} justify="center">
      <Grid item  >
 
@@ -49,7 +41,17 @@ return(
        </Grid >
 
         </Grid >
+         <Typography variant="body10" color="textSecondary" align="center"  style={{fontSize:"10px",fontWeight:"bold"}}>
+      {'© '}
+        {new Date().getFullYear()}
+      { '  '}
+
+      {APP_NAME} {' ,'} LLC .All rights reserved.
+
+
+    </Typography>
     </div>
+
   );
 
 };

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
 //'#1877F2',
-    color: "#0000CD",
+    color: "#1034A6",
     fontFamily:'roboto',
     letterSpacing:'.5px',
     fontSize:14,

@@ -99,6 +99,7 @@ const Register = () => {
              <Grid container spacing={2}>
              <Grid item xs={12} sm={6}>
               <TextField
+               variant="standard"
                 required={true}
                 autoComplete="name"
                 className={classes.formField}
@@ -168,7 +169,6 @@ const Register = () => {
              <Grid item xs={12} sm={6}>
               <TextField
                required={true}
-
                 autoComplete="new-password"
                 className={classes.formField}
                 error={Boolean(errors.password)}
@@ -180,7 +180,7 @@ const Register = () => {
                 onChange={handleChange}
                 type="password"
                 value={formData.password}
-                 InputLabelProps={{style:{fontSize:14}}}
+                InputLabelProps={{style:{fontSize:14}}}
               />
               <Grid container spacing={2}>
               <Grid item>
@@ -213,12 +213,13 @@ const Register = () => {
                 type="password"
                 value={formData.password2}
                  InputLabelProps={{style:{fontSize:14}}}
+                  variant="standard"
               />
                </Grid >
                 </Grid >
               <Button
                 className={classes.button}
-                size="small"
+                size="large"
                 color="primary"
                 disabled={loading}
                 fullWidth

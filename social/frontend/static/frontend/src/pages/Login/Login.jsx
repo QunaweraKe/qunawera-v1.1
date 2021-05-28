@@ -2,6 +2,7 @@ import React ,{useState} from 'react';
 import { useDispatch } from 'react-redux';
 
 // Material UI
+
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
@@ -93,13 +94,14 @@ const Login = () => {
               noValidate
             >
               <TextField
+                variant="filled"
                required={true}
                 autoComplete="email"
                 className={classes.formField}
                 error={!isEmpty(errors)}
                 fullWidth
                 id="login"
-                label="Username or Email"
+                label="Username Or Email"
                 name="login"
                 onChange={handleChange}
                 type="text"
@@ -107,6 +109,7 @@ const Login = () => {
                   InputLabelProps={{style:{fontSize:14}}}
               />
               <TextField
+                variant="standard"
               required
                 autoComplete="current-password"
 
@@ -164,8 +167,8 @@ const Login = () => {
                 disabled={loading}
                 type="submit"
                 variant="outlined"
-                size="small"
-                style={{ boxShadow: '2px 6px  rgba(0,0,0,.1)'}}
+                size="large"
+
               >
                 Login
                 {loading && <CircularProgress />}
