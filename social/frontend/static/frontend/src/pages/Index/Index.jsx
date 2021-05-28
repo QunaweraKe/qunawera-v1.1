@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
-import IndexImage from '../../components/Files/Images/home2.svg';
+
 import WorldIcon from '@material-ui/icons/PublicTwoTone';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -14,7 +14,7 @@ import shadows from '@material-ui/system';
 
 // Local
 
-import './index.css'
+import IndexImage from '../../components/Files/Images/home2.svg';import './index.css'
 import Footer from '../../components/Footer';
 import IndexLoginForm from '../../components/IndexLoginForm';
 import { APP_NAME, route } from '../../constants';
@@ -49,15 +49,13 @@ const Index = () => {
         <div className="block"></div>
         <p><Typography variant="subtitle3" align="center">
 
-           Get manual work done
+           Gets manual work done
          </Typography></p>
       </div>
     </div>
     </div>
 
-    <Typography variant="h6" align="center" className={classes.Upper}>
-          Lets get started {"..."}
-         </Typography>
+
             <Button
 
               className={classes.ctaItem}

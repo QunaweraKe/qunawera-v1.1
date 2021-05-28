@@ -1,8 +1,13 @@
 from rest_framework import serializers
 
-from .models import Profile, User
+from .models import Profile, User,ContactUs
 
 
+
+class  ContactUsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ContactUs
+        fields=("email","description","date_created")
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile

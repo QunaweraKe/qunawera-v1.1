@@ -163,9 +163,9 @@ theme.overrides = {
   },
   MuiFilledInput: {
     root: {
-      backgroundColor: theme.palette.grey[10],
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: 0,
+      backgroundColor: theme.palette.primary.main,
+      borderTopLeftRadius: 3,
+      borderTopRightRadius: 3,
 
       '&:hover': {
         backgroundColor: theme.palette.grey[10],
@@ -192,15 +192,7 @@ theme.overrides = {
     elevation2: {
       boxShadow: '4',
     },
-    root: {
-      borderColor: theme.palette.grey[100],
-      borderStyle: 'solid',
-      borderWidth: "1px",
-      variant:"outlined",
-      boxShadow: '4px 5px  rgba(0,0,0,.2)',
 
-
-    },
   },
 };
 

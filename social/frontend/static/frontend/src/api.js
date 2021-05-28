@@ -28,6 +28,11 @@ export const descriptor = {
     method: 'post',
     url: '/api/posts/',
   }),
+  createContactUs: (data) => ({
+    data,
+    method: 'post',
+    url: '/api/users/contactus/',
+  }),
 
   createRepost: (data) => ({
     data,
