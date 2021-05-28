@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import validator from 'validator'
 
 // Material UI
-import HelpOutline from '@material-ui/icons/HelpOutline';
 import EmailIcon from '@material-ui/icons/Email';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -41,7 +40,7 @@ const Register = () => {
     })) {
       setErrorMessage("Strong password")
     } else {
-      setErrorMessage('Your password is weak,provide at least 8 characters,1 uppercase & 1 symbol')
+      setErrorMessage('Weak password,provide at least 8 characters,1 uppercase & 1 symbol')
     }
   }
 
@@ -185,15 +184,11 @@ const Register = () => {
               <Grid container spacing={2}>
               <Grid item>
 
-              <HelpOutline className={classes.helpOutline}/>
+
 
               </Grid>
               <Grid item>
-              <span style={{
-          fontWeight: '500px',
-          fontSize:"10px",
-          color: 'green',
-        }}>{errorMessage}</span>
+
         </Grid>
         </Grid>
               </Grid >
@@ -216,6 +211,14 @@ const Register = () => {
               />
                </Grid >
                 </Grid >
+
+                <span style={{
+          fontWeight: '500px',
+          fontSize:"10px",
+          color: 'green',
+          
+
+        }}><i>{errorMessage}</i></span>
               <Button
                 className={classes.button}
                 size="small"

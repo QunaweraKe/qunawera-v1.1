@@ -42,6 +42,7 @@ const AuthLayout = ({ children }) => {
       <aside className={classes.asideContainer}>
         <RecommendedUsers />
         <RecommendedPosts />
+
       </aside>
     </div>
   );

@@ -34,7 +34,7 @@ import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { APP_NAME, route } from '../../constants';
 
 
-const Home = () => {
+const Home = ( ) => {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
@@ -129,6 +129,8 @@ const Home = () => {
                 paragraph
                 variant="h6"
               >
+
+
                 Welcome to
                 {' '}
                 {APP_NAME}
@@ -167,3 +169,104 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
