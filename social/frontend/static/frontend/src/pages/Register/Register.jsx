@@ -235,7 +235,7 @@ const Register = () => {
 
 
        <Typography className={classes.login}>
-        Returning member  {'?'}  {'  '}
+        Returning User  {'?'}  {'  '}
        <TextLink to={route.login}>
       Login</TextLink>
         </Typography>
