@@ -72,15 +72,7 @@ const Login = () => {
       <Container className={classes.container}>
         <Card >
           <CardContent>
-            {!isEmpty(errors)
-              && (
-                <Alert
-                  className={classes.alert}
-                  severity="error"
-                >
-                  Invalid username/email or password
-                </Alert>
-              )}
+
             <Typography
               className={classes.toUpper}
               color="primary"
@@ -89,12 +81,21 @@ const Login = () => {
             >
                Account  Login
             </Typography>
+                {!isEmpty(errors)
+              && (
+                <Alert
+                  className={classes.alert}
+                  severity="error"
+                >
+                  Invalid username/email or password
+                </Alert>
+              )}
             <form
               onSubmit={handleSubmit}
               noValidate
             >
               <TextField
-                variant="filled"
+                variant="standard"
                required={true}
                 autoComplete="email"
                 className={classes.formField}

@@ -44,7 +44,7 @@ const Settings = () => {
             expandIcon={<ExpandMoreIcon />}
             id="account-header"
           >
-            <Typography>Account</Typography>
+            <Typography>Change Account Details</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <SettingsAccount />
@@ -58,7 +58,7 @@ const Settings = () => {
             expandIcon={<ExpandMoreIcon />}
             id="password-header"
           >
-            <Typography>Password</Typography>
+            <Typography>Change Password</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <SettingsPassword />

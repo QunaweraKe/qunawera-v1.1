@@ -50,7 +50,7 @@ const Header = () => {
               color={active(route.home) ? 'primary': 'secondary.main' }
               component={Link}
               size="large"
-              endIcon={
+              startIcon={
                 active(route.home)
                   ?<ListAltOutlinedIcon  />
                   :  <ListIcon/>
@@ -66,7 +66,7 @@ const Header = () => {
                 active(route.profilePosts(user.slug))  ? 'primary' : 'secondary.main' }
               component={Link}
               size="large"
-              endIcon={
+              startIcon={
                 active(route.profilePosts(user.slug))
                   ? <AccountCircleIcon />
                   : <AccountCircleOutlinedIcon />
@@ -83,7 +83,7 @@ const Header = () => {
               color={active(route.settings) ?  'primary' : 'secondary.main'}
               component={Link}
               size="large"
-              endIcon={
+              startIcon={
                 active(route.settings)
                   ? <SettingsIcon />
                   : <SettingsOutlinedIcon />
@@ -98,7 +98,7 @@ const Header = () => {
               color={active(route.search) ? 'primary' : 'default'}
               component={Link}
               size="large"
-              endIcon={<SearchIcon />}
+              startIcon={<SearchIcon />}
               to={route.search}
             >
               <span className="nav-button-text">Search</span>

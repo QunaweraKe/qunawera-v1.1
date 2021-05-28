@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
-
+import Divider from '@material-ui/core/Divider';
 import WorldIcon from '@material-ui/icons/PublicTwoTone';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -49,9 +49,10 @@ const Index = () => {
         <div className="block"></div>
         <p><Typography variant="subtitle3" align="center">
 
-           Gets manual work done
+           "Gets it done "
          </Typography></p>
       </div>
+      <Divider/>
     </div>
     </div>
 

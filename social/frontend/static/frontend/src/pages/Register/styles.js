@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   alert: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
 
  helpOutline:{

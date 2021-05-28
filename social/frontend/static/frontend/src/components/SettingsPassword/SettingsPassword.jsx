@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 // Material UI
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 
 import Alert from '@material-ui/lab/Alert';
@@ -42,18 +43,18 @@ const SettingsPassword = () => {
 
   return (
     <div>
-      <Alert
-        className={classes.alert}
-        severity="warning"
-      >
-        You will be automatically logged out of your session.
-      </Alert>
+
+
+      <Typography>
+      Fill all fields
+       </Typography>
       <form
         className={classes.form}
         onSubmit={handleSubmit}
         noValidate
       >
         <TextField
+         required
           autoComplete="current-password"
           className={classes.formField}
           error={Boolean(errors.current_password)}
@@ -67,6 +68,7 @@ const SettingsPassword = () => {
           value={formData.currentPassword}
         />
         <TextField
+        required
           autoComplete="new-password"
           className={classes.formField}
           error={Boolean(errors.password)}
@@ -80,6 +82,7 @@ const SettingsPassword = () => {
           value={formData.password}
         />
         <TextField
+        required
           autoComplete="new-password"
           className={classes.formField}
           error={Boolean(errors.password2)}
@@ -97,12 +100,18 @@ const SettingsPassword = () => {
           color="primary"
           disabled={loading}
           type="submit"
-          variant="contained"
+          variant="outlined"
         >
-          Save
+          Submit
           {loading && <CircularProgress />}
         </Button>
       </form>
+        <Alert
+        className={classes.alert}
+        severity="warning"
+      >
+        You will be automatically logged out of your session.
+      </Alert>
     </div>
   );
 };

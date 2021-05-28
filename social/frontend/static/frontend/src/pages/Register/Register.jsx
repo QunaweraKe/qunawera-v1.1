@@ -76,6 +76,14 @@ const Register = () => {
       <Container className={classes.container}>
         <Card>
           <CardContent>
+
+            <Typography
+              className={classes.toUpper}
+              color="primary"
+              variant="h5"
+            >
+              Join {APP_NAME}
+            </Typography>
             {!isEmpty(errors)
               && (
                 <Alert
@@ -85,13 +93,6 @@ const Register = () => {
                  Form has invalid inputs.
                 </Alert>
               )}
-            <Typography
-              className={classes.toUpper}
-              color="primary"
-              variant="h5"
-            >
-              Join {APP_NAME}
-            </Typography>
             <form
               onSubmit={handleSubmit}
               noValidate
@@ -117,13 +118,14 @@ const Register = () => {
                </Grid >
 
             <Grid item xs={12} sm={6}>
+
                <TextField
                 required={true}
                 autoComplete="name"
                 className={classes.formField}
-                error={Boolean(errors.lastname)}
+                error={Boolean(errors.name)}
                 fullWidth
-                helperText={errors.lastname}
+                helperText={errors.name}
                 id="lastname"
                 label="Last Name"
                 name="lastname"
