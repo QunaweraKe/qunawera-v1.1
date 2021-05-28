@@ -20,10 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
   },
-  followContainer: {
-    display: 'flex',
-    padding: theme.spacing(0, 2),
-  },
+
   followCount: {
     color: theme.palette.primary.main,
     fontWeight: 'bold',
@@ -31,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   list: {
     width: 350,
   },
+
   logout: {
     borderTopColor: theme.custom.border.color,
     borderTopStyle: theme.custom.border.style,

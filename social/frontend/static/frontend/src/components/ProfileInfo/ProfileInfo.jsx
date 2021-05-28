@@ -134,6 +134,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                     </Typography>
                   </div>
                 )}
+                no bio
               {profileUser.profile.website
                 && (
                   <div className={classes.extraInfo}>

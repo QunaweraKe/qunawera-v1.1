@@ -84,7 +84,7 @@ const ReplyForm = ({ postId }) => {
         onChange={handleChange}
         spellCheck
         value={replyText}
-        variant="filled"
+        variant="standard"
       />
     </form>
   );

@@ -11,8 +11,9 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Box from '@material-ui/core/Box';
-import AutorenewOutlinedIcon from '@material-ui/icons/AutorenewOutlined';
-import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded';
+
+import ListIcon from '@material-ui/icons/List';
+import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -51,8 +52,8 @@ const Header = () => {
               size="large"
               endIcon={
                 active(route.home)
-                  ? <AutorenewRoundedIcon/>
-                  : <AutorenewOutlinedIcon />
+                  ?<ListAltOutlinedIcon  />
+                  :  <ListIcon/>
               }
               to={route.home}
             >

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 // Material UI
 import Badge from '@material-ui/core/Badge';
+import Grid from '@material-ui/core/Grid';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,17 +14,19 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CancelIcon from '@material-ui/icons/Cancel';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import ListIcon from '@material-ui/icons/List';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-
+import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 // Local
 import Avatar from '../Avatar';
-import TextLink from '../TextLink';
 
+import EditProfile from '../EditProfile';
 import { APP_NAME, route } from '../../constants';
 
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -84,43 +87,31 @@ const MobileMenu = () => {
           </IconButton>
         </div>
         <div className={classes.userInfoContainer}>
+        <Card  >
+        <CardContent>
           <Avatar
             className={classes.avatar}
             size={35}
             user={user}
           />
-          <Typography variant="subtitle2">
-            {user.display_name}
+          <Grid container spacing={7}>
+           <Grid item>
+
+          <Typography variant="subtitle1">
+            Username  &#183; {user.display_name}
           </Typography>
+           </Grid>
+            <Grid item>
+          <EditProfile />
+           </Grid>
+           </Grid>
 
+        </CardContent>
+         </Card>
         </div>
 
-        <div className={classes.followContainer}>
-          <TextLink
-            className={classes.follow}
-
-            to={route.following(user.slug)}
-            variant="body2"
-          >
-            <span className={classes.followCount}>
-              {user.following.length}
-            </span>
-            {' '}
-            Following
-          </TextLink>
-          <TextLink
-            className={classes.follow}
-
-            to={route.followers(user.slug)}
-            variant="body2"
-          >
-            <span className={classes.followCount}>
-              {user.followers.length}
-            </span>
-            {' '}
-            Followers
-          </TextLink>
-        </div>
+ <Card  style={{ boxShadow: '2px 2px 2px 2px  rgba(0,0,0,.2)'}}>
+        <CardContent>
         <List className={classes.list}>
           <ListItem
             component={Link}
@@ -128,10 +119,11 @@ const MobileMenu = () => {
             to={route.home}
           >
             <ListItemIcon>
-              <HomeOutlinedIcon />
+              <ListIcon/>
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Feed" />
           </ListItem>
+          <Divider variant="middle"  light/>
           <ListItem
             component={Link}
             button
@@ -142,6 +134,8 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItem>
+
+                    <Divider light variant="middle"/>
           <ListItem
             component={Link}
             button
@@ -157,7 +151,7 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Activities" />
           </ListItem>
-
+          <Divider  light variant="middle"/>
           <ListItem
             component={Link}
             button
@@ -168,6 +162,7 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
+                    <Divider  light variant="middle"/>
           <ListItem
             className={classes.logout}
             button
@@ -178,7 +173,10 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Logout" />
           </ListItem>
+
         </List>
+        </CardContent>
+        </Card>
       </Drawer>
     </>
   );
@@ -186,3 +184,4 @@ const MobileMenu = () => {
 
 export default MobileMenu;
  //TODO MAKE A CONTACT US PAGE
+ //TODO :grid for all the items in mobile menu -rm list
