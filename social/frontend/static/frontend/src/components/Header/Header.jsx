@@ -11,8 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Box from '@material-ui/core/Box';
-import HomeIcon from '@material-ui/icons/Home';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import AutorenewOutlinedIcon from '@material-ui/icons/AutorenewOutlined';
+import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -49,14 +49,14 @@ const Header = () => {
               color={active(route.home) ? 'primary': 'secondary.main' }
               component={Link}
               size="large"
-              startIcon={
+              endIcon={
                 active(route.home)
-                  ? <HomeIcon />
-                  : <HomeOutlinedIcon />
+                  ? <AutorenewRoundedIcon/>
+                  : <AutorenewOutlinedIcon />
               }
               to={route.home}
             >
-              <span className="nav-button-text">Home</span>
+              <span className="nav-button-text">Feed</span>
             </Button>
           </ListItem>
           <ListItem disableGutters>
@@ -65,7 +65,7 @@ const Header = () => {
                 active(route.profilePosts(user.slug))  ? 'primary' : 'secondary.main' }
               component={Link}
               size="large"
-              startIcon={
+              endIcon={
                 active(route.profilePosts(user.slug))
                   ? <AccountCircleIcon />
                   : <AccountCircleOutlinedIcon />
@@ -82,7 +82,7 @@ const Header = () => {
               color={active(route.settings) ?  'primary' : 'secondary.main'}
               component={Link}
               size="large"
-              startIcon={
+              endIcon={
                 active(route.settings)
                   ? <SettingsIcon />
                   : <SettingsOutlinedIcon />
@@ -97,7 +97,7 @@ const Header = () => {
               color={active(route.search) ? 'primary' : 'default'}
               component={Link}
               size="large"
-              startIcon={<SearchIcon />}
+              endIcon={<SearchIcon />}
               to={route.search}
             >
               <span className="nav-button-text">Search</span>
@@ -106,7 +106,7 @@ const Header = () => {
         </List>
 
       </div>
-      <div className={classes.userControlContainer}>
+ <div className={classes.userControlContainer}>
         <UserControl />
       </div>
     </div>
@@ -114,3 +114,5 @@ const Header = () => {
 };
 
 export default Header;
+
+//TODO:Add activity  feed to replace home

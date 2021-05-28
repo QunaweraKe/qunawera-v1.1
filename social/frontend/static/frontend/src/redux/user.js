@@ -19,6 +19,7 @@ const NAMESPACE = 'user';
 // Keys
 //
 export const key = {
+  createContactUs:'createContactUs',
   createUser: 'createUser',
   editAvatar: 'editAvatar',
   editProfile: 'editProfile',
@@ -83,6 +84,19 @@ export const createUser = (payload) => async (dispatch) => {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
     }
+    console.error(error);
+  } finally {
+    dispatch(unsetLoading(NAMESPACE, thisKey));
+  }
+};
+export const createContactUs = () => async (dispatch) => {
+  const thisKey = key.user;
+  try {
+    dispatch(setLoading(NAMESPACE, thisKey));
+    const data = await api(descriptor.createUser(payload));
+    dispatch(setToast(' submitted successfully'));
+  } catch (error) {
+    dispatch(setToast('Something went very wrong', 'error'));
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));

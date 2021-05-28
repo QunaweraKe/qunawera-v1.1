@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 // Evergreen  UI
 import { ChatIcon } from 'evergreen-ui'
 // Material UI
-
+import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
@@ -165,7 +165,7 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-
+           <Card style={{border:"none"}}d>
           {post.body
             && (
 
@@ -179,6 +179,7 @@ const PostItem = ({ expandReplies, postId }) => {
               <Typography className={classes.postBody}  variant="body8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
           {post.parent && <PostParent post={post.parent} />}
            </Typography>
+           </Card>
         </div>
 
       </div>
@@ -301,3 +302,4 @@ export default PostItem;
 
 
  //semantic ui for items
+ //start end payment location

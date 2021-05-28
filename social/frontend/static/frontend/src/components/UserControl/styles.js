@@ -3,11 +3,11 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   button: {
-    height: 55,
+    height: 35,
     minWidth: 55,
     padding: 10,
-    width: 45,
-
+    width: 100,
+    position:"inherit",
     [theme.breakpoints.up('lg')]: {
       width: '100%',
     },

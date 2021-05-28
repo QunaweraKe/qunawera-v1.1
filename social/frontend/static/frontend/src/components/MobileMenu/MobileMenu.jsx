@@ -35,8 +35,9 @@ const MobileMenu = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
+  const unreadNotificationsCount =  useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
+
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
@@ -60,7 +61,7 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="bottom"
+        anchor="top"
         className={classes.drawer}
         open={drawerOpen}
         onClose={handleToggleDrawer}

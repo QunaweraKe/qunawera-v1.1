@@ -4,6 +4,7 @@ export const IS_HANDHELD = 'ontouchstart' in document.documentElement;
 
 // Routing
 export const route = {
+
   login: '/login/',
   followers: (slug) => `/users/${slug}/followers/`,
   following: (slug) => `/users/${slug}/following/`,

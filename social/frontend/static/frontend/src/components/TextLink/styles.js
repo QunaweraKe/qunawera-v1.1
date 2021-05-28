@@ -5,10 +5,10 @@ const useStyles = makeStyles((theme) => ({
 //'#1877F2',
     color: "#0000CD",
     fontFamily:'roboto',
-    letterSpacing:'1px',
+    letterSpacing:'.5px',
     fontSize:14,
      lineHeight:'1px',
-     fontWeight:'700',
+     fontWeight:'500',
     textDecoration: 'none',
     '&:hover, &:focus': {
       textDecoration: 'underline',

@@ -14,6 +14,8 @@ class  ContactUs(models.Model):
         db_index=True,)
        def __str__(self):
            return self.email
+
+
 class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser):
     """ Custom user model. """
 

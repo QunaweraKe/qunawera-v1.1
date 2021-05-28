@@ -22,6 +22,8 @@ const PostHeader = ({ post, repost }) => {
     <div className={classes.header}>
       {repost
         && (
+
+
           <Avatar
             className={classes.headerAvatar}
             size={20}

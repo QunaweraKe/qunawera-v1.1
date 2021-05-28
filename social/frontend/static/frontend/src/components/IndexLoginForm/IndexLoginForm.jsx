@@ -55,7 +55,7 @@ const IndexLoginForm = () => {
         onChange={handleChange}
         type="text"
         value={formData.login}
-        variant="filled"
+
         InputLabelProps={{style:{fontSize:14}}}
 
 
@@ -69,7 +69,7 @@ const IndexLoginForm = () => {
         name="password"
         onChange={handleChange}
         type="password"
-        variant="filled"
+
         value={formData.password}
          InputLabelProps={{style:{fontSize:14}}}
 

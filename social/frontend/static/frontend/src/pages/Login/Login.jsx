@@ -83,10 +83,10 @@ const Login = () => {
             <Typography
               className={classes.toUpper}
               color="primary"
-              variant="h6"
-
+              variant="h5"
+                 style={{textDecoration:"underline"}}
             >
-              Login
+               Account  Login
             </Typography>
             <form
               onSubmit={handleSubmit}
@@ -165,7 +165,7 @@ const Login = () => {
                 type="submit"
                 variant="outlined"
                 size="small"
-                style={{ boxShadow: '2px 6jhpx  rgba(0,0,0,.1)'}}
+                style={{ boxShadow: '2px 6px  rgba(0,0,0,.1)'}}
               >
                 Login
                 {loading && <CircularProgress />}
@@ -174,7 +174,7 @@ const Login = () => {
           </CardContent>
             <Typography className={classes.register}>
               New to {APP_NAME}  {'?'}{'  '}
-          <TextLink to={route.register}>Create Account</TextLink>
+          <TextLink to={route.register}>Create New Account</TextLink>
 
         </Typography>
         </Card>
