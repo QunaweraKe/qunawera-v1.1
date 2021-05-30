@@ -87,7 +87,7 @@ const Login = () => {
                   className={classes.alert}
                   severity="error"
                 >
-                  Invalid username/email or password
+                 Either your username and/or password was incorrect
                 </Alert>
               )}
             <form

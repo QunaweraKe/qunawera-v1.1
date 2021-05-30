@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
-import Divider from '@material-ui/core/Divider';
+import CardActions from '@material-ui/core/CardActions';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import WorldIcon from '@material-ui/icons/PublicTwoTone';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -26,8 +28,15 @@ const Index = () => {
 
   return (
     <div className={classes.indexLayout}>
+<IndexLoginForm/>
+     <Card variant="outlined" className={classes.root}  style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}>
+     <CardContent>
+
       <main className={classes.mainContainer}>
-       <IndexLoginForm/>
+
+
+
+
         <div className={classes.content}>
 
           <div className={classes.ctaContainer}>
@@ -38,7 +47,7 @@ const Index = () => {
         <h1>
           <Typography className={classes.ctaItem}
             color="primary"
-            variant="h4"
+            variant="h3"
             >
 
              {APP_NAME}
@@ -47,12 +56,12 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="subtitle3" align="center">
+        <p><Typography variant="h6" align="center">
 
-           "Gets it done "
+           Gets it done {"..."}
          </Typography></p>
       </div>
-      <Divider/>
+
     </div>
     </div>
 
@@ -92,8 +101,12 @@ const Index = () => {
         </div>
 
       </main>
+          </CardContent>
+      </Card>
+
       <aside  className={classes.asideContainer}>
-<IndexImage/>
+
+<IndexImage className={classes.image}/>
                   <List className={classes.asideList}>
           <ListItem>
 

@@ -1,12 +1,21 @@
 import { fade, makeStyles } from '@material-ui/core/styles';
-
+import {shadows} from '@material-ui/system';
 
 
 const useStyles = makeStyles((theme) => ({
+   root: {
+    width:"90%",
+    marginTop:10,
+    marginLeft:"5%",
+     marginRight:"5%"
+  },
+  image:{
+  marginTop:10,
+  },
+
   asideContainer: {
-    marginTop:40,
-    marginBottom:10,
-    backgroundColor: 'rgba(255,136,0,.3)',
+
+    backgroundColor: 'inherit',
     display: 'flex',
     justifyContent: 'center',
     padding: theme.spacing(0, 2),
