@@ -74,7 +74,7 @@ const Register = () => {
       <PageTitle title="Register" />
 
       <Container className={classes.container}>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
 
             <Typography

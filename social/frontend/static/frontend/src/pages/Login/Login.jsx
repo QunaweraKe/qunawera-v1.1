@@ -70,7 +70,7 @@ const Login = () => {
       <PageTitle title="Login" />
 
       <Container className={classes.container}>
-        <Card >
+        <Card variant="outlined" >
           <CardContent>
 
             <Typography

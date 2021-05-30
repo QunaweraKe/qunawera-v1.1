@@ -29,7 +29,7 @@ const Index = () => {
   return (
     <div className={classes.indexLayout}>
 <IndexLoginForm/>
-     <Card variant="outlined" className={classes.root}  style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}>
+     <Card variant="outlined" className={classes.root}  style={{ boxShadow: '2px 2px  rgba(0,0,0,.2)'}}>
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -56,7 +56,7 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6" align="center">
+        <p><Typography variant="h6" align="right">
 
            Gets it done {"..."}
          </Typography></p>

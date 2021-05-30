@@ -4,13 +4,13 @@ import {shadows} from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
    root: {
-    width:"90%",
-    marginTop:10,
+
+    marginTop:20,
     marginLeft:"5%",
      marginRight:"5%"
   },
   image:{
-  marginTop:10,
+  marginTop:30,
   },
 
   asideContainer: {
