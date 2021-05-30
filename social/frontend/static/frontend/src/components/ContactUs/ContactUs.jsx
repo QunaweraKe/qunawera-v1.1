@@ -40,7 +40,7 @@ const ContactUs = () => {
   };
   return (
    <div>
-      <Button  color="primary" onClick={handleClickOpen} size="small">
+      <Button color="secondary" onClick={handleClickOpen} size="small">
         Support
       </Button>
       <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelledby="form-dialog-title">

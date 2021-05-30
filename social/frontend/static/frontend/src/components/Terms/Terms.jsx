@@ -45,7 +45,7 @@ const Terms = () => {
 
   return (
    <div>
-    <Button  color="primary" onClick={handleClickOpen('paper')} size="small" >
+    <Button  color="secondary" onClick={handleClickOpen('paper')} size="small" >
          Terms {'&'} Privacy
       </Button>
 

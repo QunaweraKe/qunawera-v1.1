@@ -12,11 +12,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import shadows from '@material-ui/system';
 
 // Local
 
-import IndexImage from '../../components/Files/Images/home2.svg';
+import Terms from '../../components/Terms';
+import Index2 from '../../components/Files/Images/index.svg';
 import './index.css'
 import Footer from '../../components/Footer';
 import IndexLoginForm from '../../components/IndexLoginForm';
@@ -29,7 +31,7 @@ const Index = () => {
 
   return (
     <div className={classes.indexLayout}>
-     <Card variant="outlined" className={classes.root}  style={{backgroundColor:"inherit", boxShadow: '0px 6px  rgba(0,0,0,0.2)'}}>
+     <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 6px  rgba(0,0,0,0.5)'}}>
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -54,8 +56,8 @@ const Index = () => {
         <span className="block"></span>
         <h1>
           <Typography className={classes.ctaItem}
-            color="primary"
-            variant="subtitle3"
+            color="textSecondary"
+            variant="subtitle7"
             >
 
              Where you post
@@ -64,7 +66,7 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6" align="center">
+        <p><Typography variant="h6" color="primary" align="center">
 
            {"& "}get manual tasks
          </Typography></p>
@@ -107,6 +109,15 @@ const Index = () => {
             >
               Login
             </Button>
+            <Grid container spacing={2}>
+            <Grid item>
+            <Typography style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to </Typography>
+            </Grid>
+<Grid>
+            <Typography variant="body6" style={{fontSize:"10px",fontWeight:"bold"}} >   <Terms/> </Typography>
+
+            </Grid>
+            </Grid>
             </div>
 
         </div>
@@ -117,8 +128,10 @@ const Index = () => {
 
       <aside  className={classes.asideContainer}>
 
-<IndexImage className={classes.image}/>
+<Index2 className={classes.image}/>
+
                   <List className={classes.asideList}>
+
           <ListItem>
 
 

@@ -32,7 +32,7 @@ return(
 
        </Grid >
   <Grid item  >
-       <Link color="primary" to={route.termsAndPrivacy} style={{fontSize:"10px",fontWeight:"bold"}}>
+       <Link color="secondary" to={route.termsAndPrivacy} style={{fontSize:"10px",fontWeight:"bold"}}>
       How It Works
       </Link>
         <Grid item  >
@@ -41,7 +41,7 @@ return(
        </Grid >
 
         </Grid >
-         <Typography variant="body10" color="textSecondary" align="center"  style={{fontSize:"10px",fontWeight:"bold"}}>
+         <Typography variant="body10" color="secondary" align="center"  style={{fontSize:"10px",fontWeight:"bold"}}>
       {'© '}
         {new Date().getFullYear()}
       { '  '}

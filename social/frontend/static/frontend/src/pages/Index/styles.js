@@ -5,10 +5,10 @@ import {shadows} from '@material-ui/system';
 const useStyles = makeStyles((theme) => ({
    root: {
 
-    marginTop:10,
+    marginTop:5,
     marginLeft:"5%",
      marginRight:"5%",
-     height:580,
+     height:585,
   },
   image:{
   marginTop:10,
