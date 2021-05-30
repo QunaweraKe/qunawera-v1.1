@@ -31,7 +31,7 @@ const Index = () => {
 
   return (
     <div className={classes.indexLayout}>
-     <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 6px  rgba(0,0,0,0.5)'}}>
+     <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 3px  rgba(0,0,0,0.5)'}}>
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -40,16 +40,18 @@ const Index = () => {
 
 
         <div className={classes.content}>
-
-          <div className={classes.ctaContainer}>
             <Typography className={classes.branding}
             color="primary"
-            variant="h3"
-            style={{textShadow:"-1px -1px rgba(0,0,0,.6)",fontWeight:"bold"}}
+
+            style={{fontWeight:"bold",fontSize:"40px"}}
+
             >
 
              {APP_NAME}
           </Typography>
+
+          <div className={classes.ctaContainer}>
+
              <div className="container">
     <div className="box">
       <div className="title">
@@ -66,7 +68,7 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6" color="primary" align="center">
+        <p><Typography variant="h6" color="primary" align="center" >
 
            {"& "}get manual tasks
          </Typography></p>
@@ -80,14 +82,14 @@ const Index = () => {
          </Typography>
 
             <Button
-
+              size="small"
               className={classes.ctaItem}
               color="primary"
               component={Link}
               fullWidth
               to={route.register}
              variant="outlined"
-              size="large"
+
             >
               Create a New Account
             </Button>
@@ -104,7 +106,7 @@ const Index = () => {
               to={route.login}
 
                variant="outlined"
-              size="large"
+              size="small"
 
             >
               Login

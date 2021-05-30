@@ -5,9 +5,9 @@ import {shadows} from '@material-ui/system';
 const useStyles = makeStyles((theme) => ({
    root: {
 
-    marginTop:5,
-    marginLeft:"5%",
-     marginRight:"5%",
+    marginTop:-15,
+    marginLeft:".5%",
+     marginRight:".5%",
      height:585,
   },
   image:{
@@ -55,11 +55,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   content: {
-    maxWidth: 400,
+    maxWidth: 500,
   },
   ctaItem: {
-    marginBottom: theme.spacing(1),
-    marginTop:0,
+    marginBottom: theme.spacing(2),
+    marginTop:10,
 
   },
   Upper:{
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   indexLayout: {
     width: '100%',
-
+    backgroundColor:"#ffdab9",
     [theme.breakpoints.up('md')]: {
       display: 'grid',
       gridTemplateColumns: '50% 50%',

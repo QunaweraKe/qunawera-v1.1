@@ -2,12 +2,13 @@ import React from 'react';
 
 // Local
 import PageTitle from '../../components/PageTitle';
-import Error from '../../components/Files/Images/error404.svg';
+import Error404 from '../../components/Files/Images/error4004.gif';
 
 const PageNotFound = () => (
   <>
     <PageTitle title="Page not found" />
- <Error style={{height:"500px",width:"500px"}} />
+ <Error404  />
+
 
   </>
 );
