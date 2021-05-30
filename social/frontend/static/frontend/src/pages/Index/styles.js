@@ -5,12 +5,13 @@ import {shadows} from '@material-ui/system';
 const useStyles = makeStyles((theme) => ({
    root: {
 
-    marginTop:20,
+    marginTop:10,
     marginLeft:"5%",
-     marginRight:"5%"
+     marginRight:"5%",
+     height:580,
   },
   image:{
-  marginTop:30,
+  marginTop:10,
   },
 
   asideContainer: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'inherit',
     display: 'flex',
     justifyContent: 'center',
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 1),
 
     [theme.breakpoints.up('md')]: {
       gridColumn: '1 / 2',
@@ -57,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
   },
   ctaItem: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
+    marginTop:0,
 
   },
   Upper:{

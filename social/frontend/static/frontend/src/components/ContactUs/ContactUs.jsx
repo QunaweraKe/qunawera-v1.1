@@ -14,7 +14,7 @@ import { Divider } from '@material-ui/core';
 //local import
 import { createContactUs, key } from '../../redux/user';
 import { APP_NAME} from '../../constants';
-import IndexImage from '../../components/Files/Images/Cupid.svg';
+
 const ContactUs = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
@@ -40,7 +40,7 @@ const ContactUs = () => {
   };
   return (
    <div>
-      <Button  color="secondary" onClick={handleClickOpen} size="small">
+      <Button  color="primary" onClick={handleClickOpen} size="small">
         Support
       </Button>
       <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -85,7 +85,6 @@ const ContactUs = () => {
           <Button type="submit" color="primary" variant="outlined" size="small">
             Submit
           </Button>
-          <IndexImage style={{width:"250px",height:"200px",marginLeft:"40px",marginBottom:"20px"}} />
         </DialogActions>
          </form>
       </Dialog>

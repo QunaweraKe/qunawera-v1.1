@@ -16,7 +16,8 @@ import shadows from '@material-ui/system';
 
 // Local
 
-import IndexImage from '../../components/Files/Images/home2.svg';import './index.css'
+import IndexImage from '../../components/Files/Images/home2.svg';
+import './index.css'
 import Footer from '../../components/Footer';
 import IndexLoginForm from '../../components/IndexLoginForm';
 import { APP_NAME, route } from '../../constants';
@@ -28,8 +29,7 @@ const Index = () => {
 
   return (
     <div className={classes.indexLayout}>
-<IndexLoginForm/>
-     <Card variant="outlined" className={classes.root}  style={{ boxShadow: '2px 2px  rgba(0,0,0,.2)'}}>
+     <Card variant="outlined" className={classes.root}  style={{backgroundColor:"inherit", boxShadow: '0px 6px  rgba(0,0,0,0.2)'}}>
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -40,6 +40,14 @@ const Index = () => {
         <div className={classes.content}>
 
           <div className={classes.ctaContainer}>
+            <Typography className={classes.branding}
+            color="primary"
+            variant="h3"
+            style={{textShadow:"-1px -1px rgba(0,0,0,.6)",fontWeight:"bold"}}
+            >
+
+             {APP_NAME}
+          </Typography>
              <div className="container">
     <div className="box">
       <div className="title">
@@ -47,24 +55,27 @@ const Index = () => {
         <h1>
           <Typography className={classes.ctaItem}
             color="primary"
-            variant="h3"
+            variant="subtitle3"
             >
 
-             {APP_NAME}
+             Where you post
           </Typography>
         </h1>
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6" align="right">
+        <p><Typography variant="h6" align="center">
 
-           Gets it done {"..."}
+           {"& "}get manual tasks
          </Typography></p>
       </div>
 
     </div>
     </div>
+     <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
 
+           Lets get started
+         </Typography>
 
             <Button
 
@@ -73,10 +84,10 @@ const Index = () => {
               component={Link}
               fullWidth
               to={route.register}
-             variant="contained"
-              size="small"
+             variant="outlined"
+              size="large"
             >
-              Create Account
+              Create a New Account
             </Button>
 
           </div>
@@ -91,8 +102,8 @@ const Index = () => {
               to={route.login}
 
                variant="outlined"
-              size="small"
-              style={{ boxShadow: '2px 4px  rgba(0,0,0,.1)'}}
+              size="large"
+
             >
               Login
             </Button>
