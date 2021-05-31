@@ -31,7 +31,7 @@ const Index = () => {
 
   return (
     <div className={classes.indexLayout}>
-     <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 3px  rgba(0,0,0,0.5)'}}>
+     <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 6px  rgba(0,0,0,0.5)'}}>
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -40,7 +40,12 @@ const Index = () => {
 
 
         <div className={classes.content}>
-            <Typography className={classes.branding}
+
+
+          <div className={classes.ctaContainer}>
+
+             <div className="container">
+              <Typography className={classes.branding}
             color="primary"
 
             style={{fontWeight:"bold",fontSize:"40px"}}
@@ -50,31 +55,6 @@ const Index = () => {
              {APP_NAME}
           </Typography>
 
-          <div className={classes.ctaContainer}>
-
-             <div className="container">
-    <div className="box">
-      <div className="title">
-        <span className="block"></span>
-        <h1>
-          <Typography className={classes.ctaItem}
-            color="textSecondary"
-            variant="subtitle7"
-            >
-
-             Where you post
-          </Typography>
-        </h1>
-      </div>
-      <div className="role">
-        <div className="block"></div>
-        <p><Typography variant="h6" color="primary" align="center" >
-
-           {"& "}get manual tasks
-         </Typography></p>
-      </div>
-
-    </div>
     </div>
      <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
 
@@ -111,15 +91,14 @@ const Index = () => {
             >
               Login
             </Button>
-            <Grid container spacing={2}>
+             <Grid container spacing={0}>
             <Grid item>
-            <Typography style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to </Typography>
-            </Grid>
-<Grid>
-            <Typography variant="body6" style={{fontSize:"10px",fontWeight:"bold"}} >   <Terms/> </Typography>
+            <Button disabled disableRipple="true" style={{fontSize:"15px",fontWeight:"bold"}}> By using this app you agree to </Button>
 
             </Grid>
-            </Grid>
+             <Grid item style={{marginTop:"9px",marginLeft:"-10px"}}>
+           <Terms/>
+           </Grid></Grid>
             </div>
 
         </div>
@@ -129,21 +108,31 @@ const Index = () => {
       </Card>
 
       <aside  className={classes.asideContainer}>
+      <Index2 className={classes.image}/>
+          <div className="box">
+      <div className="title">
+        <span className="block"></span>
+        <h1>
+          <Typography className={classes.ctaItem}
+            color="textSecondary"
+            variant="subtitle7"
+            >
 
-<Index2 className={classes.image}/>
+             Where you post
+          </Typography>
+        </h1>
+      </div>
+      <div className="role">
+        <div className="block"></div>
+        <p><Typography variant="h6" color="secondary" align="center" >
 
-                  <List className={classes.asideList}>
+           {"& "}get manual tasks
+         </Typography></p>
+      </div>
 
-          <ListItem>
+    </div>
 
 
-            <ListItemText primary="Earn money doing simple tasks for others. " />
-             </ListItem>
-            <ListItem>
-
-            <ListItemText primary="Easy job sharing platform. " />
-          </ListItem>
-        </List>
 
       </aside>
 <div style={{marginTop:"50px",marginLeft:"2px"}}>

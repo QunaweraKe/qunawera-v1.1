@@ -5,10 +5,10 @@ import {shadows} from '@material-ui/system';
 const useStyles = makeStyles((theme) => ({
    root: {
 
-    marginTop:-15,
-    marginLeft:".5%",
-     marginRight:".5%",
-     height:585,
+    marginTop:2,
+    marginLeft:"2%",
+    marginRight:"2%",
+    marginBottom:5,
   },
   image:{
   marginTop:10,
@@ -24,27 +24,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       gridColumn: '1 / 2',
       gridRow: 1,
-      height: '100%',
+      height: '80%',
     },
   },
-  asideList: {
-    '& .MuiListItem-root': {
-       marginTop:80,
-       marginBottom:0,
-      alignItems: 'flex-start',
-      color: 'primary',
-      display: 'flex-end',
-    },
-    '& .MuiTypography-root': {
-      fontSize:14,
 
-    },
-    '& .MuiSvgIcon-root': {
-      color: 'primary',
-      fontSize: 30,
-      marginTop: theme.spacing(0.5),
-    },
-  },
   branding: {
     fontSize: 40,
     marginTop: theme.spacing(2),
@@ -85,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     padding: theme.spacing(0, 2),
     position: 'relative',
+
 
     [theme.breakpoints.up('md')]: {
       gridColumn: '2 / 2',

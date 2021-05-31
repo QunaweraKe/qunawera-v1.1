@@ -40,11 +40,11 @@ const ContactUs = () => {
   };
   return (
    <div>
-      <Button color="secondary" onClick={handleClickOpen} size="small">
+      <Button color="secondary" onClick={handleClickOpen} style={{fontWeight:"bold"}}size="small">
         Support
       </Button>
-      <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">Contact {APP_NAME} Support</DialogTitle>
+      <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelled by="form-dialog-title">
+        <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
 
         <Divider style={{marginBottom:"10px"}}/>
            <form  onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ const ContactUs = () => {
              multiline
             margin="dense"
             id="description"
-            label="How can we help you"
+            label="Description"
                 onChange={handleChange}
                 type="text"
                 value={formData.description}

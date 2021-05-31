@@ -70,7 +70,7 @@ const Login = () => {
       <PageTitle title="Login" />
 
       <Container className={classes.container}>
-        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '0px 6px  rgba(0,0,0,0.2)'}}>
+        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '0px 3px  rgba(0,0,0,0.2)'}}>
           <CardContent>
 
             <Typography
