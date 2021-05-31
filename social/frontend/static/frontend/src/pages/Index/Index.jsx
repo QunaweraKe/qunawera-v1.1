@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import shadows from '@material-ui/system';
 
 // Local
-
+import PageTitle from '../../components/PageTitle';
 import Terms from '../../components/Terms';
 import Index2 from '../../components/Files/Images/index.svg';
 import './index.css'
@@ -30,6 +30,9 @@ const Index = () => {
   const classes = useStyles();
 
   return (
+  <>
+      <PageTitle title="Welcome" />
+
     <div className={classes.indexLayout}>
      <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 6px  rgba(0,0,0,0.5)'}}>
      <CardContent>
@@ -140,6 +143,9 @@ const Index = () => {
 
 </div>
     </div>
+
+
+      </>
   );
 };
 
