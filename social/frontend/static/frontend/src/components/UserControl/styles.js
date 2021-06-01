@@ -3,6 +3,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   button: {
+   flexGrow:1,
     height: 35,
     minWidth: 55,
     padding: 10,
@@ -12,9 +13,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
 
-    '&:hover': {
-      backgroundColor: fade(theme.palette.primary.light, 0.1),
-    },
+
   },
   container: {
     display: 'none',

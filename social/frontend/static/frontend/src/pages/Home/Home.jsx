@@ -28,7 +28,7 @@ import Posts from '../../components/Posts';
 import PostForm from '../../components/PostForm';
 
 import useUI from '../../hooks/useUI';
-
+import useStyles from './styles';
 import { getFeed, key, selectFeed } from '../../redux/post';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { APP_NAME, route } from '../../constants';
@@ -39,7 +39,7 @@ const Home = ( ) => {
   const dispatch = useDispatch();
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const feed = useSelector(selectFeed);
-
+    const classes = useStyles();
   const { fetched, loading, nextLoading } = useUI(key.feed, key.feedNext);
 
   React.useEffect(() => {
@@ -56,7 +56,7 @@ const Home = ( ) => {
     <>
       <PageTitle title="Home" />
 
-      <AuthLayout>
+      <AuthLayout >
         <SubHeading>
           <MobileMenu />
           <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
@@ -120,6 +120,8 @@ const Home = ( ) => {
         </Heading>
 
         <PostForm />
+
+
         <Posts
           loading={loading}
           posts={feed.results}
@@ -158,6 +160,7 @@ const Home = ( ) => {
             </NoData>
           )}
         />
+
         <NextButton
           callback={handleNext}
           loading={nextLoading}

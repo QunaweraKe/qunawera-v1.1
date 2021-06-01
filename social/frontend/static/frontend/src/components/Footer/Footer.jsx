@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 //Material UI
 
@@ -8,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 //local imports
 import ContactUs from '../ContactUs';
 import Terms from '../Terms';
+import HowItWorks from '../HowItWorks';
 import { APP_NAME,route } from '../../constants';
 import useStyles from './styles';
 
@@ -32,9 +32,7 @@ return(
 
        </Grid >
   <Grid item  >
-       <Link color="secondary" to={route.termsAndPrivacy} style={{fontSize:"10px",fontWeight:"bold"}}>
-      How It Works
-      </Link>
+    <HowItWorks/>
         <Grid item  >
 
        </Grid >

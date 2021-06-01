@@ -11,7 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Box from '@material-ui/core/Box';
-
 import ListIcon from '@material-ui/icons/List';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';

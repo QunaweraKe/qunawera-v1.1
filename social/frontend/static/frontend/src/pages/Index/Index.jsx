@@ -79,7 +79,12 @@ const Index = () => {
 
           </div>
     <DividerWithText>Or</DividerWithText>
+
     <div className={classes.ctaContainer}>
+        <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
+
+           Already a member{"?"}
+         </Typography>
     <Button
               className={classes.ctaItem}
               color="primary"
@@ -96,10 +101,10 @@ const Index = () => {
             </Button>
              <Grid container spacing={0}>
             <Grid item>
-            <Button disabled disableRipple="true" style={{fontSize:"15px",fontWeight:"bold"}}> By using this app you agree to </Button>
+            <Button disabled disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to </Button>
 
             </Grid>
-             <Grid item style={{marginTop:"9px",marginLeft:"-10px"}}>
+             <Grid item style={{marginTop:"4px",marginLeft:"-10px"}}>
            <Terms/>
            </Grid></Grid>
             </div>
@@ -127,7 +132,7 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6" color="secondary" align="center" >
+        <p><Typography variant="h5" color="primary" align="center" >
 
            {"& "}get manual tasks
          </Typography></p>
