@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
 //'#1877F2',
-    color: "rgb(0,47,135)",
+    color:"#1877F2",
     fontFamily:'roboto',
     letterSpacing:'.5px',
     fontSize:14,
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     '&:hover, &:focus': {
       textDecoration: 'underline',
-      textDecorationColor:theme.palette. secondary,
+      textDecorationColor:theme.palette.secondary,
 
 
 

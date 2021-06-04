@@ -27,7 +27,7 @@ import { isEmpty } from '../../utils';
 import useStyles from './styles';
 
 
-const Register = () => {
+const RegisterStepOne = () => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -203,35 +203,16 @@ const Register = () => {
               />
                </Grid >
                 </Grid >
-              <Button
-                className={classes.button}
-                size="large"
-                color="primary"
-                disabled={loading}
-                fullWidth
-                type="submit"
-                variant="outlined"
 
-              >
-                Create Account
-                {loading && <CircularProgress />}
-              </Button>
             </form>
           </CardContent>
         </Card>
 
 
-       <Typography className={classes.login}>
-        Already a member  {'?'}  {'  '}
-       <TextLink to={route.login}>
-      Login</TextLink>
-        </Typography>
-
-           <Footer/>
       </Container>
 
     </>
   );
 };
 
-export default Register;
+export default RegisterStepOne;

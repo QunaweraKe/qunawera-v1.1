@@ -297,9 +297,6 @@ PostItem.propTypes = {
 export default PostItem;
 
 //TODO: USER TYPING & floating action button
-
  //TODO: BID ONLY PARENT POST,ARRANGE CARD CONTENTS PROPERLY
-
-
  //semantic ui for items
  //start end payment location

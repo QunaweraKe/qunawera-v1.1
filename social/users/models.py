@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 from django.contrib.postgres.fields.citext import CICharField, CIEmailField
 from django.db import models
 from django.utils.text import slugify
@@ -16,13 +17,15 @@ class  ContactUs(models.Model):
            return self.email
 
 
-class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser):
+class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
     """ Custom user model. """
 
     email = CIEmailField(
         max_length=255,
         unique=True,
     )
+    is_active = models.BooleanField('active',default=True)
+    is_staff = models.BooleanField(default=True)
     fake_account = models.BooleanField(default=False)
     following = models.ManyToManyField(
         "self",
@@ -43,7 +46,8 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = "username"
-    EMAIL_FIELD = "email"
+    REQUIRED_FIELDS = ["email"]
+
 
     def display_name(self) -> str:
         """Get user's display name.
@@ -87,6 +91,11 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser):
         self.slug = slugify(self.username, allow_unicode=True)
         super().save(*args, **kwargs)
 
+
+
+
+
+
     def unfollow(self, user: object) -> None:
         """ Unfollow `user`. """
         self.following.remove(user)
@@ -111,3 +120,8 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+
+
+#TODO :CREATING SUPERUSER HAS ERRORS.

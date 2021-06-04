@@ -27,7 +27,7 @@ import { isEmpty } from '../../utils';
 import useStyles from './styles';
 
 
-const Register = () => {
+const RegisterStepTwo = () => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -220,18 +220,10 @@ const Register = () => {
           </CardContent>
         </Card>
 
-
-       <Typography className={classes.login}>
-        Already a member  {'?'}  {'  '}
-       <TextLink to={route.login}>
-      Login</TextLink>
-        </Typography>
-
-           <Footer/>
       </Container>
 
     </>
   );
 };
 
-export default Register;
+export default RegisterStepTwo;

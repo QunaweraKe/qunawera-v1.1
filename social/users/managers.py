@@ -37,6 +37,7 @@ class UserQuerySet(models.QuerySet):
 
 
 class UserManager(UM):
+
     def _create_user(self, username, email, password, **extra_fields):
         """Override default `create_user` so both `username` and `email` are
         required fields.
@@ -61,9 +62,25 @@ class UserManager(UM):
         """ See :class:`UserQuerySet` :meth:`active`. """
         return self.get_queryset().active()
 
-    def create_user(self, email, username, password=None, **extra_fields):
+    def create_user(self,username, email,password=None, **extra_fields):
+
+
         """ See :meth:`_create_user`. """
-        return self._create_user(username, email, password, **extra_fields)
+        return self._create_user( email, username,password, **extra_fields)
+    def create_superuser(self,username, email, password=None,**kwargs):
+        user=self._create_user(
+            email=email,
+            password=password,
+            username=username,
+            is_superuser=True,
+            **kwargs
+
+                               )
+        user.is_admin=True
+        user.save(using=self._db)
+
+        return user
+
 
     def get_queryset(self):
         return UserQuerySet(self.model, using=self._db)

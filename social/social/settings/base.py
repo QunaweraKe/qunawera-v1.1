@@ -12,12 +12,14 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ["localhost","*"]
+# remove * on prod
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -27,6 +29,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "debug_toolbar",
     "rest_framework",
+    # CUSTOM APPS
     "frontend",
     "notifications",
     "posts",
