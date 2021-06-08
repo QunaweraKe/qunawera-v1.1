@@ -1,7 +1,7 @@
 # social
 
 ### Overview
-Twitter-esque social networking site.
+Qunawera-social jobs networking site.
 
 ### Technology stack
 - Django / Django Rest Framework
@@ -21,16 +21,16 @@ Twitter-esque social networking site.
 ## Installation
 ### Clone repository
 
-    git clone https://github.com/onosendi/social.git
+    git clone https://github.com/QunaweraKe/qunawera-v1.1.git
 
 ### Environment File
 Create an `.env` file in the root directory (next to `package.json`) with the following content:
 
-    SECRET_KEY='super secret key'
+    SECRET_KEY='ask admin'
     ALLOWED_HOSTS='localhost;*'
-    DATABASE_NAME='social'
-    DATABASE_USER='social'
-    DATABASE_PASSWORD='social'
+    DATABASE_NAME='ask admin'
+    DATABASE_USER='ask admin'
+    DATABASE_PASSWORD='ask admin'
 
 ### PostgreSQL
 Create a database, user, and grant user superuser permissions. Superuser permissions have to be granted in order to use Django's `CITextExtension`.
