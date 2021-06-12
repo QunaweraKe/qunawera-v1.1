@@ -20,7 +20,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 
 // Local
-
+import DialogPostForm from '../DialogPostForm';
 import UserControl from '../UserControl';
 import { route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -104,6 +104,7 @@ const Header = () => {
             </Button>
           </ListItem>
         </List>
+        <DialogPostForm />
 
       </div>
  <div className={classes.userControlContainer}>

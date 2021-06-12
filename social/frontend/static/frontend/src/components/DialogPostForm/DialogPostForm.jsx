@@ -10,8 +10,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
-
+import CloseIcon from '@material-ui/icons/Close';
+import Slide from '@material-ui/core/Slide';
 import SendIcon from '@material-ui/icons/Send';
+
 
 // Local
 import Avatar from '../Avatar';
@@ -25,7 +27,12 @@ import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 const DialogPostForm = () => {
+
+
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -80,13 +87,16 @@ const DialogPostForm = () => {
         </IconButton>
       </div>
       <Dialog
+        fullScreen
         open={dialogOpen}
         onClose={handleClose}
+         TransitionComponent={Transition}
       >
+
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography variant="h6">
-            Post
+            Post Task
           </Typography>
         </DialogTitle>
         <DialogContent

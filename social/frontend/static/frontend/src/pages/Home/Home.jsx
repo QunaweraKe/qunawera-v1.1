@@ -25,7 +25,7 @@ import NoData from '../../components/NoData';
 import Welcome from '../../components/Files/Images/newhome.svg';
 import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
-import PostForm from '../../components/PostForm';
+import DialogPostForm from '../../components/DialogPostForm';
 
 import useUI from '../../hooks/useUI';
 import useStyles from './styles';
@@ -75,6 +75,7 @@ const Home = ( ) => {
             >
 
             </Button>
+            <DialogPostForm/>
         </SubHeading>
         <Heading>
 
@@ -118,8 +119,6 @@ const Home = ( ) => {
            </Grid>
 
         </Heading>
-
-        <PostForm />
 
 
         <Posts
