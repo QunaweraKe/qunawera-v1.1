@@ -9,17 +9,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(0),
 
     },
-      appBar: {
-    position: 'relative',
-    backgroundColor:theme.palette.secondary,
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-  readTerms:{
-  border:"none",
-  },
+
 
 }));
 

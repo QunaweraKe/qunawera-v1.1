@@ -21,9 +21,9 @@ return(
 
 
       <Grid container spacing={2} justify="center">
-     <Grid item  >
+     <Grid item >
 
-      <ContactUs/>
+      <ContactUs />
 
       </Grid >
        <Grid item  >

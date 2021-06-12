@@ -1,5 +1,5 @@
 {
-  "name": "django-social",
+  "name": "Qunawera",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start": "parcel social/frontend/static/frontend/src/index.jsx --hmr-port 38775 --out-dir social/frontend/static/frontend/dist --out-file main"
   },
   "keywords": [],
-  "author": "Daniel Lindegren",
+  "author": "Collins Okore",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.11.1",
