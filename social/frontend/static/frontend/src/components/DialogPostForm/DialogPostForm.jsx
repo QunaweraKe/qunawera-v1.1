@@ -13,8 +13,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
-import SendIcon from '@material-ui/icons/Send';
-
+import Tooltip from '@material-ui/core/Tooltip';
 
 // Local
 import Avatar from '../Avatar';
@@ -66,6 +65,7 @@ const DialogPostForm = () => {
   return (
     <>
       <div >
+         <Tooltip title="post" arrow disableFocusListener>
        <IconButton color="primary"
        size="small"
         aria-label="add"
@@ -74,7 +74,7 @@ const DialogPostForm = () => {
           variant="outlined">
            <AddIcon />
       </IconButton>
-
+         </Tooltip>
 
       </div>
       <Dialog

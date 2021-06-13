@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
-
+import Tooltip from '@material-ui/core/Tooltip';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import SortIcon from '@material-ui/icons/Sort';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
@@ -67,9 +67,12 @@ const Home = ( ) => {
            <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
             </Grid>
              <Grid >
+
              <DialogPostForm/>
+
               </Grid >
               <Grid >
+              <Tooltip title="search" arrow disableFocusListener>
               <IconButton
               size="small"
               color='primary'
@@ -82,6 +85,7 @@ const Home = ( ) => {
             >
            <SearchIcon />
             </IconButton>
+            </Tooltip>
               </Grid>
         </SubHeading>
         <Heading>

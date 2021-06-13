@@ -35,16 +35,15 @@ const AuthLayout = ({ children }) => {
     <div className={classes.authLayout}>
       <div className={classes.headerContainer}>
         <Header />
+         <div className={classes.userControlContainer}>
+        <UserControl />
+      </div>
       </div>
       <main className={classes.mainContainer}>
         {children}
       </main>
       <aside className={classes.asideContainer}>
-        <div className={classes.userControlContainer}>
-        <UserControl />
-      </div>
         <RecommendedUsers />
-
         <RecommendedPosts />
 
       </aside>

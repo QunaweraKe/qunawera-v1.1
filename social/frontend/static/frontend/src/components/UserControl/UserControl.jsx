@@ -60,8 +60,8 @@ const UserControl = () => {
       <Menu
         anchorEl={anchorEl}
         anchorOrigin={{
-          horizontal: 'center',
-          vertical: 'top',
+          horizontal: 'right',
+          vertical: 'left',
         }}
         classes={{ list: classes.muiMenuList }}
         getContentAnchorEl={null}
