@@ -93,10 +93,10 @@ const RecommendedUsers = () => {
           </IconButton>
         )}
         className={classes.cardHeader}
-        title="Who to follow"
+        title="People To Follow"
         titleTypographyProps={{
           className: classes.title,
-          variant: 'body1',
+          variant: 'subtitle3',
         }}
       />
       {renderUsersList()}

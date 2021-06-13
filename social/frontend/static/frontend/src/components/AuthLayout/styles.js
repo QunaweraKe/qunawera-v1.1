@@ -44,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(1.5, 0, 0, 2),
     },
   },
+   userControlContainer: {
+    marginBottom: theme.spacing(1),
+    width: 260,
+  },
 }));
 
 export default useStyles;

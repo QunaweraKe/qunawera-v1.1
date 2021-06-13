@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header';
 import RecommendedUsers from '../RecommendedUsers';
 import RecommendedPosts from '../RecommendedPosts';
-
+import UserControl from '../UserControl';
 import {
   getUnreadNotificationsCount,
   selectUnreadNotificationsCount,
@@ -40,10 +40,15 @@ const AuthLayout = ({ children }) => {
         {children}
       </main>
       <aside className={classes.asideContainer}>
+        <div className={classes.userControlContainer}>
+        <UserControl />
+      </div>
         <RecommendedUsers />
+
         <RecommendedPosts />
 
       </aside>
+
     </div>
   );
 };

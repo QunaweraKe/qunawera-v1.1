@@ -92,8 +92,7 @@ const RecommendedPosts = () => {
           variant="body2"
           justify="center"
         >
-       <IndexImage2 style={{width:"50%",height:"50%"}}/>
-       NO TASKS FOUND
+       <IndexImage2 style={{width:"40%",height:"40%"}}/>
         </Typography>
       );
     }
@@ -115,10 +114,10 @@ const RecommendedPosts = () => {
           </Button>
         )}
         className={classes.cardHeader}
-        title="Recent posts"
+        title="Recently posted"
         titleTypographyProps={{
           className: classes.title,
-          variant: 'body1',
+          variant: 'subtitle3 ',
         }}
       />
       {renderPostsList()}

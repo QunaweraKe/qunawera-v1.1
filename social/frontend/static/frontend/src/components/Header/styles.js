@@ -1,13 +1,7 @@
 import { fade, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  branding: {
-    paddingLeft: 0,
 
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: 12,
-    },
-  },
   pushContainer: {
     height: '100%',
   },
@@ -82,10 +76,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  userControlContainer: {
-    marginBottom: theme.spacing(1),
-    width: 260,
-  },
+
 }));
 
 export default useStyles;

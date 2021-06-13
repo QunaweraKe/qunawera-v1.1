@@ -7,6 +7,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -65,17 +66,23 @@ const Home = ( ) => {
           <Grid container justify="right">
            <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
             </Grid>
-              <Button
+             <Grid >
+             <DialogPostForm/>
+              </Grid >
+              <Grid >
+              <IconButton
+              size="small"
               color='primary'
               component={Link}
-              size='large'
-              endIcon={<SearchIcon />}
+
+
               to={route.search}
 
-            >
 
-            </Button>
-            <DialogPostForm/>
+            >
+           <SearchIcon />
+            </IconButton>
+              </Grid>
         </SubHeading>
         <Heading>
 

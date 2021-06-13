@@ -42,6 +42,10 @@ const PostHeader = ({ post, repost }) => {
         <span style={{fontSize:"15px",fontWeight:"bold"}}>&#183;</span>posted{'  '} {dayjs(post.created_at).fromNow()}
 
       </Typography>
+
+
+
+
     </div>
   );
 };

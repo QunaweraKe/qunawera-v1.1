@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
+import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -64,27 +65,17 @@ const DialogPostForm = () => {
 
   return (
     <>
-      <div className={classes.postButtonContainer}>
-        <Button
-          className={classes.postButtonLarge}
-          color="primary"
+      <div >
+       <IconButton color="primary"
+       size="small"
+        aria-label="add"
           id="header-post-button"
           onClick={handleOpen}
-          variant="contained"
-        >
-          Post
-        </Button>
-        <IconButton
-          classes={{ root: classes.iconButtonRoot }}
-          color="primary"
-          disableFocusRipple
-          disableRipple
-          id="header-post-button"
-          onClick={handleOpen}
-          variant="contained"
-        >
-          <SendIcon />
-        </IconButton>
+          variant="outlined">
+           <AddIcon />
+      </IconButton>
+
+
       </div>
       <Dialog
         fullScreen
@@ -112,7 +103,7 @@ const DialogPostForm = () => {
               fullWidth
               multiline
               onChange={handleChange}
-              placeholder="What's on your mind?"
+              placeholder="What would you like to post today?"
               rowsMax={5}
               spellCheck
               value={postText}
@@ -123,6 +114,8 @@ const DialogPostForm = () => {
           <Button
             onClick={handleClose}
             variant="contained"
+            color="secondary"
+            size="small"
           >
             Cancel
           </Button>
@@ -130,7 +123,8 @@ const DialogPostForm = () => {
             color="primary"
             disabled={loading || postText.trim().length === 0}
             onClick={handleSubmit}
-            variant="contained"
+            variant="outlined"
+            size="small"
           >
             Post
             {loading && <CircularProgress />}

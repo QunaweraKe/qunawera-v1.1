@@ -132,7 +132,7 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <DetailsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="View more"  className={classes.listItemSize}/>
+          <ListItemText primary="More details"  className={classes.listItemSize}/>
         </MenuItem>
            <MenuItem
           onClick={() => (
@@ -143,6 +143,10 @@ const PostItem = ({ expandReplies, postId }) => {
             <EmojiPeopleIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Author's Profile" className={classes.listItemSize}/>
+          <ListItemIcon>
+            <EmojiPeopleIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="   UNFOLLOW TO BE MADE HERE" className={classes.listItemSize}/>
         </MenuItem>
          {post.is_author
           && (

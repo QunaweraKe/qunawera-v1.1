@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
   },
   forgot:{
 
-    marginTop: theme.spacing(0),
+    marginTop: theme.spacing(5),
      marginBottom: theme.spacing(1),
     textAlign: 'left',
-    fontSize:12,
+    fontSize:15,
     letterSpacing:'2',
 
   },

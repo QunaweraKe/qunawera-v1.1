@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
      marginBottom: theme.spacing(2),
     textAlign: 'center',
-    fontSize:12,
+    fontSize:15,
    fontWeight:600,
    letterSpacing:'2',
   },

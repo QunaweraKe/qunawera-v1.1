@@ -33,9 +33,9 @@ const Logout = React.forwardRef((_, ref) => {
         <LogoutIcon fontSize="small" />
       </ListItemIcon>
       <ListItemText
-        primary={`Logout out @${user.slug}`}
+        primary={`Logout`}
         primaryTypographyProps={{
-          variant: 'body2',
+          variant: 'body6',
         }}
       />
     </MenuItem>
