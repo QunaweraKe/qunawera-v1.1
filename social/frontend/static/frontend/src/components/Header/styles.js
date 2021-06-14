@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navList: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+    elevation:3,
     '& .MuiButton-root': {
       fontSize: 20,
       height: 45,

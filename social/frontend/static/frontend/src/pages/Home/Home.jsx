@@ -11,9 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import Tooltip from '@material-ui/core/Tooltip';
-import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import SortIcon from '@material-ui/icons/Sort';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
+
+
 
 // Local
 import IndexImage from '../../components/Files/Images/repair.svg';
@@ -60,15 +59,17 @@ const Home = ( ) => {
       <AuthLayout >
         <SubHeading>
           <MobileMenu />
-          <Typography variant="h6" color="primary" style={{fontWeight:"bold"}} >
+            <DialogPostForm/>
+          <Typography variant="h6" color="primary" style={{fontWeight:"bold",marginLeft:"90px"}} >
             {APP_NAME}
           </Typography>
-          <Grid container justify="right">
+          <Grid container justify="center">
+
            <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
             </Grid>
              <Grid >
 
-             <DialogPostForm/>
+
 
               </Grid >
               <Grid >
@@ -89,45 +90,6 @@ const Home = ( ) => {
               </Grid>
         </SubHeading>
         <Heading>
-
-
-    <Grid  container justify="center">
-
-<ButtonGroup variant="outlined" color="primary" size="small">
-
-
-          <Button
-               color='primary'
-              component={Link}
-              endIcon={(
-                <Badge
-                  badgeContent={unreadNotificationsCount}
-                  color="primary"
-                >
-                   <NOutlinedIcon/>
-
-                </Badge>
-              )}
-              size='small'
-              to={route.notifications}
-            >
-              <span className="nav-button-text" style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}>Activities</span>
-            </Button>
-
-                 <Button
-              color='primary'
-              component={Link}
-              size='small'
-              endIcon={<EmojiObjectsIcon/>}
-              to={route.recommendedPosts}
-
-            >
-
-              <span style={{fontSize:"13px",color:"primary",fontWeight:"bold"}}> Recommended Tasks</span>
-            </Button>
-
-         </ButtonGroup >
-           </Grid>
 
         </Heading>
 

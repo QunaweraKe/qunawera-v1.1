@@ -5,15 +5,21 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     display: 'flex',
     flexWrap: 'wrap',
+
   },
   headerAvatar: {
     marginRight: 1,
   },
+ headerItem:{
+  marginRight:2,
 
+ },
 
 
   headerTime : {
-     fontSize:13,
+     fontSize:12,
+     fontWeight:"bold",
+     marginLeft:2,
   },
 
 }));

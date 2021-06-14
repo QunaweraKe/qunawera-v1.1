@@ -3,6 +3,12 @@ import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 // Material UI
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import NIcon from '@material-ui/icons/Notifications';
+import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import {sizing} from '@material-ui/system';
 import Badge from '@material-ui/core/Badge';
@@ -29,7 +35,7 @@ import useStyles from './styles';
 const Header = () => {
   const classes = useStyles();
   const location = useLocation();
-
+  const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
 
   const active = (pathname) => location.pathname === pathname;
@@ -42,6 +48,7 @@ const Header = () => {
         <List
           className={classes.navList}
           component="nav"
+
         >
           <ListItem disableGutters>
             <Button
@@ -103,8 +110,103 @@ const Header = () => {
             </Button>
           </ListItem>
         </List>
+           <Divider light/>
+
+             <List
+          className={classes.navList}
+          component="nav"
+
+        >
+          <ListItem disableGutters>
+           <Button
+              color={active(route.notifications) ? 'primary' : 'default'}
+              component={Link}
+              startIcon={(
+                <Badge
+                  badgeContent={unreadNotificationsCount}
+                  color="primary"
+                >
+                  {active(route.notifications)
+                    ? <NIcon />
+                    : <NOutlinedIcon />}
+                </Badge>
+              )}
+              size="large"
+              to={route.notifications}
+            >
+              <span className="nav-button-text">Activities</span>
+            </Button>
+          </ListItem>
+          <ListItem disableGutters>
+            <Button
+              color={
+                active(route.profilePosts(user.slug))  ? 'primary' : 'secondary.main' }
+              component={Link}
+              size="large"
+              startIcon={
+                active(route.profilePosts(user.slug))
+                  ? <AccountCircleIcon />
+                  : <AccountCircleOutlinedIcon />
+              }
+              to={route.profilePosts(user.slug)}
+            >
+              <span className="nav-button-text">Your Posts</span>
+            </Button>
+          </ListItem>
 
 
+          <ListItem disableGutters>
+            <Button
+              color={active(route.settings) ?  'primary' : 'secondary.main'}
+              component={Link}
+              size="large"
+              startIcon={
+                active(route.settings)
+                  ? <ThumbUpIcon />
+                  : <ThumbUpOutlinedIcon />
+              }
+              to={route.settings}
+            >
+              <span className="nav-button-text">Liked Posts</span>
+            </Button>
+          </ListItem>
+           <ListItem disableGutters>
+            <Button
+              color={active(route.search) ? 'primary' : 'default'}
+              component={Link}
+              size="large"
+              startIcon={<SearchIcon />}
+              to={route.search}
+            >
+              <span className="nav-button-text">Help</span>
+            </Button>
+          </ListItem>
+           <ListItem disableGutters>
+            <Button
+              color={active(route.recommendedPosts) ? 'primary' : 'default'}
+              component={Link}
+              size="large"
+              startIcon={<EmojiObjectsIcon/>}
+              to={route.recommendedPosts}
+            >
+              <span className="nav-button-text">Recommended</span>
+            </Button>
+          </ListItem>
+        </List>
+ <Divider light/>
+ <List>
+    <ListItem disableGutters>
+            <Button
+              color={active(route.recommendedPosts) ? 'primary' : 'default'}
+              component={Link}
+              size="large"
+              startIcon={<EmojiObjectsIcon/>}
+              to={route.recommendedPosts}
+            >
+              <span className="nav-button-text">Logout</span>
+            </Button>
+          </ListItem>
+ </List>
       </div>
 
     </div>
@@ -114,3 +216,4 @@ const Header = () => {
 export default Header;
 
 //TODO:Add activity  feed to replace home
+//TOD0:implement LOGOUT
