@@ -16,6 +16,7 @@ import Alert from '@material-ui/lab/Alert';
 import { shadows } from '@material-ui/system';
 import { sizing } from '@material-ui/system';
 // Local
+
 import Footer from '../../components/Footer';
 import CircularProgress from '../../components/CircularProgress';
 import PageTitle from '../../components/PageTitle';
@@ -33,17 +34,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState('')
   const { errors, loading } = useUI(key.createUser, null, false);
-  const validate = (value) => {
 
-    if (validator.isStrongPassword(value, {
-      minLength: 8, minLowercase: 1,
-      minUppercase: 1, minNumbers: 1, minSymbols: 1
-    })) {
-      setErrorMessage("Strong password")
-    } else {
-      setErrorMessage('Your password is weak')
-    }
-  }
 
   const [formData, setFormData] = React.useState({
     email: '',
@@ -63,7 +54,7 @@ const Register = () => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
-      [event.target.password]: validate(event.target.value),
+
     });
   };
 
@@ -168,20 +159,7 @@ const Register = () => {
                 value={formData.password}
                 InputLabelProps={{style:{fontSize:14}}}
               />
-              <Grid container spacing={2}>
-              <Grid item>
 
-              <HelpOutline className={classes.helpOutline}/>
-
-              </Grid>
-              <Grid item>
-              <span style={{
-          fontWeight: '500px',
-          fontSize:"10px",
-          color: 'green',
-        }}>{errorMessage}</span>
-        </Grid>
-        </Grid>
               </Grid >
 
             <Grid item xs={12} sm={6}>
