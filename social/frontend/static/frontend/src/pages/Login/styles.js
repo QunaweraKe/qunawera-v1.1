@@ -13,21 +13,21 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 450,
   },
   formField: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(0),
   },
   register: {
     marginTop: theme.spacing(2),
     textAlign: 'center',
-    fontSize:12,
+    fontSize:15,
     fontWeight:600,
      letterSpacing:'2',
      marginBottom:theme.spacing(3),
   },
   forgot:{
 
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(0),
      marginBottom: theme.spacing(1),
-    textAlign: 'left',
+    textAlign: 'right',
     fontSize:15,
     letterSpacing:'2',
 

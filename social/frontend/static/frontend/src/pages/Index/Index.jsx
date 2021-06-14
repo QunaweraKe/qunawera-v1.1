@@ -34,7 +34,7 @@ const Index = () => {
       <PageTitle title="Welcome" />
 
     <div className={classes.indexLayout}>
-     <Card variant="outlined" className={classes.root}  style={{boxShadow: '0px 6px  rgba(0,0,0,0.5)'}}>
+     <Card variant="outlined" className={classes.root}  style={{boxShadow: '6px 6px  rgba(0,0,0,0.5)'}}>
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -101,7 +101,7 @@ const Index = () => {
             </Button>
              <Grid container spacing={0}>
             <Grid item>
-            <Button disabled disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to </Button>
+            <Button disabled disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to our </Button>
 
             </Grid>
              <Grid item style={{marginTop:"4px",marginLeft:"-10px"}}>

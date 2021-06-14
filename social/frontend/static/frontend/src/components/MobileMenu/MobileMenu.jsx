@@ -98,7 +98,7 @@ const MobileMenu = () => {
            <Grid item>
 
           <Typography variant="subtitle1">
-            Username  &#183; {user.display_name}
+           {user.display_name}  &#183;
           </Typography>
            </Grid>
             <Grid item>

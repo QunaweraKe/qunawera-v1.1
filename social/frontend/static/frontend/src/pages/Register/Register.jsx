@@ -41,7 +41,7 @@ const Register = () => {
     })) {
       setErrorMessage("Strong password")
     } else {
-      setErrorMessage('Your password is weak,provide at least 8 characters,1 uppercase & 1 symbol')
+      setErrorMessage('Your password is weak')
     }
   }
 
@@ -72,7 +72,7 @@ const Register = () => {
       <PageTitle title="Register" />
 
       <Container className={classes.container}>
-        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '0px 6px  rgba(0,0,0,0.2)'}}>
+        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '6px 6px  rgba(0,0,0,0.2)'}}>
           <CardContent>
 
             <Typography

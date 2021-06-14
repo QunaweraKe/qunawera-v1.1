@@ -60,7 +60,7 @@ const Home = ( ) => {
         <SubHeading>
           <MobileMenu />
             <DialogPostForm/>
-          <Typography variant="h6" color="primary" style={{fontWeight:"bold",marginLeft:"90px"}} >
+          <Typography variant="h6" color="primary" style={{fontWeight:"bold",marginLeft:"10vw"}} >
             {APP_NAME}
           </Typography>
           <Grid container justify="center">

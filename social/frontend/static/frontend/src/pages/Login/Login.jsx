@@ -70,7 +70,7 @@ const Login = () => {
       <PageTitle title="Login" />
 
       <Container className={classes.container}>
-        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '0px 6px  rgba(0,0,0,0.2)'}}>
+        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '6px 6px  rgba(0,0,0,0.2)'}}>
           <CardContent>
 
             <Typography
@@ -102,7 +102,7 @@ const Login = () => {
                 error={!isEmpty(errors)}
                 fullWidth
                 id="login"
-                label="Username Or Email"
+                label="Username / Email"
                 name="login"
                 onChange={handleChange}
                 type="text"
@@ -123,10 +123,6 @@ const Login = () => {
                 type={showPassword ?  'password':'text' }
                 value={formData.password}
                 InputLabelProps={{style:{fontSize:14}}}
-
-
-
-
               />
 
 
