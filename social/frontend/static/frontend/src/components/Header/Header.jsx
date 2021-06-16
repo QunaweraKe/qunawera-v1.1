@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 // Material UI
+import LogoutIcon from '@material-ui/icons/ExitToApp';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
@@ -26,18 +27,21 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 
 // Local
-
+import Footer from '../Footer';
 import { route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
-import { selectUser } from '../../redux/user';
+import { selectUser, logoutUser } from '../../redux/user';
 import useStyles from './styles';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const location = useLocation();
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
-
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
   const active = (pathname) => location.pathname === pathname;
 
   return (
@@ -170,17 +174,7 @@ const Header = () => {
               <span className="nav-button-text">Liked Posts</span>
             </Button>
           </ListItem>
-           <ListItem disableGutters>
-            <Button
-              color={active(route.search) ? 'primary' : 'default'}
-              component={Link}
-              size="large"
-              startIcon={<SearchIcon />}
-              to={route.search}
-            >
-              <span className="nav-button-text">Help</span>
-            </Button>
-          </ListItem>
+          
            <ListItem disableGutters>
             <Button
               color={active(route.recommendedPosts) ? 'primary' : 'default'}
@@ -197,16 +191,17 @@ const Header = () => {
  <List>
     <ListItem disableGutters>
             <Button
-              color={active(route.recommendedPosts) ? 'primary' : 'default'}
-              component={Link}
               size="large"
-              startIcon={<EmojiObjectsIcon/>}
-              to={route.recommendedPosts}
+              startIcon={<LogoutIcon/>}
+              onClick={handleLogout}
             >
               <span className="nav-button-text">Logout</span>
             </Button>
           </ListItem>
+         
  </List>
+ <Divider light/>
+  <Footer/>
       </div>
 
     </div>

@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header';
 import RecommendedUsers from '../RecommendedUsers';
 import RecommendedPosts from '../RecommendedPosts';
-import UserControl from '../UserControl';
 import {
   getUnreadNotificationsCount,
   selectUnreadNotificationsCount,

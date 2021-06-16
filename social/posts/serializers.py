@@ -55,6 +55,7 @@ class PostSerializer(BasePostSerializer):
         fields = BasePostSerializer.Meta.fields + [
             "reply_ids",
             "repost_ids",
+            "created_at",
         ]
 
 

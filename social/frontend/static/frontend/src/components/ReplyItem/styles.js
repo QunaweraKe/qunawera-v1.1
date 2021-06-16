@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   displayName: {
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(2),
   },
   likeContainer: {
     alignItems: 'center',
@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
   textAndInteractContainer: {
     marginLeft: theme.spacing(2),
+  },
+  displayDate: {
+    marginLeft: theme.spacing(5),
+    fontWeight:"bold",
+    fontSize:10,
+    marginTop:theme.spacing(1),
+    
   },
 }));
 

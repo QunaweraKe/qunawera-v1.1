@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
 import Divider from '@material-ui/core/Divider';
@@ -27,7 +28,7 @@ import useStyles from './styles';
 const ReplyItem = ({ replyId }) => {
   const classes = useStyles();
 
-
+   dayjs.extend(relativeTime);
   const reply = useSelector((s) => selectPost(s, replyId));
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,7 +42,7 @@ const ReplyItem = ({ replyId }) => {
   };
 
   return (
-
+<>
     <div className={classes.root}>
       <Divider light  variant="inset"/>
       <Avatar
@@ -72,8 +73,9 @@ const ReplyItem = ({ replyId }) => {
               {reply.body}
 
             </Typography>
-
+        
           </div>
+          
           {reply.is_author
             && (
               <div className={classes.control}>
@@ -109,12 +111,18 @@ const ReplyItem = ({ replyId }) => {
                     postId={reply.id}
                   />
                 </Menu>
+                    <Typography className={classes.displayDate}>
+       {dayjs(reply.created_at).fromNow()}
+         </Typography>
               </div>
             )}
         </div>
 
       </div>
+     
     </div>
+ 
+         </>
 
   );
 };
