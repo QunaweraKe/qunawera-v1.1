@@ -5,10 +5,14 @@ import { useDispatch } from 'react-redux';
 // Material UI
 import Snackbar from '@material-ui/core/Snackbar';
 
+
 import Alert from '@material-ui/lab/Alert';
 
 // Local
 import { unsetToast } from '../../redux/ui';
+
+
+
 
 const Toast = ({ message, severity }) => {
   const dispatch = useDispatch();
@@ -26,14 +30,15 @@ const Toast = ({ message, severity }) => {
   return (
     <Snackbar
       open={open}
-      autoHideDuration={4000}
+      autoHideDuration={3000}
       onClose={handleClose}
+      
     >
       <Alert
-        elevation={6}
+        elevation={3}
         onClose={handleClose}
         severity={severity}
-        variant="filled"
+        color="info"
       >
         {message}
       </Alert>
