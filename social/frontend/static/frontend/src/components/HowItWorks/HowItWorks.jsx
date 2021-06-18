@@ -45,8 +45,8 @@ const HowItWorks = () => {
 
   return (
    <div>
-    <Button style={{fontWeight:"bold",fontSize:"12px"}} color="secondary" onClick={handleClickOpen('paper')} size="small" >
-         How It WOrks
+    <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
+         How It Works
       </Button>
 
      <Dialog

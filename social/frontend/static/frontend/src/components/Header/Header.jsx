@@ -186,9 +186,9 @@ const Header = () => {
               <span className="nav-button-text">Recommended</span>
             </Button>
           </ListItem>
-        </List>
+      
  <Divider light/>
- <List>
+
     <ListItem disableGutters>
             <Button
               size="large"
