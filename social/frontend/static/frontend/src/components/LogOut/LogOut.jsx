@@ -11,10 +11,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
-
+import { Typography } from '@material-ui/core';
 
 //local
-import { selectUser, logoutUser } from '../../redux/user';
+import { logoutUser } from '../../redux/user';
+import { APP_NAME} from '../../constants';
 
 //Function to slide up
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -62,20 +63,20 @@ const LogOut = () => {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title"variant="h2">{"Logout"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title"variant="h2" color="primary">{"Qunawera Logout"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-           Are you sure you want to logout?
+          <Typography variant="h7" color="black">Are you sure you want to logout?</Typography> 
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="secondary">
+          <Button onClick={handleClose} color="secondary" size="small">
            Cancel
           </Button>
          
           <Button
               size="small"
-              
+              color="primary"
               onClick={handleLogout}
             >
               <span className="nav-button-text">Agree</span>
