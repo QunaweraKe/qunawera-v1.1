@@ -1,23 +1,21 @@
 import React from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 // Material UI
-import LogoutIcon from '@material-ui/icons/ExitToApp';
+
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import NIcon from '@material-ui/icons/Notifications';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-import {sizing} from '@material-ui/system';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Box from '@material-ui/core/Box';
+
 import ListIcon from '@material-ui/icons/List';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -28,20 +26,19 @@ import SearchIcon from '@material-ui/icons/Search';
 
 // Local
 import Footer from '../Footer';
+import LogOut from '../LogOut';
 import { route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
-import { selectUser, logoutUser } from '../../redux/user';
+import { selectUser} from '../../redux/user';
 import useStyles from './styles';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  
   const classes = useStyles();
   const location = useLocation();
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
-  const handleLogout = () => {
-    dispatch(logoutUser());
-  };
+  
   const active = (pathname) => location.pathname === pathname;
 
   return (
@@ -188,19 +185,13 @@ const Header = () => {
           </ListItem>
       
  <Divider light/>
-
-    <ListItem disableGutters>
-            <Button
-              size="large"
-              startIcon={<LogoutIcon/>}
-              onClick={handleLogout}
-            >
-              <span className="nav-button-text">Logout</span>
-            </Button>
+         <ListItem disableGutters>
+    
+          <LogOut/>
           </ListItem>
-         
+          <Divider light/>  
  </List>
- <Divider light/>
+
   <Footer/>
       </div>
 
@@ -209,6 +200,4 @@ const Header = () => {
 };
 
 export default Header;
-
-//TODO:Add activity  feed to replace home
-//TOD0:implement LOGOUT
+//Add carousel to first time engagement

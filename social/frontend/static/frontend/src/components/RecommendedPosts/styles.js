@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(0.5),
     top: theme.spacing(0.5),
   },
+   rootCard: {
+    minWidth: 275,
+  },
   root: {
     ...theme.custom.borders,
     backgroundColor:theme.palette.grey[50] ,

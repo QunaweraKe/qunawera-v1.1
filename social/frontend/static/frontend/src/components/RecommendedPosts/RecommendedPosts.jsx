@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // Material UI
+import Divider from '@material-ui/core/Divider';
+import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
@@ -54,6 +56,8 @@ const RecommendedPosts = () => {
     } else if (posts.length) {
       rendered = (
         <>
+        <Card classes={ classes.rootCard} style={{marginLeft:"5px",width:"95%"}}>
+        <CardContent>
           <List
             className={classes.list}
             disablePadding
@@ -78,9 +82,15 @@ const RecommendedPosts = () => {
                   }}
                   secondary={post.body}
                 />
+                  <Divider />
               </ListItem>
+              
             ))}
+           
           </List>
+          
+          </CardContent>
+          </Card>
           <ShowMoreRecommended to={route.recommendedPosts} />
         </>
       );
@@ -92,7 +102,7 @@ const RecommendedPosts = () => {
           variant="body2"
           justify="center"
         >
-       <IndexImage2 style={{width:"40%",height:"40%"}}/>
+       <IndexImage2 style={{width:"60%",height:"60%"}}/>
         </Typography>
       );
     }
@@ -114,7 +124,7 @@ const RecommendedPosts = () => {
           </Button>
         )}
         className={classes.cardHeader}
-        title="Recently posted"
+        title="Recently Tasks"
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3 ',

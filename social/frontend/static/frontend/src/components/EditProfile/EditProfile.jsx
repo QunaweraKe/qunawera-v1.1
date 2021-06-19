@@ -84,16 +84,7 @@ const EditProfile = () => {
           >
             Edit profile
           </Typography>
-          <Button
-            color="primary"
-            disabled={loading}
-            onClick={handleSubmit}
-            size="small"
-            variant="contained"
-          >
-            Save
-            {loading && <CircularProgress />}
-          </Button>
+     
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -129,7 +120,19 @@ const EditProfile = () => {
             type="text"
             value={formData.website}
           />
+             <Button
+            color="primary"
+            disabled={loading}
+            onClick={handleSubmit}
+            size="small"
+            variant="outlined"
+            
+          >
+            Save
+            {loading && <CircularProgress />}
+          </Button>
         </DialogContent>
+          
       </Dialog>
     </>
   );
