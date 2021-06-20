@@ -11,13 +11,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize:8,
   },
   replyHeader:{
-
-
-    marginBottom:10,
-    marginTop:5,
-    fontWeight:"bold",
-    alignText:"right",
     
+    fontWeight:"bold",
     textDecoration:"none"
   },
   divider:{

@@ -80,7 +80,9 @@ const RecommendedPosts = () => {
                     component: Link,
                     to: route.profilePosts(post.author.slug),
                   }}
-                  secondary={post.body}
+                  secondary={post.body.length > 250 ?
+                    `${post.body.substring(0, 250)}...` : post.body
+                  }
                   secondaryTypographyProps={{
                     component: Link,
                     className: classes.displayPost,
@@ -130,7 +132,7 @@ const RecommendedPosts = () => {
           </IconButton>
         )}
         className={classes.cardHeader}
-        title="Recently Posted"
+        title="Recent Posts"
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3 ',

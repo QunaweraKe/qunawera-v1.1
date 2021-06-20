@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
     borderBottomWidth: 1,
   },
   displayName: {
-    color: theme.palette.text.primary,
+    color: "black",
     marginBottom: theme.spacing(0.5),
     textDecoration: 'none',
 
     '&:hover': {
-      color: theme.palette.primary.main,
       transition: 'color 0.25s ease',
+      textDecoration: 'underline',
     },
   },
   displayPost:{
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     '& li': {
-      borderBottom: `1px solid ${theme.palette.grey[50]}`,
+      borderBottom: `5px solid ${theme.palette.grey[50]}`,
 
       '&:last-child': {
         borderBottom: 'none',

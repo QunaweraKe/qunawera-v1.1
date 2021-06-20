@@ -16,14 +16,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import { borders } from '@material-ui/system';
 import DetailsIcon from '@material-ui/icons/UnfoldMore';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import LoopIcon from '@material-ui/icons/Loop';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-
+import CardHeader from '@material-ui/core/CardHeader';
 // Local
 
 import Avatar from '../Avatar';
@@ -175,6 +174,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
               <Typography  variant="subtitle8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
                   {post.body.charAt(0).toUpperCase()+post.body.slice(1)}
+                  
               </Typography >
 
             )}
@@ -267,7 +267,7 @@ const PostItem = ({ expandReplies, postId }) => {
               className={classes.replyContent}
 
             >
-            <Typography  className={classes.replyHeader} variant="h7" color="textSecondary" >
+            <Typography  className={classes.replyHeader} variant="h6" color="textSecondary" >
             Comments
             </Typography>
               <NextButton
