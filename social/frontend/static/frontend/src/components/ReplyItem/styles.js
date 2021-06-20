@@ -32,10 +32,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
   },
   displayDate: {
-    marginLeft: theme.spacing(5),
+    marginLeft: theme.spacing(0),
     fontWeight:"bold",
     fontSize:10,
-    marginTop:theme.spacing(1),
+    color:theme.palette.textSecondary,
+    marginTop:theme.spacing(2),
     
   },
 }));

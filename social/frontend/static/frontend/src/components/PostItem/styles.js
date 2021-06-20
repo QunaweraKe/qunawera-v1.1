@@ -10,6 +10,16 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 10,
     fontSize:8,
   },
+  replyHeader:{
+
+
+    marginBottom:10,
+    marginTop:5,
+    fontWeight:"bold",
+    alignText:"right",
+    
+    textDecoration:"none"
+  },
   divider:{
   padding:1,
   height:2,

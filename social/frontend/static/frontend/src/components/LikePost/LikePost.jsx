@@ -7,8 +7,6 @@ import { ThumbsUpIcon } from 'evergreen-ui'
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 
 // Local
 import CircularProgress from '../CircularProgress';
@@ -60,7 +58,7 @@ const LikePost = ({ postId, size, type }) => {
         result = `Liked by ${likedLength} ${pluralizeOther(likedLength)}`;
       }
     } else {
-      result = `Be the first to like this ${type}!`;
+      result = `Like `;
     }
     return result;
   };
@@ -92,7 +90,7 @@ const LikePost = ({ postId, size, type }) => {
 LikePost.propTypes = {
   postId: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['post', 'reply']).isRequired,
+  type: PropTypes.oneOf(['post', 'comment']).isRequired,
 };
 
 export default LikePost;

@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     '& li': {
-      borderBottom: `0px solid ${theme.palette.grey[300]}`,
+      borderBottom: `1px solid ${theme.palette.grey[50]}`,
 
       '&:last-child': {
         borderBottom: 'none',

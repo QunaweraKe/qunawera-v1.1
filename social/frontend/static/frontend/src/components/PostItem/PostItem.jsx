@@ -25,7 +25,7 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
 // Local
-import { REPLIES } from '../../constants';
+
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import NextButton from '../NextButton';
@@ -267,8 +267,8 @@ const PostItem = ({ expandReplies, postId }) => {
               className={classes.replyContent}
 
             >
-            <Typography variant="subtitle2" style={{fontWeight:"600px",marginBottom:"10px",alignText:"center",marginLeft:"40%",textDecoration:"underline"}}>
-              Comments
+            <Typography  className={classes.replyHeader} variant="h7" color="textSecondary" >
+            Comments
             </Typography>
               <NextButton
                 callback={handleNext}

@@ -11,17 +11,15 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import Typography from '@material-ui/core/Typography';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import Grid from '@material-ui/core/Grid';
 // Local
 import Avatar from '../Avatar';
 import TextLink from '../TextLink'
 import DeletePost from '../DeletePost';
 import EditPost from '../EditPost';
-
+import LikePost from '../LikePost';
 import { route } from '../../constants';
-
 import { selectPost } from '../../redux/post';
-
 import useStyles from './styles';
 
 const ReplyItem = ({ replyId }) => {
@@ -112,13 +110,35 @@ const ReplyItem = ({ replyId }) => {
                 </Menu>
                    
               </div>
+               
             )}
-             <Typography className={classes.displayDate}>
-       {dayjs(reply.created_at).fromNow()}
-         </Typography>
+           
+           
         </div>
+        <Grid container spacing={2}>
+        <Grid item >
+        <Typography className={classes.displayDate}>
+             &middot; {dayjs(reply.created_at).fromNow()}
+         </Typography>
+         </Grid>
+      <Grid item >
+        <div className={classes.likeContainer}>
+        
+               <LikePost
+                 postId={reply.id}
+                 size="small"
+                 type="reply"
+               />
+             </div>
+             </Grid>
+           
+           
+     
 
+      
+      </Grid>
       </div>
+
      
     </div>
  
