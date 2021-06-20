@@ -49,7 +49,7 @@ const NotificationItem = ({ notification }) => {
         onClick={handleRemove}
       >
         <DeleteIcon
-          color="primary"
+          color="error"
           fontSize="small"
         />
         {loading && <CircularProgress />}

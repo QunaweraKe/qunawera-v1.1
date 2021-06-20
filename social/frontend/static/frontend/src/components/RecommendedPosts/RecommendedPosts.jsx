@@ -7,18 +7,18 @@ import Divider from '@material-ui/core/Divider';
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import RefreshIcon from '@material-ui/icons/Refresh';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 // Local
 import Avatar from '../Avatar';
 import Loading from '../Loading';
 import ShowMoreRecommended from '../ShowMoreRecommended';
-import IndexImage2 from '../../components/Files/Images/notFound.svg';
+import NotAvailable from '../../components/Files/Images/notavailable.svg';
 import { route } from '../../constants';
 
 import useUI from '../../hooks/useUI';
@@ -56,7 +56,7 @@ const RecommendedPosts = () => {
     } else if (posts.length) {
       rendered = (
         <>
-        <Card classes={ classes.rootCard} style={{marginLeft:"5px",width:"95%"}}>
+        <Card classes={ classes.rootCard} style={{marginLeft:"0%",width:"100%"}}>
         <CardContent>
           <List
             className={classes.list}
@@ -81,6 +81,12 @@ const RecommendedPosts = () => {
                     to: route.profilePosts(post.author.slug),
                   }}
                   secondary={post.body}
+                  secondaryTypographyProps={{
+                    component: Link,
+                    className: classes.displayPost,
+                    to: route.postDetail(post.id),
+                    
+                  }}
                 />
                   <Divider />
               </ListItem>
@@ -102,7 +108,7 @@ const RecommendedPosts = () => {
           variant="body2"
           justify="center"
         >
-       <IndexImage2 style={{width:"60%",height:"60%"}}/>
+       <NotAvailable style={{width:"60%",height:"60%"}}/>
         </Typography>
       );
     }
@@ -113,18 +119,18 @@ const RecommendedPosts = () => {
     <Card classes={{ root: classes.root }}>
       <CardHeader
         action={(
-          <Button
+          <IconButton
             color="primary"
             className={classes.refreshButton}
             onClick={handleRefresh}
             variant="default"
             size="small"
           >
-           <RefreshIcon />
-          </Button>
+           <AutorenewIcon />
+          </IconButton>
         )}
         className={classes.cardHeader}
-        title="Recently Tasks"
+        title="Recently Posted"
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3 ',

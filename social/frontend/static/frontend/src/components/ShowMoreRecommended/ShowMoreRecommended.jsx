@@ -13,9 +13,9 @@ const ShowMoreRecommended = ({ to }) => {
     <TextLink
       className={classes.link}
       to={to}
-      variant="body2"
+      variant="body1"
     >
-      Show more
+     more options
     </TextLink>
   );
 };

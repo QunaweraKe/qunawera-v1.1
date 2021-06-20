@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
       transition: 'color 0.25s ease',
     },
   },
+  displayPost:{
+    textDecoration:"none!important",
+  },
   header: {
     alignItems: 'center',
     display: 'flex',
@@ -44,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   refreshButton: {
     color: theme.palette.text.primary,
     position: 'absolute',
-    right: theme.spacing(0.5),
+    left: theme.spacing(0.5),
     top: theme.spacing(0.5),
   },
    rootCard: {

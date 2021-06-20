@@ -8,13 +8,13 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 
-import RefreshIcon from '@material-ui/icons/Refresh';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 
 // Local
 import Loading from '../Loading';
 import RecommendedUsersItem from '../RecommendedUsersItem';
 import ShowMoreRecommended from '../ShowMoreRecommended';
-
+import NotAvailable from '../../components/Files/Images/notavailable.svg';
 import { route } from '../../constants';
 
 import useUI from '../../hooks/useUI';
@@ -73,7 +73,7 @@ const RecommendedUsers = () => {
           color="textSecondary"
           variant="body2"
         >
-          No users to show
+           <NotAvailable style={{width:"60%",height:"60%"}}/>
         </Typography>
       );
     }
@@ -89,7 +89,7 @@ const RecommendedUsers = () => {
             className={classes.refreshButton}
             onClick={handleRefresh}
           >
-            <RefreshIcon />
+            < AutorenewIcon/>
           </IconButton>
         )}
         className={classes.cardHeader}

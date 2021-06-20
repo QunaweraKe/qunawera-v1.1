@@ -2,18 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI
-import CardActions from '@material-ui/core/CardActions';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import WorldIcon from '@material-ui/icons/PublicTwoTone';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import shadows from '@material-ui/system';
+
 
 // Local
 import PageTitle from '../../components/PageTitle';
@@ -21,7 +16,7 @@ import Terms from '../../components/Terms';
 import Index2 from '../../components/Files/Images/index.svg';
 import './index.css'
 import Footer from '../../components/Footer';
-import IndexLoginForm from '../../components/IndexLoginForm';
+
 import { APP_NAME, route } from '../../constants';
 import useStyles from './styles';
 import DividerWithText from '../../components/DividerWithText';

@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   link: {
+    marginBottom:theme.spacing(2),
     backgroundColor: 'transparent',
     borderTopColor: theme.custom.border.color,
     borderTopStyle: theme.custom.border.style,
@@ -10,11 +11,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     padding: theme.spacing(1),
     textAlign: 'center',
-    textDecoration: 'none !important',
+    fontweight:"bold",
+    textDecoration: 'none!important',
 
     '&:hover, &:focus': {
       backgroundColor: theme.palette.grey[100],
       outline: 'none',
+      textDecoration: 'underline!important',
     },
   },
 }));

@@ -17,7 +17,6 @@ import Avatar from '../Avatar';
 import TextLink from '../TextLink'
 import DeletePost from '../DeletePost';
 import EditPost from '../EditPost';
-import LikePost from '../LikePost';
 
 import { route } from '../../constants';
 
@@ -111,11 +110,12 @@ const ReplyItem = ({ replyId }) => {
                     postId={reply.id}
                   />
                 </Menu>
-                    <Typography className={classes.displayDate}>
-       {dayjs(reply.created_at).fromNow()}
-         </Typography>
+                   
               </div>
             )}
+             <Typography className={classes.displayDate}>
+       {dayjs(reply.created_at).fromNow()}
+         </Typography>
         </div>
 
       </div>

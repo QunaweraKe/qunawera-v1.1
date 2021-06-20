@@ -9,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
   cardHeader: {
     ...theme.custom.borders,
     borderBottomWidth: 1,
+    marginLeft:theme.spacing(10)
+
   },
   displayName: {
     color: theme.palette.text.primary,
@@ -41,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   refreshButton: {
     color: theme.palette.text.primary,
     position: 'absolute',
-    right: theme.spacing(0.5),
+    left: theme.spacing(0.5),
     top: theme.spacing(0.5),
   },
   root: {
