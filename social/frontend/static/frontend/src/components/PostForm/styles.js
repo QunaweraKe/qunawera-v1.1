@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submitButtonContainer: {
     alignSelf: 'flex-end',
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(10),
   },
   inputBaseRoot: {
     paddingBottom: theme.spacing(2),
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     ...theme.custom.borders,
-    borderBottomWidth:5,
+    borderBottomWidth:10,
     padding: theme.spacing(2),
 
   },
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     flexGrow: 1,
     margin: theme.spacing(0, 3, 0, 2),
-    backgroundColor: theme.palette.grey[10],
+    backgroundColor: theme.palette.grey[50],
   },
 }));
 

@@ -66,6 +66,7 @@ const PostForm = () => {
             disabled={loading || postText.trim().length === 0}
             type="submit"
             size="small"
+            variant="filled"
           >
             Post
             {loading && <CircularProgress />}
