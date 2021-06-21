@@ -12,19 +12,31 @@ const CircularProgress = (props) => {
   const classes = useStyles();
 
   return (
+    <div className={classes.root}>
     <MuiCircularProgress
-      className={classes.buttonProgress}
+      className={classes.bottom} 
       size={size}
       thickness={thickness}
+    
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
+     < MuiCircularProgress
+      
+        disableShrink
+        className={classes.top} 
+        size={size}
+        thickness={thickness}
+        
+        {...rest}
+      />
+    </div>
   );
 };
 
 CircularProgress.defaultProps = {
-  size: 25,
-  thickness: 5,
+  size: 20,
+  thickness: 10,
 };
 
 CircularProgress.propTypes = {
