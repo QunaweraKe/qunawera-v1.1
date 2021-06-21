@@ -11,11 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    maxWidth: 300,
+    maxWidth: 400,
     textAlign: 'center',
   },
   text: {
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(2),
+    marginLeft:theme.spacing(1),
+    fontWeight:"bold"
   },
   title: {
     marginBottom: theme.spacing(2),

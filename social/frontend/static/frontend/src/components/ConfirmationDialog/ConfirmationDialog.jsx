@@ -34,6 +34,7 @@ const ConfirmationDialog = ({
           <Typography
             className={classes.title}
             variant="h6"
+            color="error"
           >
             {title}
           </Typography>
@@ -41,6 +42,7 @@ const ConfirmationDialog = ({
       <Typography
         className={classes.text}
         color="textSecondary"
+
       >
         {text}
       </Typography>
@@ -48,7 +50,8 @@ const ConfirmationDialog = ({
         <Button
           className={classes.button}
           onClick={onclickfalse}
-          variant="contained"
+          color="secondary"
+          variant="outlined"
         >
           Cancel
         </Button>
@@ -57,7 +60,7 @@ const ConfirmationDialog = ({
           color="primary"
           disabled={loading}
           onClick={onclicktrue}
-          variant="contained"
+          variant="outlined"
         >
           {buttontext}
           {loading && <CircularProgress />}

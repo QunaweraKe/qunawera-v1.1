@@ -72,7 +72,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         />
       </MenuItem>
       <ConfirmationDialog
-        buttontext="Yes,Delete"
+        buttontext="Agree"
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}
@@ -80,9 +80,9 @@ const DeletePost = React.forwardRef((props, ref) => {
         onClose={handleClose}
         onEntered={handleEntered}
         text={`
-          This can’t be undone and it will be remove everything associated to this post.
+          This action can’t be undone and it will be remove everything associated to this item .
         `}
-        title={`Delete ${type}?`}
+        title={`Delete ${type}`}
       />
     </>
   );

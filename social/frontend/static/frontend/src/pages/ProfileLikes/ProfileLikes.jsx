@@ -76,24 +76,19 @@ const ProfileLikes = () => {
                 <NoData>
                   <Typography
                     paragraph
-                    variant="h6"
-                  >
-                    You havn&apos;t liked any posts
-                  </Typography>
-                  <Typography
+                    variant="h5"
                     color="textSecondary"
-                    paragraph
-                    variant="body2"
                   >
-                    The posts you like will show up here.
+                    You have not liked any post 
                   </Typography>
+                  
                   <Button
                     color="primary"
                     component={Link}
                     to={route.recommendedPosts}
-                    variant="contained"
+                    variant="outlined"
                   >
-                    Explore
+                  Look for more posts
                   </Button>
                 </NoData>
               ) : (

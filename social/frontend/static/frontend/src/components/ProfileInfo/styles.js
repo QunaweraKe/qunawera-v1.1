@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
-    backgroundColor: theme.palette.grey[300],
+    
+    backgroundColor: theme.palette.primary.main,
     backgroundImage: (profileUser) => (
       profileUser.profile?.image
         ? `url('${profileUser.profile.image}')`
@@ -14,10 +15,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
     borderStyle: 'solid',
     borderWidth: 5,
-    height: 160,
+    height: 200,
     marginTop: '-18%',
     position: 'relative',
-    width: 160,
+    width: 200,
+    marginLeft:250,
   },
   avatarAndFollow: {
     display: 'flex',
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     height: 200,
     position: 'relative',
     width: '100%',
+    borderColor: theme.palette.common.white,
   },
   bio: {
     marginTop: theme.spacing(1),

@@ -18,6 +18,7 @@ const PostParent = ({ className, post }) => {
       classes={{ root: classes.parentContainer }}
       className={className}
       variant="outlined"
+      elevation={3}
     >
       <PostHeader
         post={post}

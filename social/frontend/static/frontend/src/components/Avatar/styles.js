@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: (size) => size,
     width: (size) => size,
+   
   },
 }));
 

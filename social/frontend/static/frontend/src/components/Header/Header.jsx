@@ -138,35 +138,20 @@ const Header = () => {
               <span className="nav-button-text">Activities</span>
             </Button>
           </ListItem>
-          <ListItem disableGutters>
-            <Button
-              color={
-                active(route.profilePosts(user.slug))  ? 'primary' : 'secondary.main' }
-              component={Link}
-              size="large"
-              startIcon={
-                active(route.profilePosts(user.slug))
-                  ? <AccountCircleIcon />
-                  : <AccountCircleOutlinedIcon />
-              }
-              to={route.profilePosts(user.slug)}
-            >
-              <span className="nav-button-text">Your Posts</span>
-            </Button>
-          </ListItem>
+         
 
 
           <ListItem disableGutters>
             <Button
-              color={active(route.settings) ?  'primary' : 'secondary.main'}
+              color={active(route.profileLikes) ?  'primary' : 'secondary.main'}
               component={Link}
               size="large"
               startIcon={
-                active(route.settings)
+                active(route.profileLikes)
                   ? <ThumbUpIcon />
                   : <ThumbUpOutlinedIcon />
               }
-              to={route.settings}
+              to={route.profileLikes}
             >
               <span className="nav-button-text">Liked Posts</span>
             </Button>
