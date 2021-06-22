@@ -63,7 +63,8 @@ const LogOut = () => {
         aria-describedby="alert-dialog-slide-description"
       >
         
-        <DialogContent>
+        <DialogContent
+         dividers>
           <DialogContentText id="alert-dialog-slide-description">
           <Typography variant="h7" color="black">Are you sure you want to logout{"?"}</Typography> 
           </DialogContentText>

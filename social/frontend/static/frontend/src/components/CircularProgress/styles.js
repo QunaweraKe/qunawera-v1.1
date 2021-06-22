@@ -7,13 +7,7 @@ const useStyles = makeStyles({
   bottom: {
     color: "rgba(173,216,230,.5)",
   },
-  top: {
-    color: "rgba(255,136,0,.3)",
-    animationDuration: "700ms",
-    position: "absolute",
-    left: 0
-  },
- 
+
 
 
 });

@@ -89,32 +89,34 @@ const Repost = ({ postId }) => {
       >
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
-          <Typography variant="h6">
-            Repost Task
+          <Typography variant="subtitle1">
+            Repost
           </Typography>
         </DialogTitle>
         <DialogContent
-          dividers
+        
           className={classes.postContainer}
 
-        >
+        >  
           <div className={classes.avatarContainer}>
             <Avatar user={user} />
           </div>
           <div className={classes.contentContainer}>
-            <InputBase
+          
+          <PostParent post={post} />
+          <InputBase
               classes={{
                 root: classes.inputRoot,
               }}
               fullWidth
               multiline
               onChange={handleChange}
-              placeholder="What's your  reason for reposting?(optional)"
+            
+              placeholder="Additional information (optional)"
               rowsMax={7}
               spellCheck
               value={body}
             />
-            <PostParent post={post} />
           </div>
         </DialogContent>
         <DialogActions>
@@ -122,7 +124,7 @@ const Repost = ({ postId }) => {
             onClick={handleClose}
             variant="outlined"
             size="small"
-            color="blue"
+            color="secondary"
           >
             Cancel
           </Button>

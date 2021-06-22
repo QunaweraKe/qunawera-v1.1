@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(1),
   },
   inputNotchedOutline: {
-    border: 'none',
+    border: '2px',
   },
   inputRoot: {
     margin: theme.spacing(1, 0),

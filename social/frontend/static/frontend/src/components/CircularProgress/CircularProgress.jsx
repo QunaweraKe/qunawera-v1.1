@@ -21,15 +21,7 @@ const CircularProgress = (props) => {
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
-     < MuiCircularProgress
-      
-        disableShrink
-        className={classes.top} 
-        size={size}
-        thickness={thickness}
-        
-        {...rest}
-      />
+    
     </div>
   );
 };
