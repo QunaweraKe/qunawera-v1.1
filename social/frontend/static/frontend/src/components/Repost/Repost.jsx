@@ -86,6 +86,8 @@ const Repost = ({ postId }) => {
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
+        fullWidth
+  
       >
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />

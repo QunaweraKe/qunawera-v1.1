@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   avatar: {
     
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'rgba(255,165,0,.8)',
     backgroundImage: (profileUser) => (
       profileUser.profile?.image
         ? `url('${profileUser.profile.image}')`
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '-18%',
     position: 'relative',
     width: 200,
-    marginLeft:250,
+    marginLeft:"3%"
   },
   avatarAndFollow: {
     display: 'flex',

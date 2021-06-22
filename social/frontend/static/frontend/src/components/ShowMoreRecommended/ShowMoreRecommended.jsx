@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+//material ui
+
 
 // Local
 import TextLink from '../TextLink';
@@ -10,13 +12,18 @@ const ShowMoreRecommended = ({ to }) => {
   const classes = useStyles();
 
   return (
+   
     <TextLink
       className={classes.link}
       to={to}
       variant="body1"
+      
+    
     >
-     more options
+     Show more
     </TextLink>
+
+    
   );
 };
 

@@ -61,10 +61,11 @@ const LogOut = () => {
         onClose={handleClose}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
+        
       >
         
         <DialogContent
-         dividers>
+        >
           <DialogContentText id="alert-dialog-slide-description">
           <Typography variant="h7" color="black">Are you sure you want to logout{"?"}</Typography> 
           </DialogContentText>

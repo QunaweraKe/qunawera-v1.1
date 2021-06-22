@@ -77,6 +77,13 @@ const useStyles = makeStyles((theme) => ({
   fontSize:12,
 
   },
+  cardProps:{
+  backgroundColor:theme.palette.grey[50],
+
+  },
+  text:{
+  marginLeft:"1%"
+  },
 postBody: {
 marginTop:6,
 marginBottom:2,

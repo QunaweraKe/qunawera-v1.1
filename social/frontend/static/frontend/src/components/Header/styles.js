@@ -52,8 +52,8 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .MuiButton-root .nav-button-text': {
       display: 'none',
-      fontSize: 15,
-      fontWeight:900,
+      fontSize:16,
+      fontWeight:500,
 
       [theme.breakpoints.up('lg')]: {
         display: 'inline',

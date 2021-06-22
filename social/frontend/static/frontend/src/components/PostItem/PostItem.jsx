@@ -168,7 +168,8 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-           <Card style={{border:"none"}}d>
+           <Card className={classes.cardProps} >
+             <div className={classes.text}>
           {post.body
             && (
 
@@ -178,7 +179,7 @@ const PostItem = ({ expandReplies, postId }) => {
               </Typography >
 
             )}
-
+            </div>
 
               <Typography className={classes.postBody}  variant="body8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
           {post.parent && <PostParent post={post.parent} />}
