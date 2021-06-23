@@ -1,11 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
-import { selectUser } from '../../redux/user';
+import { Link } from 'react-router-dom';
+
 // Material UI
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Dialog from '@material-ui/core/Dialog';
 import Grid from '@material-ui/core/Grid';
-import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -14,10 +13,12 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 
 
+
 // Local
 import IndexImage from '../../components/Files/Images/repair.svg';
 import AuthLayout from '../../components/AuthLayout';
 import Heading from '../../components/Heading';
+import StepperSlide from '../../components/StepperSlide';
 import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
@@ -30,16 +31,22 @@ import DialogPostForm from '../../components/DialogPostForm';
 import useUI from '../../hooks/useUI';
 import useStyles from './styles';
 import { getFeed, key, selectFeed } from '../../redux/post';
-import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { APP_NAME, route } from '../../constants';
 
 
 const Home = ( ) => {
-  const user = useSelector(selectUser);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const dispatch = useDispatch();
-  const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
   const feed = useSelector(selectFeed);
-    const classes = useStyles();
+  const classes = useStyles();
   const { fetched, loading, nextLoading } = useUI(key.feed, key.feedNext);
 
   React.useEffect(() => {
@@ -110,6 +117,12 @@ const Home = ( ) => {
                 {APP_NAME}
                 !
               </Typography>
+              <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Finish  Your Profile
+      </Button>
+      <Dialog open={open} onClose={handleClose} >
+              <StepperSlide/>
+              </Dialog>
               <div>
               <Welcome  style={{height:"300px",width:"300px"}}/>
               </div>
@@ -120,15 +133,8 @@ const Home = ( ) => {
               >
                 We enable you get and post tasks around your location  .First you need to find some people around you  to follow.Let's get started!
               </Typography>
-              <Button
-                color="primary"
-                component={Link}
-                to={route.recommendedUsers}
-                variant="outlined"
-                size="small"
-              >
-                Let&apos;s go!
-              </Button>
+              
+             
             </NoData>
           )}
         />
@@ -146,7 +152,7 @@ const Home = ( ) => {
 export default Home;
 
 
-
+//todo add finish later on dialog
 
 
 

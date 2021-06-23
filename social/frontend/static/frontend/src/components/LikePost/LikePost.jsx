@@ -9,13 +9,10 @@ import Typography from '@material-ui/core/Typography';
 
 
 // Local
-import CircularProgress from '../CircularProgress';
 
-import useUI from '../../hooks/useUI';
 
 import {
   createLike,
-  key,
   removeLike,
   selectLiked,
   selectPost,
@@ -32,9 +29,9 @@ const LikePost = ({ postId, size, type }) => {
   const post = useSelector((s) => selectPost(s, postId));
   const isLiked = useSelector((s) => selectLiked(s, post.id, user.id));
 
-  const { loading } = useUI(key.like(post.id), null, false);
 
-  const handleLike = () => {
+  const handleLike= async (event) => {
+    event.preventDefault();
     if (isLiked) {
       dispatch(removeLike(post.id, user.id));
     } else {
@@ -68,13 +65,13 @@ const LikePost = ({ postId, size, type }) => {
       <IconButton
         className={classes.like}
         color={isLiked ? 'primary' : 'default'}
-        disabled={loading}
+      
         onClick={handleLike}
       >
         {isLiked
           ? <ThumbsUpIcon fontSize={size} />
           : <ThumbsUpIcon fontSize={size} />}
-        {loading && <CircularProgress />}
+        
       </IconButton>
       <Typography
         className={classes.likeText}

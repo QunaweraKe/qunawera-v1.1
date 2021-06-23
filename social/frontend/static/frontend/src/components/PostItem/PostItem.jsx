@@ -142,11 +142,9 @@ const PostItem = ({ expandReplies, postId }) => {
             <EmojiPeopleIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Author's Profile" className={classes.listItemSize}/>
-          <ListItemIcon>
-            <EmojiPeopleIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="   UNFOLLOW TO BE MADE HERE" className={classes.listItemSize}/>
+         
         </MenuItem>
+        
          {post.is_author
           && (
             <DeletePost
@@ -225,8 +223,9 @@ const PostItem = ({ expandReplies, postId }) => {
           <IconButton
             className={classes.replies}
             disabled={loading}
-            onClick={handleReplies}
-
+            onClick={() => (
+              history.push(route.postDetail(post.id))
+            )}
           >
 
 

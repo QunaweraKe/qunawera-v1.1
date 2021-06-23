@@ -27,8 +27,8 @@ const CircularProgress = (props) => {
 };
 
 CircularProgress.defaultProps = {
-  size: 20,
-  thickness: 5,
+  size: 10,
+  thickness: 7,
 };
 
 CircularProgress.propTypes = {

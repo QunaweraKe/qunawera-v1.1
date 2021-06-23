@@ -67,7 +67,7 @@ const LogOut = () => {
         <DialogContent
         >
           <DialogContentText id="alert-dialog-slide-description">
-          <Typography variant="h7" color="black">Are you sure you want to logout{"?"}</Typography> 
+          <Typography variant="h7" color="black">Are you sure you want to quit{"?"}</Typography> 
           </DialogContentText>
         </DialogContent>
         <DialogActions>

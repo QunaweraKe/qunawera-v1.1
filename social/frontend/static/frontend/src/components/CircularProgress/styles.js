@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     position: "relative"
   },
   bottom: {
-    color: "rgba(173,216,230,.5)",
+    color: "rgba(173,216,230,.8)",
   },
 
 
