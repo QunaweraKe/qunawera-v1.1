@@ -45,7 +45,7 @@ const HowItWorks = () => {
 
   return (
    <div>
-    <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
+    <Button color="textSecondary" onClick={handleClickOpen('paper')} size="small" >
          How It Works
       </Button>
 

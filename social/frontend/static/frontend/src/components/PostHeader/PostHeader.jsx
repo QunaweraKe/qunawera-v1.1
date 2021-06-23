@@ -77,3 +77,4 @@ PostHeader.propTypes = {
 
 export default PostHeader;
  //TODO:ADD tab on home header
+ //add payment,location,due date

@@ -170,14 +170,14 @@ const Header = () => {
           </ListItem>
       
  <Divider light/>
-         <ListItem disableGutters>
+         <ListItem disableGutters className={classes.logoutMargin}>
     
           <LogOut/>
           </ListItem>
           <Divider light/>  
  </List>
 
-  <Footer/>
+  <Footer className={classes.footerMargin}/>
       </div>
 
     </div>
