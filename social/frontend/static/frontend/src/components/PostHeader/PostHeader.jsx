@@ -37,14 +37,23 @@ const PostHeader = ({ post, repost }) => {
       >
         {post.author.display_name}
       </TextLink>
-      
+
+      {post.parent
+        && (
+
+          <Typography className={classes.headerTime} color="primary">
+            {'  '}  &middot; reposted
+
+          </Typography>
+
+
+        )}
+
       <Typography className={classes.headerTime} color="textSecondary">
-      {'  '}  &middot;
-{'  '} {dayjs(post.created_at).fromNow()}
+        {'  '}  &middot;
+        {'  '} {dayjs(post.created_at).fromNow()}
 
       </Typography>
-
-
 
 
     </div>

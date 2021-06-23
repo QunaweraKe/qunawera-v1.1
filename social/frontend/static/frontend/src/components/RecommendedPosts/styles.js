@@ -45,13 +45,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   refreshButton: {
-    color: theme.palette.text.primary,
+    color: theme.palette.primary.main,
     position: 'absolute',
     left: theme.spacing(0.5),
     top: theme.spacing(0.5),
   },
    rootCard: {
     minWidth: 275,
+  
   },
   root: {
     ...theme.custom.borders,

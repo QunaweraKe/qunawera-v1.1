@@ -56,7 +56,7 @@ const RecommendedPosts = () => {
     } else if (posts.length) {
       rendered = (
         <>
-        <Card classes={ classes.rootCard} style={{marginLeft:"0%",width:"100%"}}>
+        <Card classes={ classes.rootCard} style={{color:"primary" ,marginLeft:"0%",width:"100%"}}>
         <CardContent>
           <List
             className={classes.list}
