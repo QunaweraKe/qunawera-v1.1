@@ -1,15 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link} from 'react-router-dom';
+
 // Evergreen  UI
 import { ThumbsUpIcon } from 'evergreen-ui'
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 
+import Button from '@material-ui/core/Button';
 
 // Local
 
+import { route } from '../../constants';
 
 import {
   createLike,
@@ -21,7 +24,7 @@ import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
 
-const LikePost = ({ postId, size, type }) => {
+const LikePost = ({ postId, size }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -73,13 +76,14 @@ const LikePost = ({ postId, size, type }) => {
           : <ThumbsUpIcon fontSize={size} />}
         
       </IconButton>
-      <Typography
+      <Button
+       component={Link}
         className={classes.likeText}
         color="textSecondary"
-        variant="body2"
+        to={route.postDetailLikes(postId)}
       >
         {renderLikeText()}
-      </Typography>
+      </Button>
     </>
   );
 };

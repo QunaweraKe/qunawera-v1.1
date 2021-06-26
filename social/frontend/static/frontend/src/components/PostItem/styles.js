@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme) => ({
   divider:{
   padding:1,
   height:2,
-  width: '80%',
+  width: '95%',
   background:theme.palette.grey[50],
   marginBottom:7,
+   marginLeft:10,
+  
    marginTop:2,
   },
   listItemSize:{

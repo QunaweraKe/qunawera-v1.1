@@ -47,6 +47,7 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
 
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]
+    EMAIL_FIELD = "email"
 
 
     def display_name(self) -> str:

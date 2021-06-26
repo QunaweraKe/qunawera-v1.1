@@ -64,7 +64,7 @@ const PostDetail = () => {
               className={classes.heading}
               variant="h6"
             >
-              Post
+              More Details
             </Typography>
           </div>
         </Heading>

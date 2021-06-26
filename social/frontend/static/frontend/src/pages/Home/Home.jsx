@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import Tooltip from '@material-ui/core/Tooltip';
-
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 
 
@@ -32,7 +32,15 @@ import useUI from '../../hooks/useUI';
 import useStyles from './styles';
 import { getFeed, key, selectFeed } from '../../redux/post';
 import { APP_NAME, route } from '../../constants';
-
+const CustomTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
 
 const Home = ( ) => {
   const [open, setOpen] = React.useState(false);
@@ -66,8 +74,8 @@ const Home = ( ) => {
       <AuthLayout >
         <SubHeading>
           <MobileMenu />
-            <DialogPostForm/>
-          <Typography variant="h6" color="primary" style={{fontWeight:"bold",marginLeft:"10vw"}} >
+          
+          <Typography variant="h6" color="primary" style={{fontWeight:"bold",marginLeft:".5vw"}} >
             {APP_NAME}
           </Typography>
           <Grid container justify="center">
@@ -80,8 +88,9 @@ const Home = ( ) => {
 
               </Grid >
               <Grid >
-              <Tooltip title="search" arrow disableFocusListener>
-              <IconButton
+              <ButtonGroup color="primary" aria-label="outlined primary button group">
+              <CustomTooltip title="explore posts and users" arrow disableFocusListener>
+              <Button
               size="small"
               color='primary'
               component={Link}
@@ -91,9 +100,11 @@ const Home = ( ) => {
 
 
             >
-           <SearchIcon />
-            </IconButton>
-            </Tooltip>
+           Search<SearchIcon />
+            </Button>
+            </CustomTooltip>
+            <DialogPostForm/>
+            </ButtonGroup>
               </Grid>
         </SubHeading>
         <Heading>

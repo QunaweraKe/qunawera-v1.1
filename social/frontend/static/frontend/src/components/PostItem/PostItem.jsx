@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 // Evergreen  UI
 import { ChatIcon } from 'evergreen-ui'
 // Material UI
+import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -183,15 +184,23 @@ const PostItem = ({ expandReplies, postId }) => {
         </div>
 
       </div>
-
-      
+      <Divider variant="inset"   classes={{root:classes.divider}} />
+      <Grid container spacing={2}>
+             <Grid item xs={12} sm={6}>
           <IconButton className={classes.pluralize}
             onClick={handleReplies}>
             {post.reply_ids?.length || 0}{ ' '}{pluralizeOther(post.reply_ids?.length)}
             </IconButton>
-          
-          
+            </Grid >
+
+      <Grid item xs={12} sm={6}>
+          <Typography style={{marginLeft:"70%",marginTop:"10px",fontSize:"12px",fontWeight:"bold"}} variant="body5" >
+           Ksh.{post.payment}
+          </Typography>
+          </Grid>
+          </Grid>
        <Divider variant="inset"   classes={{root:classes.divider}} />
+       
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing

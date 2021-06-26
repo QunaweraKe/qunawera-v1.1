@@ -233,17 +233,13 @@ export const createLike = (postId, userId) => async (dispatch) => {
   }
 };
 
-export const createPost = (author, body) => async (dispatch) => {
+export const createPost = (payload) => async (dispatch) => {
   const thisKey = key.post;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
-    const data = await api(descriptor.createPost({
-      body,
-      is_reply: false,
-      parent_id: null,
-    }));
+    const data = await api(descriptor.createPost(payload));
     dispatch(setPost(data));
-    dispatch(setToast('task submitted successfully'));
+    dispatch(setToast('posted'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

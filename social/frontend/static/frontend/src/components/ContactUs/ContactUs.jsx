@@ -11,6 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Divider } from '@material-ui/core';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 //local import
 import { createContactUs, key } from '../../redux/user';
 import { APP_NAME} from '../../constants';
@@ -41,7 +42,7 @@ const ContactUs = () => {
   return (
    <div>
       <Button color="textSecondary" onClick={handleClickOpen} size="small">
-          Need Help {"?"}
+          Need Help <ContactSupportIcon/>
       </Button>
       <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelled by="form-dialog-title">
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>

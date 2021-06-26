@@ -2,19 +2,20 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
+import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
-
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import { withStyles } from '@material-ui/core/styles';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -26,6 +27,16 @@ import { createPost, key } from '../../redux/post';
 import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
+//functions
+const CustomTooltip = withStyles((theme) => ({
+  tooltip: {
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}))(Tooltip);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -39,12 +50,24 @@ const DialogPostForm = () => {
   const user = useSelector(selectUser);
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
-  const [postText, setPostText] = React.useState('');
+  
 
   const { loading } = useUI(key.post, null, false);
+  
+  const [formData, setFormData] = React.useState({
+    body: '',
+    payment: '',
+   
 
+  });
+
+ 
   const handleChange = (event) => {
-    setPostText(event.target.value);
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+
+    });
   };
 
   const handleClose = () => {
@@ -55,81 +78,108 @@ const DialogPostForm = () => {
     setDialogOpen(true);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    await dispatch(createPost(user.username, postText));
-    setPostText('');
+    dispatch(createPost(formData));
+    setFormData('');
     handleClose();
   };
+
+  
+
 
   return (
     <>
       <div >
-         <Tooltip title="post" arrow disableFocusListener>
-       <IconButton color="primary"
+         <CustomTooltip title="create a new task listing" arrow disableFocusListener>
+       <Button color="primary"
        size="small"
         aria-label="add"
           id="header-post-button"
           onClick={handleOpen}
           variant="outlined">
-           <AddIcon />
-      </IconButton>
-         </Tooltip>
-
+          Post <AddIcon />
+      </Button>
+         </CustomTooltip>
       </div>
       <Dialog
-        fullScreen
+      fullScreen
         open={dialogOpen}
         onClose={handleClose}
-         TransitionComponent={Transition}
-      >
+        TransitionComponent={Transition}
 
+      >
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
-          <Typography variant="h6">
-            Post Task
+          <Typography
+            className={classes.title}
+            variant="h6"
+          >
+            Create a new task
           </Typography>
+     
         </DialogTitle>
-        <DialogContent
-          className={classes.contentContainer}
-          dividers
-        >
-          <div className={classes.avatarContainer}>
+        <DialogContent>
+        <div className={classes.avatarContainer}>
             <Avatar user={user} />
           </div>
-          <div className={classes.inputContainer}>
-            <InputBase
-              className={classes.input}
-              fullWidth
-              multiline
-              onChange={handleChange}
-              placeholder="What would you like to post today?"
-              rowsMax={5}
-              spellCheck
-              value={postText}
-            />
-          </div>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="secondary"
-            size="small"
-          >
-            Cancel
-          </Button>
-          <Button
-            color="primary"
-            disabled={loading || postText.trim().length === 0}
-            onClick={handleSubmit}
+          <TextField
+          className={classes.inputContainer}
+            autoComplete="off"
+            multiline
+            fullWidth
+            id="body"
+            label="Task Description"
+            name="body"
+            onChange={handleChange}
+            type="text"
+            value={formData.body}
             variant="outlined"
-            size="small"
+            rows={4}
+          />
+          <FormControl fullWidth className={classes.margin} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-amount">Payment</InputLabel>
+          <OutlinedInput
+            
+            autoComplete="off"
+            className={classes.formField}
+            id="payment"
+            name="payment"
+            onChange={handleChange}
+            type="text"
+            value={formData.payment}
+            startAdornment={<InputAdornment position="start">Ksh.</InputAdornment>}
+            labelWidth={60}
+          />
+        </FormControl>
+         
+         
+             <Button
+            className={classes.margin}
+            color="primary"
+            disabled={loading}
+            onClick={handleSubmit}
+            size="large"
+            variant="outlined"
+            
           >
-            Post
+              Submit
             {loading && <CircularProgress />}
           </Button>
-        </DialogActions>
+          <Button
+            className={classes.margin}
+            color="secondary"
+            disabled={loading}
+            onClick={handleClose}
+            size="large"
+            variant="outlined"
+            
+          >
+            Cancel
+            
+          </Button>
+        </DialogContent>
+          
       </Dialog>
     </>
   );

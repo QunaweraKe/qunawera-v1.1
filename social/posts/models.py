@@ -47,7 +47,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         on_delete=models.CASCADE,
         related_name="alt",
     )
-
+    payment=models.IntegerField(max_length=10000,default=0)
     objects = PostManager.as_manager()
 
     def __str__(self):

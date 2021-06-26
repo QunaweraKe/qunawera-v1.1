@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Material UI
 import InputBase from '@material-ui/core/InputBase';
 import Button from '@material-ui/core/Button';
-
+import TextField from '@material-ui/core/TextField';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -22,18 +22,20 @@ const PostForm = () => {
 
   const user = useSelector(selectUser);
 
-  const [postText, setPostText] = React.useState('');
-
+  const [postText, setPostText,paymentForm, setPaymentForm] = React.useState('');
+  
   const { loading } = useUI(key.post, null, false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createPost(user.username, postText));
+    dispatch(createPost(user.username, postText,paymentForm));
     setPostText('');
+    setPaymentForm('');
   };
 
   const handleChange = (event) => {
     setPostText(event.target.value);
+    setPaymentForm(event.target.value);
   };
 
   return (
@@ -47,18 +49,22 @@ const PostForm = () => {
           <Avatar user={user} />
         </div>
         <div className={classes.textField}>
-          <InputBase
-            classes={{
-              root: classes.inputBaseRoot,
-            }}
-            fullWidth
-            multiline
-            onChange={handleChange}
-            placeholder="Which task would you like to post today?"
-            spellCheck
-            value={postText}
-          />
+       
+           <TextField
+         onChange={handleChange}
+         type="text"
+         value={paymentForm}
+         />
+         <TextField
+         onChange={handleChange}
+         type="text"
+         value={postText}
+         />
         </div>
+
+       
+
+        
         <div className={classes.submitButtonContainer}>
           <Button
             className={classes.submitButton}
