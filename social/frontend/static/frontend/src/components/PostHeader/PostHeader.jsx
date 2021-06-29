@@ -35,7 +35,7 @@ const PostHeader = ({ post, repost }) => {
         className={classes.headerItem}
         to={route.profilePosts(post.author.slug)}
       >
-        {post.author.display_name}
+        {post.author.display_name.charAt(0).toUpperCase()+post.author.display_name.slice(1)}
       </TextLink>
 
       {post.parent

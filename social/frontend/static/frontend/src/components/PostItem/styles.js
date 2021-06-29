@@ -3,6 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
   ...theme.custom,
+
+  chip:{
+    marginLeft:"80%",
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    width:"60px",
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
   avatarContainer: {
     alignItems: 'flex-end',
     display: 'flex',

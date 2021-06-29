@@ -22,7 +22,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Divider from '@material-ui/core/Divider';
 import CardHeader from '@material-ui/core/CardHeader';
-
+import MoneyIcon from '@material-ui/icons/Money';
 // Local
 
 import Avatar from '../Avatar';
@@ -193,11 +193,11 @@ const PostItem = ({ expandReplies, postId }) => {
             </IconButton>
             </Grid >
 
-   <Typography>
+   <div className={classes.chip}>
 
-        payment  <Chip label={post.payment}size="small"  color="primary" />
+       <Chip icon={<MoneyIcon  />}label={post.payment}size="small" color="secondary" variant="outlined" />
          
-          </Typography>
+      </div>
         
          
         

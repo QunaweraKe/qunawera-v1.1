@@ -107,7 +107,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
           </div>
           <div className={classes.infoContainer}>
             <Typography variant="h6">
-              {profileUser.display_name}
+              {profileUser.display_name.charAt(0).toUpperCase()+profileUser.display_name.slice(1)}
             </Typography>
 
             {profileUser.profile.bio
