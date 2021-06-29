@@ -5,9 +5,19 @@ from .models import Profile, User,ContactUs
 
 
 class  ContactUsSerializer(serializers.ModelSerializer):
+    """Create post for contact us.
+
+    
+    """
+    
+    
     class Meta:
         model=ContactUs
-        fields=("email","description","date_created")
+        fields = [
+        "email",
+        "description",
+        "date_created",
+        ]
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
@@ -98,5 +108,5 @@ class PasswordSerializer(ValidatePasswordMixin, serializers.ModelSerializer):
         request = self.context.get("request")
         r_user = request.user
         if not r_user.check_password(data):
-            raise serializers.ValidationError("Incorrect password.")
+            raise serializers.ValidationError("Password does not match any on our records.")
         return data

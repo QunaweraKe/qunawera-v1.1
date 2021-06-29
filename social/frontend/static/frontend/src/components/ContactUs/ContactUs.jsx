@@ -28,27 +28,34 @@ const ContactUs = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-   const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(createContactUs(formData));
-  };
+   
 
   const handleChange = (event) => {
-     setFormData(event.target.value);
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+
+    });
   };
   const handleClose = () => {
     setOpen(false);
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(createContactUs(formData));
+    setFormData('');
+    handleClose();
+  };
   return (
    <div>
-      <Button color="textSecondary" onClick={handleClickOpen} size="small">
-          Need Help <ContactSupportIcon/>
+      <Button color="secondary" onClick={handleClickOpen} size="small">
+          Help <ContactSupportIcon fontSize="small"/>
       </Button>
       <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelled by="form-dialog-title">
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
 
         <Divider style={{marginBottom:"10px"}}/>
-           <form  onSubmit={handleSubmit}>
+          
         <DialogContent>
 
           <DialogContentText>
@@ -57,7 +64,7 @@ const ContactUs = () => {
           </DialogContentText>
 
           <TextField
-
+           name="email"
             margin="dense"
             id="email"
             label="Email Address"
@@ -65,29 +72,32 @@ const ContactUs = () => {
             fullWidth
             onChange={handleChange}
             type="email"
+            variant="outlined"
              value={formData.email}
           />
              <TextField
+             variant="outlined"
              multiline
             margin="dense"
             id="description"
             label="Description"
-                onChange={handleChange}
-                type="text"
-                value={formData.description}
+            onChange={handleChange}
+            type="text"
+            value={formData.description}
             fullWidth
+            name="description"
           />
 
-        </DialogContent>
-        <DialogActions>
+          <Button    onClick={handleSubmit} color="primary" variant="outlined" size="small">
+            Submit
+          </Button>
+        
           <Button onClick={handleClose} color="textSecondary" variant="outlined"size="small">
             Cancel
           </Button>
-          <Button type="submit" color="primary" variant="outlined" size="small">
-            Submit
-          </Button>
-        </DialogActions>
-         </form>
+        
+        
+          </DialogContent>
       </Dialog>
 
     </div>

@@ -35,7 +35,7 @@ import { APP_NAME, route } from '../../constants';
 const CustomTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
+    color: 'rgba(0, 0, 0, 0.6)',
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
     border: '1px solid #dadde9',
@@ -69,7 +69,7 @@ const Home = ( ) => {
 
   return (
     <>
-      <PageTitle title="Home" />
+      <PageTitle title="Feeds" />
 
       <AuthLayout >
         <SubHeading>
@@ -89,6 +89,7 @@ const Home = ( ) => {
               </Grid >
               <Grid >
               <ButtonGroup color="primary" aria-label="outlined primary button group">
+              <DialogPostForm/>
               <CustomTooltip title="explore posts and users" arrow disableFocusListener>
               <Button
               size="small"
@@ -103,7 +104,7 @@ const Home = ( ) => {
            Search<SearchIcon />
             </Button>
             </CustomTooltip>
-            <DialogPostForm/>
+            
             </ButtonGroup>
               </Grid>
         </SubHeading>
@@ -128,15 +129,16 @@ const Home = ( ) => {
                 {APP_NAME}
                 !
               </Typography>
+              <div>
+              <Welcome  style={{height:"300px",width:"300px"}}/>
+              </div>
               <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Finish  Your Profile
+        Update  Your Profile
       </Button>
       <Dialog open={open} onClose={handleClose} >
               <StepperSlide/>
               </Dialog>
-              <div>
-              <Welcome  style={{height:"300px",width:"300px"}}/>
-              </div>
+             
               <Typography
                 color="textSecondary"
                 paragraph

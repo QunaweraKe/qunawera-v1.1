@@ -33,9 +33,7 @@ return(
        </Grid >
   <Grid item  >
     <HowItWorks/>
-        <Grid item  >
-
-       </Grid >
+       
        </Grid >
 
         </Grid >

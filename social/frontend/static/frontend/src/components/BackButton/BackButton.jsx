@@ -3,8 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
-
-import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined';
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 
 // Local
 import useStyles from './styles';
@@ -16,10 +15,10 @@ const BackButton = () => {
   return (
     <IconButton
       className={classes.root}
-      color="primary"
+      color="textSecondary"
       onClick={() => history.goBack()}
     >
-      < BackspaceOutlinedIcon />
+      < KeyboardBackspaceIcon />
     </IconButton>
   );
 };

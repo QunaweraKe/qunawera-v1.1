@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 // Evergreen  UI
 import { ChatIcon } from 'evergreen-ui'
 // Material UI
+import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -20,6 +21,7 @@ import DetailsIcon from '@material-ui/icons/UnfoldMore';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Divider from '@material-ui/core/Divider';
+import CardHeader from '@material-ui/core/CardHeader';
 
 // Local
 
@@ -28,9 +30,7 @@ import CircularProgress from '../CircularProgress';
 import NextButton from '../NextButton';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
-
 import { route } from '../../constants';
-
 import DeletePost from '../DeletePost';
 import EditPost from '../EditPost';
 import LikePost from '../LikePost';
@@ -184,8 +184,8 @@ const PostItem = ({ expandReplies, postId }) => {
         </div>
 
       </div>
-      <Divider variant="inset"   classes={{root:classes.divider}} />
-      <Grid container spacing={2}>
+    
+     
              <Grid item xs={12} sm={6}>
           <IconButton className={classes.pluralize}
             onClick={handleReplies}>
@@ -193,12 +193,14 @@ const PostItem = ({ expandReplies, postId }) => {
             </IconButton>
             </Grid >
 
-      <Grid item xs={12} sm={6}>
-          <Typography style={{marginLeft:"70%",marginTop:"10px",fontSize:"12px",fontWeight:"bold"}} variant="body5" >
-           Ksh.{post.payment}
+   <Typography>
+
+        payment  <Chip label={post.payment}size="small"  color="primary" />
+         
           </Typography>
-          </Grid>
-          </Grid>
+        
+         
+        
        <Divider variant="inset"   classes={{root:classes.divider}} />
        
       <CardActions
@@ -219,7 +221,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
               < ChatIcon
-              color="secondary"
+            
               style={{fontSize:"30px"}} />
 
 
@@ -255,9 +257,18 @@ const PostItem = ({ expandReplies, postId }) => {
               className={classes.replyContent}
 
             >
-            <Typography  className={classes.replyHeader} variant="h6" color="textSecondary" >
-            Comments
-            </Typography>
+        <CardHeader
+        
+        className={classes.replyHeader}
+        title="Comments"
+        titleTypographyProps={{
+          className: classes.title,
+          variant: 'subtitle1',
+          color:'textSecondary'
+        }}
+      />
+           
+            
               <NextButton
                 callback={handleNext}
                 loading={nextLoading}
@@ -292,3 +303,4 @@ export default PostItem;
  //TODO: BID ONLY PARENT POST,ARRANGE CARD CONTENTS PROPERLY
  //semantic ui for items
  //start end payment location
+//possible bug on reply item

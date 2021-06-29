@@ -10,7 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 
 const Terms = () => {
   const [open, setOpen] = React.useState(false);
@@ -37,8 +37,8 @@ const Terms = () => {
 
   return (
    <div>
-    <Button color="textSecondary" onClick={handleClickOpen('paper')} size="small" >
-         Terms {'&'} Privacy
+    <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
+         Terms {'&'} Privacy <BorderColorIcon fontSize="small" />
       </Button>
 
      <Dialog

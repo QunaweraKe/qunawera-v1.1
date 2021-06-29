@@ -85,7 +85,7 @@ const RecommendedUsers = () => {
       <CardHeader
         action={(
           <IconButton
-            color="primary"
+           
             className={classes.refreshButton}
             onClick={handleRefresh}
           >
@@ -93,7 +93,7 @@ const RecommendedUsers = () => {
           </IconButton>
         )}
         className={classes.cardHeader}
-        title="People To Follow"
+        title="People You May Follow"
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3',

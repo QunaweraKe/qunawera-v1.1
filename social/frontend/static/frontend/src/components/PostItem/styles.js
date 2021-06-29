@@ -11,9 +11,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize:8,
   },
   replyHeader:{
-    
+    marginBottom:10,
     fontWeight:"bold",
-    textDecoration:"none"
+  
+  },
+  replies:{
+  color:theme.palette.primary.main,
   },
   divider:{
   padding:1,
@@ -27,27 +30,12 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemSize:{
 
-    color:theme.palette.secondary.main,
+    color:theme.palette.textSecondary,
   },
   cardActionsRoot: {
     paddingTop: 0,
   },
-  chip :{
-  display:"flex",
-
-  color:theme.palette.primary.main,
-  justifyContent:"center",
-   marginBottom:theme.spacing(0),
-   marginTop:theme.spacing(0),
-    marginLeft:theme.spacing(2),
-    borderWidth:".5px",
-    borderColor:theme.palette.textSecondary,
-  flexWrap:"wrap",
-  "& > *":{
-  margin:theme.spacing(.1),
-
-  },
-  },
+  
   likeContainer: {
     alignItems: 'center',
     display: 'flex',
@@ -95,7 +83,7 @@ padding: theme.spacing(2, 2, 0.5, 2),
 
   root: {
     ...theme.custom.borders,
-    borderBottomWidth: 2,
+  
     position: 'relative',
   },
 }));

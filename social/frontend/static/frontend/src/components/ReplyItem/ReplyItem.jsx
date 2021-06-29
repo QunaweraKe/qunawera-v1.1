@@ -117,8 +117,8 @@ const ReplyItem = ({ replyId }) => {
         </div>
         <Grid container spacing={2}>
         <Grid item >
-        <Typography className={classes.displayDate}>
-             &middot; {dayjs(reply.created_at).fromNow()}
+        <Typography className={classes.displayDate} color="textSecondary">
+             {dayjs(reply.created_at).fromNow()}
          </Typography>
          </Grid>
       <Grid item >

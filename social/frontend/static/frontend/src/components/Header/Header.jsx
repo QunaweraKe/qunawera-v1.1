@@ -177,7 +177,7 @@ const Header = () => {
           <Divider light/>  
  </List>
 
-  <Footer className={classes.footerMargin}/>
+  <Footer className={classes.footer}/>
       </div>
 
     </div>

@@ -85,6 +85,16 @@ const useStyles = makeStyles((theme) => ({
  marginBottom:theme.spacing(2),
 
   },
+  footer:{
+    display: 'none',
+  
+
+    [theme.breakpoints.up('lg')]: {
+      display: 'block',
+    },
+
+
+  },
 
 }));
 

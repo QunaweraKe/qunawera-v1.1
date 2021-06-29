@@ -90,14 +90,14 @@ export const createUser = (payload) => async (dispatch) => {
     dispatch(unsetLoading(NAMESPACE, thisKey));
   }
 };
-export const createContactUs = () => async (dispatch) => {
-  const thisKey = key.user;
+export const createContactUs = (payload) => async (dispatch) => {
+  const thisKey = key.createContactUs;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
-    const data = await api(descriptor.createUser(payload));
+    await api(descriptor.createContactUs(payload));
     dispatch(setToast(' submitted successfully'));
   } catch (error) {
-    dispatch(setToast('Something went very wrong', 'error'));
+    dispatch(setToast('Something went  wrong', 'error'));
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));

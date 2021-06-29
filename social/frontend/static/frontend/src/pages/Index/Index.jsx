@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 // Local
 import PageTitle from '../../components/PageTitle';
 import Terms from '../../components/Terms';
-import Index2 from '../../components/Files/Images/index.svg';
+import Indexsvg from '../../components/Files/Images/index.svg';
 import './index.css'
 import Footer from '../../components/Footer';
 
@@ -60,7 +60,7 @@ const Index = () => {
          </Typography>
 
             <Button
-              size="small"
+              size="large"
               className={classes.ctaItem}
               color="primary"
               component={Link}
@@ -89,29 +89,28 @@ const Index = () => {
               to={route.login}
 
                variant="outlined"
-              size="small"
+              size="large"
 
             >
               Login
             </Button>
              <Grid container spacing={0}>
             <Grid item>
-            <Button disabled disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to our </Button>
+            <Button disabled disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to our Terms & Privacy.</Button>
 
             </Grid>
-             <Grid item style={{marginTop:"4px",marginLeft:"-10px"}}>
-           <Terms/>
-           </Grid></Grid>
+            </Grid>
             </div>
 
         </div>
-
+      
       </main>
           </CardContent>
+        
       </Card>
-
+     
       <aside  className={classes.asideContainer}>
-      <Index2 className={classes.image}/>
+      <Indexsvg className={classes.image}/>
           <div className="box">
       <div className="title">
         <span className="block"></span>
@@ -138,9 +137,10 @@ const Index = () => {
 
 
       </aside>
-<div style={{marginTop:"50px",marginLeft:"2px"}}>
-<Footer/>
-
+<div style={{marginTop:"80px",marginLeft:"10px"}}>
+ 
+   <Footer/>
+ 
 </div>
     </div>
 

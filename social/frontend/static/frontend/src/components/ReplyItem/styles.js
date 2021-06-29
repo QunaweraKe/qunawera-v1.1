@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(0),
     fontWeight:"bold",
     fontSize:10,
-    color:theme.palette.textSecondary,
     marginTop:theme.spacing(2),
     
   },

@@ -10,16 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Slide from '@material-ui/core/Slide';
-
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 const HowItWorks = () => {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
@@ -45,8 +36,8 @@ const HowItWorks = () => {
 
   return (
    <div>
-    <Button color="textSecondary" onClick={handleClickOpen('paper')} size="small" >
-         How It Works
+    <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
+         How It Works<MenuBookIcon fontSize="small"/>
       </Button>
 
      <Dialog

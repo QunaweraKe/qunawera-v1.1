@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   footer: {
      marginTop: theme.spacing(1),
      position:' absolute' ,
-      marginLeft: theme.spacing(0),
+    marginLeft: theme.spacing(-2),
 
     },
 

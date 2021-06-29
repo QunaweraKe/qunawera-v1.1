@@ -38,7 +38,7 @@ const Toast = ({ message, severity }) => {
         elevation={3}
         onClose={handleClose}
         severity={severity}
-        color="info"
+       
       >
         {message}
       </Alert>
