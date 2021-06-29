@@ -44,13 +44,13 @@ const useStyles = makeStyles((theme) => ({
     borderBottomStyle: theme.custom.border.style,
     borderBottomWidth: 5,
     display: 'flex',
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
     padding: theme.spacing(1, 2),
 
 
   },
   userInfoContainer: {
-    marginBottom: theme.spacing(4),
+    marginBottom: theme.spacing(2),
     padding: theme.spacing(0, 2),
   },
 }));

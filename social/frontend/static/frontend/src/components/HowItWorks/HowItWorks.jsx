@@ -37,7 +37,7 @@ const HowItWorks = () => {
   return (
    <div>
     <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
-         How It Works<MenuBookIcon fontSize="small"/>
+         <MenuBookIcon />
       </Button>
 
      <Dialog

@@ -26,6 +26,7 @@ import CardContent from '@material-ui/core/CardContent';
 // Local
 import Avatar from '../Avatar';
 
+import Footer from '../Footer';
 import EditProfile from '../EditProfile';
 import { APP_NAME, route } from '../../constants';
 
@@ -64,7 +65,7 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="top"
+        anchor="bottom"
         className={classes.drawer}
         open={drawerOpen}
         onClose={handleToggleDrawer}
@@ -110,7 +111,7 @@ const MobileMenu = () => {
          </Card>
         </div>
 
- <Card  style={{ boxShadow: '2px 2px 2px 2px  rgba(0,0,0,.2)'}}>
+ <Card  >
         <CardContent>
         <List className={classes.list}>
           <ListItem
@@ -173,11 +174,14 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Logout" />
           </ListItem>
-
+         
         </List>
+        <Footer/>
         </CardContent>
         </Card>
+      
       </Drawer>
+     
     </>
   );
 };
