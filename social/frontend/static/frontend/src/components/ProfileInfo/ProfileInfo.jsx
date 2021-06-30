@@ -120,10 +120,11 @@ const ProfileInfo = ({ loading, profileUser }) => {
               <div className={classes.extraInfo}>
                 <EventNoteIcon className={classes.extraInfoIcon} />
                 <Typography className={classes.extraInfoText}>
-                <i> Joined
+                <em>
+                 Joined
                   {' '}
                   {dayjs(profileUser.created_at).format('DD MMMM YYYY')}
-                  </i> 
+                  </em>
                 </Typography>
               </div>
               {profileUser.profile.location

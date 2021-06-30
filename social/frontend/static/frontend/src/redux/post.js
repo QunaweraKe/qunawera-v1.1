@@ -241,7 +241,7 @@ export const createPost = (payload) => async (dispatch) => {
     dispatch(setPost(data));
     dispatch(setToast(''));
   } catch (error) {
-    dispatch(setToast('Something went wrong', 'error'));
+    dispatch(setToast('an error occurred while trying to post', 'error'));
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));
@@ -438,7 +438,7 @@ export const removeReply = (postId, parentId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removePost(postId));
     dispatch(unsetReply({ postId, parentId }));
-    dispatch(setToast('Reply removed'));
+    dispatch(setToast('Comment removed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

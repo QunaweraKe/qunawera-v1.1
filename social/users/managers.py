@@ -2,6 +2,9 @@ from django.contrib.auth.models import UserManager as UM
 from django.db import models
 
 
+from django.db.models.expressions import OrderBy
+
+
 class UserQuerySet(models.QuerySet):
     def active(self):
         """Return all active users.
@@ -29,8 +32,9 @@ class UserQuerySet(models.QuerySet):
             .exclude(id=user.id)
             .prefetch_related("following")
             .prefetch_related("followers")
-            .order_by("?")
+            .order_by('?')
         )
+       
         if long is False:
             qs = qs[:7]
         return qs
@@ -88,3 +92,9 @@ class UserManager(UM):
     def recommend_users(self, user: object, long=False):
         """ See :class:`UserQuerySet` :meth:`recommend_users`. """
         return self.get_queryset().recommend_users(user, long)
+
+
+'''
+todo order by location when it is finished
+
+'''

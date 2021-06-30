@@ -16,8 +16,9 @@ import Terms from '../../components/Terms';
 import Indexsvg from '../../components/Files/Images/index.svg';
 import './index.css'
 import Footer from '../../components/Footer';
-
-import { APP_NAME, route } from '../../constants';
+import ContactUs from '../../components/ContactUs';
+import HowItWorks from '../../components/HowItWorks';
+import { APP_NAME, route,copyright } from '../../constants';
 import useStyles from './styles';
 import DividerWithText from '../../components/DividerWithText';
 
@@ -120,27 +121,46 @@ const Index = () => {
             variant="subtitle7"
             >
 
-             Where you post
+             Social task posting site
           </Typography>
         </h1>
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h5" color="primary" align="center" >
+        <p><Typography variant="subtitle2" color="primary" align="center" >
 
-           {"& "}get manual tasks
+          post  manual tasks
          </Typography></p>
       </div>
 
     </div>
 
 
-
       </aside>
+   
+      <Grid container spacing={4} justify="center">
+     <Grid item >
+     
+      <ContactUs />
+     
+      </Grid >
+       <Grid item  >
+
+      <Terms/>
+
+       </Grid >
+  <Grid item  >
+    <HowItWorks/>
+       
+       </Grid >
+
+        </Grid >
+
+
 <div style={{marginTop:"80px",marginLeft:"10px"}}>
  
    <Footer/>
- 
+ {copyright}
 </div>
     </div>
 

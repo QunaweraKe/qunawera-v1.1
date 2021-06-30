@@ -26,6 +26,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 // Local
 import Footer from '../Footer';
+import ContactUs from '../ContactUs';
 import LogOut from '../LogOut';
 import { route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -176,7 +177,7 @@ const Header = () => {
           </ListItem>
           <Divider light/>  
  </List>
-
+   <ContactUs/>
   <Footer className={classes.footer}/>
       </div>
 

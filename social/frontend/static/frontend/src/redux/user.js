@@ -94,7 +94,8 @@ export const createContactUs = (payload) => async (dispatch) => {
   const thisKey = key.createContactUs;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
-    await api(descriptor.createContactUs(payload));
+    const data=await api(descriptor.createContactUs(payload));
+    dispatch(setUser(data));
     dispatch(setToast(' submitted successfully'));
   } catch (error) {
     dispatch(setToast('Something went  wrong', 'error'));
@@ -200,6 +201,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.logoutUser);
     dispatch(logout());
+    dispatch(setToast('You have been logged out '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

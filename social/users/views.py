@@ -166,6 +166,7 @@ class RecommendedUsersAPIView(rest_generics.ListAPIView):
         return User.objects.recommend_users(self.request.user)
 
 
+
 @api_view(["post"])
 def register_view(request):
     serializer = UserSerializer(data=request.data)

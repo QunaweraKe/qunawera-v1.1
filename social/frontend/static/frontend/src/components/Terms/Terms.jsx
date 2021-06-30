@@ -11,6 +11,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
+import { Tooltip } from '@material-ui/core';
+
 
 const Terms = () => {
   const [open, setOpen] = React.useState(false);
@@ -37,10 +39,11 @@ const Terms = () => {
 
   return (
    <div>
+     <Tooltip title="Terms & Privacy" arrow open placement="bottom">
     <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
        <BorderColorIcon  />
       </Button>
-
+      </Tooltip>
      <Dialog
         open={open}
         onClose={handleClose}
