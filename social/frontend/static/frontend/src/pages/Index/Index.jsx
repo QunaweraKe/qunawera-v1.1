@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 // Local
 import PageTitle from '../../components/PageTitle';
 import Terms from '../../components/Terms';
-import Indexsvg from '../../components/Files/Images/index.svg';
+import Indeximg from '../../components/Files/Images/repair.svg';
 import './index.css'
 import Footer from '../../components/Footer';
 import ContactUs from '../../components/ContactUs';
@@ -111,17 +111,17 @@ const Index = () => {
       </Card>
      
       <aside  className={classes.asideContainer}>
-      <Indexsvg className={classes.image}/>
+      <Indeximg className={classes.image}/>
           <div className="box">
       <div className="title">
         <span className="block"></span>
         <h1>
           <Typography className={classes.ctaItem}
             color="textSecondary"
-            variant="subtitle7"
+            variant="h5"
             >
 
-             Social task posting site
+             Social&#8729;Tasks&#8729;Interaction
           </Typography>
         </h1>
       </div>

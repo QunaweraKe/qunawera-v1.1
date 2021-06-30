@@ -1,14 +1,14 @@
-import { fade, makeStyles } from '@material-ui/core/styles';
-import {shadows} from '@material-ui/system';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 
 const useStyles = makeStyles((theme) => ({
    root: {
 
-    marginTop:4,
+    marginTop:6,
     marginLeft:"2%",
     marginRight:"2%",
-    marginBottom:5,
+    marginBottom:2,
     width:"95%",
   },
   image:{
@@ -29,15 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  branding: {
-    fontSize: 40,
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-
-    [theme.breakpoints.up('md')]: {
-      marginTop: 0,
-    },
-  },
+ 
   content: {
     maxWidth: 500,
   },
@@ -56,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   indexLayout: {
-    width: '99%',
+    width: '100%',
     height:'70%',
     backgroundColor:"#ffdab9",
     [theme.breakpoints.up('md')]: {
