@@ -138,7 +138,10 @@ const Index = () => {
 
       </aside>
    
-      <Grid container spacing={4} justify="center">
+     
+
+<div style={{marginTop:"80px",marginLeft:"0px"}}>
+<Grid container spacing={2} >
      <Grid item >
      
       <ContactUs />
@@ -156,11 +159,7 @@ const Index = () => {
 
         </Grid >
 
-
-<div style={{marginTop:"80px",marginLeft:"10px"}}>
- 
    <Footer/>
- {copyright}
 </div>
     </div>
 

@@ -48,7 +48,7 @@ const ContactUs = () => {
   };
   return (
    <div>
-     <Tooltip title="Contact Us" arrow open placement="bottom">
+     <Tooltip title="Contact Us" arrow  placement="bottom">
       <Button color="secondary" onClick={handleClickOpen} size="small">
          <ContactSupportIcon />
       </Button>

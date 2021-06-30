@@ -37,7 +37,7 @@ const HowItWorks = () => {
 
   return (
    <div>
-     <Tooltip title="How It Works" arrow open  placement="bottom">
+     <Tooltip title="How It Works" arrow  placement="bottom">
     <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
          <MenuBookIcon />
       </Button>
