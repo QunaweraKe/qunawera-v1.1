@@ -118,10 +118,10 @@ const Index = () => {
         <h1>
           <Typography className={classes.ctaItem}
             color="textSecondary"
-            variant="h5"
+            variant="h7"
             >
 
-             Social&#8729;Tasks&#8729;Interaction
+            <span className="shadow"> Social&#8729;Tasks&#8729;Interaction</span>
           </Typography>
         </h1>
       </div>

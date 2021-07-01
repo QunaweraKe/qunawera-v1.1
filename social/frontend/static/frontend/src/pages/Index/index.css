@@ -148,4 +148,6 @@
     bottom: 0px;
   }
 }
-
+.shadow{
+  text-shadow: 2px 2px white;
+}
