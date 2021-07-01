@@ -38,13 +38,8 @@ class SearchPostsAPIView(rest_generics.ListAPIView):
     filter_backends = [filters.SearchFilter]
     pagination_class = SearchPagination
     permission_classes = [IsAuthenticated]
-    search_fields = ('posts','author')
+    search_fields = ('body',)
     serializer_class = BasePostSerializer
     
-    def get_queryset(self):
-        return (
-            User.objects.select_related("body,")
-            
-        )
     
 ''' todo :finish filter by posts /Check on API END POINT'''

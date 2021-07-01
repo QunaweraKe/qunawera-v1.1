@@ -39,7 +39,8 @@ class BasePostSerializer(serializers.ModelSerializer):
             "liked",
             "parent",
             "parent_id",
-            "payment"
+            "payment",
+            "postImage"
         ]
 
     def get_is_author(self, obj):

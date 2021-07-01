@@ -56,7 +56,7 @@ ROOT_URLCONF = "social.urls"
 
 #session expiry
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = 5 * 60 #
+SESSION_COOKIE_AGE = 80 * 60 #
 
 TEMPLATES = [
     {
@@ -79,6 +79,15 @@ WSGI_APPLICATION = "social.wsgi.application"
 
 # Database
 
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
+'''
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -100,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         "NAME": ("django.contrib.auth.password_validation" ".MinimumLengthValidator"),
+        
     },
     {
         "NAME": ("django.contrib.auth.password_validation" ".CommonPasswordValidator"),

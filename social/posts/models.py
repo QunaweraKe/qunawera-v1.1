@@ -34,6 +34,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         auto_now_add=True,
         db_index=True,
     )
+    postImage = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True)
     is_reply = models.BooleanField(default=False)
     liked = models.ManyToManyField(
         "users.User",
