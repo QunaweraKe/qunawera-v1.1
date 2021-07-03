@@ -49,7 +49,7 @@ const Terms = () => {
         onClose={handleClose}
         scroll={scroll}
     fullWidth
-     maxWidth="md"
+     maxWidth="lg"
       >
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}}>{APP_NAME}:Terms{"&"}Privacy</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>

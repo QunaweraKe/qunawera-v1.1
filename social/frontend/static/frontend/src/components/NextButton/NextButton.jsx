@@ -19,9 +19,9 @@ const NextButton = ({ callback, loading, nextUrl }) => {
         color="primary"
         disabled={loading}
         onClick={callback}
-        variant="outlined"
+        variant="filled"
       >
-        Load more ...
+         view  more ...
         {loading && <CircularProgress />}
       </Button>
     ) : null;

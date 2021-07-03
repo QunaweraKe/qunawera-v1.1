@@ -47,7 +47,7 @@ const HowItWorks = () => {
         onClose={handleClose}
         scroll={scroll}
        fullWidth
-       maxWidth="md"
+       maxWidth="lg"
       >
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}}>{APP_NAME}:How It Works</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>

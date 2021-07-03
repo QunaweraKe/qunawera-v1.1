@@ -4,9 +4,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 5,
     fontWeight:"bold",
-
     marginBottom: theme.spacing(2),
-    width: '100%',
+    marginTop: theme.spacing(2),
+  
   },
 }));
 
