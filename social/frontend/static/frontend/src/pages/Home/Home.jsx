@@ -17,21 +17,24 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 // Local
 import IndexImage from '../../components/Files/Images/repair.svg';
 import AuthLayout from '../../components/AuthLayout';
+import SkeletonLoader from '../../components/SkeletonLoader';
 import Heading from '../../components/Heading';
 import StepperSlide from '../../components/StepperSlide';
 import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
-import Welcome from '../../components/Files/Images/newhome.svg';
 import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
 import DialogPostForm from '../../components/DialogPostForm';
-
 import useUI from '../../hooks/useUI';
 import useStyles from './styles';
 import { getFeed, key, selectFeed } from '../../redux/post';
 import { APP_NAME, route } from '../../constants';
+
+
+
+
 const CustomTooltip = withStyles((theme) => ({
   tooltip: {
     backgroundColor: '#f5f5f9',
@@ -118,19 +121,10 @@ const Home = ( ) => {
           posts={feed.results}
           noData={(
             <NoData>
-              <Typography
-                paragraph
-                variant="h6"
-              >
-
-
-                Welcome to
-                {' '}
-                {APP_NAME}
-                !
-              </Typography>
+              
               <div>
-              <Welcome  style={{height:"300px",width:"300px"}}/>
+             
+      <SkeletonLoader/>
               </div>
               <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Update  Your Profile

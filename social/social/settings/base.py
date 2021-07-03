@@ -56,8 +56,6 @@ ROOT_URLCONF = "social.urls"
 
 
 
-
-
 #session expiry
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 80 * 60 #
