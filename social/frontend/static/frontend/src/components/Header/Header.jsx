@@ -174,10 +174,16 @@ const Header = () => {
          <ListItem disableGutters className={classes.logoutMargin}>
     
           <LogOut/>
+
           </ListItem>
+          <ListItem disableGutters>
+          <ContactUs/>
+          <span style={{marginLeft:"-9px"}} className="nav-button-text">Help</span>
+          </ListItem >
           <Divider light/>  
+          
  </List>
-   <ContactUs/>
+   
   <Footer className={classes.footer}/>
       </div>
 

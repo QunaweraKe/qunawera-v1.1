@@ -3,11 +3,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-// Evergreen  UI
-import { ThumbsUpIcon } from 'evergreen-ui'
 // Material UI
+import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 // Local
 
 import { route } from '../../constants';
@@ -65,13 +65,13 @@ const LikePost = ({ postId, size }) => {
     <>
       <IconButton
         className={classes.like}
-        color={isLiked ? 'primary' : 'default'}
+        color={isLiked ? 'primary' : 'primary'}
       
         onClick={handleLike}
       >
         {isLiked
-          ? <ThumbsUpIcon fontSize={size} />
-          : <ThumbsUpIcon fontSize={size} />}
+          ? <FavoriteRoundedIcon fontSize={size} />
+          : < FavoriteBorderRoundedIcon fontSize={size} />}
         
       </IconButton>
       <Typography   className={classes.likeText}>

@@ -22,7 +22,8 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Divider from '@material-ui/core/Divider';
 import CardHeader from '@material-ui/core/CardHeader';
-import MoneyIcon from '@material-ui/icons/Money';
+import Box from '@material-ui/core/Box';
+import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 // Local
 
 import Avatar from '../Avatar';
@@ -49,7 +50,7 @@ import {
 
 import useStyles from './styles';
 const PostItem = ({ expandReplies, postId }) => {
-  const pluralizeOther = (length) =>  (length !== 1 ? 'comments' : 'comment') ;
+  const pluralizeOther = (length) => (length !== 1 ? 'comments' : 'comment');
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -129,9 +130,9 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <DetailsIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="More details"  className={classes.listItemSize}/>
+          <ListItemText primary="More details" className={classes.listItemSize} />
         </MenuItem>
-           <MenuItem
+        <MenuItem
           onClick={() => (
             history.push(route.profilePosts(post.author.slug))
           )}
@@ -139,11 +140,11 @@ const PostItem = ({ expandReplies, postId }) => {
           <ListItemIcon>
             <EmojiPeopleIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Author's Profile" className={classes.listItemSize}/>
-         
+          <ListItemText primary="Author's Profile" className={classes.listItemSize} />
+
         </MenuItem>
-        
-         {post.is_author
+
+        {post.is_author
           && (
             <DeletePost
               setAnchorEl={setAnchorEl}
@@ -164,45 +165,63 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-           <Card className={classes.cardProps} >
-             <div className={classes.text}>
-          {post.body
-            && (
+          <Card className={classes.cardProps} >
+            <div className={classes.text}>
+              {post.body
+                && (
 
-              <Typography  variant="subtitle8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
-                  {post.body.charAt(0).toUpperCase()+post.body.slice(1)}
-                  
-              </Typography >
+                  <Typography variant="subtitle8" color="black" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+                    {post.body.charAt(0).toUpperCase() + post.body.slice(1)}
 
-            )}
+                  </Typography >
+
+                )}
             </div>
 
-              <Typography className={classes.postBody}  variant="body8" color="black" style={{fontSize:"12px", letterSpacing:'1px'}}>
-          {post.parent && <PostParent post={post.parent} />}
-           </Typography>
-           </Card>
+            <Typography className={classes.postBody} variant="body8" color="black" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+              {post.parent && <PostParent post={post.parent} />}
+            </Typography>
+          </Card>
         </div>
 
       </div>
     
-     
-             <Grid item xs={12} sm={6}>
-          <IconButton className={classes.pluralize}
-            onClick={handleReplies}>
-            {post.reply_ids?.length || 0}{ ' '}{pluralizeOther(post.reply_ids?.length)}
-            </IconButton>
-            </Grid >
+      <Box
+       alignItems="flex-start"
+        display="flex"
+        borderRadius="borderRadius"
+        bgcolor="grey.50"
+        m={1}
+        p={1}
+        style={{ marginLeft: "58%", width: '40%', height: '2rem' }}
+      >
+        <span style={{ color:"textSecondary",fontWeight:"bold"}}> Ksh.{post.payment}</span> 
+      </Box>
+      
+      <Box
+       alignItems="flex-start"
+        display="flex"
+        borderRadius="borderRadius"
+        bgcolor="grey.50"
+        m={1}
+        p={1}
+        style={{ marginLeft: "58%", width: '40%', height: '2rem' }}
+      >
+       <span style={{ color:"textSecondary",fontWeight:"bold"}}><LocationOnOutlinedIcon/></span>
+      </Box>
+      <Grid item xs={12} sm={6}>
+        <IconButton className={classes.pluralize}
+          onClick={handleReplies}>
+          {post.reply_ids?.length || 0}{' '}{pluralizeOther(post.reply_ids?.length)}
+        </IconButton>
+      </Grid >
 
-   <div className={classes.chip}>
 
-       <Chip icon={<MoneyIcon  />}label={post.payment}size="small" color="secondary" variant="outlined" />
-         
-      </div>
-        
-         
-        
-       <Divider variant="inset"   classes={{root:classes.divider}} />
-       
+
+
+
+      <Divider variant="inset" classes={{ root: classes.divider }} />
+
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
@@ -220,9 +239,9 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
 
-              < ChatIcon
-            
-              style={{fontSize:"30px"}} />
+            < ChatIcon
+
+              style={{ fontSize: "30px" }} />
 
 
 
@@ -230,7 +249,7 @@ const PostItem = ({ expandReplies, postId }) => {
           </IconButton>
 
         </div>
-           <div className={classes.likeContainer}>
+        <div className={classes.likeContainer}>
 
           <LikePost
             postId={post.id}
@@ -239,7 +258,7 @@ const PostItem = ({ expandReplies, postId }) => {
           />
 
         </div>
-           <div className={classes.repostContainer}>
+        <div className={classes.repostContainer}>
           <Repost postId={postId} />
         </div>
 
@@ -257,18 +276,18 @@ const PostItem = ({ expandReplies, postId }) => {
               className={classes.replyContent}
 
             >
-        <CardHeader
-        
-        className={classes.replyHeader}
-        title="Comments"
-        titleTypographyProps={{
-          className: classes.title,
-          variant: 'subtitle1',
-          color:'textSecondary'
-        }}
-      />
-           
-            
+              <CardHeader
+
+                className={classes.replyHeader}
+                title="Comments"
+                titleTypographyProps={{
+                  className: classes.title,
+                  variant: 'subtitle1',
+                  color: 'textSecondary'
+                }}
+              />
+
+
               <NextButton
                 callback={handleNext}
                 loading={nextLoading}

@@ -132,7 +132,7 @@ const RecommendedPosts = () => {
           </IconButton>
         )}
         className={classes.cardHeader}
-        title="Recent Posts"
+        title="Related Posts"
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3 ',

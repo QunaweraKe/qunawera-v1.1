@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     '& li': {
-      borderBottom: `5px solid ${theme.palette.grey[50]}`,
-
+      borderBottom: `2px solid ${theme.palette.grey[50]}`,
+    
       '&:last-child': {
         borderBottom: 'none',
       },

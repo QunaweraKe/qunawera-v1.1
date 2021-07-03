@@ -117,7 +117,7 @@ const DialogPostForm = () => {
             className={classes.title}
             variant="h6"
           >
-            Create a new task
+            New task
           </Typography>
      
         </DialogTitle>
@@ -139,7 +139,7 @@ const DialogPostForm = () => {
             variant="outlined"
             rows={4}
           />
-          <FormControl fullWidth className={classes.margin} variant="outlined">
+          <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-amount">Payment</InputLabel>
           <OutlinedInput
             

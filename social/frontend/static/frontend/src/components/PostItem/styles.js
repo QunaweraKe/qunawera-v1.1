@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardProps:{
   backgroundColor:theme.palette.grey[50],
-
+  width:"100%",
   },
   text:{
   marginLeft:"1%"

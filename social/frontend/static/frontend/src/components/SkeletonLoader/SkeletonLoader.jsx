@@ -11,17 +11,17 @@ const SkeletonLoader = () => {
 
   return (
     <div>
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item xs={3} >
-          <Skeleton variant="circle" width={40} height={40} />
+          <Skeleton variant="circle" width={50} height={50} />
         </Grid>
         <Grid item xs={3} >
           <Skeleton variant="text" width={110} animation="wave" />
         </Grid>
 
       </Grid>
-      <Skeleton style={{marginLeft:"10%"}}variant="rect" width="80%" height={100}  />
-      <Skeleton style={{marginLeft:"10%"}} variant="text" width="80%" height={50}  animation="wave" />
+      <Skeleton style={{marginLeft:"10%"}}variant="rect" width="80%" height={90}  />
+      <Skeleton style={{marginLeft:"10%"}} variant="text" width="80%" height={40}  animation="wave" />
     </div>
   );
 };

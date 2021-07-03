@@ -126,6 +126,14 @@ const Home = ( ) => {
              
       <SkeletonLoader/>
               </div>
+              <Typography
+                color="textSecondary"
+                paragraph
+                variant="body1"
+              >
+                We enable you get and post tasks around your location  .First you need to find some people around you  to follow.Let's get started!
+              </Typography>
+              
               <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Update  Your Profile
       </Button>
@@ -133,14 +141,7 @@ const Home = ( ) => {
               <StepperSlide/>
               </Dialog>
              
-              <Typography
-                color="textSecondary"
-                paragraph
-                variant="body2"
-              >
-                We enable you get and post tasks around your location  .First you need to find some people around you  to follow.Let's get started!
-              </Typography>
-              
+             
              
             </NoData>
           )}
