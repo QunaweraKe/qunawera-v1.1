@@ -61,7 +61,7 @@ const HowItWorks = () => {
         </DialogContent>
         <DialogActions>
 
-          <Button onClick={handleClose} color="secondary" fullWidth variant="outlined" size="small" style={{fontWeight:"bold"}}>
+          <Button onClick={handleClose} color="secondary" variant="outlined" size="small" style={{fontWeight:"bold"}}>
            I have Read and Understood how it works
          </Button>
         </DialogActions>
