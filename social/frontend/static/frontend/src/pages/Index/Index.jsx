@@ -55,7 +55,7 @@ const Index = () => {
           </Typography>
 
     </div>
-     <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
+     <Typography color="textSecondary" variant="subtitle2" align="left" style={{textDecoration:"underline",fontWeight:"bold"}}>
 
            Lets get started
          </Typography>
@@ -77,7 +77,7 @@ const Index = () => {
     <DividerWithText>Or</DividerWithText>
 
     <div className={classes.ctaContainer}>
-        <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
+        <Typography color="textSecondary" variant="subtitle2" align="left" style={{textDecoration:"underline",fontWeight:"bold"}}>
 
            Already a member{"?"}
          </Typography>
