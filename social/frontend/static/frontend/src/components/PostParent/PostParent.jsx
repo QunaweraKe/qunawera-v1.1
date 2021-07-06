@@ -5,6 +5,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+
 // Local
 import PostHeader from '../PostHeader';
 
@@ -17,14 +18,16 @@ const PostParent = ({ className, post }) => {
     <Paper
       classes={{ root: classes.parentContainer }}
       className={className}
-      variant="outlined"
-      elevation={3}
+      elevation={0}
+      square
     >
+
+
       <PostHeader
         post={post}
         repost
       />
-      <Typography>
+      <Typography style={{ fontSize: "12px", letterSpacing: '1px' }}>
         {post.body}
       </Typography>
     </Paper>

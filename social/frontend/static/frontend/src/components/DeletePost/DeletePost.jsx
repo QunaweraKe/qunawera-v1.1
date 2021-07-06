@@ -67,7 +67,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         <ListItemText
           primary="Delete"
           primaryTypographyProps={{
-            color: 'textSecondary',
+            color: 'error',
           }}
         />
       </MenuItem>
@@ -80,7 +80,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         onClose={handleClose}
         onEntered={handleEntered}
         text={`
-          This action can’t be undone and it will be remove everything associated to this item .
+          This action can’t be undone and it will be remove everything associated to this post .
         `}
         
       />

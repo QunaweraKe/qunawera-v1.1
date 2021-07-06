@@ -29,7 +29,7 @@ const EditProfile = () => {
   const [formData, setFormData] = React.useState({
     bio: user.profile.bio,
     location: user.profile.location,
-    website: user.profile.website,
+   
   });
 
   const { loading } = useUI(key.editProfile, null, false);
@@ -50,13 +50,7 @@ const EditProfile = () => {
   };
 
   const handleSubmit = async () => {
-    let website;
-    try {
-      website = new URL(formData.website).href;
-    } catch {
-      website = `http://${formData.website}`;
-    }
-    formData.website = website;
+  
     await dispatch(editProfile(formData, user.slug));
     handleClose();
   };
@@ -70,7 +64,7 @@ const EditProfile = () => {
         size="small"
           style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
       >
-        Edit profile
+        Update profile info
       </Button>
       <Dialog
         open={dialogOpen}
@@ -109,17 +103,7 @@ const EditProfile = () => {
             type="text"
             value={formData.location}
           />
-          <TextField
-            autoComplete="off"
-            className={classes.formField}
-            fullWidth
-            id="website"
-            label="Website"
-            name="website"
-            onChange={handleChange}
-            type="text"
-            value={formData.website}
-          />
+         
              <Button
             color="primary"
             disabled={loading}

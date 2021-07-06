@@ -165,7 +165,7 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-          <Card className={classes.cardProps} >
+          <Card className={classes.cardProps} variant="outlined">
             <div className={classes.text}>
               {post.body
                 && (
@@ -178,24 +178,25 @@ const PostItem = ({ expandReplies, postId }) => {
                 )}
             </div>
 
-            <Typography className={classes.postBody} variant="body8" color="black" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+            <Typography className={classes.postBody} variant="body8"  style={{ fontSize: "12px", letterSpacing: '1px' }}>
               {post.parent && <PostParent post={post.parent} />}
             </Typography>
-          </Card>
-        </div>
-
-      </div>
-    
-      <Box
+            <Card >
+            <Typography variant="subtitle1" color="primary">
+             Required skills
+            </Typography>
+            <Typography variant="subtitle1" color="primary">
+             {post.skillset}
+            </Typography>
+            <Box
        alignItems="flex-start"
         display="flex"
         borderRadius="borderRadius"
         bgcolor="grey.50"
         m={1}
         p={1}
-        style={{ marginLeft: "58%", width: '40%', height: '2rem' }}
-      >
-        <span style={{ color:"textSecondary",fontWeight:"bold"}}> Ksh.{post.payment}</span> 
+        style={{ marginLeft: "15%", width: '25%', height: '2rem' }}
+      > <span style={{ color:"textSecondary"}}> Ksh.{post.payment}</span> 
       </Box>
       
       <Box
@@ -205,10 +206,17 @@ const PostItem = ({ expandReplies, postId }) => {
         bgcolor="grey.50"
         m={1}
         p={1}
-        style={{ marginLeft: "58%", width: '40%', height: '2rem' }}
+        style={{  marginLeft: "15%", width: '25%', height: '2rem' }}
       >
-       <span style={{ color:"textSecondary",fontWeight:"bold"}}><LocationOnOutlinedIcon/></span>
+       <span style={{ color:"textSecondary"}}><LocationOnOutlinedIcon/></span>
       </Box>
+            </Card>
+          </Card>
+        </div>
+
+      </div>
+    
+     
       <Grid item xs={12} sm={6}>
         <IconButton className={classes.pluralize}
           onClick={handleReplies}>
@@ -264,7 +272,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       </CardActions>
-
+      <Divider classes={{ root: classes.divider }} />
       {expanded && !loading
         && (
           <Collapse

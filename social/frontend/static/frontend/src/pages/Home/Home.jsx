@@ -85,12 +85,10 @@ const Home = ( ) => {
 
            <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
             </Grid>
-             <Grid >
-
-
-
-              </Grid >
-              <Grid >
+             
+        </SubHeading>
+        <Heading>
+        <Grid justify="flex-end">
               <ButtonGroup color="primary" aria-label="outlined primary button group">
               <DialogPostForm/>
               <CustomTooltip title="explore posts and users" arrow disableFocusListener>
@@ -104,15 +102,12 @@ const Home = ( ) => {
 
 
             >
-           Search<SearchIcon />
+          Quick Search<SearchIcon />
             </Button>
             </CustomTooltip>
             
             </ButtonGroup>
               </Grid>
-        </SubHeading>
-        <Heading>
-
         </Heading>
 
 

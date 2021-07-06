@@ -59,6 +59,7 @@ const ProfilePosts = () => {
           <Typography variant="h6">
             {profileUser.display_name || slug}
           </Typography>
+        
         </Heading>
         <ProfileInfo
           loading={profileUserLoading}
@@ -91,7 +92,8 @@ const ProfilePosts = () => {
                   <Button
                     color="primary"
                     onClick={handlePost}
-                    variant="contained"
+                    variant="outlined"
+                    size="small"
                   >
                     Post now
                   </Button>

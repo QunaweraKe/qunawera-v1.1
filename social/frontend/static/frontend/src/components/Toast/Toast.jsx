@@ -30,7 +30,7 @@ const Toast = ({ message, severity }) => {
   return (
     <Snackbar
       open={open}
-      autoHideDuration={3000}
+      autoHideDuration={4000}
       onClose={handleClose}
       
     >

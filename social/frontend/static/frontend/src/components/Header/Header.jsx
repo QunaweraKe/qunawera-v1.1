@@ -64,7 +64,7 @@ const Header = () => {
               }
               to={route.home}
             >
-              <span className="nav-button-text">Feed</span>
+              <span className="nav-button-text">Feeds</span>
             </Button>
           </ListItem>
           <ListItem disableGutters>

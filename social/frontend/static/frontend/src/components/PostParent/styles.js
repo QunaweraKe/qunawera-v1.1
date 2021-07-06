@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   parentContainer: {
     backgroundColor: theme.palette.grey[50],
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(3),
     padding: theme.spacing(1, 2),
   },
 }));

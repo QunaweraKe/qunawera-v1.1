@@ -16,9 +16,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
 
 // Local
 import Avatar from '../Avatar';
@@ -52,7 +50,7 @@ const DialogPostForm = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(selectUser);
-  const imageRef = React.useRef();
+;
   const [dialogOpen, setDialogOpen] = React.useState(false);
   
 
@@ -61,24 +59,21 @@ const DialogPostForm = () => {
   const [formData, setFormData] = React.useState({
     body: '',
     payment: '',
+    skillset:'',
    
 
   });
 
  
-  const handleChange = (event,field) => {
-    const image = event.target.files[0];
-    const formData = new FormData();
-    formData.append(field, image, image.name);
+  const handleChange = (event) => {
+
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
-
+     
     });
   };
-  const handleEditPost = () => {
-    imageRef.current.click();
-  };
+
 
   const handleClose = () => {
     setDialogOpen(false);
@@ -147,6 +142,20 @@ const DialogPostForm = () => {
             variant="outlined"
             rows={4}
           />
+          <TextField
+          className={classes.inputContainer}
+            autoComplete="off"
+            multiline
+            fullWidth
+            id="skillset"
+            label="Required Skills"
+            name="skillset"
+            onChange={handleChange}
+            type="text"
+            value={formData.skillset}
+            variant="outlined"
+            rows={4}
+          />
           <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-amount">Payment</InputLabel>
           <OutlinedInput
@@ -162,20 +171,7 @@ const DialogPostForm = () => {
             labelWidth={60}
           />
         </FormControl>
-        <>
-        <input
-                    hidden="hidden"
-                    onChange={(event) => handleChange(event, 'postImage')}
-                    ref={imageRef}
-                    type="file"
-                  />
-                  <IconButton
-                  
-                    onClick={handleEditPost}
-                  >
-                    <CameraAltIcon />
-                  </IconButton>
-          </>
+       
              <Button
             className={classes.margin}
             color="primary"
