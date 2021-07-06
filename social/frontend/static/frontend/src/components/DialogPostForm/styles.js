@@ -16,10 +16,16 @@ const useStyles = makeStyles((theme) => ({
   },
   inputContainer: {
     flexGrow: 1,
+    
   },
   margin: {
     marginTop:15,
-    margin: theme.spacing(1),
+
+  },
+  Button: {
+    marginTop:25,
+    margin:theme.spacing(2),
+
   },
 
 

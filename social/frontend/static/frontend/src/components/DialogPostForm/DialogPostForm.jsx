@@ -143,7 +143,7 @@ const DialogPostForm = () => {
             rows={4}
           />
           <TextField
-          className={classes.inputContainer}
+          className={classes.margin}
             autoComplete="off"
             multiline
             fullWidth
@@ -173,7 +173,7 @@ const DialogPostForm = () => {
         </FormControl>
        
              <Button
-            className={classes.margin}
+            className={classes.Button}
             color="primary"
             disabled={loading}
             onClick={handleSubmit}
@@ -185,7 +185,7 @@ const DialogPostForm = () => {
             {loading && <CircularProgress />}
           </Button>
           <Button
-            className={classes.margin}
+            className={classes.Button}
             color="secondary"
             disabled={loading}
             onClick={handleClose}
