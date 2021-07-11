@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 
 // Local
 import CircularProgress from '../CircularProgress';
-
 import useUI from '../../hooks/useUI';
 
 import {
@@ -53,7 +52,7 @@ const FollowButton = ({ className, user, size }) => {
 
 FollowButton.defaultProps = {
   className: null,
-  size: 'small',
+  size: 'large',
 };
 
 FollowButton.propTypes = {

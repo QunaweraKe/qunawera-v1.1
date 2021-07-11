@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 // Local
 import Avatar from '../Avatar';
 import TextLink from '../TextLink';
-import UserSlug from '../UserSlug';
+
 import { route } from '../../constants';
 import useStyles from './styles';
 
@@ -25,7 +25,7 @@ const PostHeader = ({ post, repost }) => {
 
           <Avatar
             className={classes.headerAvatar}
-            size={20}
+            size={30}
             user={post.author}
           />
         )}

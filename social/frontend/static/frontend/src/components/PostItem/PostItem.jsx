@@ -165,7 +165,7 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-          <Card className={classes.cardProps} variant="outlined">
+          <Card className={classes.cardProps} raised>
             <div className={classes.text}>
               {post.body
                 && (
@@ -181,7 +181,7 @@ const PostItem = ({ expandReplies, postId }) => {
             <Typography className={classes.postBody} variant="body8"  style={{ fontSize: "12px", letterSpacing: '1px' }}>
               {post.parent && <PostParent post={post.parent} />}
             </Typography>
-            <Card >
+            
             <Typography variant="subtitle1" color="primary">
              Required skills
             </Typography>
@@ -199,19 +199,9 @@ const PostItem = ({ expandReplies, postId }) => {
       > <span style={{ color:"textSecondary"}}> Ksh.{post.payment}</span> 
       </Box>
       
-      <Box
-       alignItems="flex-start"
-        display="flex"
-        borderRadius="borderRadius"
-        bgcolor="grey.50"
-        m={1}
-        p={1}
-        style={{  marginLeft: "15%", width: '25%', height: '2rem' }}
-      >
-       <span style={{ color:"textSecondary"}}><LocationOnOutlinedIcon/></span>
-      </Box>
+      
             </Card>
-          </Card>
+        
         </div>
 
       </div>
