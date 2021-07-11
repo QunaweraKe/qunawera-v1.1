@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.aggregates import ArrayAgg
 from django.db.models import Q, QuerySet
+from django.db.models.expressions import OrderBy
 
 User = get_user_model()
 
@@ -28,11 +29,13 @@ class PostManager(QuerySet):
         reply_ids = ArrayAgg(
             "alt__author_id",
             filter=Q(alt__is_reply=True, alt__is_active=True),
+            
         )
         # Aggregate all user IDs that have reposted a post.
         repost_ids = ArrayAgg(
             "alt__author_id",
             filter=Q(alt__is_reply=False, alt__is_active=True),
+          
         )
         return (
             self.active()
@@ -72,5 +75,5 @@ class PostManager(QuerySet):
             .order_by("?")
         )
         if long is False:
-            qs = qs[:5]
+            qs = qs[:9]
         return qs

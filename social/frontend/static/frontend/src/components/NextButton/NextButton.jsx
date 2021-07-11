@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 // Material UI
-import Button from '@material-ui/core/Button';
-
+import IconButton from '@material-ui/core/IconButton';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 // Local
 import CircularProgress from '../CircularProgress';
 
@@ -14,16 +14,17 @@ const NextButton = ({ callback, loading, nextUrl }) => {
 
   return nextUrl
     ? (
-      <Button
+      <IconButton
         classes={{ root: classes.root }}
-        color="primary"
+        color="secondary"
         disabled={loading}
         onClick={callback}
-        variant="filled"
+        
+        fullWidth
       >
-         view  more ...
+         view  more <HourglassEmptyIcon/>
         {loading && <CircularProgress />}
-      </Button>
+      </IconButton>
     ) : null;
 };
 
