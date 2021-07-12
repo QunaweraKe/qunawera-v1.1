@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   likeText:{
-    fontSize:12,
+    fontSize:16,
     '&:hover, &:focus': {
       backgroundColor: fade(theme.palette.primary.main, 0.05),
       color: "#000",

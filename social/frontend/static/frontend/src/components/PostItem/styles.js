@@ -4,16 +4,7 @@ const useStyles = makeStyles((theme) => ({
 
   ...theme.custom,
 
-  chip:{
-    marginLeft:"80%",
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    width:"60px",
-    '& > *': {
-      margin: theme.spacing(0.5),
-    },
-  },
+
   avatarContainer: {
     alignItems: 'flex-end',
     display: 'flex',
@@ -29,16 +20,7 @@ const useStyles = makeStyles((theme) => ({
   replies:{
   color:theme.palette.primary.main,
   },
-  divider:{
-  padding:1,
-  height:2,
-  width: '95%',
-  background:theme.palette.grey[50],
-  marginBottom:7,
-   marginLeft:10,
   
-   marginTop:2,
-  },
   listItemSize:{
 
     color:theme.palette.textSecondary,
@@ -76,15 +58,19 @@ const useStyles = makeStyles((theme) => ({
   },
 
   textSize:{
-  fontSize:12,
+  fontSize:14,
 
   },
   cardProps:{
-  backgroundColor:theme.palette.paper,
+  backgroundColor:theme.palette.grey[50],
+  marginTop:theme.spacing(1),
+
 
   },
   text:{
-  marginLeft:"1%"
+  marginLeft:"1%",
+  marginRight:"1%",
+  fontSize:13,
   },
 postBody: {
 marginTop:6,

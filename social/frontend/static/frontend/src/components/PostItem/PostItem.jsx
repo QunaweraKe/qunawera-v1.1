@@ -50,6 +50,7 @@ import {
 
 import useStyles from './styles';
 const PostItem = ({ expandReplies, postId }) => {
+ 
   const pluralizeOther = (length) => (length !== 1 ? 'comments' : 'comment');
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -165,12 +166,15 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-          <Card className={classes.cardProps} raised>
+          <Card className={classes.cardProps} >
+          <Typography variant="subtitle1" color="primary">
+            Task Description
+            </Typography>
             <div className={classes.text}>
               {post.body
                 && (
 
-                  <Typography variant="subtitle8" color="black" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+                  <Typography variant="subtitle8" color="black" style={{  letterSpacing: '1px' }}>
                     {post.body.charAt(0).toUpperCase() + post.body.slice(1)}
 
                   </Typography >
@@ -185,7 +189,7 @@ const PostItem = ({ expandReplies, postId }) => {
             <Typography variant="subtitle1" color="primary">
              Required skills
             </Typography>
-            <Typography variant="subtitle1" color="primary">
+            <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
              {post.skillset}
             </Typography>
             <Box
@@ -214,12 +218,6 @@ const PostItem = ({ expandReplies, postId }) => {
         </IconButton>
       </Grid >
 
-
-
-
-
-      <Divider variant="inset" classes={{ root: classes.divider }} />
-
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
@@ -237,9 +235,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
 
-            < ChatIcon
-
-              style={{ fontSize: "30px" }} />
+            < ChatIcon />
 
 
 
@@ -262,7 +258,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       </CardActions>
-      <Divider classes={{ root: classes.divider }} />
+      <Divider classes={{ root: classes.divider }} style={{height:"10px"}} />
       {expanded && !loading
         && (
           <Collapse
