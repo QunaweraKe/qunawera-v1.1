@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 0,
   },
   notchedOutline: {
-    borderColor: theme.palette.grey[300],
+    borderColor: theme.palette.grey[50],
   },
   replyForm: {
     alignItems: 'center',
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     flexGrow: 1,
     marginLeft: theme.spacing(1),
+    
   },
 }));
 

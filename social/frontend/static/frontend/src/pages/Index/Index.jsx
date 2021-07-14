@@ -100,6 +100,11 @@ const Index = () => {
             <Button disabled disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> By using this app you agree to our Terms & Privacy.</Button>
 
             </Grid>
+            
+            </Grid>
+            <Grid item>
+            <Button  disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> Want to Join Our Workforce?</Button>
+
             </Grid>
             </div>
 
@@ -144,7 +149,7 @@ const Index = () => {
 <Grid container spacing={2} >
      <Grid item >
      
-      <ContactUs />
+     <HowItWorks/>
      
       </Grid >
        <Grid item  >
@@ -152,14 +157,16 @@ const Index = () => {
       <Terms/>
 
        </Grid >
-  <Grid item  >
-    <HowItWorks/>
+
+  
        
-       </Grid >
+      
 
         </Grid >
 
    <Footer/>
+
+   <ContactUs />
 </div>
     </div>
 

@@ -10,7 +10,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import BorderColorIcon from '@material-ui/icons/BorderColor';
 import { Tooltip } from '@material-ui/core';
 
 
@@ -41,7 +40,7 @@ const Terms = () => {
    <div>
      <Tooltip title="Terms & Privacy" arrow placement="bottom">
     <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
-       <BorderColorIcon  />
+       <span style={{fontSize:"12px",fontWeight:"bolder"}}>Terms&Privacy</span>
       </Button>
       </Tooltip>
      <Dialog

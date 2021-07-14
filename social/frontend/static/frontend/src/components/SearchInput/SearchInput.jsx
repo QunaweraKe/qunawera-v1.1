@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
-
+import Paper from '@material-ui/core/Paper';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
-
+import Divider from '@material-ui/core/Divider';
 // Local
 import { APP_NAME } from '../../constants';
 
@@ -42,7 +42,8 @@ const SearchInput = () => {
   };
 
   return (
-    <div className={classes.searchContainer}>
+    <div>
+      <Paper className={classes.root}elevation={2}>
       <InputBase
         classes={{
           input: classes.inputInput,
@@ -50,23 +51,27 @@ const SearchInput = () => {
         }}
         endAdornment={searchString.length
           ? (
-            <IconButton
+            <Button
               color="primary"
               onClick={handleClear}
               size="small"
-            >
-              <CloseIcon fontSize="small" />
-            </IconButton>
+            > 
+           <Divider className={classes.divider} orientation="vertical" />
+               <span style={{marginLeft:"0px"}}><CloseIcon fontSize="medium" /></span>
+            </Button>
           ) : null}
         onInput={handleInput}
-        placeholder={`Search ${APP_NAME}`}
+        placeholder={`Search ${APP_NAME} users...` }
         startAdornment={(
           <SearchIcon
             className={classes.searchIcon}
           />
+          
         )}
+        
         value={searchString}
       />
+      </Paper>
     </div>
   );
 };

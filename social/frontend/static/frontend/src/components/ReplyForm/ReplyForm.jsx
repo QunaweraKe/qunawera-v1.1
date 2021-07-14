@@ -54,8 +54,9 @@ const ReplyForm = ({ postId }) => {
       <TextField
         className={classes.textField}
         fullWidth
+        color="secondary"
         InputProps={{
-
+        
           classes: { notchedOutline: classes.notchedOutline },
           className: classes.input,
           endAdornment: (
@@ -64,7 +65,7 @@ const ReplyForm = ({ postId }) => {
               position="end"
             >
               <IconButton
-                color="primary"
+                color="secondary"
                 disabled={loading || replyText.trim().length === 0}
                 type="submit"
               >
@@ -84,7 +85,7 @@ const ReplyForm = ({ postId }) => {
         onChange={handleChange}
         spellCheck
         value={replyText}
-        variant="standard"
+        variant="outlined"
       />
     </form>
   );

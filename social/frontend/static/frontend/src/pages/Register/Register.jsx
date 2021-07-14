@@ -169,7 +169,7 @@ const Register = () => {
                 fullWidth
                 helperText={errors.password2}
                 id="password2"
-                label="Confirm password"
+                label="Repeat password"
                 name="password2"
                 onChange={handleChange}
                 type="password"
@@ -198,7 +198,7 @@ const Register = () => {
 
 
        <Typography className={classes.login}>
-        Already a member  {'?'}  {'  '}
+        <span style={{textDecoration:"underline"}}>Already a member </span> {'?'}  {'  '}
        <TextLink to={route.login}>
       Login</TextLink>
         </Typography>

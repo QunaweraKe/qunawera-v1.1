@@ -93,7 +93,21 @@ const PostItem = ({ expandReplies, postId }) => {
 
   return (
     <div className={classes.root}>
-      <IconButton
+     
+
+      <div className={classes.postContainer}>
+
+
+        <div className={classes.avatarContainer}>
+
+          <Avatar user={post.author} />
+
+        </div>
+        <div className={classes.post}>
+
+          <PostHeader post={post} />
+          <Card className={classes.cardProps} variant="outlined" >
+          <IconButton
         className={classes.postAction}
         onClick={handleMenuOpen}
       >
@@ -154,19 +168,6 @@ const PostItem = ({ expandReplies, postId }) => {
             />
           )}
       </Menu>
-
-      <div className={classes.postContainer}>
-
-
-        <div className={classes.avatarContainer}>
-
-          <Avatar user={post.author} />
-
-        </div>
-        <div className={classes.post}>
-
-          <PostHeader post={post} />
-          <Card className={classes.cardProps} >
           <Typography variant="subtitle1" color="primary">
             Task Description
             </Typography>
@@ -258,7 +259,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       </CardActions>
-      <Divider classes={{ root: classes.divider }} style={{height:"10px"}} />
+    
       {expanded && !loading
         && (
           <Collapse
@@ -273,7 +274,7 @@ const PostItem = ({ expandReplies, postId }) => {
               <CardHeader
 
                 className={classes.replyHeader}
-                title="Comments"
+                title="Comments..."
                 titleTypographyProps={{
                   className: classes.title,
                   variant: 'subtitle1',
@@ -294,9 +295,11 @@ const PostItem = ({ expandReplies, postId }) => {
                 />
               ))}
               <ReplyForm postId={postId} />
+   
             </CardContent>
           </Collapse>
         )}
+                   <Divider light classes={{ root: classes.divider }} style={{height:"10px"}} />
     </div>
   );
 };

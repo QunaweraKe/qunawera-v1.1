@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   
     marginBottom: theme.spacing(3),
     marginLeft : theme.spacing(2),
-    width:"80%"
+    
   },
   postAction: {
     position: 'absolute',
@@ -63,7 +63,10 @@ const useStyles = makeStyles((theme) => ({
   },
   cardProps:{
   backgroundColor:theme.palette.grey[50],
-  marginTop:theme.spacing(1),
+  borderRadius:"borderRadius",
+  marginTop:theme.spacing(2),
+
+
 
 
   },

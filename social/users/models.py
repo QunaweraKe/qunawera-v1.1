@@ -9,7 +9,7 @@ from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import UserManager
 
 class  ContactUs(models.Model):
-       email=models.EmailField(max_length=255,unique=False,)
+       email=CIEmailField(max_length=255,unique=False,)
        description=models.TextField(max_length="400")
        date_created=models.DateTimeField(auto_now_add=True,
         db_index=True,)

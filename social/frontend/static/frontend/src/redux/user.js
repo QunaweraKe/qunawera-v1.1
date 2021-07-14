@@ -180,7 +180,7 @@ export const loginUser = (payload, history) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.loginUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Welcome back'));
+    dispatch(setToast('Welcome Back '));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));

@@ -11,10 +11,10 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import Slide from '@material-ui/core/Slide';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import { Typography } from '@material-ui/core';
-
+import Divider from '@material-ui/core/Divider';
 //local
 import { logoutUser } from '../../redux/user';
-
+import { APP_NAME } from '../../constants';
 
 //Function to slide up
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -67,14 +67,14 @@ const LogOut = () => {
         <DialogContent
         >
           <DialogContentText id="alert-dialog-slide-description">
-          <Typography variant="h7" color="black">Are you sure you want to quit{"?"}</Typography> 
+          <Typography variant="subtitle1" style={{fontWeight:"bolder"}}color="black">Are you sure you want to log out of {APP_NAME}{"?"}</Typography> 
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary" size="small"  variant="outlined">
            Cancel
           </Button>
-         
+          <Divider  orientation="vertical" />
           <Button
               size="small"
               color="primary"

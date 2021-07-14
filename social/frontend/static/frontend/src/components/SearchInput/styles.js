@@ -7,25 +7,25 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   root: {
-    margin: theme.spacing(0.75, 0, 2, 0),
+   
     position: 'sticky',
     top: 0,
     zIndex: 1,
+    padding: '2px 2px',
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft:theme.spacing(0),
+    position:"relative"
+  
+  },
+  divider: {
+    height: 28,
+    margin: 6,
   },
   inputRoot: {
     flexGrow: 1,
   },
-  searchContainer: {
-    backgroundColor: theme.palette.grey[50],
-    borderRadius: theme.shape.borderRadius,
-    borderColor: theme.custom.border.color,
-    borderStyle: theme.custom.border.style,
-    borderWidth: 1,
-    display: 'flex',
-    flexGrow: 1,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
-  },
+
   searchFocus: {
     backgroundColor: theme.palette.common.white,
     borderColor: theme.palette.primary.main,

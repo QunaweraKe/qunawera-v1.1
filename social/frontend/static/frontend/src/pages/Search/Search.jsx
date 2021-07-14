@@ -44,10 +44,13 @@ const Search = () => {
           <Typography
             paragraph
             variant="h6"
+            color="secondary"
+            style={{fontWeight:"bolder"}}
           >
-            No results found for &quot;
+            user  &quot;
             {searchString}
             &quot;
+            does not match our records
           </Typography>
 
         </NoData>

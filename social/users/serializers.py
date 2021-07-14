@@ -5,18 +5,14 @@ from .models import Profile, User,ContactUs
 
 
 class  ContactUsSerializer(serializers.ModelSerializer):
-    """Create post for contact us.
-
-    
-    """
-    
-    
+    """Create post for contact us. """
+    description = serializers.CharField(allow_blank=False)
     class Meta:
         model=ContactUs
-        fields = [
-        "email",
-        "description",
-        "date_created",
+        fields =[
+            "email",
+            "description",
+            "date_created"
         ]
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -51,13 +47,14 @@ class ValidatePasswordMixin:
         if len(password) < 8:
             raise serializers.ValidationError(
                 {
-                    "password": "Your Password must be atleast 8 characters",
+                    "password": "Password must be atleast 8 characters long",
                 }
             )   
         return data
 
 
 class UserSerializer(ValidatePasswordMixin, serializers.ModelSerializer):
+
     display_name = serializers.SerializerMethodField(read_only=True)
     followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     following = serializers.PrimaryKeyRelatedField(many=True, read_only=True)

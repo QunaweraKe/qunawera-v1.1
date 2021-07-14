@@ -174,7 +174,7 @@ const Login = () => {
         </Card>
 
  <Typography className={classes.register}>
-              New to {APP_NAME}  {'?'}{'  '}
+              <span style={{textDecoration:"underline"}}>New to {APP_NAME}  </span>{'?'}{'  '}
           <TextLink to={route.register}>Create New Account</TextLink>
 
         </Typography>

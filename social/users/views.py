@@ -10,17 +10,16 @@ from social.views import PaginationMixin
 from .pagination import UserPagination
 from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer,ContactUsSerializer
 
+
 User = get_user_model()
 
-@api_view(['POST',])
-def ContactUsView(request,format=None):
-    serializer = ContactUsSerializer(data=request.data)
-    if serializer.is_valid():
-       serializer.save()
-       return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class ContactUsView (rest_generics.CreateAPIView):
+     serializer_class = ContactUsSerializer
+    
+     def perform_create(self, serializer):
+         serializer.save()
 
 
 

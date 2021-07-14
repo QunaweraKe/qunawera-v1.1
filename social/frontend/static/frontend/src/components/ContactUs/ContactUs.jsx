@@ -50,11 +50,11 @@ const ContactUs = () => {
    <div>
      <Tooltip title="Contact Us" arrow  placement="bottom">
       <Button color="secondary" onClick={handleClickOpen} size="small">
-         <ContactSupportIcon />
+         <span style={{fontSize:"12px",fontWeight:"bolder"}}>Help</span><ContactSupportIcon />
       </Button>
       </Tooltip>
 
-      <Dialog open={open}  fullWidth maxWidth="sm" onClose={handleClose} aria-labelled by="form-dialog-title">
+      <Dialog open={open}  fullWidth onClose={handleClose} aria-labelled by="form-dialog-title">
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
 
         <Divider style={{marginBottom:"10px"}}/>

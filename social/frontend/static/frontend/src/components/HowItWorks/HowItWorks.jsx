@@ -11,7 +11,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
 const HowItWorks = () => {
   const [open, setOpen] = React.useState(false);
   const [scroll, setScroll] = React.useState('paper');
@@ -39,7 +38,7 @@ const HowItWorks = () => {
    <div>
      <Tooltip title="How It Works" arrow  placement="bottom">
     <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
-         <MenuBookIcon />
+    <span style={{fontSize:"12px",fontWeight:"bolder"}}>How It Works</span> 
       </Button>
       </Tooltip>
      <Dialog

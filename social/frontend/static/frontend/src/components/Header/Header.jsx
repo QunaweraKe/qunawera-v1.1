@@ -176,11 +176,12 @@ const Header = () => {
           <LogOut/>
 
           </ListItem>
+          <Divider light/> 
           <ListItem disableGutters>
           <ContactUs/>
-          <span style={{marginLeft:"-9px"}} className="nav-button-text">Help</span>
+  
           </ListItem >
-          <Divider light/>  
+          
           
  </List>
    
