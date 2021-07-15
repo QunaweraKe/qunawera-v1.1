@@ -2,8 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Local
 import api, { descriptor } from '../api';
-
-import { route } from '../constants';
+import { route,APP_NAME  } from '../constants';
 
 import { setProfileData } from './profile';
 import {
@@ -80,7 +79,7 @@ export const createUser = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.createUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Your account has been created successfully'));
+    dispatch(setToast('Account has been created successfully'));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
@@ -96,7 +95,7 @@ export const createContactUs = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data=await api(descriptor.createContactUs(payload));
     dispatch(setUser(data));
-    dispatch(setToast(' Submitted successfully'));
+    dispatch(setToast(' Query submitted successfully'));
   } catch (error) {
     dispatch(setToast('Something went  wrong', 'error'));
     console.error(error);
@@ -174,13 +173,13 @@ export const follow = (slug, userId) => async (dispatch) => {
   }
 };
 
-export const loginUser = (payload, history) => async (dispatch) => {
+export const loginUser = (payload, history, profileUser) => async (dispatch) => {
   const thisKey = key.login;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.loginUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Welcome Back '));
+    dispatch(setToast(`welcome back to ${APP_NAME}`));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));

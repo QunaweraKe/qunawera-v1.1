@@ -26,6 +26,7 @@ class BasePostSerializer(serializers.ModelSerializer):
             _('%(value)s is less than minimum wage'),
              params={'value':value}
         )
+       
     author = UserSerializer(read_only=True)
     body = serializers.CharField(allow_blank=False)
     is_author = serializers.SerializerMethodField()

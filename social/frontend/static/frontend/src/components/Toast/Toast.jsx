@@ -35,10 +35,11 @@ const Toast = ({ message, severity }) => {
       
     >
       <Alert
-        elevation={3}
+        elevation={1}
         onClose={handleClose}
         severity={severity}
-       
+        icon={false} 
+        
       >
         {message}
       </Alert>
