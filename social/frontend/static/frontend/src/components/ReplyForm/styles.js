@@ -22,7 +22,11 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     flexGrow: 1,
     marginLeft: theme.spacing(1),
+    width:"97%"
     
+  },
+  backGround:{
+    backgroundColor: theme.palette.grey[50],
   },
 }));
 

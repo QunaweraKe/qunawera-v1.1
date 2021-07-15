@@ -274,11 +274,12 @@ const PostItem = ({ expandReplies, postId }) => {
               <CardHeader
 
                 className={classes.replyHeader}
-                title="Comments..."
+                title="Comments"
                 titleTypographyProps={{
                   className: classes.title,
                   variant: 'subtitle1',
-                  color: 'textSecondary'
+                  color: 'textSecondary',
+                  fontWeight:'bolder',
                 }}
               />
 

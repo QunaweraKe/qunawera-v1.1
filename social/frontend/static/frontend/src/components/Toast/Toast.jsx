@@ -32,10 +32,9 @@ const Toast = ({ message, severity }) => {
       open={open}
       autoHideDuration={3500}
       onClose={handleClose}
-      
-    >
+      >
       <Alert
-        elevation={1}
+        elevation={0}
         onClose={handleClose}
         severity={severity}
         icon={false} 
@@ -48,7 +47,7 @@ const Toast = ({ message, severity }) => {
 };
 
 Toast.defaultProps = {
-  severity: 'success',
+  severity: 'info',
 };
 
 Toast.propTypes = {

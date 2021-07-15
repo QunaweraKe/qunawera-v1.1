@@ -25,9 +25,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // Local
 import Avatar from '../Avatar';
-
 import Footer from '../Footer';
-import EditProfile from '../EditProfile';
+
 import { APP_NAME, route } from '../../constants';
 
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -101,9 +100,6 @@ const MobileMenu = () => {
           <Typography variant="subtitle1">
            {user.display_name}  &#183;
           </Typography>
-           </Grid>
-            <Grid item>
-          <EditProfile />
            </Grid>
            </Grid>
 

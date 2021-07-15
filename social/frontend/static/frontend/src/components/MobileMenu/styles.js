@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     width: 350,
+    color:theme.palette.primary.main,
   },
 
   logout: {
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottomStyle: theme.custom.border.style,
     borderBottomWidth: 5,
     display: 'flex',
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(3),
     padding: theme.spacing(1, 2),
 
 

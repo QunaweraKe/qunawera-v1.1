@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
-
+import Paper from '@material-ui/core/Paper';
 import SendIcon from '@material-ui/icons/Send';
 
 // Local
@@ -47,14 +47,16 @@ const ReplyForm = ({ postId }) => {
       onSubmit={handleSubmit}
       noValidate
     >
+
+
       <Avatar
         className={classes.avatar}
         user={user}
       />
+      <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}>
       <TextField
         className={classes.textField}
-        fullWidth
-        color="secondary"
+        color="textSecondary"
         InputProps={{
         
           classes: { notchedOutline: classes.notchedOutline },
@@ -65,7 +67,7 @@ const ReplyForm = ({ postId }) => {
               position="end"
             >
               <IconButton
-                color="secondary"
+                color="textSecondary"
                 disabled={loading || replyText.trim().length === 0}
                 type="submit"
               >
@@ -79,14 +81,15 @@ const ReplyForm = ({ postId }) => {
         label={
           replies.length
             ? 'What\'s your comment?'
-            : 'Leave a comment...'
+            : 'Leave a comment'
         }
         multiline
         onChange={handleChange}
         spellCheck
         value={replyText}
-        variant="outlined"
+        
       />
+        </Paper>
     </form>
   );
 };
