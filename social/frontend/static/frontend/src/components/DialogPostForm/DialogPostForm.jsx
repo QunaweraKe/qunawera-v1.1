@@ -22,9 +22,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import DialogCloseButton from '../DialogCloseButton';
-
 import useUI from '../../hooks/useUI';
-
+import { isEmpty } from '../../utils';
 import { createPost, key } from '../../redux/post';
 import { selectUser } from '../../redux/user';
 
@@ -44,7 +43,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 const DialogPostForm = () => {
-
+ 
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -53,8 +52,8 @@ const DialogPostForm = () => {
 ;
   const [dialogOpen, setDialogOpen] = React.useState(false);
   
+  const { errors, loading } = useUI(key.createPost, null, false);
 
-  const { loading } = useUI(key.post, null, false);
   
   const [formData, setFormData] = React.useState({
     body: '',
@@ -114,6 +113,15 @@ const DialogPostForm = () => {
         TransitionComponent={Transition}
 
       >
+        {!isEmpty(errors)
+              && (
+                <Alert
+                  className={classes.alert}
+                  severity="error"
+                >
+                 Form has invalid inputs.
+                </Alert>
+              )}
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography
@@ -129,21 +137,27 @@ const DialogPostForm = () => {
             <Avatar user={user} />
           </div>
           <TextField
+          required
           className={classes.inputContainer}
+          error={Boolean(errors.body)}
             autoComplete="off"
             multiline
             fullWidth
             id="body"
-            label="Task Description"
+            label="Description"
             name="body"
             onChange={handleChange}
             type="text"
             value={formData.body}
             variant="outlined"
             rows={4}
+            helperText={errors.body}
+          
           />
           <TextField
           className={classes.margin}
+          error={Boolean(errors.skillset)}
+           required
             autoComplete="off"
             multiline
             fullWidth
@@ -155,11 +169,12 @@ const DialogPostForm = () => {
             value={formData.skillset}
             variant="outlined"
             rows={4}
+            helperText={errors.skillset}
           />
           <FormControl className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Payment</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-amount">Payment *</InputLabel>
           <OutlinedInput
-            
+            error={Boolean(errors.payment)}
             autoComplete="off"
             className={classes.formField}
             id="payment"
@@ -168,7 +183,8 @@ const DialogPostForm = () => {
             type="text"
             value={formData.payment}
             startAdornment={<InputAdornment position="start">Ksh.</InputAdornment>}
-            labelWidth={60}
+            labelWidth={80}
+            helperText={errors.payment}
           />
         </FormControl>
        

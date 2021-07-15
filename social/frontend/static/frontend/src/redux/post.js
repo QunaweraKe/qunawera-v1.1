@@ -239,9 +239,9 @@ export const createPost = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.createPost(payload));
     dispatch(setPost(data));
-    dispatch(setToast('task posted'));
+    dispatch(setToast('Task posted '));
   } catch (error) {
-    dispatch(setToast('an error occurred while trying to post', 'error'));
+    dispatch(setToast('An error occurred while trying to post', 'error'));
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));

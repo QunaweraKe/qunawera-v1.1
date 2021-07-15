@@ -1,5 +1,6 @@
 from rest_framework import serializers
-
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 from users.serializers import UserSerializer
 from .models import Post
 
@@ -14,13 +15,23 @@ class PostParentSerializer(serializers.ModelSerializer):
             "body",
             "created_at",
             "id",
+           
         ]
 
 
 class BasePostSerializer(serializers.ModelSerializer):
+    def payment_validator(value):
+     if value  < 500:
+        raise ValidationError(
+            _('%(value)s is less than minimum wage'),
+             params={'value':value}
+        )
     author = UserSerializer(read_only=True)
     body = serializers.CharField(allow_blank=False)
     is_author = serializers.SerializerMethodField()
+    payment = serializers.IntegerField(
+        required=False, allow_null=True,validators=[payment_validator]
+    )
     parent = PostParentSerializer(read_only=True)
     parent_id = serializers.IntegerField(
         required=False, write_only=True, allow_null=True
@@ -68,6 +79,7 @@ class RepostSerializer(BasePostSerializer):
 
 class ReplySerializer(BasePostSerializer):
     pass
+
 
 
 class PostDetailSerializer(PostSerializer):

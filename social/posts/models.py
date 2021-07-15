@@ -4,7 +4,11 @@ from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager
 
 
+
+
+
 class Post(SoftDeleteMixin, TimestampMixin):
+  
     """
     Everything is a `Post`: post, reply, repost.
 
@@ -50,7 +54,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         on_delete=models.CASCADE,
         related_name="alt",
     )
-    payment=models.IntegerField(max_length=10000)
+    payment=models.IntegerField(max_length=25,default=500)
     objects = PostManager.as_manager()
 
     def __str__(self):
