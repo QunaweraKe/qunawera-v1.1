@@ -16,14 +16,12 @@ const SkeletonLoader = () => {
           <Skeleton variant="circle" width={50} height={50} />
         </Grid>
         <Grid  >
-          <Skeleton style={{marginLeft:"5%",marginTop:"5px"}} variant="text" width={110} animation="wave" />
+          <Skeleton style={{marginLeft:"2%",marginTop:"25px"}} variant="text" width={100} animation="wave" />
         </Grid>
 
       </Grid>
       <Skeleton style={{marginLeft:"10%"}}variant="rect" width="80%" height={90}  />
-      <Skeleton style={{marginLeft:"60%"}} variant="text" width="30%" height={20}  animation="wave" />
-      <Skeleton style={{marginLeft:"60%"}} variant="text" width="30%" height={20}  animation="wave" />
-      <Skeleton style={{marginLeft:"10%"}}variant="rect" width="80%" height={20}  />
+      <Skeleton style={{marginLeft:"10%"}}variant="text" width="80%" height={40}  />
     </div>
   );
 };

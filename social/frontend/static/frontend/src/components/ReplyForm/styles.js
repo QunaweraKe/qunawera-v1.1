@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   backGround:{
     backgroundColor: theme.palette.grey[50],
+    marginLeft:theme.spacing(2)
   },
 }));
 

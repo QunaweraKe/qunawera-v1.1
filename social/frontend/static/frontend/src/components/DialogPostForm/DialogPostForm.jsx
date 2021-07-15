@@ -16,7 +16,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import { withStyles } from '@material-ui/core/styles';
-
+import Paper from '@material-ui/core/Paper';
 
 // Local
 import Avatar from '../Avatar';
@@ -136,6 +136,7 @@ const DialogPostForm = () => {
         <div className={classes.avatarContainer}>
             <Avatar user={user} />
           </div>
+          <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}  elevation={2}>
           <TextField
           required
           className={classes.inputContainer}
@@ -154,8 +155,12 @@ const DialogPostForm = () => {
             helperText={errors.body}
           
           />
+             </Paper>
+ 
+
+             <Paper style={{marginTop:"15px",padding:'0px',width:"100%"}} className={classes.backGround}  elevation={2}>
           <TextField
-          className={classes.margin}
+          
           error={Boolean(errors.skillset)}
            required
             autoComplete="off"
@@ -171,7 +176,10 @@ const DialogPostForm = () => {
             rows={4}
             helperText={errors.skillset}
           />
+            </Paper>
           <FormControl className={classes.margin} variant="outlined">
+
+          <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}elevation={2}>
           <InputLabel htmlFor="outlined-adornment-amount">Payment *</InputLabel>
           <OutlinedInput
             error={Boolean(errors.payment)}
@@ -186,8 +194,9 @@ const DialogPostForm = () => {
             labelWidth={80}
             helperText={errors.payment}
           />
+           </Paper>
         </FormControl>
-       
+          
              <Button
             className={classes.Button}
             color="primary"

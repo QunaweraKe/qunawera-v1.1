@@ -53,6 +53,7 @@ const ReplyForm = ({ postId }) => {
         className={classes.avatar}
         user={user}
       />
+ 
       <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}>
       <TextField
         className={classes.textField}
@@ -71,8 +72,9 @@ const ReplyForm = ({ postId }) => {
                 disabled={loading || replyText.trim().length === 0}
                 type="submit"
               >
+                 {loading && <CircularProgress />}
                 <SendIcon />
-                {loading && <CircularProgress />}
+               
               </IconButton>
             </InputAdornment>
           ),
