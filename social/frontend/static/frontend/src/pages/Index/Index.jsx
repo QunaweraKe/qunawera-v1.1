@@ -16,7 +16,6 @@ import Terms from '../../components/Terms';
 import Indeximg from '../../components/Files/Images/repair.svg';
 import './index.css'
 import Footer from '../../components/Footer';
-import ContactUs from '../../components/ContactUs';
 import HowItWorks from '../../components/HowItWorks';
 import { APP_NAME, route,copyright } from '../../constants';
 import useStyles from './styles';
@@ -166,7 +165,7 @@ const Index = () => {
 
    <Footer/>
 
-   <ContactUs />
+
 </div>
     </div>
 
