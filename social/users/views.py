@@ -19,8 +19,14 @@ class ContactUsView (rest_generics.CreateAPIView):
      permission_classes = [AllowAny]
      serializer_class = ContactUsSerializer
     
-     def perform_create(self, serializer):
-         serializer.save()
+     def post(self, request):
+         serializer = ContactUsSerializer(data=request.data)
+         if serializer.is_valid():
+             serializer.save()
+             return Response(serializer.data,status=status.HTTP_201_CREATED)
+         else:
+
+             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 

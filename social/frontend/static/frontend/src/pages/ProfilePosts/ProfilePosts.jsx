@@ -79,7 +79,7 @@ const ProfilePosts = () => {
                     paragraph
                     variant="h6"
                   >
-                    You haven&apos;t posted yet
+                    You have no posts
                   </Typography>
 
                   <Typography

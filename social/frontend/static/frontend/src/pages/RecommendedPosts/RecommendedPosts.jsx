@@ -13,7 +13,6 @@ import NoData from '../../components/NoData';
 import PageTitle from '../../components/PageTitle';
 import Posts from '../../components/Posts';
 import RecommendedNav from '../../components/RecommendedNav';
-
 import useUI from '../../hooks/useUI';
 
 import {
@@ -60,16 +59,12 @@ const RecommendedPosts = () => {
               <Typography
                 paragraph
                 variant="h6"
+                color="secondary"
+                style={{fontWeight:"bolder"}}
               >
                 You don&apos;t have any recommended posts
               </Typography>
-              <Typography
-                color="textSecondary"
-                paragraph
-                variant="body2"
-              >
-                The posts of users you aren&apos;t following will show up here.
-              </Typography>
+              
             </NoData>
           )}
           posts={recommendedPosts.results}

@@ -163,7 +163,7 @@ theme.overrides = {
   },
   MuiFilledInput: {
     root: {
-      backgroundColor: theme.palette.primary.main,
+      
       borderTopLeftRadius: 3,
       borderTopRightRadius: 3,
 

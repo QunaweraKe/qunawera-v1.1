@@ -70,6 +70,9 @@ const useStyles = makeStyles((theme) => ({
 
 
   },
+  title:{
+fontWeight:"bolder"
+  },
   text:{
   marginLeft:"1%",
   marginRight:"1%",

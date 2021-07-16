@@ -1,20 +1,27 @@
 
-import React,  { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 // MATERIAL UI
-import { Tooltip } from '@material-ui/core';
+import { Divider, Tooltip } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Divider } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import Slide from '@material-ui/core/Slide';
 //local import
 import { createContactUs, key } from '../../redux/user';
 import { APP_NAME} from '../../constants';
+//Function to slide up
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="down" ref={ref} {...props} />;
+});
+
+
 
 const ContactUs = () => {
   const dispatch = useDispatch();
@@ -48,40 +55,41 @@ const ContactUs = () => {
   };
   return (
    <div>
-     <Tooltip title="Contact Us" arrow  placement="bottom">
+     <Tooltip title="Reach Us" arrow  placement="bottom">
       <Button color="secondary" onClick={handleClickOpen} size="small">
          <span style={{fontSize:"12px",fontWeight:"bolder"}}>Help</span><ContactSupportIcon />
       </Button>
       </Tooltip>
 
-      <Dialog open={open}  fullWidth onClose={handleClose} aria-labelled by="form-dialog-title">
+      <Dialog open={open}  onClose={handleClose} TransitionComponent={Transition} aria-labelled by="form-dialog-title">
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
 
-        <Divider style={{marginBottom:"10px"}}/>
+        <Paper style={{padding:'0px',width:"100%",backgroundColor:"textSecondary"}}  elevation={1}>
           
         <DialogContent>
 
           <DialogContentText>
-            Thank you for reaching out to us.Let us know how we can help you and we will get back to you almost immediately.
-            Fill in the fields below.
+             Thank you for reaching out to us.
+            Please fill in all the fields below.
           </DialogContentText>
 
           <TextField
            name="email"
-            margin="dense"
+            color="textSecondary"
             id="email"
             label="Email Address"
             type="email"
             fullWidth
             onChange={handleChange}
             type="email"
-            variant="outlined"
+            variant="filled"
              value={formData.email}
           />
              <TextField
-             variant="outlined"
+             style={{marginTop:"10px"}}
+             variant="filled"
              multiline
-            margin="dense"
+            
             id="description"
             label="Description"
             onChange={handleChange}
@@ -90,17 +98,18 @@ const ContactUs = () => {
             fullWidth
             name="description"
           />
-
-          <Button    onClick={handleSubmit} color="primary" variant="outlined" size="small">
+            <Divider orientation="horizontal " light variant='inset' />
+          <Button  style={{marginTop:"10px"}}  onClick={handleSubmit} color="primary" variant="outlined" >
             Submit
           </Button>
-        
-          <Button onClick={handleClose} color="textSecondary" variant="outlined"size="small">
+      
+          <Button  style={{marginTop:"10px",marginLeft:"4px"}} onClick={handleClose} color="secondary" variant="outlined">
             Cancel
           </Button>
         
         
           </DialogContent>
+          </Paper>
       </Dialog>
 
     </div>

@@ -64,7 +64,7 @@ const EditProfile = () => {
         size="small"
           style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
       >
-        Update profile info
+        Edit profile 
       </Button>
       <Dialog
         open={dialogOpen}

@@ -88,8 +88,8 @@ const Home = ( ) => {
              
         </SubHeading>
         <Heading>
-        <Grid style={{marginLeft:"60%"}} >
-              <ButtonGroup color="primary" aria-label="outlined primary button group" >
+        <Grid style={{marginLeft:"0%"}} >
+              <ButtonGroup color="primary" aria-label="outlined primary button group"  >
               <DialogPostForm/>
               <CustomTooltip title="explore posts and users" arrow disableFocusListener>
               <Button

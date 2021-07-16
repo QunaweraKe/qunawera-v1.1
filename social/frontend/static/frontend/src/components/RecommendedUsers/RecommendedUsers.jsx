@@ -97,6 +97,7 @@ const RecommendedUsers = () => {
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3',
+         
         }}
       />
       {renderUsersList()}

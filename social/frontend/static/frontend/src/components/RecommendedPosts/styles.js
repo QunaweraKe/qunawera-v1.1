@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
   cardHeader: {
     ...theme.custom.borders,
     borderBottomWidth: 1,
-    marginLeft:theme.spacing(14)
+    marginLeft:theme.spacing(14),
+    textDecoration:'underline',
   },
   displayName: {
     color: "black",
