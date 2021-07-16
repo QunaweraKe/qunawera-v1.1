@@ -61,7 +61,7 @@ const ContactUs = () => {
       </Button>
       </Tooltip>
 
-      <Dialog open={open}  onClose={handleClose} TransitionComponent={Transition} aria-labelled by="form-dialog-title">
+      <Dialog open={open} maxWidth="sm" onClose={handleClose} TransitionComponent={Transition} aria-labelled by="form-dialog-title">
         <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
 
         <Paper style={{padding:'0px',width:"100%",backgroundColor:"textSecondary"}}  elevation={1}>

@@ -61,7 +61,7 @@ const EditProfile = () => {
         color="primary"
         onClick={handleOpen}
         variant="outlined"
-        size="small"
+        size="large"
           style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
       >
         Edit profile 

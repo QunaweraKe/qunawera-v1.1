@@ -121,19 +121,19 @@ const Index = () => {
         <span className="block"></span>
         <h1>
           <Typography className={classes.ctaItem}
-            color="textSecondary"
-            variant="h7"
+            color="secondary"
+            variant="h6"
             >
 
-            <span className="shadow"> Social&#8729;Tasks&#8729;Interaction</span>
+             Tasks&Interaction
           </Typography>
         </h1>
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="subtitle2" color="primary" align="center" >
+        <p><Typography variant="h6"  align="center" >
 
-          post  manual tasks
+          Join Millions of users around you
          </Typography></p>
       </div>
 

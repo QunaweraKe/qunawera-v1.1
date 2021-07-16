@@ -38,7 +38,7 @@ const Terms = () => {
 
   return (
    <div>
-     <Tooltip title="Terms & Privacy" arrow placement="bottom">
+     <Tooltip title="Read our Terms & Privacy" arrow placement="bottom">
     <Button color="secondary" onClick={handleClickOpen('paper')} size="small" >
        <span style={{fontSize:"12px",fontWeight:"bolder"}}>Terms&Privacy</span>
       </Button>

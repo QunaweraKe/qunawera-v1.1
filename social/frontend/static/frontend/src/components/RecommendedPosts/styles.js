@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: 1,
     position: 'relative',
     marginBottom: theme.spacing(2),
+    width:"90%",
   },
   title: {
     fontWeight: 'bold',

@@ -12,7 +12,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(12),
     border: '1px solid #dadde9',
   },
+ Paper:{
+    
+    marginTop:theme.spacing(2),
+    marginBottom:theme.spacing(5),
 
+  },
 }));
 
 export default useStyles;

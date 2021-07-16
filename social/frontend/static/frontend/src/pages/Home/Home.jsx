@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search';
 import Tooltip from '@material-ui/core/Tooltip';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import Paper from '@material-ui/core/Paper';
 
 
 // Local
@@ -45,7 +45,7 @@ const CustomTooltip = withStyles((theme) => ({
   },
 }))(Tooltip);
 
-const Home = ( ) => {
+const Home = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -77,35 +77,35 @@ const Home = ( ) => {
       <AuthLayout >
         <SubHeading>
           <MobileMenu />
-          
-          <Typography variant="h6" color="primary" style={{fontWeight:"bold",marginLeft:".5vw"}} >
+
+          <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
             {APP_NAME}
           </Typography>
           <Grid container justify="center">
 
-           <IndexImage style={{height:"105px",width:"120px",marginTop:"-10px",marginLeft:"0px",backgroundSize:"cover"}}/>
-            </Grid>
-             
+            <IndexImage style={{ height: "105px", width: "120px", marginTop: "-10px", marginLeft: "0px", backgroundSize: "cover" }} />
+          </Grid>
+
         </SubHeading>
         <Heading>
-        <Grid style={{marginLeft:"0%"}} >
-              <ButtonGroup color="primary" aria-label="outlined primary button group"  >
-              <DialogPostForm/>
+          <Grid style={{ marginLeft: "0%" }} >
+            <ButtonGroup color="primary" aria-label="outlined primary button group"  >
+              <DialogPostForm />
               <CustomTooltip title="explore posts and users" arrow disableFocusListener>
-              <Button
-              size="small"
-              color='primary'
-              component={Link}
-              to={route.search}
+                <Button
+                  size="small"
+                  color='primary'
+                  component={Link}
+                  to={route.search}
 
 
-            >
-          Quick Search<SearchIcon />
-            </Button>
-            </CustomTooltip>
-            
+                >
+                  Quick Search<SearchIcon />
+                </Button>
+              </CustomTooltip>
+
             </ButtonGroup>
-              </Grid>
+          </Grid>
         </Heading>
 
 
@@ -114,28 +114,34 @@ const Home = ( ) => {
           posts={feed.results}
           noData={(
             <NoData>
-              
+              <Paper className={classes.Paper} elevation={2}>
+                <Typography
+                  color="textSecondary"
+                  paragraph
+                  variant="body1"
+                >
+                  Lets get you started by follow some people
+                </Typography>
+
+                <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                  Update  Your Profile
+                </Button>
+                <Dialog open={open} onClose={handleClose} >
+                  <StepperSlide />
+                </Dialog>
+              </Paper>
               <div>
-             
-      <SkeletonLoader/>
+
+                <SkeletonLoader />
+                <Typography
+                  color="textSecondary"
+                  style={{ fontWeight: "bolder" }}
+                  variant="h7"
+                >
+                  Your posts & those you follow  will show up here...
+                </Typography>
               </div>
-              <Typography
-                color="textSecondary"
-                paragraph
-                variant="body1"
-              >
-                We enable you get and post tasks around your location  .First you need to find some people around you  to follow.Let's get started!
-              </Typography>
-              
-              <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Update  Your Profile
-      </Button>
-      <Dialog open={open} onClose={handleClose} >
-              <StepperSlide/>
-              </Dialog>
-             
-             
-             
+
             </NoData>
           )}
         />

@@ -1,6 +1,6 @@
-import {  makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import {useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Material UI
 import Button from '@material-ui/core/Button';
@@ -48,11 +48,11 @@ const LogOut = () => {
 
   return (
     <div>
-      
-  
-         
-      <Button startIcon={<LogoutIcon/>} size="small"  onClick={handleClickOpen}>
-      <span className="nav-button-text">Logout</span>
+
+
+
+      <Button startIcon={<LogoutIcon />} size="small" onClick={handleClickOpen}>
+        <span className="nav-button-text">Logout</span>
       </Button>
       <Dialog
         open={open}
@@ -61,28 +61,28 @@ const LogOut = () => {
         onClose={handleClose}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
-        
+
       >
-        
+
         <DialogContent
         >
           <DialogContentText id="alert-dialog-slide-description">
-          <Typography variant="subtitle1" style={{fontWeight:"bolder"}}color="black">Are you sure you want to log out of {APP_NAME}{"?"}</Typography> 
+            <Typography variant="subtitle1" style={{ fontWeight: "bolder" }} color="black">Are you sure you want to log out of {APP_NAME}{"?"}</Typography>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="secondary" size="small"  variant="outlined">
-           Cancel
+          <Button onClick={handleClose} color="secondary" size="small" variant="outlined">
+            Cancel
           </Button>
-          <Divider  orientation="vertical" />
+          <Divider orientation="vertical" />
           <Button
-              size="small"
-              color="primary"
-              onClick={handleLogout}
-              variant="outlined"
-            >
-              <span className="nav-button-text">Yes,Logout</span>
-            </Button>
+            size="small"
+            color="primary"
+            onClick={handleLogout}
+            variant="outlined"
+          >
+            <span className="nav-button-text">Yes,Logout</span>
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
@@ -91,7 +91,7 @@ const LogOut = () => {
 
 }
 
-;
+  ;
 
 
 export default LogOut;

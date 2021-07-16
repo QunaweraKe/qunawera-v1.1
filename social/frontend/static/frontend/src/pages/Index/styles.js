@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   ctaItem: {
     marginBottom: theme.spacing(2),
     marginTop:10,
-    fontWeight:'bold',
+    fontWeight:'bolder',
 
   },
   Upper:{
