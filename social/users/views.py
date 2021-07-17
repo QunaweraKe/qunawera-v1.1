@@ -1,6 +1,6 @@
 from rest_framework import generics as rest_generics, status, views as rest_views
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated,AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.shortcuts import get_object_or_404
@@ -16,7 +16,7 @@ User = get_user_model()
 
 
 class ContactUsView (rest_generics.CreateAPIView):
-     permission_classes = [AllowAny]
+     permission_classes = [IsAuthenticated]
      serializer_class = ContactUsSerializer
     
      def post(self, request):

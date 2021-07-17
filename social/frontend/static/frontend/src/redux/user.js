@@ -79,7 +79,7 @@ export const createUser = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.createUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Account has been created successfully'));
+    dispatch(setToast('Account has been created'));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
@@ -95,11 +95,11 @@ export const createContactUs = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data=await api(descriptor.createContactUs(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Submitted'));
-    window.location = route.feed;
+    dispatch(setToast('Your query is with us now'));
+    window.location = route.home;
   } catch (error) {
     dispatch(setToast('Something went  wrong,please check that you have entered correct details', 'error'));
-    window.location = route.feed;
+    window.location = route.home;
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));
