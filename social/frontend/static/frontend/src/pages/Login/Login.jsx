@@ -93,7 +93,7 @@ const Login = () => {
               noValidate
             >
               <TextField
-                variant="standard"
+                variant="filled"
                required={true}
                 autoComplete="email"
                 className={classes.formField}
@@ -108,7 +108,7 @@ const Login = () => {
                   InputLabelProps={{style:{fontSize:14}}}
               />
               <TextField
-                variant="standard"
+                variant="filled"
               required
                 autoComplete="current-password"
 

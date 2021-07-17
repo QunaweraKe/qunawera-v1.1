@@ -87,7 +87,7 @@ const Register = () => {
              <Grid container spacing={2}>
              <Grid item xs={12} sm={6}>
               <TextField
-               variant="standard"
+               variant="filled"
                 required={true}
                 autoComplete="name"
                 className={classes.formField}
@@ -101,12 +101,14 @@ const Register = () => {
                 type="text"
                 value={formData.name}
                 InputLabelProps={{style:{fontSize:14}}}
+                
               />
                </Grid >
 
             <Grid item xs={12} sm={6}>
 
                   <TextField
+                  variant="filled"
                  required={true}
                 autoComplete="username"
                 className={classes.formField}
@@ -139,6 +141,7 @@ const Register = () => {
                 type="email"
                 value={formData.email}
                 InputLabelProps={{style:{fontSize:14}}}
+                variant="filled"
               />
               <Grid container spacing={2}>
              <Grid item xs={12} sm={6}>
@@ -156,6 +159,7 @@ const Register = () => {
                 type="password"
                 value={formData.password}
                 InputLabelProps={{style:{fontSize:14}}}
+                variant="filled"
               />
 
               </Grid >
@@ -175,7 +179,7 @@ const Register = () => {
                 type="password"
                 value={formData.password2}
                  InputLabelProps={{style:{fontSize:14}}}
-                  variant="standard"
+                  variant="filled"
               />
                </Grid >
                 </Grid >
