@@ -31,12 +31,12 @@ const StyledBadge = withStyles((theme) => ({
   },
   '@keyframes ripple': {
     '0%': {
-      transform: 'scale(.8)',
-      opacity: 1,
+      transform: 'scale(1)',
+      opacity: 0,
     },
     '100%': {
       transform: 'scale(2.4)',
-      opacity: 0,
+      opacity: .5,
     },
   },
 }))(Badge);
@@ -55,7 +55,7 @@ const Avatar = ({
       <StyledBadge
       overlap="circular"
       anchorOrigin={{
-        vertical: 'top',
+        vertical: 'bottom',
         horizontal: 'right',
       }}
       variant="dot"
