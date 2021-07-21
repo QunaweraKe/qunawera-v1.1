@@ -16,7 +16,7 @@ import Alert from '@material-ui/lab/Alert';
 // Local
 
 import Footer from '../../components/Footer';
-import CircularProgress from '../../components/CircularProgress';
+import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
 import { route,APP_NAME } from '../../constants';
@@ -61,7 +61,18 @@ const Register = () => {
       <PageTitle title="Register" />
 
       <Container className={classes.container}>
-        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '6px 6px  rgba(0,0,0,0.2)'}}>
+        <Card variant="outlined" style={{
+          boxShadow:
+            /* The top layer shadow */
+            '0 1px 1px rgba(0,0,0,0.15)',
+          /* The second layer */
+          boxShadow: '0 10px 0 -5px #eee',
+          /* The second layer shadow */
+          boxShadow: '0 10px 1px -4px rgba(0,0,0,0.15)',
+          /* The third layer */
+          boxShadow: '0 20px 0 -10px #eee',
+
+        }}>
           <CardContent>
 
             <Typography
@@ -77,7 +88,7 @@ const Register = () => {
                   className={classes.alert}
                   severity="error"
                 >
-                 Form has invalid inputs.
+                 Form has invalid inputs.Try again.
                 </Alert>
               )}
             <form
@@ -194,7 +205,7 @@ const Register = () => {
 
               >
                 Create Account
-                {loading && <CircularProgress />}
+                {loading && <LinearProgressBar />}
               </Button>
             </form>
           </CardContent>

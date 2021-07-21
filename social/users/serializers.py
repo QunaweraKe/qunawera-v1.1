@@ -25,6 +25,19 @@ class ProfileSerializer(serializers.ModelSerializer):
             "website",
         ]
 
+class ValidateUserNameMixin:
+    def validate(self, data):
+        username = data.get("username")
+        
+        if '@' in username or '-' in username or '/' in username or '&' in username :
+             raise serializers.ValidationError(
+                {
+                    "username": "Character cannot be used as a username",
+                }
+            )
+        return data
+
+
 
 class ValidatePasswordMixin:
     def validate(self, data):
@@ -53,7 +66,7 @@ class ValidatePasswordMixin:
         return data
 
 
-class UserSerializer(ValidatePasswordMixin, serializers.ModelSerializer):
+class UserSerializer(ValidateUserNameMixin,ValidatePasswordMixin, serializers.ModelSerializer):
 
     display_name = serializers.SerializerMethodField(read_only=True)
     followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)

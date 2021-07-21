@@ -86,7 +86,7 @@ const Repost = ({ postId }) => {
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
-        fullWidth
+        fullScreen
   
       >
         <DialogTitle>
@@ -114,7 +114,7 @@ const Repost = ({ postId }) => {
               multiline
               onChange={handleChange}
             
-              placeholder="Additional information (optional)"
+              placeholder="Say why you are sharing this post (optional)"
               rowsMax={7}
               spellCheck
               value={body}

@@ -29,7 +29,19 @@ const Index = () => {
       <PageTitle title="Welcome" />
 
     <div className={classes.indexLayout}>
-     <Card variant="outlined" className={classes.root}  style={{boxShadow: '6px 6px  rgba(0,0,0,0.5)'}}>
+      <div className="paper">
+     <Card variant="outlined" className={classes.root}  style={{
+    boxShadow:
+    /* The top layer shadow */
+    '0 1px 1px rgba(0,0,0,0.15)',
+    /* The second layer */
+    boxShadow:'0 10px 0 -5px #eee' ,
+    /* The second layer shadow */
+    boxShadow:'0 10px 1px -4px rgba(0,0,0,0.15)',
+     /* The third layer */
+    boxShadow:'0 20px 0 -10px #eee',
+    
+    }} >
      <CardContent>
 
       <main className={classes.mainContainer}>
@@ -113,7 +125,7 @@ const Index = () => {
           </CardContent>
         
       </Card>
-     
+      </div>
       <aside  className={classes.asideContainer}>
       <Indeximg className={classes.image}/>
           <div className="box">

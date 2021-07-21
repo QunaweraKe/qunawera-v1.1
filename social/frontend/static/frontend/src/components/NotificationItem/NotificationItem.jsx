@@ -71,7 +71,7 @@ const NotificationItem = ({ notification }) => {
             color="textSecondary"
             component="span"
           >
-            {`@${notification.from_user.slug}`}
+            
             {' - '}
             {dayjs(notification.created_at).fromNow()}
           </Typography>
@@ -88,7 +88,6 @@ NotificationItem.propTypes = {
     id: PropTypes.number.isRequired,
     from_user: PropTypes.shape({
       display_name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
 };

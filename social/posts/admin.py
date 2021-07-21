@@ -3,7 +3,7 @@ from .models import *
 
 
 
-
+admin.site.site_header="Qunawera Admin "
 
 
 class PostAdmin(admin.StackedInline):

@@ -27,7 +27,7 @@ const PostParent = ({ className, post }) => {
         post={post}
         repost
       />
-      <Typography style={{ fontSize: "12px", letterSpacing: '1px' }}>
+      <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
         {post.body}
       </Typography>
     </Paper>

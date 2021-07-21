@@ -135,7 +135,7 @@ export const editProfile = (payload, slug) => async (dispatch) => {
     const data = await api(descriptor.editProfile(payload));
     dispatch(setProfile(data));
     dispatch(setProfileData({ data, slug }));
-    dispatch(setToast('Profile updated'));
+    dispatch(setToast('Your profile has been updated.'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -150,7 +150,7 @@ export const editUser = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.editUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Settings updated'));
+    dispatch(setToast('Your settings have changed'));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));

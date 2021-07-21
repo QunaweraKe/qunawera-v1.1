@@ -2,27 +2,24 @@ import dayjs from 'dayjs';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+
+
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-
+import Paper from '@material-ui/core/Paper';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import LinkIcon from '@material-ui/icons/Link';
 import LocationIcon from '@material-ui/icons/LocationOnOutlined';
-
+import Divider from '@material-ui/core/Divider';
 // Local
 import TextLink from '../TextLink';
-
 import { route } from '../../constants';
-
 import EditProfile from '../EditProfile';
 import FollowButton from '../FollowButton';
-
-
 import { editProfile, selectUser } from '../../redux/user';
-
 import useStyles from './styles';
 
 const ProfileInfo = ({ loading, profileUser }) => {
@@ -107,32 +104,73 @@ const ProfileInfo = ({ loading, profileUser }) => {
           </div>
           <div className={classes.infoContainer}>
             <Typography variant="h6">
-              {profileUser.display_name.charAt(0).toUpperCase()+profileUser.display_name.slice(1)}
+              {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
             </Typography>
+            <div className={classes.followContainer}>
+              <Paper elevation={3} style={{ marginLeft: "2px" }}>
+                <TextLink
+                  className={classes.followLink}
+                  to={route.following(profileUser.slug)}
+                  variant="body2"
+                >
+                  <span className={classes.followCount}>
+
+
+                    &nbsp;Following &middot; {profileUser.following.length}
+                  </span>
+                </TextLink>
+              </Paper>
+
+              <Paper elevation={3} style={{ marginLeft: "6px" }}>
+                <TextLink
+                  className={classes.followLink}
+                  to={route.followers(profileUser.slug)}
+                  variant="body2"
+                >
+                  <span className={classes.followCount}>
+
+                    &nbsp;Followers &middot; {profileUser.followers.length}
+
+                  </span>
+                </TextLink>
+              </Paper>
+            </div>
 
             {profileUser.profile.bio
               && (
-                <Typography className={classes.bio}>
-                  {profileUser.profile.bio}
-                </Typography>
+                <>
+                  <Typography variant="h7" style={{ fontWeight: "bolder" }}>
+                    About
+                  </Typography>
+                  <Divider/>
+                  <Typography className={classes.bio} color="textSecondary">
+                    {profileUser.profile.bio}
+                  </Typography>
+
+
+                </>
               )}
+
+
+<Divider/>
             <div className={classes.extraInfoContainer}>
               <div className={classes.extraInfo}>
                 <EventNoteIcon className={classes.extraInfoIcon} />
                 <Typography className={classes.extraInfoText}>
-                <em>
-                 Joined
+
+                  Joined
                   {' '}
                   {dayjs(profileUser.created_at).format('DD MMMM YYYY')}
-                  </em>
+
                 </Typography>
+                <br />
               </div>
               {profileUser.profile.location
                 && (
                   <div className={classes.extraInfo}>
                     <LocationIcon className={classes.extraInfoIcon} />
                     <Typography className={classes.extraInfoText}>
-                      {profileUser.profile.location}
+                      Lives in  {profileUser.profile.location}
                     </Typography>
                   </div>
                 )}
@@ -150,28 +188,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   </div>
                 )}
             </div>
-            <div className={classes.followContainer}>
-              <TextLink
-                className={classes.followLink}
-                to={route.following(profileUser.slug)}
-                variant="body2"
-              >
-                <span className={classes.followCount}>
-                  {profileUser.following.length}
-                </span>
-                &nbsp;Following
-              </TextLink>
-              <TextLink
-                className={classes.followLink}
-                to={route.followers(profileUser.slug)}
-                variant="body2"
-              >
-                <span className={classes.followCount}>
-                  {profileUser.followers.length}
-                </span>
-                &nbsp;Followers
-              </TextLink>
-            </div>
+
           </div>
         </>
       );

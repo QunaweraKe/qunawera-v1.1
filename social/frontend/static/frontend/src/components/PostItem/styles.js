@@ -9,8 +9,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end',
     display: 'flex',
     flexDirection: 'column',
-    marginRight: 10,
-    fontSize:8,
+    marginLeft: 10,
+
+  },
+  Link:{
+  textDecoration :"none",
   },
   replyHeader:{
     marginBottom:10,
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   pluralize : {
   fontSize:"10px",
   fontWeight:"bold",
-  marginLeft:theme.spacing(2)
+  
 
   },
   post: {

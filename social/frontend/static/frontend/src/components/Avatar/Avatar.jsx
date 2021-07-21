@@ -4,42 +4,13 @@ import { Link } from 'react-router-dom';
 
 // Material UI
 import MuiAvatar from '@material-ui/core/Avatar';
-import Badge from '@material-ui/core/Badge';
-import { withStyles } from '@material-ui/core/styles';
+
 // Local
 import { route } from '../../constants';
 
 import useStyles from './styles';
 
 
-const StyledBadge = withStyles((theme) => ({
-  badge: {
-    backgroundColor: 'orange',
-    color: 'orange',
-    boxShadow: `0 0 0 2px ${theme.palette.grey[50]}`,
-    '&::after': {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      animation: '$ripple 3s infinite ease-in-out',
-      border: '1px solid currentColor',
-      content: '""',
-    },
-  },
-  '@keyframes ripple': {
-    '0%': {
-      transform: 'scale(1)',
-      opacity: 0,
-    },
-    '100%': {
-      transform: 'scale(2.4)',
-      opacity: .5,
-    },
-  },
-}))(Badge);
 
 const Avatar = ({
   className,
@@ -52,14 +23,7 @@ const Avatar = ({
 
   return (linkable
     ? (
-      <StyledBadge
-      overlap="circular"
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right',
-      }}
-      variant="dot"
-    >
+    
       <MuiAvatar
         alt={user.display_name}
         classes={{ root: classes.root }}
@@ -70,17 +34,10 @@ const Avatar = ({
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
-       </StyledBadge>
+    
     ) : (
 
-      <StyledBadge
-      overlap="circular"
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'left',
-      }}
-      variant="dot"
-    >
+    
       <MuiAvatar
         alt={user.display_name}
         classes={{ root: classes.root }}
@@ -89,7 +46,7 @@ const Avatar = ({
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
       />
-     </StyledBadge>
+    
     )
   );
 };

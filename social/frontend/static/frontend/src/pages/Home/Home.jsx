@@ -15,7 +15,6 @@ import Paper from '@material-ui/core/Paper';
 
 
 // Local
-import IndexImage from '../../components/Files/Images/repair.svg';
 import AuthLayout from '../../components/AuthLayout';
 import SkeletonLoader from '../../components/SkeletonLoader';
 import Heading from '../../components/Heading';
@@ -78,34 +77,40 @@ const Home = () => {
         <SubHeading>
           <MobileMenu />
 
+
           <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
             {APP_NAME}
           </Typography>
-          <Grid container justify="center">
 
-            <IndexImage style={{ height: "105px", width: "120px", marginTop: "-10px", marginLeft: "0px", backgroundSize: "cover" }} />
+
+          <Grid container direction="column" alignItems="center" >
+            <Grid item xs={14}>
+              <ButtonGroup fullwidth variant="outlined" color="primary"  >
+
+                <DialogPostForm />
+                <CustomTooltip title="explore posts and users" arrow disableFocusListener>
+                  <Button
+                    size="small"
+                    color='primary'
+                    component={Link}
+                    to={route.search}
+
+
+                  >
+                    Search<SearchIcon />
+                  </Button>
+                </CustomTooltip>
+
+              </ButtonGroup>
+
+            </Grid>
           </Grid>
+
+
 
         </SubHeading>
-        <Heading>
-          <Grid style={{ marginLeft: "0%" }} >
-            <ButtonGroup color="primary" aria-label="outlined primary button group"  >
-              <DialogPostForm />
-              <CustomTooltip title="explore posts and users" arrow disableFocusListener>
-                <Button
-                  size="small"
-                  color='primary'
-                  component={Link}
-                  to={route.search}
+        <Heading >
 
-
-                >
-                  Quick Search<SearchIcon />
-                </Button>
-              </CustomTooltip>
-
-            </ButtonGroup>
-          </Grid>
         </Heading>
 
 

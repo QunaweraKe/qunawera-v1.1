@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   avatar: {
     
-    backgroundColor: 'rgba(255,165,0,.8)',
+    backgroundColor: theme.palette.grey[50],
     backgroundImage: (profileUser) => (
       profileUser.profile?.image
         ? `url('${profileUser.profile.image}')`
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bio: {
     marginTop: theme.spacing(1),
+    
   },
   editAvatarButton: {
     position: 'absolute',
@@ -68,7 +69,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   },
   extraInfoText: {
-    color: theme.palette.text.secondary,
     fontSize: theme.typography.body2.fontSize,
   },
   followButton: {
@@ -77,12 +77,15 @@ const useStyles = makeStyles((theme) => ({
   followContainer: {
     display: 'flex',
     marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(2),
   },
   followCount: {
-    fontWeight: 'bold',
+    fontWeight: 'bolder',
+    fontSize:'1em',
   },
   followLink: {
     marginRight: theme.spacing(2),
+    padding:2,
   },
   imageControlContainer: {
     display: 'flex',

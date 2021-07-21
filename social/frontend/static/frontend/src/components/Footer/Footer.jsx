@@ -5,30 +5,30 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 //local imports
 
-import { APP_NAME,route } from '../../constants';
+import { APP_NAME, route } from '../../constants';
 import useStyles from './styles';
 
 
 const Footer = () => {
 
-const classes = useStyles();
-return(
-  <>
+  const classes = useStyles();
+  return (
+    <>
 
 
 
 
-         <Typography  className={classes.footer} color="textSecondary"   style={{fontSize:"10px",fontWeight:"bold"}}>
-      {'© '}
+      <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8vw" }}>
+        {'© '}
         {new Date().getFullYear()}
-      { '  '}
+        {'  '}
 
-      {APP_NAME} {' ,'} LLC .All rights reserved.
+        {APP_NAME} {' ,'} LLC .All rights reserved.
 
 
-    </Typography>
-  
-   </>
+      </Typography>
+
+    </>
 
   );
 

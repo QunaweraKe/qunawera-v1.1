@@ -38,7 +38,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         auto_now_add=True,
         db_index=True,
     )
-    postImage = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
+    image = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
     skillset=models.TextField(blank=True,
         max_length=1500,)
     is_reply = models.BooleanField(default=False)
@@ -54,7 +54,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         on_delete=models.CASCADE,
         related_name="alt",
     )
-    payment=models.IntegerField(max_length=25,default=500)
+    payment=models.CharField(max_length=15)
     objects = PostManager.as_manager()
 
     def __str__(self):

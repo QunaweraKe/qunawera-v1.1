@@ -141,22 +141,6 @@ const Header = () => {
           </ListItem>
          
 
-
-          <ListItem disableGutters>
-            <Button
-              color={active(route.profileLikes) ?  'primary' : 'secondary.main'}
-              component={Link}
-              size="large"
-              startIcon={
-                active(route.profileLikes)
-                  ? <ThumbUpIcon />
-                  : <ThumbUpOutlinedIcon />
-              }
-              to={route.profileLikes}
-            >
-              <span className="nav-button-text">Liked Posts</span>
-            </Button>
-          </ListItem>
           
            <ListItem disableGutters>
             <Button
@@ -177,7 +161,7 @@ const Header = () => {
 
           </ListItem>
           <Divider light/> 
-          <ListItem disableGutters>
+          <ListItem disableGutters style={{marginLeft:"2px",marginTop:"3px"}}>
           <ContactUs/>
   
           </ListItem >

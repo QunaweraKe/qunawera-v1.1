@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // Material UI
@@ -18,10 +18,10 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 // Local
 import Footer from '../../components/Footer';
-import CircularProgress from '../../components/CircularProgress';
+import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { route,APP_NAME } from '../../constants';
+import { route, APP_NAME } from '../../constants';
 
 import useUI from '../../hooks/useUI';
 
@@ -68,7 +68,18 @@ const Login = () => {
       <PageTitle title="Login" />
 
       <Container className={classes.container}>
-        <Card variant="outlined" style={{backgroundColor:"inherit", boxShadow: '6px 6px  rgba(0,0,0,0.2)'}}>
+        <Card variant="outlined" style={{
+          boxShadow:
+            /* The top layer shadow */
+            '0 1px 1px rgba(0,0,0,0.15)',
+          /* The second layer */
+          boxShadow: '0 10px 0 -5px #eee',
+          /* The second layer shadow */
+          boxShadow: '0 10px 1px -4px rgba(0,0,0,0.15)',
+          /* The third layer */
+          boxShadow: '0 20px 0 -10px #eee',
+
+        }}>
           <CardContent>
 
             <Typography
@@ -77,15 +88,15 @@ const Login = () => {
               variant="h5"
 
             >
-               Account  Login
+              Account  Login
             </Typography>
-                {!isEmpty(errors)
+            {!isEmpty(errors)
               && (
                 <Alert
                   className={classes.alert}
                   severity="error"
                 >
-                 Either your username and/or password was incorrect
+                  Either your username and/or password was incorrect.Check it & try again.
                 </Alert>
               )}
             <form
@@ -94,7 +105,7 @@ const Login = () => {
             >
               <TextField
                 variant="filled"
-               required={true}
+                required={true}
                 autoComplete="email"
                 className={classes.formField}
                 error={!isEmpty(errors)}
@@ -105,11 +116,11 @@ const Login = () => {
                 onChange={handleChange}
                 type="text"
                 value={formData.login}
-                  InputLabelProps={{style:{fontSize:14}}}
+                InputLabelProps={{ style: { fontSize: 14 } }}
               />
               <TextField
                 variant="filled"
-              required
+                required
                 autoComplete="current-password"
 
                 error={!isEmpty(errors)}
@@ -118,9 +129,9 @@ const Login = () => {
                 label="Password"
                 name="password"
                 onChange={handleChange}
-                type={showPassword ?  'password':'text' }
+                type={showPassword ? 'password' : 'text'}
                 value={formData.password}
-                InputLabelProps={{style:{fontSize:14}}}
+                InputLabelProps={{ style: { fontSize: 14 } }}
               />
 
 
@@ -128,23 +139,23 @@ const Login = () => {
 
 
 
-       <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={(e) => {setShowPassword(!showPassword)}}
-                   className={classes.visibility}
-                  edge="end"
-                >
-                  {showPassword ? <Visibility style={{fontSize:"18px"}}/> : <VisibilityOff style={{fontSize:"18px"}} />}
-                </IconButton>
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={(e) => { setShowPassword(!showPassword) }}
+                className={classes.visibility}
+                edge="end"
+              >
+                {showPassword ? <Visibility style={{ fontSize: "18px" }} /> : <VisibilityOff style={{ fontSize: "18px" }} />}
+              </IconButton>
 
-  <Typography className={classes.forgot}  >
-              <TextLink >Forgot Password {"?"} </TextLink>
-               </Typography>
+              <Typography className={classes.forgot}  >
+                <TextLink >Forgot Password {"?"} </TextLink>
+              </Typography>
               <FormControlLabel
                 className={classes.formField}
                 control={(
                   <Switch
-                  size="small"
+                    size="small"
                     checked={formData.rememberMe}
                     color="primary"
                     name="rememberMe"
@@ -152,10 +163,10 @@ const Login = () => {
 
                   />
                 )}
-                label={<span style={{fontSize:"10px",fontWeight:"bold",color:"grey"}}>Keep me logged in</span>}
+                label={<span style={{ fontSize: "10px", fontWeight: "bold", color: "grey" }}>Keep me logged in</span>}
               />
 
-             <Button
+              <Button
                 className={classes.button}
                 color="primary"
                 fullWidth
@@ -165,16 +176,16 @@ const Login = () => {
                 size="large"
 
               >
-                Login
-                {loading && <CircularProgress />}
+                Login {loading && <LinearProgressBar />}
+
               </Button>
             </form>
           </CardContent>
 
         </Card>
 
- <Typography className={classes.register}>
-              <span style={{textDecoration:"underline"}}>New to {APP_NAME}  </span>{'?'}{'  '}
+        <Typography className={classes.register}>
+          <span style={{ textDecoration: "underline" }}>New to {APP_NAME}  </span>{'?'}{'  '}
           <TextLink to={route.register}>Create New Account</TextLink>
 
         </Typography>
@@ -182,7 +193,7 @@ const Login = () => {
 
 
 
-        <Footer/>
+        <Footer />
       </Container>
     </>
   );

@@ -31,7 +31,7 @@ const Settings = () => {
         <Heading>
           <BackButton />
           <div>
-            <Typography variant="h6">
+            <Typography variant="h6"  style={{fontWeight:"bolder"}}>
               Settings
             </Typography>
           </div>

@@ -63,6 +63,7 @@ const PostDetail = () => {
             <Typography
               className={classes.heading}
               variant="h6"
+              style={{fontWeight:"bolder"}}
             >
               Post Details
             </Typography>

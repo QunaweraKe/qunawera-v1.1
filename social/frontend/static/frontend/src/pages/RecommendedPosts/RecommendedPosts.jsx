@@ -47,7 +47,7 @@ const RecommendedPosts = () => {
       <AuthLayout>
         <Heading>
           <MobileMenu />
-          <Typography variant="h6">
+          <Typography variant="h6"  style={{fontWeight:"bolder"}}>
             Recommended
           </Typography>
         </Heading>

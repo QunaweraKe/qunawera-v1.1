@@ -3,9 +3,9 @@ import React from 'react';
 
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+
 // Local
-import CircularProgress from '../CircularProgress';
+import LinearProgressBar from '../LinearProgressBar';
 
 import useStyles from './styles';
 
@@ -22,8 +22,8 @@ const NextButton = ({ callback, loading, nextUrl }) => {
         
         fullWidth
       >
-         view  more <HourglassEmptyIcon/>
-        {loading && <CircularProgress />}
+         view  more 
+        {loading && <LinearProgressBar />}
       </IconButton>
     ) : null;
 };

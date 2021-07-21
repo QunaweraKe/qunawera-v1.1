@@ -17,7 +17,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import IconButton from '@material-ui/core/IconButton';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -44,36 +45,38 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 const DialogPostForm = () => {
  
-
+  const imageRef = React.useRef();
   const classes = useStyles();
   const dispatch = useDispatch();
-
   const user = useSelector(selectUser);
-;
   const [dialogOpen, setDialogOpen] = React.useState(false);
-  
   const { errors, loading } = useUI(key.createPost, null, false);
-
-  
   const [formData, setFormData] = React.useState({
     body: '',
     payment: '',
     skillset:'',
-   
-
+  
   });
-
  
+
+  const onChangePicture = (event, field) => {
+    const image = event.target.files[0];
+    const formData = new FormData();
+    formData.append(field, image, image.name);
+  
+  };
   const handleChange = (event) => {
 
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
+  
      
     });
   };
-
-
+  
+  
+ 
   const handleClose = () => {
     setDialogOpen(false);
   };
@@ -97,7 +100,7 @@ const DialogPostForm = () => {
       <div >
          <CustomTooltip title="create a new task listing" arrow disableFocusListener>
        <Button color="primary"
-       size="small"
+      
         aria-label="add"
           id="header-post-button"
           onClick={handleOpen}
@@ -136,6 +139,7 @@ const DialogPostForm = () => {
         <div className={classes.avatarContainer}>
             <Avatar user={user} />
           </div>
+         
           <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}  elevation={2}>
           <TextField
           required
@@ -153,7 +157,7 @@ const DialogPostForm = () => {
             variant="outlined"
             rows={4}
             helperText={errors.body}
-          
+            
           />
              </Paper>
  
@@ -196,12 +200,21 @@ const DialogPostForm = () => {
           />
            </Paper>
         </FormControl>
-          
+        <br/>
+        <input
+                    onChange={onChangePicture}
+                    type="file"
+                    accept="image/*"
+                    name="image"
+                  />
+      
+                 
+          <br/>
              <Button
             className={classes.Button}
             color="primary"
             disabled={loading}
-            onClick={handleSubmit}
+            onClick={ handleSubmit}
             size="large"
             variant="outlined"
             
@@ -221,6 +234,7 @@ const DialogPostForm = () => {
             Cancel
             
           </Button>
+        
         </DialogContent>
           
       </Dialog>

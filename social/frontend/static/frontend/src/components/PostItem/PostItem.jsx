@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory,Link } from 'react-router-dom';
 // Evergreen  UI
-import { ChatIcon } from 'evergreen-ui'
+import { ChatIcon} from 'evergreen-ui'
+
 // Material UI
-import Chip from '@material-ui/core/Chip';
+
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -22,8 +23,8 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Divider from '@material-ui/core/Divider';
 import CardHeader from '@material-ui/core/CardHeader';
-import Box from '@material-ui/core/Box';
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
+
+
 // Local
 
 import Avatar from '../Avatar';
@@ -50,7 +51,7 @@ import {
 
 import useStyles from './styles';
 const PostItem = ({ expandReplies, postId }) => {
- 
+
   const pluralizeOther = (length) => (length !== 1 ? 'comments' : 'comment');
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -93,7 +94,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
   return (
     <div className={classes.root}>
-     
+
 
       <div className={classes.postContainer}>
 
@@ -106,119 +107,135 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-          <Card className={classes.cardProps} variant="outlined" >
+
           <IconButton
-        className={classes.postAction}
-        onClick={handleMenuOpen}
-      >
-        <MoreHorizIcon />
-      </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          horizontal: 'right',
-          vertical: 'bottom',
-        }}
-        classes={{ list: classes.muiMenuList }}
-        getContentAnchorEl={null}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleMenuClose}
-        transformOrigin={{
-          horizontal: 'right',
-          vertical: 'top',
-        }}
-      >
+            className={classes.postAction}
+            onClick={handleMenuOpen}
+          >
+            <MoreHorizIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              horizontal: 'right',
+              vertical: 'bottom',
+            }}
+            classes={{ list: classes.muiMenuList }}
+            getContentAnchorEl={null}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+            transformOrigin={{
+              horizontal: 'right',
+              vertical: 'top',
+            }}
+          >
 
-        {post.is_author
-          && (
-            <EditPost
-              setAnchorEl={setAnchorEl}
-              postId={post.id}
-            />
-          )}
-        <MenuItem
-          onClick={() => (
-            history.push(route.postDetail(post.id))
-          )}
-        >
-          <ListItemIcon>
-            <DetailsIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="More details" className={classes.listItemSize} />
-        </MenuItem>
-        <MenuItem
-          onClick={() => (
-            history.push(route.profilePosts(post.author.slug))
-          )}
-        >
-          <ListItemIcon>
-            <EmojiPeopleIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Author's Profile" className={classes.listItemSize} />
+            {post.is_author
+              && (
+                <EditPost
+                  setAnchorEl={setAnchorEl}
+                  postId={post.id}
+                />
+              )}
+            <MenuItem
+              onClick={() => (
+                history.push(route.postDetail(post.id))
+              )}
+            >
+              <ListItemIcon>
+                <DetailsIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary="Details" className={classes.listItemSize} />
+            </MenuItem>
+            <MenuItem
+              onClick={() => (
+                history.push(route.profilePosts(post.author.slug))
+              )}
+            >
+              <ListItemIcon>
+                <EmojiPeopleIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary="Author's Profile" className={classes.listItemSize} />
 
-        </MenuItem>
+            </MenuItem>
 
-        {post.is_author
-          && (
-            <DeletePost
-              setAnchorEl={setAnchorEl}
-              postId={post.id}
-              type="post"
-            />
-          )}
-      </Menu>
-          <Typography variant="subtitle1" color="primary">
-            Task Description
-            </Typography>
-            <div className={classes.text}>
-              {post.body
-                && (
+            {post.is_author
+              && (
+                <DeletePost
+                  setAnchorEl={setAnchorEl}
+                  postId={post.id}
+                  type="post"
+                />
+              )}
+          </Menu>
 
-                  <Typography variant="subtitle8" color="black" style={{  letterSpacing: '1px' }}>
+<Card variant="outlined" style={{boxShadow: '4px 4px  #ffdab9',backgroundColor:"#fff",minWidth:250,}}
+     >
+          <div className={classes.text}>
+            <Link to={route.profilePosts(post.author.slug)} className={classes.Link}>
+          <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+            {post.parent && <PostParent post={post.parent} />}
+          </Typography>
+          </Link>
+            {post.body
+              && (
+                <>
+                
+                  <Typography variant="subtitle8" style={{ letterSpacing: '1px' }}>
                     {post.body.charAt(0).toUpperCase() + post.body.slice(1)}
 
                   </Typography >
 
-                )}
-            </div>
 
-            <Typography className={classes.postBody} variant="body8"  style={{ fontSize: "12px", letterSpacing: '1px' }}>
-              {post.parent && <PostParent post={post.parent} />}
-            </Typography>
-            
-            <Typography variant="subtitle1" color="primary">
-             Required skills
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
-             {post.skillset}
-            </Typography>
-            <Box
-       alignItems="flex-start"
-        display="flex"
-        borderRadius="borderRadius"
-        bgcolor="grey.50"
-        m={1}
-        p={1}
-        style={{ marginLeft: "15%", width: '25%', height: '2rem' }}
-      > <span style={{ color:"textSecondary"}}> Ksh.{post.payment}</span> 
-      </Box>
-      
-      
-            </Card>
+
+
+                  <span style={{ marginTop: "6px" }}> {post.payment}</span>
+                </>
+              )}
+            {post.skillset
+              && (
+                <>
+                  <Typography variant="subtitle1" style={{ fontWeight: "bolder" }}>
+                    Skills
+                  </Typography>
+
+                  <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
+                    {post.skillset}
+                  </Typography>
+                </>
+              )}
+              {post.payment
+              && (
+                <>
+                  <Typography variant="subtitle1" style={{ fontWeight: "bolder" }}>
+                    Pay
+                  </Typography>
+
+                  <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
+                    {post.payment}
+                  </Typography>
+                </>
+              )}
+          </div>
         
-        </div>
+        
 
+          </Card>
+
+        </div>
+      
       </div>
     
-     
+      
+
       <Grid item xs={12} sm={6}>
         <IconButton className={classes.pluralize}
           onClick={handleReplies}>
           {post.reply_ids?.length || 0}{' '}{pluralizeOther(post.reply_ids?.length)}
         </IconButton>
       </Grid >
-
+      <Divider light/>
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
@@ -259,7 +276,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       </CardActions>
-    
+
       {expanded && !loading
         && (
           <Collapse
@@ -279,7 +296,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   className: classes.title,
                   variant: 'subtitle1',
                   color: 'textSecondary',
-                 
+
                 }}
               />
 
@@ -296,11 +313,11 @@ const PostItem = ({ expandReplies, postId }) => {
                 />
               ))}
               <ReplyForm postId={postId} />
-   
+
             </CardContent>
           </Collapse>
         )}
-                   <Divider light classes={{ root: classes.divider }} style={{height:"10px"}} />
+      <Divider light classes={{ root: classes.divider }} style={{ height: "10px" }} />
     </div>
   );
 };

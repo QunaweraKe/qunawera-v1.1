@@ -61,8 +61,8 @@ const ContactUs = () => {
       </Button>
       </Tooltip>
 
-      <Dialog open={open} maxWidth="sm" onClose={handleClose} TransitionComponent={Transition} aria-labelled by="form-dialog-title">
-        <DialogTitle style={{fontSize:"25px",marginBottom:"20px",marginTop:"20px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
+      <Dialog open={open} maxWidth="md" onClose={handleClose} TransitionComponent={Transition} aria-labelled by="form-dialog-title">
+        <DialogTitle style={{fontSize:"25px",marginBottom:"10px",marginTop:"0px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
 
         <Paper style={{padding:'0px',width:"100%",backgroundColor:"textSecondary"}}  elevation={1}>
           
@@ -79,11 +79,12 @@ const ContactUs = () => {
             id="email"
             label="Email Address"
             type="email"
-            fullWidth
+          
             onChange={handleChange}
             type="email"
             variant="filled"
              value={formData.email}
+             fullWidth
           />
              <TextField
              style={{marginTop:"10px"}}
@@ -100,7 +101,7 @@ const ContactUs = () => {
           />
             <Divider orientation="horizontal " light variant='inset' />
           <Button  style={{marginTop:"10px"}}  onClick={handleSubmit} color="primary" variant="outlined" >
-            Submit
+            Send
           </Button>
       
           <Button  style={{marginTop:"10px",marginLeft:"4px"}} onClick={handleClose} color="secondary" variant="outlined">

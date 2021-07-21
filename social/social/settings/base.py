@@ -3,6 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 
 # Load environment variables.
@@ -150,3 +151,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AUTH_USER_MODEL = "users.User"
 
 AUTHENTICATION_BACKENDS = ["social.backends.UsernameOrEmailAuth"]
+
+
