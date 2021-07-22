@@ -167,7 +167,7 @@ const PostItem = ({ expandReplies, postId }) => {
             <Divider light />
           </Menu>
 
-          <Card square variant="outlined" style={{ borderWidth: "2px", boxShadow: '4px 4px  #ffdab9', backgroundColor: "#fff", minWidth: 250, marginTop: "5px" }}
+          <Card  style={{ backgroundColor: " #f0f8ff", minWidth: 200, marginTop: "8px" }}
           >
             <div className={classes.text}>
               <Link to={route.postDetail(post.id)} className={classes.Link}>
@@ -179,7 +179,7 @@ const PostItem = ({ expandReplies, postId }) => {
                 && (
                   <>
 
-                    <Typography variant="subtitle8" style={{ letterSpacing: '1px', marginLeft: "0px", fontweight: "bold" }}>
+                    <Typography variant="subtitle8" style={{ fontweight: "bold" }}>
                       {post.body.charAt(0).toUpperCase() + post.body.slice(1)}
 
                     </Typography >
@@ -189,10 +189,11 @@ const PostItem = ({ expandReplies, postId }) => {
                 && (
                   <>
                     <div style={{ marginBottom: "5px", marginTop: "5px" }}>
-                      <Typography variant="subtitle1" style={{ fontWeight: "bolder" }}>
+                    
+                      <Typography variant="subtitle1" style={{ padding:"2px",fontWeight: "bolder" }}>
                         Skills
                       </Typography>
-
+                     
                       <Typography variant="subtitle1" className={classes.text}>
                         {post.skillset}
                       </Typography>
@@ -209,14 +210,14 @@ const PostItem = ({ expandReplies, postId }) => {
                           Payment
                         </Typography>
                       </Box>
-                      <Box p={1} >
+                      <Box p={0} >
                         <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
                           ksh.{post.payment}
                         </Typography>
 
                       </Box>
                     </Box>
-                    <Divider light />
+                    <Divider light variant="inset" />
                     <Box display="flex" p={1}>
                       <Box p={0} flexGrow={1} >
                         <Typography variant="subtitle1" style={{ fontWeight: "bolder" }}>

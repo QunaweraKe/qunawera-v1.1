@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end',
     display: 'flex',
     flexDirection: 'column',
-    marginLeft: 10,
+    marginLeft: 3,
 
   },
   Link:{
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   post: {
   
     marginBottom: theme.spacing(3),
-    marginLeft : theme.spacing(2),
+    marginLeft : theme.spacing(1),
     
   },
   postAction: {
@@ -57,29 +57,21 @@ const useStyles = makeStyles((theme) => ({
   },
   postContainer: {
     display: 'flex',
-    padding: theme.spacing(2, 2, 0.5, 2),
+    padding: theme.spacing(2, 2, 0.5,2 ),
   },
 
   textSize:{
   fontSize:14,
 
   },
-  cardProps:{
-  backgroundColor:theme.palette.grey[50],
-  borderRadius:"borderRadius",
-  marginTop:theme.spacing(2),
 
-
-
-
-  },
   title:{
 fontWeight:"bolder"
   },
   text:{
   marginLeft:"1%",
-  marginRight:"1%",
-  fontSize:13,
+  fontSize:"12px",
+  marginTop:"1%",
   },
 postBody: {
 marginTop:6,
