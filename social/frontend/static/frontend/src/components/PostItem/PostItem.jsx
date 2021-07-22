@@ -180,7 +180,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   <>
 
                     <Typography variant="subtitle8" style={{ fontweight: "bold" }}>
-                      {post.body.charAt(0).toUpperCase() + post.body.slice(1)}
+                   {post.body.charAt(0).toUpperCase() }{post.body.slice(1)} 
 
                     </Typography >
                   </>
@@ -190,7 +190,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   <>
                     <div style={{ marginBottom: "5px", marginTop: "5px" }}>
                     
-                      <Typography variant="subtitle1" style={{ padding:"2px",fontWeight: "bolder" }}>
+                      <Typography className={classes.subtitle} variant="subtitle1" style={{ padding:"2px",fontWeight: "bolder" }}>
                         Skills
                       </Typography>
                      
@@ -206,7 +206,7 @@ const PostItem = ({ expandReplies, postId }) => {
                     <Divider light />
                     <Box display="flex" p={1}>
                       <Box p={0} flexGrow={1} >
-                        <Typography variant="subtitle1" style={{ fontWeight: "bolder" }}>
+                        <Typography className={classes.subtitle} variant="subtitle1" style={{ fontWeight: "bolder" }}>
                           Payment
                         </Typography>
                       </Box>
@@ -220,7 +220,7 @@ const PostItem = ({ expandReplies, postId }) => {
                     <Divider light variant="inset" />
                     <Box display="flex" p={1}>
                       <Box p={0} flexGrow={1} >
-                        <Typography variant="subtitle1" style={{ fontWeight: "bolder" }}>
+                        <Typography className={classes.subtitle} variant="subtitle1" style={{ fontWeight: "bolder" }}>
                           Location
                         </Typography>
                       </Box>
