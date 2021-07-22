@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     
   },
   margin: {
-    marginTop:15,
+    marginTop:5,
 
   },
   Button: {
@@ -27,10 +27,7 @@ const useStyles = makeStyles((theme) => ({
     margin:theme.spacing(2),
 
   },
-  backGround:{
-    backgroundColor: theme.palette.grey[50],
-   
-  },
+  
 
 
 }));

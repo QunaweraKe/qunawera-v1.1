@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   inputInput: {
-    color: 'inherit',
+    
     padding: theme.spacing(1, 2, 1, 1.5),
     flexGrow: 1,
   },

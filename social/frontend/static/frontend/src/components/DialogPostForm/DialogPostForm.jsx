@@ -11,12 +11,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/EditOutlined';
 // Local
 import Avatar from '../Avatar';
@@ -43,7 +38,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 const DialogPostForm = () => {
- 
+
   const imageRef = React.useRef();
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -53,29 +48,29 @@ const DialogPostForm = () => {
   const [formData, setFormData] = React.useState({
     body: '',
     payment: '',
-    skillset:'',
-  
+    skillset: '',
+
   });
- 
+
 
   const onChangePicture = (event, field) => {
     const image = event.target.files[0];
     const formData = new FormData();
     formData.append(field, image, image.name);
-  
+
   };
   const handleChange = (event) => {
 
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
-  
-     
+
+
     });
   };
-  
-  
- 
+
+
+
   const handleClose = () => {
     setDialogOpen(false);
   };
@@ -91,59 +86,60 @@ const DialogPostForm = () => {
     handleClose();
   };
 
-  
+
 
 
   return (
     <>
       <div >
-         <CustomTooltip title="create a new task listing" arrow disableFocusListener>
-       <Button color="primary"
-      
-        aria-label="add"
-          id="header-post-button"
-          onClick={handleOpen}
-          variant="outlined">
-          New Task <EditIcon />
-      </Button>
-         </CustomTooltip>
+        <CustomTooltip title="create a new task listing" arrow disableFocusListener>
+          <Button color="primary"
+
+            aria-label="add"
+            id="header-post-button"
+            onClick={handleOpen}
+            variant="outlined">
+            <EditIcon />
+          </Button>
+        </CustomTooltip>
       </div>
       <Dialog
-      fullScreen
+        fullScreen
         open={dialogOpen}
         onClose={handleClose}
         TransitionComponent={Transition}
 
       >
         {!isEmpty(errors)
-              && (
-                <Alert
-                  className={classes.alert}
-                  severity="error"
-                >
-                 Form has invalid inputs.
-                </Alert>
-              )}
+          && (
+            <Alert
+              className={classes.alert}
+              severity="error"
+            >
+              Form has invalid inputs.
+            </Alert>
+          )}
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography
             className={classes.title}
             variant="h6"
+            style={{ fontWeight: "bold" }}
           >
-            New task
+            Post
           </Typography>
-     
+
         </DialogTitle>
         <DialogContent>
-        <div className={classes.avatarContainer}>
+          <div className={classes.avatarContainer}>
             <Avatar user={user} />
           </div>
-         
-          <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}  elevation={2}>
+
+
           <TextField
-          required
-          className={classes.inputContainer}
-          error={Boolean(errors.body)}
+            required
+            className={classes.inputContainer}
+            error={Boolean(errors.body)}
             autoComplete="off"
             multiline
             fullWidth
@@ -153,19 +149,19 @@ const DialogPostForm = () => {
             onChange={handleChange}
             type="text"
             value={formData.body}
-            variant="outlined"
+            variant="filled"
             rows={4}
             helperText={errors.body}
-            
-          />
-             </Paper>
- 
 
-             <Paper style={{marginTop:"15px",padding:'0px',width:"100%"}} className={classes.backGround}  elevation={2}>
+          />
+
+
+
+
           <TextField
-          
-          error={Boolean(errors.skillset)}
-           required
+            className={classes.margin}
+            error={Boolean(errors.skillset)}
+            required
             autoComplete="off"
             multiline
             fullWidth
@@ -175,50 +171,46 @@ const DialogPostForm = () => {
             onChange={handleChange}
             type="text"
             value={formData.skillset}
-            variant="outlined"
+            variant="filled"
             rows={4}
             helperText={errors.skillset}
           />
-            </Paper>
-          <FormControl className={classes.margin} variant="outlined">
 
-          <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}elevation={2}>
-          <InputLabel htmlFor="outlined-adornment-amount">Payment *</InputLabel>
-          <OutlinedInput
-            error={Boolean(errors.payment)}
+          <TextField
+            className={classes.margin}
+            fullWidth
+            required
             autoComplete="off"
-            className={classes.formField}
             id="payment"
+            label="Payment"
             name="payment"
             onChange={handleChange}
             type="text"
             value={formData.payment}
-            startAdornment={<InputAdornment position="start">Ksh.</InputAdornment>}
-            labelWidth={80}
-            helperText={errors.payment}
+            variant="filled"
+            helperText=" Ksh."
           />
-           </Paper>
-        </FormControl>
-        <br/>
-        <input
-                    onChange={onChangePicture}
-                    type="file"
-                    accept="image/*"
-                    name="image"
-                  />
-      
-                 
-          <br/>
-             <Button
+
+          <br />
+          <input
+            onChange={onChangePicture}
+            type="file"
+            accept="image/*"
+            name="image"
+          />
+
+
+          <br />
+          <Button
             className={classes.Button}
             color="primary"
             disabled={loading}
-            onClick={ handleSubmit}
+            onClick={handleSubmit}
             size="large"
             variant="outlined"
-            
+
           >
-              Submit
+            Submit
             {loading && <CircularProgress />}
           </Button>
           <Button
@@ -228,14 +220,14 @@ const DialogPostForm = () => {
             onClick={handleClose}
             size="large"
             variant="outlined"
-            
+
           >
             Cancel
-            
+
           </Button>
-        
+
         </DialogContent>
-          
+
       </Dialog>
     </>
   );

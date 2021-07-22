@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Material UI
 import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
-import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 import Divider from '@material-ui/core/Divider';
@@ -42,8 +42,8 @@ const SearchInput = () => {
   };
 
   return (
-    <div>
-      <Paper className={classes.root}elevation={2}>
+    <div style={{width:"100%",backgroundColor:"#fff"}}>
+      <Box  className={classes.root}p={0} flexGrow={1} >
       <InputBase
         classes={{
           input: classes.inputInput,
@@ -71,7 +71,7 @@ const SearchInput = () => {
         
         value={searchString}
       />
-      </Paper>
+      </Box>
     </div>
   );
 };

@@ -118,7 +118,7 @@ const PostItem = ({ expandReplies, postId }) => {
               horizontal: 'right',
               vertical: 'bottom',
             }}
-            classes={{ list: classes.muiMenuList }}
+           
             getContentAnchorEl={null}
             keepMounted
             open={Boolean(anchorEl)}
@@ -183,11 +183,6 @@ const PostItem = ({ expandReplies, postId }) => {
                       {post.body.charAt(0).toUpperCase() + post.body.slice(1)}
 
                     </Typography >
-
-
-
-
-                    <span style={{ marginTop: "6px" }}> {post.payment}</span>
                   </>
                 )}
               {post.skillset

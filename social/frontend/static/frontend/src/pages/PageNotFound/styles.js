@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
 errorimg:{
-
-  height:"250px",
-  width:"250px",
+  marginLeft:"20%",
+  height:"300px",
+  width:"300px",
   backgroundRepeat:"no-repeat"
 }
 }));
