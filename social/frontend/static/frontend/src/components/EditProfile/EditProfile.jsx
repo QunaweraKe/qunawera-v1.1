@@ -60,11 +60,11 @@ const EditProfile = () => {
       <Button
         color="primary"
         onClick={handleOpen}
-        variant="outlined"
+        variant="contained"
         size="large"
           style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
       >
-        Edit profile 
+        Edit Profile 
       </Button>
       <Dialog
         open={dialogOpen}

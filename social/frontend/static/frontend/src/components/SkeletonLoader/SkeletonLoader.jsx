@@ -10,18 +10,19 @@ const SkeletonLoader = () => {
 
 
   return (
-    <div>
+    <div style={{marginLeft:"5%",marginTop:"5px"}}>
       <Grid container spacing={2}>
+        
         <Grid item >
-          <Skeleton variant="circle" width={50} height={50} />
+          <Skeleton animation="wave" variant="circle" width={50} height={50} />
         </Grid>
         <Grid  >
           <Skeleton style={{marginLeft:"2%",marginTop:"25px"}} variant="text" width={100} animation="wave" />
         </Grid>
 
       </Grid>
-      <Skeleton style={{marginLeft:"10%"}}variant="rect" width="80%" height={90}  />
-      <Skeleton style={{marginLeft:"10%"}}variant="text" width="80%" height={40}  />
+      <Skeleton style={{marginTop:"-2px" ,marginLeft:"10%"}}variant="rect" width="80%" height={90}animation="wave"  />
+      <Skeleton style={{marginLeft:"10%"}}variant="text" width="80%" height={40}  animation="wave" />
     </div>
   );
 };

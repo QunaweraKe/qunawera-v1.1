@@ -100,12 +100,12 @@ const PostItem = ({ expandReplies, postId }) => {
         <div className={classes.avatarContainer}>
 
           <Avatar user={post.author} />
-
+           
         </div>
         <div className={classes.post}>
 
           <PostHeader post={post} />
-
+        
           <IconButton
             className={classes.postAction}
             onClick={handleMenuOpen}

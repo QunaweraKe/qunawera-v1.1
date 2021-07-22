@@ -107,7 +107,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
               {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
             </Typography>
             <div className={classes.followContainer}>
-              <Paper elevation={3} style={{ marginLeft: "2px" }}>
+              <Paper square elevation={3} style={{ marginLeft: "2px" }}>
                 <TextLink
                   className={classes.followLink}
                   to={route.following(profileUser.slug)}
@@ -121,7 +121,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 </TextLink>
               </Paper>
 
-              <Paper elevation={3} style={{ marginLeft: "6px" }}>
+              <Paper square elevation={3} style={{ marginLeft: "6px" }}>
                 <TextLink
                   className={classes.followLink}
                   to={route.followers(profileUser.slug)}

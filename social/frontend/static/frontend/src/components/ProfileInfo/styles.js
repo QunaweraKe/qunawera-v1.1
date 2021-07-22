@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   avatar: {
     
-    backgroundColor: theme.palette.grey[50],
+    backgroundColor: theme.palette.primary.main,
     backgroundImage: (profileUser) => (
       profileUser.profile?.image
         ? `url('${profileUser.profile.image}')`
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.common.white,
     borderRadius: '50%',
     borderStyle: 'solid',
-    borderWidth: 5,
+    borderWidth: 7,
     height: 200,
     marginTop: '-18%',
     position: 'relative',
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
   followCount: {
     fontWeight: 'bolder',
-    fontSize:'1em',
+    fontSize:'1.2em',
   },
   followLink: {
     marginRight: theme.spacing(2),

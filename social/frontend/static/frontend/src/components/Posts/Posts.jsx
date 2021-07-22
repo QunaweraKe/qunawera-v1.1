@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 // Local
-import Loading from '../Loading';
+import SkeletonLoader from '../SkeletonLoader';
 
 import PostItem from '../PostItem';
 
@@ -10,7 +10,7 @@ const Posts = ({ loading, posts, noData }) => {
   const render = () => {
     let rendered;
     if (loading) {
-      rendered = <Loading />;
+      rendered = <><SkeletonLoader /> <SkeletonLoader /></> ;
     } else if (posts.length) {
       rendered = (
         posts.map((postId) => (

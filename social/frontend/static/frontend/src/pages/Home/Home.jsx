@@ -15,8 +15,8 @@ import Paper from '@material-ui/core/Paper';
 
 
 // Local
+import WelcomeSvg from '../../components/Files/Images/newhome.svg';
 import AuthLayout from '../../components/AuthLayout';
-import SkeletonLoader from '../../components/SkeletonLoader';
 import Heading from '../../components/Heading';
 import StepperSlide from '../../components/StepperSlide';
 import SubHeading from '../../components/SubHeading';
@@ -130,16 +130,21 @@ const Home = () => {
                   Lets get you started by following some people
                 </Typography>
 
-                <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                  Update  Your Profile
-                </Button>
+               
                 <Dialog open={open} onClose={handleClose} >
                   <StepperSlide />
                 </Dialog>
-              </Paper>
-              <div>
 
-                <SkeletonLoader />
+                <div style={{marginLeft:"auto",height:"250px",width:"250px",marginTop:"-10px"}}>
+              < WelcomeSvg/>
+              </div>
+              <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                  Update  Your Profile
+                </Button>
+              </Paper>
+           
+
+              <div>
                 <Typography
                   color="textSecondary"
                   style={{ fontWeight: "bolder" }}

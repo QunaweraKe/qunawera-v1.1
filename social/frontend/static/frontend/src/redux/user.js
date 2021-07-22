@@ -167,6 +167,7 @@ export const follow = (slug, userId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.createFollow(slug));
     dispatch(setFollow(userId));
+    dispatch(setToast('Following'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -218,6 +219,7 @@ export const unfollow = (slug, userId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removeFollow(slug));
     dispatch(unsetFollow(userId));
+    dispatch(setToast('Unfollowed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
