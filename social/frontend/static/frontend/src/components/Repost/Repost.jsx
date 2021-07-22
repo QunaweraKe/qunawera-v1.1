@@ -91,9 +91,7 @@ const Repost = ({ postId }) => {
       >
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
-          <Typography variant="subtitle1">
-            Repost
-          </Typography>
+          
         </DialogTitle>
         <DialogContent
         
@@ -114,7 +112,7 @@ const Repost = ({ postId }) => {
               multiline
               onChange={handleChange}
             
-              placeholder="Say why you are sharing this post (optional)"
+              placeholder="Say why you want to share this post (optional)"
               rowsMax={7}
               spellCheck
               value={body}
@@ -126,7 +124,7 @@ const Repost = ({ postId }) => {
             onClick={handleClose}
             variant="outlined"
             size="small"
-            color="secondary"
+            color="textSecondary"
           >
             Cancel
           </Button>
@@ -137,7 +135,7 @@ const Repost = ({ postId }) => {
             variant="outlined"
             size="small"
           >
-           post
+           Send
             {loading && <CircularProgress />}
           </Button>
         </DialogActions>
