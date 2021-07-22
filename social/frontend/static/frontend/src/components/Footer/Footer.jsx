@@ -18,7 +18,7 @@ const Footer = () => {
 
 
 
-      <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8vw" }}>
+      <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8em" }}>
         {'© '}
         {new Date().getFullYear()}
         {'  '}

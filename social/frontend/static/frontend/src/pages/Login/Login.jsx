@@ -15,14 +15,14 @@ import Alert from '@material-ui/lab/Alert';
 import { IconButton } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
+import Box from '@material-ui/core/Box';
 // Local
 import Footer from '../../components/Footer';
 import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
 import { route, APP_NAME } from '../../constants';
-
+import ContactUs from '../../components/ContactUs';
 import useUI from '../../hooks/useUI';
 
 import { key, loginUser } from '../../redux/user';
@@ -189,11 +189,19 @@ const Login = () => {
           <TextLink to={route.register}>Create New Account</TextLink>
 
         </Typography>
-
-
-
+      <div style={{ width: '100%' }}>
+      <Box display="flex" p={0}>
+        <Box p={0} flexGrow={1} >
 
         <Footer />
+        </Box>
+        <Box p={0} >
+       
+        <ContactUs/>
+        </Box>
+       
+       </Box>
+       </div>
       </Container>
     </>
   );

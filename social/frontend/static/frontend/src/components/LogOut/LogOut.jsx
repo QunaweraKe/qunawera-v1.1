@@ -71,7 +71,7 @@ const LogOut = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="secondary" size="small" variant="outlined">
+          <Button onClick={handleClose}     color="textSecondary" size="small" variant="outlined">
             Cancel
           </Button>
           <Divider orientation="vertical" />

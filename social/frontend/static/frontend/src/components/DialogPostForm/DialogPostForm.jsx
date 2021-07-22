@@ -201,6 +201,7 @@ const DialogPostForm = () => {
 
 
           <br />
+       
           <Button
             className={classes.Button}
             color="primary"
@@ -215,7 +216,7 @@ const DialogPostForm = () => {
           </Button>
           <Button
             className={classes.Button}
-            color="secondary"
+            color="textSecondary"
             disabled={loading}
             onClick={handleClose}
             size="large"
@@ -225,7 +226,7 @@ const DialogPostForm = () => {
             Cancel
 
           </Button>
-
+  
         </DialogContent>
 
       </Dialog>

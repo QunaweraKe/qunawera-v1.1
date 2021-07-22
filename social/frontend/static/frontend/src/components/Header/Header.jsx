@@ -4,8 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 // Material UI
 
-import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import NIcon from '@material-ui/icons/Notifications';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
@@ -26,7 +24,6 @@ import SearchIcon from '@material-ui/icons/Search';
 
 // Local
 import Footer from '../Footer';
-import ContactUs from '../ContactUs';
 import LogOut from '../LogOut';
 import { route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -161,10 +158,10 @@ const Header = () => {
 
           </ListItem>
           <Divider light/> 
-          <ListItem disableGutters style={{marginLeft:"2px",marginTop:"3px"}}>
-          <ContactUs/>
+       
+       
   
-          </ListItem >
+        
           
           
  </List>

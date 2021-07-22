@@ -57,7 +57,7 @@ const ContactUs = () => {
    <div>
      <Tooltip title="Reach Us" arrow  placement="bottom">
       <Button color="secondary" onClick={handleClickOpen} size="small">
-         <span style={{fontSize:"12px",fontWeight:"bolder"}}>Help</span><ContactSupportIcon />
+         <span style={{fontSize:"12px",fontWeight:"bolder"}}>Need Help</span><ContactSupportIcon />
       </Button>
       </Tooltip>
 
@@ -69,7 +69,7 @@ const ContactUs = () => {
         <DialogContent>
 
           <DialogContentText>
-             Thank you for reaching out to us.
+           Thank you for reaching out to us.
             Please fill in all the fields below.
           </DialogContentText>
 
@@ -100,15 +100,15 @@ const ContactUs = () => {
             name="description"
           />
             <Divider orientation="horizontal " light variant='inset' />
-  
-          <Button  style={{marginTop:"10px"}}  onClick={handleSubmit} color="primary" variant="outlined" >
+            <div style={{marginLeft:"15px",marginTop:"15px",marginBottom:"5px",padding:"3px"}}>
+          <Button    onClick={handleSubmit} color="primary" variant="outlined" >
             Send
           </Button>
       
-          <Button  style={{marginTop:"10px",marginLeft:"4px"}} onClick={handleClose} color="secondary" variant="outlined">
+          <Button  style={{marginLeft:"4px"}} onClick={handleClose} color="textSecondary" variant="outlined">
             Cancel
           </Button>
-        
+        </div>
         
           </DialogContent>
           </Paper>

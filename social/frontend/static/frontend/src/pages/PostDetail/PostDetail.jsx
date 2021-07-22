@@ -13,11 +13,8 @@ import Loading from '../../components/Loading';
 import PageTitle from '../../components/PageTitle';
 import PostDetailNav from '../../components/PostDetailNav';
 import PostItem from '../../components/PostItem';
-
 import useUI from '../../hooks/useUI';
-
 import { getPostDetail, key, selectPost } from '../../redux/post';
-
 import useStyles from './styles';
 
 const PostDetail = () => {
