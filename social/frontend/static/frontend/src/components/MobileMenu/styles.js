@@ -21,10 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  followCount: {
-    color: theme.palette.primary.main,
-    fontWeight: 'bold',
-  },
+ 
   list: {
     width: 350,
     color:theme.palette.primary.main,

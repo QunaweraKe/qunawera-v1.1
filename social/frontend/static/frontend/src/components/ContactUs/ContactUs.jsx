@@ -90,7 +90,7 @@ const ContactUs = () => {
              style={{marginTop:"10px"}}
              variant="filled"
              multiline
-            
+            rows={6}
             id="description"
             label="Description"
             onChange={handleChange}
@@ -100,6 +100,7 @@ const ContactUs = () => {
             name="description"
           />
             <Divider orientation="horizontal " light variant='inset' />
+  
           <Button  style={{marginTop:"10px"}}  onClick={handleSubmit} color="primary" variant="outlined" >
             Send
           </Button>

@@ -3,15 +3,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
-
-import DeleteIcon from '@material-ui/icons/DeleteOutlineOutlined';
-
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
-
 import useUI from '../../hooks/useUI';
 
 import {
@@ -58,12 +54,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         onClick={handleOpen}
         ref={ref}
       >
-        <ListItemIcon>
-          <DeleteIcon
-            color="error"
-            fontSize="small"
-          />
-        </ListItemIcon>
+
         <ListItemText
           primary="Delete"
           primaryTypographyProps={{
@@ -82,7 +73,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         text={`
           This action can’t be undone and it will be remove everything associated to this post .
         `}
-        
+
       />
     </>
   );

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // Material UI
 import Dialog from '@material-ui/core/Dialog';
-import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -76,35 +76,37 @@ const Home = () => {
       <AuthLayout >
         <SubHeading>
           <MobileMenu />
-
-
-          <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
+          <div style={{ width: '100%' }}>
+      <Box display="flex" p={1}>
+        <Box p={1} flexGrow={1} >
+        <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
             {APP_NAME}
           </Typography>
+        </Box>
+        <Box p={1} >
+        <ButtonGroup fullwidth variant="outlined" color="primary"  >
+
+<DialogPostForm />
+<CustomTooltip title="explore posts and users" arrow disableFocusListener>
+  <Button
+    size="small"
+    color='primary'
+    component={Link}
+    to={route.search}
 
 
-          <Grid container direction="column" alignItems="center" >
-            <Grid item xs={14}>
-              <ButtonGroup fullwidth variant="outlined" color="primary"  >
+  >
+    <SearchIcon />
+  </Button>
+</CustomTooltip>
 
-                <DialogPostForm />
-                <CustomTooltip title="explore posts and users" arrow disableFocusListener>
-                  <Button
-                    size="small"
-                    color='primary'
-                    component={Link}
-                    to={route.search}
+</ButtonGroup>
 
+        </Box>
+       
+      </Box>
+      </div>
 
-                  >
-                    Search<SearchIcon />
-                  </Button>
-                </CustomTooltip>
-
-              </ButtonGroup>
-
-            </Grid>
-          </Grid>
 
 
 
@@ -125,7 +127,7 @@ const Home = () => {
                   paragraph
                   variant="body1"
                 >
-                  Lets get you started by follow some people
+                  Lets get you started by following some people
                 </Typography>
 
                 <Button variant="outlined" color="primary" onClick={handleClickOpen}>

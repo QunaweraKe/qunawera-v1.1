@@ -10,6 +10,7 @@ export const route = {
   home: '/home/',
   index: '/',
   notifications: '/notifications/',
+  contactUs:'/contactus/',
   postDetail: (postId) => `/post/${postId}/`,
   postLikes: (postId) => `/post/${postId}/likes/`,
   postDetailLikes: (postId) => `/post/${postId}/likes/`,

@@ -95,11 +95,11 @@ export const createContactUs = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data=await api(descriptor.createContactUs(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Your query is with us now'));
-    window.location = route.home;
+    dispatch(setToast('Submitted'));
+    
   } catch (error) {
     dispatch(setToast('Something went  wrong,please check that you have entered correct details', 'error'));
-    window.location = route.home;
+   
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));

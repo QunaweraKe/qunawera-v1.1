@@ -14,7 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 
-import EditIcon from '@material-ui/icons/EditOutlined';
+
 
 // Local
 import CircularProgress from '../CircularProgress';
@@ -69,7 +69,7 @@ const EditPost = React.forwardRef((props, ref) => {
         ref={ref}
       >
         <ListItemIcon>
-          <EditIcon fontSize="small" />
+         
         </ListItemIcon>
         <ListItemText primary="Edit Post" style={{color:"primary"}}/>
       </MenuItem>

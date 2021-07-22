@@ -55,16 +55,11 @@ const PostLikes = () => {
           <Typography
             paragraph
             variant="h6"
-          >
-            Nobody has liked this post
-          </Typography>
-          <Typography
             color="textSecondary"
-            paragraph
-            variant="body2"
           >
-            When someone likes this post they&apos;ll show up here.
+           Post has no likes
           </Typography>
+         
         </NoData>
       );
     }
@@ -82,6 +77,7 @@ const PostLikes = () => {
             <Typography
               className={classes.heading}
               variant="h6"
+              style={{fontWeight:"bold"}}
             >
               Post likes
             </Typography>

@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 
-import AutorenewIcon from '@material-ui/icons/Autorenew';
+import RefreshIcon from '@material-ui/icons/Refresh';
 
 // Local
 import Loading from '../Loading';
@@ -85,11 +85,11 @@ const RecommendedUsers = () => {
       <CardHeader
         action={(
           <IconButton
-           
+           size="small"
             className={classes.refreshButton}
             onClick={handleRefresh}
           >
-            < AutorenewIcon/>
+            < RefreshIcon/>
           </IconButton>
         )}
         className={classes.cardHeader}

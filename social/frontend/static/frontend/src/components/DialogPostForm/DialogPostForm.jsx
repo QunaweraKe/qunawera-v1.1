@@ -17,8 +17,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
-import IconButton from '@material-ui/core/IconButton';
+import EditIcon from '@material-ui/icons/EditOutlined';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -105,7 +104,7 @@ const DialogPostForm = () => {
           id="header-post-button"
           onClick={handleOpen}
           variant="outlined">
-          Post <AddIcon />
+          New Task <EditIcon />
       </Button>
          </CustomTooltip>
       </div>

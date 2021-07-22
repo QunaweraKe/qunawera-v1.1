@@ -17,8 +17,8 @@ const useStyles = makeStyles(() => ({
 
 
   headerTime : {
-     fontSize:12,
-     fontWeight:"bold",
+     fontSize:13,
+     fontWeight:"500",
      marginLeft:2,
   },
 

@@ -16,9 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CancelIcon from '@material-ui/icons/Cancel';
 import ListIcon from '@material-ui/icons/List';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import LogoutIcon from '@material-ui/icons/ExitToApp';
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
-import SearchIcon from '@material-ui/icons/Search';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
@@ -27,10 +25,10 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '../Avatar';
 import Footer from '../Footer';
 
-import { APP_NAME, route } from '../../constants';
-
+import { route } from '../../constants';
+import LogOut from '../LogOut';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
-import { logoutUser, selectUser } from '../../redux/user';
+import {  selectUser } from '../../redux/user';
 
 import useStyles from './styles';
 
@@ -44,9 +42,6 @@ const MobileMenu = () => {
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
-  const handleLogout = () => {
-    dispatch(logoutUser());
-  };
 
   const handleToggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -70,14 +65,7 @@ const MobileMenu = () => {
         onClose={handleToggleDrawer}
       >
         <div className={classes.titleContainer}>
-          <Typography
-            className={classes.title}
-            variant="h6"
-            color="primary"
-
-          >
-            {APP_NAME}
-          </Typography>
+       
           <IconButton
             color="primary"
             onClick={handleToggleDrawer}
@@ -107,7 +95,7 @@ const MobileMenu = () => {
          </Card>
         </div>
 
- <Card  >
+ <Card square >
         <CardContent>
         <List className={classes.list}>
           <ListItem
@@ -163,12 +151,11 @@ const MobileMenu = () => {
           <ListItem
             className={classes.logout}
             button
-            onClick={handleLogout}
+           
           >
-            <ListItemIcon>
-              <LogoutIcon />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
+          
+              <LogOut/>
+           
           </ListItem>
          
         </List>

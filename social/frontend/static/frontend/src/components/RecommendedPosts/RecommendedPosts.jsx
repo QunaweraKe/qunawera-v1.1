@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // Material UI
-
+import RefreshIcon from '@material-ui/icons/Refresh';
 import CardContent from '@material-ui/core/CardContent';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -13,7 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
+
 // Local
 import Avatar from '../Avatar';
 import Loading from '../Loading';
@@ -122,13 +122,12 @@ const RecommendedPosts = () => {
       <CardHeader
         action={(
           <IconButton
-            color="primary"
             className={classes.refreshButton}
             onClick={handleRefresh}
             variant="default"
             size="small"
           >
-           <AutorenewIcon />
+           <RefreshIcon />
           </IconButton>
         )}
         className={classes.cardHeader}
