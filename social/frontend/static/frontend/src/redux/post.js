@@ -53,8 +53,9 @@ const postSlice = createSlice({
   initialState,
   reducers: {
     setEditPost: (state, { payload }) => {
-      const { postId, body } = payload;
+      const { postId, body,skillset } = payload;
       state.postById[postId].body = body;
+      state.postById[postId].skillset = skillset;
     },
     setFeed: (state, { payload }) => {
       state.feed.next = payload.next;
@@ -286,12 +287,12 @@ export const createRepost = (author, body, parentId) => async (dispatch) => {
   }
 };
 
-export const editPost = (postId, body) => async (dispatch) => {
+export const editPost = (postId, body,skillset) => async (dispatch) => {
   const thisKey = key.editPost;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
-    await api(descriptor.editPost(postId, body));
-    dispatch(setEditPost({ postId, body }));
+    await api(descriptor.editPost(postId, body,skillset));
+    dispatch(setEditPost({ postId, body ,skillset}));
     dispatch(setToast('Post updated'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
