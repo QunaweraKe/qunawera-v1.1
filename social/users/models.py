@@ -4,7 +4,7 @@ from django.contrib.postgres.fields.citext import CICharField, CIEmailField
 from django.db import models
 from django.utils.text import slugify
 from django.utils.timezone import now
-from PIL import Image
+from django_resized import ResizedImageField
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import UserManager
 
@@ -109,7 +109,7 @@ class Profile(models.Model):
 
     banner = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True)
     bio = models.TextField(max_length=500, blank=True)
-    image = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True)
+    image = ResizedImageField(size=[250,250],crop=['middle','center'],quality=75,upload_to="images/%Y/%m/%d/", blank=True,null=True)
     location = models.CharField(max_length=100, blank=True)
     sex = models.CharField(
         blank=True,
@@ -119,15 +119,7 @@ class Profile(models.Model):
     user = models.OneToOneField("users.User", on_delete=models.CASCADE)
     website = models.URLField(blank=True)
     
-#Functions to save image as thumbnail 
-    def save(self,*args,**kwargs):
-        super(Profile,self).save(*args,**kwargs)
-        img=Image.open(self.image.path)
-        if img.width>250 and img.height>250:
-            outputsize=(250,250)
-            img.thumbnail(outputsize)
-            img.save(self.image.path)
-   
+
   
     def __str__(self):
         return self.user.username

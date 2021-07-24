@@ -66,7 +66,7 @@ class ValidatePasswordMixin:
         return data
 
 
-class UserSerializer(ValidateUserNameMixin,ValidatePasswordMixin, serializers.ModelSerializer):
+class UserSerializer(ValidatePasswordMixin,ValidateUserNameMixin, serializers.ModelSerializer):
 
     display_name = serializers.SerializerMethodField(read_only=True)
     followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)

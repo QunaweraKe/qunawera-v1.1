@@ -3,8 +3,6 @@ from .models import Post
 
 admin.site.site_header="Qunawera Admin "
 
-class PostAdmin(admin.TabularInline):
-      model=Post
 
 @admin.register(Post)
 class PostsAdmin(admin.ModelAdmin):
