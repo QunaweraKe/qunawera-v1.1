@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "posts",
     "search",
     "users.apps.UsersConfig",
+
 ]
 
 INTERNAL_IPS = [
@@ -153,3 +154,4 @@ AUTH_USER_MODEL = "users.User"
 AUTHENTICATION_BACKENDS = ["social.backends.UsernameOrEmailAuth"]
 
 
+DJANGORESIZED_DEFAULT_SIZE=[250,250]
