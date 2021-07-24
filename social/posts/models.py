@@ -68,5 +68,5 @@ class Post(SoftDeleteMixin, TimestampMixin):
     def get_reposts(self):
         """ Get a post's reposts. """
         return self.alt.filter(is_active=True, is_reply=False).order_by("created_at")
-    def __str__(self) :
-        return self.author
+    #def __str__(self) :
+    #    return self.author
