@@ -127,13 +127,7 @@ class Profile(models.Model):
             outputsize=(250,250)
             img.thumbnail(outputsize)
             img.save(self.image.path)
-    def save(self,*args,**kwargs):
-        super(Profile,self).save(*args,**kwargs)
-        img=Image.open(self.banner.path)
-        if img.width>250 and img.height>250:
-            outputsize=(250,250)
-            img.thumbnail(outputsize)
-            img.save(self.image.path)
+   
   
     def __str__(self):
         return self.user.username
