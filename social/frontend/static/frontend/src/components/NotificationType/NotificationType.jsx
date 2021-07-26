@@ -58,7 +58,7 @@ const NotificationType = ({ notification }) => {
         <Typography>
           {notification.from_user.display_name}
           {' '}
-          started following you.
+          is following you.
         </Typography>
       )}
     </>

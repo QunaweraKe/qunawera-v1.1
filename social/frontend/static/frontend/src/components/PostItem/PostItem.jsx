@@ -177,7 +177,7 @@ const PostItem = ({ expandReplies, postId }) => {
                 && (
                   <>
 
-                    <Typography variant="subtitle8" style={{ fontweight: "bold" }}>
+                    <Typography variant="body3" style={{ fontweight: "bold" }}>
                    {post.body.charAt(0).toUpperCase() }{post.body.slice(1)} 
 
                     </Typography >

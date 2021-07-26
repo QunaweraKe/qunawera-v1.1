@@ -15,7 +15,7 @@ import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
 import NotificationItem from '../../components/NotificationItem';
 import PageTitle from '../../components/PageTitle';
-
+import Notification from '../../components/Files/Images/notification.svg';
 import useUI from '../../hooks/useUI';
 
 import {
@@ -62,19 +62,24 @@ const Notfications = () => {
     } else {
       renderedNotifications = (
         <NoData>
+
           <Typography
-            paragraph
+           
             variant="h6"
+            color="primary"
           >
-            You don&apos;t have any notifications
+            You don&apos;t have any activities yet
           </Typography>
+          <div style={{height:"250px",width:"250px",textAlign:"center",display:"inline-block"}}>
+          <Notification/>
+          </div>
           <Typography
-            color="textSecondary"
-            paragraph
-            variant="body2"
-          >
-            When you receive a notification it&apos;ll show up here.
-          </Typography>
+                  color="textSecondary"
+                  style={{ fontWeight: "bolder" }}
+                  variant="h7"
+                >
+                  Your activities will show up here...
+                </Typography>
         </NoData>
       );
     }

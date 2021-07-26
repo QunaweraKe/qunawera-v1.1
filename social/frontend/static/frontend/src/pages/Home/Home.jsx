@@ -131,15 +131,15 @@ const Home = () => {
                   <StepperSlide />
                 </Dialog>
 
-                <div style={{marginLeft:"auto",height:"250px",width:"250px",marginTop:"-10px"}}>
+                <div style={{height:"250px",width:"250px",textAlign:"center",display:"inline-block"}}>
               < WelcomeSvg/>
               </div>
+              
+              </Paper>
+           
               <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                   Update  Your Profile
                 </Button>
-              </Paper>
-           
-
               <div>
                 <Typography
                   color="textSecondary"
