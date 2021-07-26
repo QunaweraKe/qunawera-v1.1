@@ -17,7 +17,6 @@ import Paper from '@material-ui/core/Paper';
 // Local
 import WelcomeSvg from '../../components/Files/Images/newhome.svg';
 import AuthLayout from '../../components/AuthLayout';
-import Heading from '../../components/Heading';
 import StepperSlide from '../../components/StepperSlide';
 import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
@@ -92,12 +91,13 @@ const Home = () => {
     size="small"
     color='primary'
     component={Link}
-    to={route.search}
+    to={route.searchposts}
 
 
   >
     <SearchIcon />
   </Button>
+  
 </CustomTooltip>
 
 </ButtonGroup>
@@ -111,11 +111,7 @@ const Home = () => {
 
 
         </SubHeading>
-        <Heading >
-
-        </Heading>
-
-
+      
         <Posts
           loading={loading}
           posts={feed.results}

@@ -1,27 +1,15 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import *
 
-
-class UserAdmin (admin.ModelAdmin):
-    list_display = ('name','email')
-admin.site.register(User,UserAdmin)
+UserAdmin.fieldsets += ('custom',{'fields':('name')}),
 
 
 
-
-
-    
-
-
-
-class ProfileAdmin (admin.ModelAdmin):
-    list_display = ('banner',)
-    
-admin.site.register(Profile,ProfileAdmin)
-
-
-
-
+class UserProfileAdmin (admin.ModelAdmin):
+    model=Profile
+    list_display=('user','bio','image','location','sex','banner')
+admin.site.register(Profile,UserProfileAdmin)
 
 
 

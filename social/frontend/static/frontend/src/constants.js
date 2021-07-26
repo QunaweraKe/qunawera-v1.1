@@ -21,5 +21,6 @@ export const route = {
   recommendedUsers: '/recommended-users/',
   register: '/register/',
   search: '/search/',
+  searchposts:'/search/searchposts/',
   settings: '/settings/',
 };

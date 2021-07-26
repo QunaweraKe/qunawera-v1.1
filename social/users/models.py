@@ -4,7 +4,6 @@ from django.contrib.postgres.fields.citext import CICharField, CIEmailField
 from django.db import models
 from django.utils.text import slugify
 from django.utils.timezone import now
-from django_resized import ResizedImageField
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import UserManager
 
@@ -109,7 +108,7 @@ class Profile(models.Model):
 
     banner = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True)
     bio = models.TextField(max_length=500, blank=True)
-    image = ResizedImageField(size=[250,250],crop=['middle','center'],quality=75,upload_to="images/%Y/%m/%d/", blank=True,null=True)
+    image = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
     location = models.CharField(max_length=100, blank=True)
     sex = models.CharField(
         blank=True,

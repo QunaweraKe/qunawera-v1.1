@@ -19,7 +19,7 @@ class SearchAPIView(rest_generics.ListAPIView):
     filter_backends = [filters.SearchFilter]
     pagination_class = SearchPagination
     permission_classes = [IsAuthenticated]
-    search_fields = ('username', 'name')
+    search_fields = ('username', 'name',)
     serializer_class = UserSerializer
 
     def get_queryset(self):

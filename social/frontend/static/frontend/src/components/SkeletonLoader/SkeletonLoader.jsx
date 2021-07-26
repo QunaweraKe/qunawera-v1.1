@@ -10,7 +10,7 @@ const SkeletonLoader = () => {
 
 
   return (
-    <div style={{marginLeft:"5%",marginTop:"5px"}}>
+    <div style={{marginLeft:"5%",marginTop:"15px"}}>
       <Grid container spacing={2}>
         
         <Grid item >

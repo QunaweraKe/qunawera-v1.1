@@ -186,6 +186,10 @@ export const descriptor = {
     url: `/api/users/${slug}/following/`,
   }),
 
+  getSearchPost: (searchString) => ({
+    method: 'get',
+    url: `/api/search/posts/?search=${searchString}`,
+  }),
   //
   // Search descriptors
   //

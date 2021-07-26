@@ -94,7 +94,8 @@ const PostItem = ({ expandReplies, postId }) => {
     <div className={classes.root}>
 
 
-      <div className={classes.postContainer}>
+      <div className={classes.postContainer}
+      style={{ backgroundColor: " #ffffe0", minWidth: 200, marginTop: "8px" }}>
 
 
         <div className={classes.avatarContainer}>
@@ -167,14 +168,12 @@ const PostItem = ({ expandReplies, postId }) => {
             <Divider light />
           </Menu>
 
-          <Card  style={{ backgroundColor: " #f0f8ff", minWidth: 200, marginTop: "8px" }}
-          >
             <div className={classes.text}>
-              <Link to={route.postDetail(post.id)} className={classes.Link}>
+
                 <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
                   {post.parent && <PostParent post={post.parent} />}
                 </Typography>
-              </Link>
+              
               {post.body
                 && (
                   <>
@@ -236,9 +235,6 @@ const PostItem = ({ expandReplies, postId }) => {
                 )}
             </div>
 
-
-
-          </Card>
 
         </div>
 

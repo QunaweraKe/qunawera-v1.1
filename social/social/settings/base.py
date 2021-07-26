@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.postgres",
+    
+     #libraries
     "django_extensions",
     "debug_toolbar",
     "rest_framework",
@@ -153,5 +155,3 @@ AUTH_USER_MODEL = "users.User"
 
 AUTHENTICATION_BACKENDS = ["social.backends.UsernameOrEmailAuth"]
 
-
-DJANGORESIZED_DEFAULT_SIZE=[250,250]

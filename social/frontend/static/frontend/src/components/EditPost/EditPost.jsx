@@ -8,23 +8,36 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import InputBase from '@material-ui/core/InputBase';
+import TextField from '@material-ui/core/TextField';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-
+import { makeStyles } from '@material-ui/core';
 
 
 // Local
 import CircularProgress from '../CircularProgress';
 import DialogCloseButton from '../DialogCloseButton';
-
 import useUI from '../../hooks/useUI';
 
 import { editPost, key, selectPost } from '../../redux/post';
 
+
+const useStyles = makeStyles((theme) =>  ({
+  inputContainer: {
+    flexGrow: 1,
+    
+  },
+  margin: {
+    marginTop:theme.spacing(5),
+  
+  },
+}));
+
+
 const EditPost = React.forwardRef((props, ref) => {
+  const classes = useStyles();
   const { postId, setAnchorEl } = props;
   const dispatch = useDispatch();
 
@@ -53,12 +66,9 @@ const EditPost = React.forwardRef((props, ref) => {
   };
 
   const handleEdit = async () => {
-    if (body !== originalBody) {
-      await dispatch(editPost(postId, body));
-    }
-    if (skillset !== originalSkillset) {
-      await dispatch(editPost(postId, skillset));
-    }
+  
+      await dispatch(editPost(postId, body,skillset));
+
     handleClose();
   };
 
@@ -87,6 +97,7 @@ const EditPost = React.forwardRef((props, ref) => {
         onClose={handleClose}
         onEntered={handleEntered}
         onExited={handleExited}
+        fullScreen
       >
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
@@ -95,29 +106,48 @@ const EditPost = React.forwardRef((props, ref) => {
           </Typography>
         </DialogTitle>
         <DialogContent dividers>
-          <InputBase
-            fullWidth
+         
+           <TextField
+            required
+            className={classes.inputContainer}
+            autoComplete="off"
             multiline
+            fullWidth
+            id="body"
+            label="Description"
+            name="body"
             onChange={handleChange}
-            placeholder="Which task do you have in mind?"
-            rowsMax={5}
-            spellCheck
+            type="text"
             value={body}
+            variant="filled"
+            rows={4}
+            
+
           />
-          <InputBase
-            fullWidth
+           <TextField
+            className={classes.margin}
+            
+            required
+            autoComplete="off"
             multiline
+            fullWidth
+            id="skillset"
+            label="Required Skills"
+            name="skillset"
             onChange={handleChangeskill}
-            placeholder="Which task do you have in mind?"
-            rowsMax={5}
-            spellCheck
+            type="text"
             value={skillset}
+            variant="filled"
+            rows={4}
+            
           />
+
+          
         </DialogContent>
         <DialogActions>
           <Button
             onClick={handleClose}
-            variant="contained"
+            variant="outlined"
             size="small"
           >
             Cancel
