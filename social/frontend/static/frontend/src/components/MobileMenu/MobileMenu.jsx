@@ -59,7 +59,7 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="bottom"
+        anchor="right"
         className={classes.drawer}
         open={drawerOpen}
         onClose={handleToggleDrawer}
@@ -79,14 +79,14 @@ const MobileMenu = () => {
         <CardContent>
           <Avatar
             className={classes.avatar}
-            size={35}
+            size={50}
             user={user}
           />
           <Grid container spacing={7}>
            <Grid item>
 
           <Typography variant="subtitle1">
-           {user.display_name}  &#183;
+           {user.display_name}  
           </Typography>
            </Grid>
            </Grid>

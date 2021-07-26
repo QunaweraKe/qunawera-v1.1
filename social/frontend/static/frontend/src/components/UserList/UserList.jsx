@@ -8,10 +8,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-
+import Divider from '@material-ui/core/Divider';
 // Local
 import Avatar from '../Avatar';
-import FollowButton from '../FollowButton';
 import TextLink from '../TextLink';
 import UserSlug from '../UserSlug';
 
@@ -20,6 +19,7 @@ import { route } from '../../constants';
 import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
+import FollowTextLink from '../FollowTextLink';
 
 const UserList = ({ list }) => {
   const classes = useStyles();
@@ -29,6 +29,7 @@ const UserList = ({ list }) => {
   return (
     <List className={classes.userList}>
       {list.map((profileUser) => (
+        <>
         <ListItem
           className={classes.userListItem}
           key={profileUser.id}
@@ -39,7 +40,7 @@ const UserList = ({ list }) => {
           <ListItemText className={classes.listItemText}>
             {profileUser.slug !== user.slug
               && (
-                <FollowButton
+                <FollowTextLink
                   className={classes.followButton}
                   size="small"
                   user={profileUser}
@@ -62,7 +63,10 @@ const UserList = ({ list }) => {
                 </Typography>
               )}
           </ListItemText>
+
         </ListItem>
+        <Divider light/>
+        </>
       ))}
     </List>
   );

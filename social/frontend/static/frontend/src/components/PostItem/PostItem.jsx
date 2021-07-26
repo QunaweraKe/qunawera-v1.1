@@ -9,7 +9,6 @@ import { ChatIcon } from 'evergreen-ui'
 
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
@@ -144,7 +143,7 @@ const PostItem = ({ expandReplies, postId }) => {
               )}
             >
 
-              <ListItemText primary="Details" className={classes.listItemSize} />
+              <ListItemText primary="View Details" className={classes.listItemSize} />
             </MenuItem>
             <Divider light />
             <MenuItem
@@ -352,3 +351,4 @@ export default PostItem;
  //semantic ui for items
  //start end payment location
 //possible bug on reply item
+//f&u link text for users

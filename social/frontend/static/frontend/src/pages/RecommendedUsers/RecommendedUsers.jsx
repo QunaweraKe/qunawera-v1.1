@@ -51,19 +51,14 @@ const RecommendedUsers = () => {
     } else {
       rendered = (
         <NoData>
-          <Typography
-            paragraph
-            variant="h6"
-          >
-            You don&apos;t have any recommended users
-          </Typography>
-          <Typography
-            color="textSecondary"
-            paragraph
-            variant="body2"
-          >
-            The users you aren&apos;t following will show up here.
-          </Typography>
+             <Typography
+                paragraph
+                variant="h6"
+                color="primary"
+                style={{fontWeight:"bolder"}}
+              >
+                You don&apos;t have any recommended users right now
+              </Typography>
         </NoData>
       );
     }

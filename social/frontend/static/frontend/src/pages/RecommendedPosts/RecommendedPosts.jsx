@@ -59,7 +59,7 @@ const RecommendedPosts = () => {
               <Typography
                 paragraph
                 variant="h6"
-                color="secondary"
+                color="primary"
                 style={{fontWeight:"bolder"}}
               >
                 You don&apos;t have any recommended posts

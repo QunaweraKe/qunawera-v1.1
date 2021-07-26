@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     top: theme.spacing(2),
   },
   userList: {
-    paddingTop: 0,
-    paddingBottom: 0,
+    paddingTop: 1,
+    paddingBottom: 1,
   },
   userListItem: {
     ...theme.custom.borders,

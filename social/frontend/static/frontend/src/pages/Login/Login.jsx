@@ -34,7 +34,7 @@ import useStyles from './styles';
 const Login = () => {
 
   const [showPassword, setShowPassword] = useState(true);
-
+  const [logging, setShowLogging] = useState(true);
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -174,9 +174,10 @@ const Login = () => {
                 type="submit"
                 variant="outlined"
                 size="large"
-
+                onClick={(e) => { setShowLogging(!logging) }}
               >
-                Login {loading && <LinearProgressBar />}
+                {logging ? <>login</> : <>logging in {loading && <LinearProgressBar />}</>}
+
 
               </Button>
             </form>
@@ -189,19 +190,19 @@ const Login = () => {
           <TextLink to={route.register}>Create New Account</TextLink>
 
         </Typography>
-      <div style={{ width: '100%' }}>
-      <Box display="flex" p={0}>
-        <Box p={0} flexGrow={1} >
+        <div style={{ width: '100%' }}>
+          <Box display="flex" p={0}>
+            <Box p={0} flexGrow={1} >
 
-        <Footer />
-        </Box>
-        <Box p={0} >
-       
-        <ContactUs/>
-        </Box>
-       
-       </Box>
-       </div>
+              <Footer />
+            </Box>
+            <Box p={0} >
+
+              <ContactUs />
+            </Box>
+
+          </Box>
+        </div>
       </Container>
     </>
   );
