@@ -82,6 +82,14 @@ const Register = () => {
             >
               Join {APP_NAME}
             </Typography>
+
+            <Typography
+              className={classes.toUpper}
+              color="textSecondary"
+              variant="body1"
+            >
+              Fill in the fields below
+            </Typography>
             {!isEmpty(errors)
               && (
                 <Alert

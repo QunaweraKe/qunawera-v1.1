@@ -6,7 +6,7 @@ from .models import Profile, User,ContactUs
 
 class  ContactUsSerializer(serializers.ModelSerializer):
     """Create post for contact us. """
-    description = serializers.CharField(allow_blank=False)
+
     class Meta:
         model=ContactUs
         fields =[

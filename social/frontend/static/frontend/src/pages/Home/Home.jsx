@@ -91,13 +91,14 @@ const Home = () => {
     size="small"
     color='primary'
     component={Link}
-    to={route.searchposts}
+    to={route.search}
 
 
   >
     <SearchIcon />
   </Button>
   
+ 
 </CustomTooltip>
 
 </ButtonGroup>

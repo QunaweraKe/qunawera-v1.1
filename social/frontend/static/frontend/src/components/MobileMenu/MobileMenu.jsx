@@ -63,6 +63,7 @@ const MobileMenu = () => {
         className={classes.drawer}
         open={drawerOpen}
         onClose={handleToggleDrawer}
+        style={{backgroundColor:"#fff",width:"0%"}}
       >
         <div className={classes.titleContainer}>
        

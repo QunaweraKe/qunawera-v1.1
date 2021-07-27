@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import ListIcon from '@material-ui/icons/List';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -158,9 +158,17 @@ const Header = () => {
 
           </ListItem>
           <Divider light/> 
-       
-       
-  
+         
+          <ListItem disableGutters>
+          <Button
+   color= 'primary'
+   component={Link}
+   size="large"
+   startIcon={<ContactSupportIcon />}
+   to={route.contactUs}>
+  <span className="nav-button-text">Help</span>
+   </Button>
+          </ListItem>
         
           
           

@@ -22,7 +22,6 @@ import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
 import { route, APP_NAME } from '../../constants';
-import ContactUs from '../../components/ContactUs';
 import useUI from '../../hooks/useUI';
 
 import { key, loginUser } from '../../redux/user';
@@ -198,7 +197,7 @@ const Login = () => {
             </Box>
             <Box p={0} >
 
-              <ContactUs />
+              
             </Box>
 
           </Box>

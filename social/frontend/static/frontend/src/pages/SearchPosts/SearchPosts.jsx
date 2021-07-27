@@ -22,7 +22,7 @@ import {
   selectSearchString,
 } from '../../redux/searchposts';
 
-const Search = () => {
+const SearchPosts = () => {
   const dispatch = useDispatch();
 
   const search = useSelector(selectSearch);
@@ -31,7 +31,7 @@ const Search = () => {
   const { loading, nextLoading } = useUI(key.search, key.searchNext);
 
   const handleNext = () => {
-    dispatch(getSearch(searchString, search.next));
+    dispatch(getSearchPost(searchString, search.next));
   };
 
   const render = () => {
@@ -79,4 +79,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchPosts;

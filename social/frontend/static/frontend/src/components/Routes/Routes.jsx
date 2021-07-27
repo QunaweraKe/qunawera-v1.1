@@ -7,6 +7,8 @@ import { route } from '../../constants';
 import AnonymousRoute from '../AnonymousRoute';
 import AuthRoute from '../AuthRoute';
 
+const ContactUs = React.lazy(() => import('../../pages/ContactUs'));
+const SearchPosts = React.lazy(() => import('../../pages/SearchPosts'));
 const Followers = React.lazy(() => import('../../pages/Followers'));
 const Following = React.lazy(() => import('../../pages/Following'));
 const Home = React.lazy(() => import('../../pages/Home'));
@@ -39,7 +41,12 @@ const Routes = () => (
       exact
       path={route.home}
     />
-
+   
+   <AuthRoute
+      component={ContactUs}
+      exact
+      path={route.contactUs}
+    />
     <AuthRoute
       component={ProfilePosts}
       exact
@@ -68,6 +75,11 @@ const Routes = () => (
       component={PostDetail}
       exact
       path={route.postDetail(':postId')}
+    />
+    <AuthRoute
+      component={SearchPosts}
+      exact
+      path={route.searchposts}
     />
 
     <AuthRoute

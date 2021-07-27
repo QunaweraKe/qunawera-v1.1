@@ -11,7 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Paper from '@material-ui/core/Paper';
-import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+
 import Slide from '@material-ui/core/Slide';
 //local import
 import { createContactUs, key } from '../../redux/user';
@@ -57,7 +57,7 @@ const ContactUs = () => {
    <div>
      <Tooltip title="Reach Us" arrow  placement="bottom">
       <Button color="secondary" onClick={handleClickOpen} size="small">
-         <span style={{fontSize:"12px",fontWeight:"bolder"}}>Need Help</span><ContactSupportIcon />
+         <span style={{fontSize:"12px",fontWeight:"bolder"}}>Need Help</span>
       </Button>
       </Tooltip>
 

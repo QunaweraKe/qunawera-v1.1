@@ -68,7 +68,7 @@ const Index = () => {
     </div>
      <Typography color="textSecondary" variant="subtitle2" align="left" style={{textDecoration:"underline",fontWeight:"bold"}}>
 
-           Lets get started
+           Want to join<span style={{textDecoration:"none"}}> ?</span>
          </Typography>
 
             <Button

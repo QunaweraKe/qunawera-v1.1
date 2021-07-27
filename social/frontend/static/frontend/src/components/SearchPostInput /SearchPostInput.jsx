@@ -29,7 +29,7 @@ const SearchPostInput = () => {
       clearTimeout(typingTimeout);
     }
     setTypingTimeout(setTimeout(() => {
-      dispatch(getSearch(searchString));
+      dispatch(getSearchPost(searchString));
     }, 250));
   }, [searchString]);
 

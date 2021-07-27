@@ -13,14 +13,14 @@ const useStyles = makeStyles((theme) => ({
  marginTop:"4px",
  },
   toUpper:{
-    fontWeight:800,
+    fontWeight:600,
     textAlign:"center",
   },
   button: {
     marginTop: theme.spacing(3),
   },
   container: {
-    marginTop: 30,
+    marginTop: 20,
     maxWidth: 450,
   },
   formField: {

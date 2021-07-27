@@ -72,7 +72,6 @@ const Notfications = () => {
           </Typography>
           <div style={{height:"250px",width:"250px",textAlign:"center",display:"inline-block"}}>
           <Notification/>
-          </div>
           <Typography
                   color="textSecondary"
                   style={{ fontWeight: "bolder" }}
@@ -80,6 +79,8 @@ const Notfications = () => {
                 >
                   Your activities will show up here...
                 </Typography>
+          </div>
+        
         </NoData>
       );
     }

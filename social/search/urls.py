@@ -6,5 +6,5 @@ app_name = "search"
 
 urlpatterns = [
     path("", views.SearchAPIView.as_view(), name="search"),
-    path("searchposts/", views.SearchPostsAPIView.as_view(), name="searchposts"),
+    path("posts/", views.SearchPostsAPIView.as_view(), name="searchposts"),
 ]

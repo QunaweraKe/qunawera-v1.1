@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   container: {
-    marginTop: 50,
+    marginTop: 40,
     maxWidth: 450,
   },
   formField: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize:15,
     fontWeight:600,
      letterSpacing:'2',
-     marginBottom:theme.spacing(3),
+    
   },
   forgot:{
 

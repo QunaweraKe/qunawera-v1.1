@@ -16,7 +16,7 @@ User = get_user_model()
 
 
 class ContactUsView (rest_generics.CreateAPIView):
-     permission_classes = [AllowAny]
+     permission_classes = [IsAuthenticated]
      serializer_class = ContactUsSerializer
     
      def post(self, request):
