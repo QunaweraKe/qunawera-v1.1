@@ -81,7 +81,7 @@ const Index = () => {
              variant="outlined"
 
             >
-              Create a New Account
+              Sign Up
             </Button>
 
           </div>
@@ -104,7 +104,7 @@ const Index = () => {
               size="large"
 
             >
-              Login
+            Sign In
             </Button>
              <Grid container spacing={0}>
             <Grid item>

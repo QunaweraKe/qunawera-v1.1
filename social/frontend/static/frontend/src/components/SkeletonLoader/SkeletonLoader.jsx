@@ -22,7 +22,7 @@ const SkeletonLoader = () => {
 
       </Grid>
       <Skeleton style={{marginTop:"-2px" ,marginLeft:"10%"}}variant="rect" width="80%" height={90}animation="wave"  />
-      <Skeleton style={{marginLeft:"10%"}}variant="text" width="80%" height={40}  animation="wave" />
+      
     </div>
   );
 };

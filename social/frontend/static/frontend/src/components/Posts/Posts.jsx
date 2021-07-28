@@ -4,7 +4,7 @@ import React from 'react';
 // Local
 import SkeletonLoader from '../SkeletonLoader';
 
-import PostItem from '../PostItem';
+import PostItemFeeds from '../PostItemFeeds';
 
 const Posts = ({ loading, posts, noData }) => {
   const render = () => {
@@ -14,7 +14,7 @@ const Posts = ({ loading, posts, noData }) => {
     } else if (posts.length) {
       rendered = (
         posts.map((postId) => (
-          <PostItem
+          <PostItemFeeds
             key={postId}
             postId={postId}
           />

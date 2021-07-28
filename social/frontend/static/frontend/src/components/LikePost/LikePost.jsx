@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 // Local
 
-import { route } from '../../constants';
 
 import {
   createLike,
@@ -47,7 +46,7 @@ const LikePost = ({ postId, size }) => {
     if (likedLength > 0) {
       if (isLiked) {
         if (likedLength === 1) {
-          result = `You liked this `;
+          result = `liked `;
         } else {
           const subLength = likedLength - 1;
           result = `Liked by you and ${subLength} ${pluralizeOther(subLength)}`;

@@ -14,11 +14,9 @@ const useStyles = makeStyles(() => ({
   marginRight:2,
 
  },
-
-
   headerTime : {
-     fontSize:13,
-     fontWeight:"500",
+     fontSize:12,
+     fontWeight:"600",
      marginLeft:2,
   },
 

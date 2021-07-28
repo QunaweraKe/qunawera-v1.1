@@ -136,15 +136,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   postId={post.id}
                 />
               )}
-            <Divider light />
-            <MenuItem
-              onClick={() => (
-                history.push(route.postDetail(post.id))
-              )}
-            >
-
-              <ListItemText primary="View Details" className={classes.listItemSize} />
-            </MenuItem>
+           
             <Divider light />
             <MenuItem
               onClick={() => (

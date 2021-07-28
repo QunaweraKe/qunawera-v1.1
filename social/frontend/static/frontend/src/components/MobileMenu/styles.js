@@ -24,13 +24,12 @@ const useStyles = makeStyles((theme) => ({
  
   list: {
     width: 350,
-    color:theme.palette.primary.main,
+    fontWeight:"bolder"
   },
 
   logout: {
-    borderTopColor: theme.custom.border.color,
-    borderTopStyle: theme.custom.border.style,
-    borderTopWidth: 1,
+  marginLeft:"20%",
+    marginTop:5,
   },
   title: {
     flexGrow: 1,

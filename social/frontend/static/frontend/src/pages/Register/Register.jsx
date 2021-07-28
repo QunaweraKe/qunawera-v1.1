@@ -212,7 +212,7 @@ const Register = () => {
                 variant="outlined"
 
               >
-                Create Account
+                Sign Up
                 {loading && <LinearProgressBar />}
               </Button>
             </form>

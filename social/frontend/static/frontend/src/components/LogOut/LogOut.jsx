@@ -51,7 +51,7 @@ const LogOut = () => {
 
 
 
-      <Button startIcon={<LogoutIcon />} size="small" onClick={handleClickOpen}>
+      <Button color="primary" startIcon={<LogoutIcon />}  onClick={handleClickOpen}>
         <span className="nav-button-text">Logout</span>
       </Button>
       <Dialog

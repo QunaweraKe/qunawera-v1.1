@@ -47,7 +47,7 @@ const Toast = ({ message, severity }) => {
 };
 
 Toast.defaultProps = {
-  severity: 'info',
+  severity: 'success',
 };
 
 Toast.propTypes = {

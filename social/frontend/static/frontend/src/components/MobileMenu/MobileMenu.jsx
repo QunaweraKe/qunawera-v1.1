@@ -59,11 +59,11 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="right"
+        anchor="left"
         className={classes.drawer}
         open={drawerOpen}
         onClose={handleToggleDrawer}
-        style={{backgroundColor:"#fff",width:"0%"}}
+       
       >
         <div className={classes.titleContainer}>
        
@@ -148,16 +148,13 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
-                    <Divider  light variant="middle"/>
-          <ListItem
-            className={classes.logout}
-            button
-           
-          >
-          
+        <Divider  light variant="middle"/>
+        
+          <div className={classes.logout}>
               <LogOut/>
+              </div>
            
-          </ListItem>
+        
          
         </List>
         <Footer/>

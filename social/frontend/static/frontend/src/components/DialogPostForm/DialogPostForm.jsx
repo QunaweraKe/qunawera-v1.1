@@ -55,9 +55,9 @@ const DialogPostForm = () => {
 
   const onChangePicture = (event, field) => {
     const image = event.target.files[0];
-    const formData = new FormData();
+    const formData = FormData();
     formData.append(field, image, image.name);
-
+    
   };
   const handleChange = (event) => {
 
@@ -193,7 +193,7 @@ const DialogPostForm = () => {
 
           <br />
           <input
-            onChange={onChangePicture}
+            onChange={(event) =>  onChangePicture(event, 'image')}
             type="file"
             accept="image/*"
             name="image"

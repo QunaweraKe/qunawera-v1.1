@@ -157,7 +157,6 @@ const Header = () => {
           <LogOut/>
 
           </ListItem>
-          <Divider light/> 
          
           <ListItem disableGutters>
           <Button

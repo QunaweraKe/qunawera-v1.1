@@ -87,7 +87,7 @@ const Login = () => {
               variant="h5"
 
             >
-              Account  Login
+              Account  Sign In
             </Typography>
             {!isEmpty(errors)
               && (
@@ -175,7 +175,7 @@ const Login = () => {
                 size="large"
                 onClick={(e) => { setShowLogging(!logging) }}
               >
-                {logging ? <>login</> : <>logging in {loading && <LinearProgressBar />}</>}
+                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>signing in</span> {loading && <LinearProgressBar />}</>}
 
 
               </Button>
