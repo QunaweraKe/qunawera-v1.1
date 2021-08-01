@@ -1,29 +1,25 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-
-
 // Material UI
-
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Alert from '@material-ui/lab/Alert';
-
-// Local
-
-import Footer from '../../components/Footer';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { route,APP_NAME } from '../../constants';
+import { APP_NAME, route } from '../../constants';
 import useUI from '../../hooks/useUI';
 import { createUser, key } from '../../redux/user';
 import { isEmpty } from '../../utils';
 import useStyles from './styles';
+
+
+
 
 
 const Register = () => {
@@ -225,8 +221,21 @@ const Register = () => {
        <TextLink to={route.login}>
       Login</TextLink>
         </Typography>
+        <div style={{ marginLeft: '20%',marginTop:"20%" }}>
+      
+          
+      <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8em" }}>
+  {'© '}
+  {new Date().getFullYear()}
+  {'  '}
 
-           <Footer/>
+  {APP_NAME} {' ,'} LLC .All rights reserved.
+
+
+</Typography>
+
+   
+  </div>
       </Container>
 
     </>

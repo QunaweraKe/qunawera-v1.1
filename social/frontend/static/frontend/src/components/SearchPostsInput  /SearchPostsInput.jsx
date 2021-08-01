@@ -15,7 +15,7 @@ import { getSearchPost, selectSearchString } from '../../redux/searchposts';
 
 import useStyles from './styles';
 
-const SearchPostInput = () => {
+const SearchPostsInput = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -76,4 +76,4 @@ const SearchPostInput = () => {
   );
 };
 
-export default SearchPostInput;
+export default SearchPostsInput;

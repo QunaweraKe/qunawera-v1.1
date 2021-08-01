@@ -1,25 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import Button from '@material-ui/core/Button';
 // Material UI
-
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-
-
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import DividerWithText from '../../components/DividerWithText';
+import Indeximg from '../../components/Files/Images/repair.svg';
+import Footer from '../../components/Footer';
 // Local
 import PageTitle from '../../components/PageTitle';
-import Terms from '../../components/Terms';
-import Indeximg from '../../components/Files/Images/repair.svg';
-import './index.css'
-import Footer from '../../components/Footer';
-import HowItWorks from '../../components/HowItWorks';
-import { APP_NAME, route,copyright } from '../../constants';
+import { APP_NAME, route } from '../../constants';
+import './index.css';
 import useStyles from './styles';
-import DividerWithText from '../../components/DividerWithText';
+
+
+
+
 
 const Index = () => {
   const classes = useStyles();
@@ -66,9 +64,9 @@ const Index = () => {
           </Typography>
 
     </div>
-     <Typography color="textSecondary" variant="subtitle2" align="left" style={{textDecoration:"underline",fontWeight:"bold"}}>
+     <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
 
-           Want to join<span style={{textDecoration:"none"}}> ?</span>
+           Want to join ?
          </Typography>
 
             <Button
@@ -88,7 +86,7 @@ const Index = () => {
     <DividerWithText>Or</DividerWithText>
 
     <div className={classes.ctaContainer}>
-        <Typography color="textSecondary" variant="subtitle2" align="left" style={{textDecoration:"underline",fontWeight:"bold"}}>
+        <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
 
            Already a member{"?"}
          </Typography>
@@ -114,7 +112,7 @@ const Index = () => {
             
             </Grid>
             <Grid item>
-            <Button  disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> Want to Join Our Workforce?</Button>
+            <Button  disableRipple="true" style={{fontSize:"10px",fontWeight:"bold"}}> Want to be part of our workforce?</Button>
 
             </Grid>
             </div>
@@ -134,16 +132,16 @@ const Index = () => {
         <h1>
           <Typography className={classes.ctaItem}
             color="secondary"
-            variant="h6"
+            variant="subtitle1"
             >
 
-             Tasks&Interaction
+             Tasks & Interaction
           </Typography>
         </h1>
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="h6"  align="center" >
+        <p><Typography variant="body2"  align="center" >
 
           Join Millions of users around you
          </Typography></p>
@@ -154,31 +152,11 @@ const Index = () => {
 
       </aside>
    
-     
+    
 
-<div style={{marginTop:"80px",marginLeft:"0px"}}>
-<Grid container spacing={2} >
-     <Grid item >
-     
-     <HowItWorks/>
-     
-      </Grid >
-       <Grid item  >
-
-      <Terms/>
-
-       </Grid >
-
-  
-       
-      
-
-        </Grid >
 
    <Footer/>
 
-
-</div>
     </div>
 
 

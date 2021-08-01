@@ -70,9 +70,9 @@ fontWeight:"bold"
 fontWeight:"bolder"
   },
   text:{
-  marginLeft:"1%",
-  fontSize:"12px",
-  marginTop:"1%",
+
+  fontSize:"14px",
+
   },
 postBody: {
 marginTop:6,

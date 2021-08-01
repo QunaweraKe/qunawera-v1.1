@@ -67,8 +67,8 @@ const EditPost = React.forwardRef((props, ref) => {
 
   const handleEdit = async () => {
   
-      await dispatch(editPost(postId, body,skillset));
-
+      await dispatch(editPost(postId,body,skillset));
+      
     handleClose();
   };
 

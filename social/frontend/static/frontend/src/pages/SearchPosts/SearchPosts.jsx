@@ -11,7 +11,7 @@ import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
 import PageTitle from '../../components/PageTitle';
-import SearchInput from '../../components/SearchInput';
+//import SearchPostsInput from '../../components/SearchPostsInput';
 import PostItem from '../../components/PostItem';
 import useUI from '../../hooks/useUI';
 
@@ -66,7 +66,6 @@ const SearchPosts = () => {
       <AuthLayout>
         <Heading>
           <MobileMenu />
-          <SearchInput />
         </Heading>
         {render()}
         <NextButton

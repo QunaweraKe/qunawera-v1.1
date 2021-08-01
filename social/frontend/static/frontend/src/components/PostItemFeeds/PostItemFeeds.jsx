@@ -1,5 +1,5 @@
 // Material UI
-import Box from '@material-ui/core/Box'
+import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { route } from '../../constants';
 import {
@@ -17,7 +17,6 @@ import {
 // Local
 import Avatar from '../Avatar';
 import DeletePost from '../DeletePost';
-import EditPost from '../EditPost';
 import LikePost from '../LikePost';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
@@ -28,13 +27,13 @@ import useStyles from './styles';
 
 
 
-const PostItemFeeds = ({  postId }) => {
+const PostItemFeeds = ({ postId }) => {
 
   const classes = useStyles();
   const history = useHistory();
 
   const post = useSelector((s) => selectPost(s, postId));
-  
+
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -75,8 +74,9 @@ const PostItemFeeds = ({  postId }) => {
             anchorOrigin={{
               horizontal: 'right',
               vertical: 'bottom',
-            }}
 
+            }}
+            
             getContentAnchorEl={null}
             keepMounted
             open={Boolean(anchorEl)}
@@ -114,7 +114,7 @@ const PostItemFeeds = ({  postId }) => {
                   type="post"
                 />
               )}
-            
+
           </Menu>
 
           <div className={classes.text}>
@@ -123,20 +123,20 @@ const PostItemFeeds = ({  postId }) => {
                 <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
                   {post.parent && <PostParent post={post.parent} />}
                 </Typography>
-                
+
                 {post.body
                   && (
                     <>
- <Link to={route.postDetail(post.id)} className={classes.Link} >
-                      <Typography variant="body3" style={{ fontweight: "bold" }}>
-                        {post.body.charAt(0).toUpperCase()}{post.body.slice(1)}
+                      <Link to={route.postDetail(post.id)} className={classes.Link} >
+                        <Typography variant="body3" style={{ fontweight: "bold" }}>
+                          {post.body.charAt(0).toUpperCase()}{post.body.slice(1)}
 
-                      </Typography >
+                        </Typography >
 
                       </Link>
                     </>
                   )}
-                 
+
               </Box>
               <Box p={0} justifyContent='flex-end' >
                 <div >
@@ -149,45 +149,45 @@ const PostItemFeeds = ({  postId }) => {
 
                 </div>
               </Box>
-              </Box>
-              {post.payment
-                && (
-                  <>
-                    <Divider light />
-                    <Box display="flex" p={1}style={{width:"100%"}}>
-                      <Box p={1} flexGrow={1} >
-                        <Typography className={classes.subtitle} variant="subtitle1" style={{ fontWeight: "bolder" }}>
-                          Payment
-                        </Typography>
-                      </Box>
-                      <Box p={0} >
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
-                          ksh.{post.payment}
-                        </Typography>
-
-                      </Box>
+            </Box>
+            {post.payment
+              && (
+                <>
+                  <Divider light />
+                  <Box display="flex" p={1} style={{ width: "100%" }}>
+                    <Box p={1} flexGrow={1} >
+                      <Typography className={classes.subtitle} variant="subtitle1" style={{ fontWeight: "bolder" }}>
+                        Payment
+                      </Typography>
                     </Box>
-                  
+                    <Box p={0} >
+                      <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
+                        ksh.{post.payment}
+                      </Typography>
+
+                    </Box>
+                  </Box>
 
 
-                  </>
-                )}
-            </div>
 
-
+                </>
+              )}
           </div>
+
 
         </div>
 
-        <Divider light />
-      
-        <Divider light classes={{ root: classes.divider }} style={{ height: "5px" }} />
       </div>
-      );
+
+      <Divider light />
+
+      <Divider light classes={{ root: classes.divider }} style={{ height: "5px" }} />
+    </div>
+  );
 };
 
 
-      export default PostItemFeeds;
+export default PostItemFeeds;
 
 //TODO: USER TYPING & floating action button
  //TODO: BID ONLY PARENT POST,ARRANGE CARD CONTENTS PROPERLY

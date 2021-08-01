@@ -54,7 +54,7 @@ fontWeight:"bold"
 fontWeight:"bolder"
   },
   text:{
-  fontSize:"12px",
+  fontSize:"14px",
   },
 postBody: {
 marginTop:0,
@@ -64,6 +64,7 @@ padding: theme.spacing(2, 2, 0.5, 2),
 
 Link:{
   textDecoration :"none",
+  color:"black"
   },
 
 

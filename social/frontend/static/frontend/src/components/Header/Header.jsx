@@ -10,7 +10,7 @@ import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import Divider from '@material-ui/core/Divider';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-
+import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
@@ -23,9 +23,9 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 
 // Local
-import Footer from '../Footer';
+
 import LogOut from '../LogOut';
-import { route } from '../../constants';
+import {APP_NAME, route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { selectUser} from '../../redux/user';
 import useStyles from './styles';
@@ -152,11 +152,7 @@ const Header = () => {
           </ListItem>
       
  <Divider light/>
-         <ListItem disableGutters className={classes.logoutMargin}>
-    
-          <LogOut/>
-
-          </ListItem>
+         
          
           <ListItem disableGutters>
           <Button
@@ -169,11 +165,29 @@ const Header = () => {
    </Button>
           </ListItem>
         
-          
+          <ListItem disableGutters className={classes.logoutMargin}>
+    
+          <LogOut/>
+
+          </ListItem>
           
  </List>
    
-  <Footer className={classes.footer}/>
+ <div style={{ marginLeft: '10%',marginTop:"20%" }}>
+      
+          
+      <Typography  color="textSecondary" style={{ fontSize: ".8em" }}>
+  {'© '}
+  {new Date().getFullYear()}
+  {'  '}
+
+  {APP_NAME} {' ,'} LLC .All rights reserved.
+
+
+</Typography>
+
+   
+  </div>
       </div>
 
     </div>

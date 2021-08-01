@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
+import { IconButton } from '@material-ui/core';
 // Material UI
-
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,24 +8,23 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Alert from '@material-ui/lab/Alert';
-import { IconButton } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import Box from '@material-ui/core/Box';
-// Local
-import Footer from '../../components/Footer';
+import Alert from '@material-ui/lab/Alert';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { route, APP_NAME } from '../../constants';
+import { APP_NAME, route } from '../../constants';
 import useUI from '../../hooks/useUI';
-
 import { key, loginUser } from '../../redux/user';
-
 import { isEmpty } from '../../utils';
-
 import useStyles from './styles';
+
+
+
+
 
 const Login = () => {
 
@@ -87,7 +83,7 @@ const Login = () => {
               variant="h5"
 
             >
-              Account  Sign In
+              Sign in to {APP_NAME}
             </Typography>
             {!isEmpty(errors)
               && (
@@ -186,21 +182,23 @@ const Login = () => {
 
         <Typography className={classes.register}>
           <span style={{ textDecoration: "underline" }}>New to {APP_NAME}  </span>{'?'}{'  '}
-          <TextLink to={route.register}>Create New Account</TextLink>
+          <TextLink to={route.register}>Create New Account.</TextLink>
 
         </Typography>
-        <div style={{ width: '100%' }}>
-          <Box display="flex" p={0}>
-            <Box p={0} flexGrow={1} >
+        <div style={{ marginLeft: '20%',marginTop:"20%" }}>
+      
+          
+            <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8em" }}>
+        {'© '}
+        {new Date().getFullYear()}
+        {'  '}
 
-              <Footer />
-            </Box>
-            <Box p={0} >
+        {APP_NAME} {' ,'} LLC .All rights reserved.
 
-              
-            </Box>
 
-          </Box>
+      </Typography>
+
+         
         </div>
       </Container>
     </>

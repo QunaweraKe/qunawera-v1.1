@@ -8,10 +8,11 @@ const useStyles = makeStyles(() => ({
 
   },
   headerAvatar: {
-    marginRight: 1,
+    marginRight: 2,
   },
  headerItem:{
-  marginRight:2,
+  marginLeft:2,
+  marginTop:5,
 
  },
   headerTime : {

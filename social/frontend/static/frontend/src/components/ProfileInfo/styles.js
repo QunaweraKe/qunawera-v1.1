@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   avatar: {
     
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.grey[50],
     backgroundImage: (profileUser) => (
       profileUser.profile?.image
         ? `url('${profileUser.profile.image}')`
