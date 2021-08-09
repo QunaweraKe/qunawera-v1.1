@@ -46,7 +46,7 @@ const LikePost = ({ postId, size }) => {
     if (likedLength > 0) {
       if (isLiked) {
         if (likedLength === 1) {
-          result = `liked `;
+          result = `Liked `;
         } else {
           const subLength = likedLength - 1;
           result = `Liked by you and ${subLength} ${pluralizeOther(subLength)}`;
@@ -55,7 +55,7 @@ const LikePost = ({ postId, size }) => {
         result = `Liked by ${likedLength} ${pluralizeOther(likedLength)}`;
       }
     } else {
-      result = `Like `;
+      result = `Be the first to like `;
     }
     return result;
   };
@@ -69,16 +69,19 @@ const LikePost = ({ postId, size }) => {
         onClick={handleLike}
       >
         {isLiked
-          ? <FavoriteRoundedIcon fontSize={size} />
+          ? <FavoriteRoundedIcon fontSize={size}  />
           : < FavoriteBorderRoundedIcon fontSize={size} />}
         
       </IconButton>
-      <Typography   className={classes.likeText}>
+
+      <Typography   className={classes.likeText} color="primary">
         
       
   
-        {renderLikeText()}
+        {renderLikeText()} 
+      
         </Typography>
+
     </>
   );
 };

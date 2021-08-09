@@ -12,7 +12,3 @@ class UserProfileAdmin (admin.ModelAdmin):
 admin.site.register(Profile,UserProfileAdmin)
 
 
-
-@admin.register(ContactUs)
-class ContactUsAdmin(admin.ModelAdmin):
-    list_display=('email','description','date_created')

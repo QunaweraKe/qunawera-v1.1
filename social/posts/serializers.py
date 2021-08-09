@@ -26,10 +26,9 @@ class BasePostSerializer(serializers.ModelSerializer):
     )   
     author = UserSerializer(read_only=True)
     body = serializers.CharField(allow_blank=False,required=True)
+    title = serializers.CharField(allow_blank=True,required=False)
     is_author = serializers.SerializerMethodField()
-    payment = serializers.IntegerField(
-     allow_null=True,required=False
-    )
+    
     parent = PostParentSerializer(read_only=True)
     parent_id = serializers.IntegerField(
         required=False, write_only=True, allow_null=True
@@ -48,9 +47,9 @@ class BasePostSerializer(serializers.ModelSerializer):
             "liked",
             "parent",
             "parent_id",
-            "payment",
             "image",
-            "skillset",
+            "title",
+            
         ]
 
     def get_is_author(self, obj):

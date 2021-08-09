@@ -10,6 +10,7 @@ urlpatterns = [
     path("api/posts/", include("posts.urls")),
     path("api/search/", include("search.urls")),
     path("api/users/", include("users.urls")),
+    path("api/company/", include("company.urls")),
     path("", include("frontend.urls")),
 
 ]

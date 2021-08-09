@@ -43,7 +43,7 @@ const CustomTooltip = withStyles((theme) => ({
   },
 }))(Tooltip);
 
-const Home = () => {
+const Home = ( ) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -79,7 +79,7 @@ const Home = () => {
       <Box display="flex" p={1}>
         <Box p={1} flexGrow={1} >
         <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
-            {APP_NAME}
+            {APP_NAME} 
           </Typography>
         </Box>
         <Box p={1} >

@@ -83,6 +83,7 @@ const Repost = ({ postId }) => {
               >
                <ShareIcon/>
                </IconButton>
+
       <Dialog
         open={dialogOpen}
         onClose={handleClose}

@@ -31,7 +31,7 @@ export const descriptor = {
   createContactUs: (data) => ({
     data,
     method: 'post',
-    url: '/api/users/contactus/',
+    url: '/api/company/contactus/',
   }),
 
   createRepost: (data) => ({

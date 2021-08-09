@@ -14,7 +14,6 @@ import PageTitle from '../../components/PageTitle';
 //import SearchPostsInput from '../../components/SearchPostsInput';
 import PostItem from '../../components/PostItem';
 import useUI from '../../hooks/useUI';
-
 import {
   getSearchPost,
   key,
@@ -66,6 +65,7 @@ const SearchPosts = () => {
       <AuthLayout>
         <Heading>
           <MobileMenu />
+         
         </Heading>
         {render()}
         <NextButton

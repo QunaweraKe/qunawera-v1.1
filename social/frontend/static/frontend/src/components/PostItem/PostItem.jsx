@@ -1,52 +1,47 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
-// Evergreen  UI
-import { ChatIcon } from 'evergreen-ui'
-
-// Material UI
-
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 import Collapse from '@material-ui/core/Collapse';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
+import ChatBubbleRoundedIcon from '@material-ui/icons/ChatBubbleRounded';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import Divider from '@material-ui/core/Divider';
-import CardHeader from '@material-ui/core/CardHeader';
-
-
-// Local
-
-import Avatar from '../Avatar';
-import CircularProgress from '../CircularProgress';
-import NextButton from '../NextButton';
-import PostHeader from '../PostHeader';
-import PostParent from '../PostParent';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { route } from '../../constants';
-import DeletePost from '../DeletePost';
-import EditPost from '../EditPost';
-import LikePost from '../LikePost';
-import ReplyForm from '../ReplyForm';
-import ReplyItem from '../ReplyItem';
-import Repost from '../Repost';
-
 import useUI from '../../hooks/useUI';
-
 import {
   getReplies,
   key,
   selectPost,
-  selectReplies,
+  selectReplies
 } from '../../redux/post';
-
+// Local
+import Avatar from '../Avatar';
+import CircularProgress from '../CircularProgress';
+import DeletePost from '../DeletePost';
+import EditPost from '../EditPost';
+import LikePost from '../LikePost';
+import NextButton from '../NextButton';
+import PostHeader from '../PostHeader';
+import PostParent from '../PostParent';
+import ReplyForm from '../ReplyForm';
+import ReplyItem from '../ReplyItem';
+import Repost from '../Repost';
 import useStyles from './styles';
+
+
+
+
+
+
 const PostItem = ({ expandReplies, postId }) => {
 
   const pluralizeOther = (length) => (length !== 1 ? 'comments' : 'comment');
@@ -94,7 +89,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       <div className={classes.postContainer}
-      style={{ backgroundColor: " #ffffe0", minWidth: 200, marginTop: "8px" }}>
+      style={{ backgroundColor: "#ffffe0", minWidth: 200, marginTop: "8px" }}>
 
 
         <div className={classes.avatarContainer}>
@@ -136,8 +131,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   postId={post.id}
                 />
               )}
-           
-            <Divider light />
+        
             <MenuItem
               onClick={() => (
                 history.push(route.profilePosts(post.author.slug))
@@ -147,7 +141,7 @@ const PostItem = ({ expandReplies, postId }) => {
               <ListItemText primary="Author's Profile" className={classes.listItemSize} />
 
             </MenuItem>
-            <Divider light />
+        
             {post.is_author
               && (
                 <DeletePost
@@ -156,7 +150,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   type="post"
                 />
               )}
-            <Divider light />
+         
           </Menu>
 
             <div className={classes.text}>
@@ -175,55 +169,7 @@ const PostItem = ({ expandReplies, postId }) => {
                     </Typography >
                   </>
                 )}
-              {post.skillset
-                && (
-                  <>
-                    <div style={{ marginBottom: "5px", marginTop: "5px" }}>
-                    
-                      <Typography className={classes.subtitle} variant="subtitle1" style={{ padding:"2px",fontWeight: "bolder" }}>
-                        Skills
-                      </Typography>
-                     
-                      <Typography variant="subtitle1" className={classes.text}>
-                        {post.skillset}
-                      </Typography>
-                    </div>
-                  </>
-                )}
-              {post.payment
-                && (
-                  <>
-                    <Divider light />
-                    <Box display="flex" p={1}>
-                      <Box p={0} flexGrow={1} >
-                        <Typography className={classes.subtitle} variant="subtitle1" style={{ fontWeight: "bolder" }}>
-                          Payment
-                        </Typography>
-                      </Box>
-                      <Box p={0} >
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
-                          ksh.{post.payment}
-                        </Typography>
-
-                      </Box>
-                    </Box>
-                    <Divider light variant="inset" />
-                    <Box display="flex" p={1}>
-                      <Box p={0} flexGrow={1} >
-                        <Typography className={classes.subtitle} variant="subtitle1" style={{ fontWeight: "bolder" }}>
-                          Location
-                        </Typography>
-                      </Box>
-                      <Box p={1} >
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.text}>
-                          ksh.{post.payment}
-                        </Typography>
-
-                      </Box>
-                    </Box>
-
-                  </>
-                )}
+              
             </div>
 
 
@@ -257,7 +203,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
 
-            < ChatIcon />
+            <ChatBubbleRoundedIcon />
 
 
 
@@ -274,7 +220,7 @@ const PostItem = ({ expandReplies, postId }) => {
           />
 
         </div>
-        <div className={classes.repostContainer}>
+        <div>
           <Repost postId={postId} />
         </div>
 
@@ -322,7 +268,7 @@ const PostItem = ({ expandReplies, postId }) => {
             </CardContent>
           </Collapse>
         )}
-      <Divider light classes={{ root: classes.divider }} style={{ height: "10px" }} />
+      <Divider light classes={{ root: classes.divider }} style={{ height: "5px" }} />
     </div>
   );
 };
@@ -344,3 +290,4 @@ export default PostItem;
  //start end payment location
 //possible bug on reply item
 //f&u link text for users
+//number of shares

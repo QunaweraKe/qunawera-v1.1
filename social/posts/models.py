@@ -27,6 +27,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         on_delete=models.CASCADE,
         related_name="posts",
     )
+    title=models.TextField(max_length=200)
     body = models.TextField(
         blank=True,
         max_length=1500,
@@ -36,8 +37,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         db_index=True,
     )
     image = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
-    skillset=models.TextField(blank=True,
-        max_length=1500,)
+    
     is_reply = models.BooleanField(default=False)
     liked = models.ManyToManyField(
         "users.User",
@@ -51,7 +51,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         on_delete=models.CASCADE,
         related_name="alt",
     )
-    payment=models.IntegerField(max_length=10,blank=True,null=True)
+
     objects = PostManager.as_manager()
    
     def __str__(self):

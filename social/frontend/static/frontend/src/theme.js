@@ -55,6 +55,7 @@ theme.custom = {
   border: {
     color: theme.palette.grey[50],
     style: 'solid',
+    borderWidth:"3px"
   },
   borders: {
     borderColor: theme.palette.grey[50],

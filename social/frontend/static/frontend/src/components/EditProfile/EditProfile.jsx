@@ -69,16 +69,17 @@ const EditProfile = () => {
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
+        fullScreen
       >
         <DialogTitle>
-          <DialogCloseButton onClick={handleClose} />
+          
           <Typography
             className={classes.title}
             variant="h6"
           >
             Edit profile
           </Typography>
-     
+          <DialogCloseButton onClick={handleClose} />
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -86,11 +87,14 @@ const EditProfile = () => {
             className={classes.formField}
             fullWidth
             id="bio"
-            label="Biography"
+            label="About"
             name="bio"
             onChange={handleChange}
             type="text"
             value={formData.bio}
+            rows={4}
+            variant="filled"
+            multiline
           />
           <TextField
             autoComplete="off"
@@ -102,17 +106,18 @@ const EditProfile = () => {
             onChange={handleChange}
             type="text"
             value={formData.location}
+            variant="filled"
           />
          
              <Button
             color="primary"
             disabled={loading}
             onClick={handleSubmit}
-            size="small"
+            size="large"
             variant="outlined"
             
           >
-            Save
+           Update
             {loading && <CircularProgress />}
           </Button>
         </DialogContent>

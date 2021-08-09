@@ -58,7 +58,9 @@ const UserList = ({ list }) => {
             />
             {profileUser.profile.bio
               && (
-                <Typography>
+
+                <Typography style =
+                {{fontFamily:"monospace"}}>
                   {profileUser.profile.bio}
                 </Typography>
               )}

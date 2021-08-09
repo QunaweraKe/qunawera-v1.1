@@ -4,14 +4,20 @@ const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   like: {
     transition: 'background-color, color, 0.15s ease',
-
+   
     '&:hover, &:focus': {
       backgroundColor: fade(theme.palette.primary.main, 0.05),
       color: theme.palette.primary.main,
     },
   },
+
   likeText:{
-    fontSize:12,
+    fontFamily:"monospace",
+  display:"flex",
+  marginLeft:"3%",
+  fontWeight:"bold",
+    fontSize:11,
+  
     '&:hover, &:focus': {
       backgroundColor: fade(theme.palette.primary.main, 0.05),
       color: "#000",

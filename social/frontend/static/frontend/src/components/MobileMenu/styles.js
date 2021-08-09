@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   logout: {
-  marginLeft:"20%",
+  marginLeft:"5%",
     marginTop:5,
   },
   title: {
@@ -36,11 +36,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight:"bold"
   },
   titleContainer: {
-    alignItems: 'center',
+    display:"flex",
+    alignItems: 'right',
     borderBottomColor: theme.custom.border.color,
     borderBottomStyle: theme.custom.border.style,
     borderBottomWidth: 5,
-    display: 'flex',
     marginBottom: theme.spacing(3),
     padding: theme.spacing(1, 2),
 

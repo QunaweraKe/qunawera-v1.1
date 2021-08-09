@@ -37,7 +37,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
     formData.append(field, image, image.name);
     dispatch(editProfile(formData, user.slug));
   };
-
+ const removeImage = () => {
+  imageRef.current.click(none);
+ };
   const handleEditAvatar = () => {
     imageRef.current.click();
   };
@@ -87,6 +89,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   >
                     <CameraAltIcon />
                   </IconButton>
+                  
                 </>
               )}
             </div>
@@ -158,7 +161,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 <EventNoteIcon className={classes.extraInfoIcon} />
                 <Typography className={classes.extraInfoText}>
 
-                  Joined
+                  Joined  on
                   {' '}
                   {dayjs(profileUser.created_at).format('DD MMMM YYYY')}
 

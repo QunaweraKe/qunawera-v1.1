@@ -7,14 +7,6 @@ from django.utils.timezone import now
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import UserManager
 
-class  ContactUs(models.Model):
-       email=CIEmailField(max_length=255,unique=False,)
-       description=models.TextField(blank=False,max_length="400")
-       date_created=models.DateTimeField(auto_now_add=True,
-        db_index=True,)
-       def __str__(self):
-           return self.email
-
 
 class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
     """ Custom user model. """
@@ -56,7 +48,7 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
         method would return the user's username if `name` was not set. Instead
         of changing this throughout the frontend I left it as is.
         """
-        return self.name
+        return self.username
 
     def follow(self, user: object) -> None:
         """ Follow `user`. """

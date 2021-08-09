@@ -5,6 +5,7 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     display: 'flex',
     flexWrap: 'wrap',
+    marginBottom:0,
 
   },
   headerAvatar: {
@@ -14,11 +15,14 @@ const useStyles = makeStyles(() => ({
   marginLeft:2,
   marginTop:5,
 
+
  },
   headerTime : {
      fontSize:12,
      fontWeight:"600",
      marginLeft:2,
+     marginTop:6,
+     fontFamily:"monospace"
   },
 
 }));

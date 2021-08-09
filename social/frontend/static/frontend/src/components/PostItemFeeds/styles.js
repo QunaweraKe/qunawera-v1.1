@@ -28,7 +28,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 1,
   },
+  repostContainer:{
+ display:"flex",
+ marginLeft:50,
+ marginBottom:10,
 
+  },
 
   postAction: {
     position: 'absolute',
@@ -40,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     margin: 'auto',
     width: "100%",
+    backgroundColor: theme.palette.grey[50]
   },
 
   textSize:{

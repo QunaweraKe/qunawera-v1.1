@@ -57,7 +57,7 @@ const ContactUs = () => {
    <div>
      <Tooltip title="Reach Us" arrow  placement="bottom">
       <Button color="secondary" onClick={handleClickOpen} size="small">
-         <span style={{fontSize:"12px",fontWeight:"bolder"}}>Need Help</span>
+         <span style={{fontSize:"12px",fontWeight:"bolder"}}> Support</span>
       </Button>
       </Tooltip>
 

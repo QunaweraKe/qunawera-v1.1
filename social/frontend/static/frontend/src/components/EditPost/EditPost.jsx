@@ -42,21 +42,16 @@ const EditPost = React.forwardRef((props, ref) => {
   const dispatch = useDispatch();
 
   const originalBody = useSelector((s) => selectPost((s), postId)).body;
-  const originalSkillset = useSelector((s) => selectPost((s), postId)).skillset;
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [body, setBody] = React.useState(originalBody);
-  const [skillset, setSkillset] = React.useState(originalSkillset);
+
   const { loading } = useUI(key.editPost, null, false);
 
   const handleChange = (event) => {
     setBody(event.target.value);
     
   };
-  const handleChangeskill = (event) => {
-    setSkillset(event.target.value);
-    
-  };
-
+  
   const handleClose = () => {
     setDialogOpen(false);
   };
@@ -67,14 +62,14 @@ const EditPost = React.forwardRef((props, ref) => {
 
   const handleEdit = async () => {
   
-      await dispatch(editPost(postId,body,skillset));
+      await dispatch(editPost(postId,body));
       
     handleClose();
   };
 
   const handleExited = () => {
     setBody(originalBody);
-    setSkillset(originalSkillset);
+  
   };
 
   const handleOpen = () => {
@@ -124,23 +119,7 @@ const EditPost = React.forwardRef((props, ref) => {
             
 
           />
-           <TextField
-            className={classes.margin}
-            
-            required
-            autoComplete="off"
-            multiline
-            fullWidth
-            id="skillset"
-            label="Required Skills"
-            name="skillset"
-            onChange={handleChangeskill}
-            type="text"
-            value={skillset}
-            variant="filled"
-            rows={4}
-            
-          />
+          
 
           
         </DialogContent>

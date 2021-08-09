@@ -8,25 +8,11 @@ from django.shortcuts import get_object_or_404
 from notifications.models import Notification
 from social.views import PaginationMixin
 from .pagination import UserPagination
-from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer,ContactUsSerializer
+from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer
 
 
 User = get_user_model()
 
-
-
-class ContactUsView (rest_generics.CreateAPIView):
-     permission_classes = [IsAuthenticated]
-     serializer_class = ContactUsSerializer
-    
-     def post(self, request):
-         serializer = ContactUsSerializer(data=request.data)
-         if serializer.is_valid():
-             serializer.save()
-             return Response(serializer.data,status=status.HTTP_201_CREATED)
-         else:
-
-             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 

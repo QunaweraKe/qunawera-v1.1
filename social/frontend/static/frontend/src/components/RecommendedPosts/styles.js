@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   displayName: {
     color: "black",
-    marginBottom: theme.spacing(0.5),
+    marginBottom: theme.spacing(2),
     textDecoration: 'none',
 
     '&:hover': {
@@ -22,8 +22,12 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'underline',
     },
   },
+  
   displayPost:{
     textDecoration:"none!important",
+    width: '100%',
+    maxWidth: 360,
+    marginTop:20,
   },
   header: {
     alignItems: 'center',
@@ -54,10 +58,7 @@ const useStyles = makeStyles((theme) => ({
    
    
   },
-   rootCard: {
-    minWidth: 275,
-  
-  },
+   
   root: {
     ...theme.custom.borders,
     backgroundColor:theme.palette.grey[50] ,

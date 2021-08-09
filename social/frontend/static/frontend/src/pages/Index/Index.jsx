@@ -1,20 +1,23 @@
-import Button from '@material-ui/core/Button';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 // Material UI
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import DividerWithText from '../../components/DividerWithText';
-import Indeximg from '../../components/Files/Images/repair.svg';
-import Footer from '../../components/Footer';
+
+import Divider from '@material-ui/core/Divider';
+import Button from '@material-ui/core/Button';
+
 // Local
 import PageTitle from '../../components/PageTitle';
 import { APP_NAME, route } from '../../constants';
 import './index.css';
 import useStyles from './styles';
-
+import DividerWithText from '../../components/DividerWithText';
+import Indeximg from '../../components/Files/Images/repair.svg';
+import Footer from '../../components/Footer';
 
 
 
@@ -62,8 +65,10 @@ const Index = () => {
 
              {APP_NAME}
           </Typography>
+        
 
     </div>
+    
      <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
 
            Want to join ?
@@ -152,7 +157,7 @@ const Index = () => {
 
       </aside>
    
-    
+    <Divider/>
 
 
    <Footer/>

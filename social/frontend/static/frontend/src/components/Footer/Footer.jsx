@@ -7,18 +7,16 @@ import Typography from '@material-ui/core/Typography';
 
 
 //local imports
+import ContactUs from '../../pages/ContactUs';
 import Terms from '../../components/Terms';
 import HowItWorks from '../../components/HowItWorks';
-import { APP_NAME, route } from '../../constants';
+import Locations from '../../components/Locations';
+import { APP_NAME} from '../../constants';
 import useStyles from './styles';
 const footers = [
   {
     title: 'Company',
-    description: ['Team',  <HowItWorks/>, 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
+    description: ['Team',  <HowItWorks/>, <ContactUs/>, <Locations/>],
   },
   {
     title: 'Resources',
@@ -41,7 +39,7 @@ const Footer = () => {
         <Grid container spacing={4} justifyContent="space-evenly">
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
+              <Typography variant="h5" color="textSecondary" gutterBottom>
                 {footer.title}
               </Typography>
               <ul>

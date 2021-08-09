@@ -56,7 +56,7 @@ const RecommendedPosts = () => {
     } else if (posts.length) {
       rendered = (
         <>
-        <Card classes={ classes.rootCard} >
+   
         <CardContent>
           <List
             className={classes.list}
@@ -80,9 +80,10 @@ const RecommendedPosts = () => {
                     component: Link,
                     to: route.profilePosts(post.author.slug),
                   }}
-                  secondary={post.body.length > 250 ?
-                    `${post.body.substring(0, 250)}...` : post.body
+                  secondary={post.title.length > 100 ?
+                    `${post.title.substring(0, 100)}...` : post.title
                   }
+                 
                   secondaryTypographyProps={{
                     component: Link,
                     className: classes.displayPost,
@@ -90,6 +91,14 @@ const RecommendedPosts = () => {
                     
                   }}
                 />
+                 <ListItemText
+                  secondary={post.body}
+                  
+                  secondaryTypographyProps={{
+                   component: Link,
+                    className: classes.displayPost,
+                    to: route.postDetail(post.id),
+                  }}/>
               
               </ListItem>
               
@@ -98,7 +107,7 @@ const RecommendedPosts = () => {
           </List>
           
           </CardContent>
-          </Card>
+
           <ShowMoreRecommended to={route.recommendedPosts} />
         </>
       );

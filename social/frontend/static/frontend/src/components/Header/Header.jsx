@@ -99,11 +99,11 @@ const Header = () => {
           </ListItem>
            <ListItem disableGutters>
             <Button
-              color={active(route.search) ? 'primary' : 'default'}
+              color={active(route.searchposts) ? 'primary' : 'default'}
               component={Link}
               size="large"
               startIcon={<SearchIcon />}
-              to={route.search}
+              to={route.searchposts}
             >
               <span className="nav-button-text">Search</span>
             </Button>
@@ -164,7 +164,7 @@ const Header = () => {
   <span className="nav-button-text">Help</span>
    </Button>
           </ListItem>
-        
+          
           <ListItem disableGutters className={classes.logoutMargin}>
     
           <LogOut/>

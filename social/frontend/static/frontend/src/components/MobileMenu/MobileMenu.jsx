@@ -25,7 +25,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '../Avatar';
 import Footer from '../Footer';
 
-import { route } from '../../constants';
+import { APP_NAME, route } from '../../constants';
 import LogOut from '../LogOut';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import {  selectUser } from '../../redux/user';
@@ -66,7 +66,7 @@ const MobileMenu = () => {
        
       >
         <div className={classes.titleContainer}>
-       
+      
           <IconButton
             color="primary"
             onClick={handleToggleDrawer}
@@ -74,6 +74,9 @@ const MobileMenu = () => {
           >
             <CancelIcon />
           </IconButton>
+          <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
+            {APP_NAME}
+          </Typography>
         </div>
         <div className={classes.userInfoContainer}>
         <Card  >

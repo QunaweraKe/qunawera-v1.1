@@ -46,9 +46,8 @@ const DialogPostForm = () => {
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const { errors, loading } = useUI(key.createPost, null, false);
   const [formData, setFormData] = React.useState({
+    title:'',
     body: '',
-    payment: '',
-    skillset: '',
 
   });
 
@@ -57,6 +56,8 @@ const DialogPostForm = () => {
     const image = event.target.files[0];
     const formData = FormData();
     formData.append(field, image, image.name);
+        
+    dispatch(createPost(formData));
     
   };
   const handleChange = (event) => {
@@ -81,6 +82,7 @@ const DialogPostForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     dispatch(createPost(formData));
     setFormData('');
     handleClose();
@@ -135,7 +137,24 @@ const DialogPostForm = () => {
             <Avatar user={user} />
           </div>
 
+          <TextField
+            required
+            className={classes.inputContainer}
+            error={Boolean(errors.body)}
+            autoComplete="off"
+          
+            fullWidthS
+            id="title"
+            label="Task title"
+            name="title"
+            onChange={handleChange}
+            type="text"
+            value={formData.title}
+            variant="filled"
+            
+            helperText="Indicate the job name i.e baby sitter"
 
+          />
           <TextField
             required
             className={classes.inputContainer}
@@ -150,46 +169,17 @@ const DialogPostForm = () => {
             type="text"
             value={formData.body}
             variant="filled"
-            rows={4}
-            helperText={errors.body}
+            rows={7}
+            helperText="Include payment & skillset required for task"
 
           />
 
 
 
 
-          <TextField
-            className={classes.margin}
-            error={Boolean(errors.skillset)}
-            required
-            autoComplete="off"
-            multiline
-            fullWidth
-            id="skillset"
-            label="Required Skills"
-            name="skillset"
-            onChange={handleChange}
-            type="text"
-            value={formData.skillset}
-            variant="filled"
-            rows={4}
-            helperText={errors.skillset}
-          />
+         
 
-          <TextField
-            className={classes.margin}
-            fullWidth
-            required
-            autoComplete="off"
-            id="payment"
-            label="Payment"
-            name="payment"
-            onChange={handleChange}
-            type="text"
-            value={formData.payment}
-            variant="filled"
-            helperText=" Ksh."
-          />
+      
 
           <br />
           <input

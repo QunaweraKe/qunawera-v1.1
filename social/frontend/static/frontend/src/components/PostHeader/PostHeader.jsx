@@ -13,7 +13,7 @@ import TextLink from '../TextLink';
 import { route } from '../../constants';
 import useStyles from './styles';
 
-const PostHeader = ({ post, repost }) => {
+const PostHeader = ({ post, repost, }) => {
   const classes = useStyles();
   dayjs.extend(relativeTime);
 
@@ -41,7 +41,7 @@ const PostHeader = ({ post, repost }) => {
         && (
 
           <Typography className={classes.headerTime} color="primary">
-            {'  '}  &middot; reposted
+            {' / '} Shared a post
 
           </Typography>
 
