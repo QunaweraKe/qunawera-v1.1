@@ -124,6 +124,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
           <Typography variant="h6"
            style={{ fontFamily:"monospace"}}>
              Age &middot;  {profileUser.age}yrs
+            
             </Typography>
             </Paper>
             <div className={classes.followContainer}>
