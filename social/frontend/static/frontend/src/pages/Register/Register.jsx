@@ -36,6 +36,7 @@ const Register = () => {
     password: '',
     password2: '',
     username: '',
+    age:'',
 
   });
 
@@ -79,13 +80,7 @@ const Register = () => {
               Join {APP_NAME}
             </Typography>
 
-            <Typography
-              className={classes.toUpper}
-              color="textSecondary"
-              variant="body1"
-            >
-              Fill in the fields below
-            </Typography>
+           
             {!isEmpty(errors)
               && (
                 <Alert
@@ -155,6 +150,22 @@ const Register = () => {
                 onChange={handleChange}
                 type="email"
                 value={formData.email}
+                InputLabelProps={{style:{fontSize:14}}}
+                variant="filled"
+              />
+              <TextField
+                 required={true}
+                autoComplete="age"
+                className={classes.formField}
+                error={Boolean(errors.age)}
+                fullWidth
+                helperText={errors.age}
+                id="age"
+                label="Age"
+                name="age"
+                onChange={handleChange}
+                type="text"
+                value={formData.age}
                 InputLabelProps={{style:{fontSize:14}}}
                 variant="filled"
               />

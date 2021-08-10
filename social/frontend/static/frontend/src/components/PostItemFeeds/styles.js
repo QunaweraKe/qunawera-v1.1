@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     flexGrow: 1,
+    alignSelf: 'flex-end',
   },
   repostContainer:{
  display:"flex",
@@ -73,12 +74,27 @@ Link:{
   color:"black"
   },
 
+title:{
+  fontweight: "bold" ,
+  color:"textSecondary",
+  textDecoration:"underline",
+  marginBottom:"5px"
 
+},
   root: {
     ...theme.custom.borders,
   
     position: 'relative',
     flexGrow: 1,
+    '&:hover':{
+      
+      transform:"none !important"
+    },
+    focus:{
+      "&&&":{
+        opacity:0
+      }
+    }
   },
 }));
 

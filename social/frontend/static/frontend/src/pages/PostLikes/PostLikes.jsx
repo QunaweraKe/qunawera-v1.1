@@ -55,7 +55,7 @@ const PostLikes = () => {
           <Typography
             paragraph
             variant="h6"
-            color="textSecondary"
+            color="primary"
           >
            Post has no likes
           </Typography>

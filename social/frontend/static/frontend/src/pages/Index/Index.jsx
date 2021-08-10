@@ -146,7 +146,7 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="body2"  align="center" >
+        <p><Typography variant="subtitle1"  color="primary" align="center" >
 
           Join Millions of users around you
          </Typography></p>

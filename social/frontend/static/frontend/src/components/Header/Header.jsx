@@ -150,13 +150,14 @@ const Header = () => {
               <span className="nav-button-text">Recommended</span>
             </Button>
           </ListItem>
+          
       
  <Divider light/>
          
          
           <ListItem disableGutters>
           <Button
-   color= 'primary'
+    color={active(route.recommendedPosts) ? 'primary' : 'default'}
    component={Link}
    size="large"
    startIcon={<ContactSupportIcon />}

@@ -23,6 +23,7 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
         related_name="followers",
         symmetrical=False,
     )
+    age=models.IntegerField(max_length=10)
     last_notification_read_time = models.DateTimeField(default=now)
     name = models.CharField(max_length=150)
     slug = models.SlugField(

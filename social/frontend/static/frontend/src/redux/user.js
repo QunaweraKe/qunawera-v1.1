@@ -135,7 +135,7 @@ export const editProfile = (payload, slug) => async (dispatch) => {
     const data = await api(descriptor.editProfile(payload));
     dispatch(setProfile(data));
     dispatch(setProfileData({ data, slug }));
-    dispatch(setToast('Your profile has been updated.'));
+    dispatch(setToast('Profile has been updated.'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -150,7 +150,7 @@ export const editUser = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.editUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Your settings have changed'));
+    dispatch(setToast('Your settings have changed.'));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
@@ -167,7 +167,7 @@ export const follow = (slug, userId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.createFollow(slug));
     dispatch(setFollow(userId));
-    dispatch(setToast('Following'));
+    dispatch(setToast('Following...'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -204,7 +204,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.logoutUser);
     dispatch(logout());
-    dispatch(setToast('You have been logged out '));
+    dispatch(setToast('You have been logged out. '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -219,7 +219,7 @@ export const unfollow = (slug, userId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removeFollow(slug));
     dispatch(unsetFollow(userId));
-    dispatch(setToast('Unfollowed'));
+    dispatch(setToast('Unfollowed...'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

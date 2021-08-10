@@ -239,7 +239,7 @@ export const createPost = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.createPost(payload));
     dispatch(setPost(data));
-    dispatch(setToast('Posted successfully '));
+    dispatch(setToast('New task listed '));
   } catch (error) {
     dispatch(setToast('An error occurred while trying to post', 'error'));
     console.error(error);
@@ -277,7 +277,7 @@ export const createRepost = (author, body, parentId) => async (dispatch) => {
       parent_id: parentId,
     }));
     dispatch(setPost(data));
-    dispatch(setToast('Post shared to others'));
+    dispatch(setToast('Post shared to those following you'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -425,7 +425,7 @@ export const removePost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removePost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Post removed'));
+    dispatch(setToast('Post Removed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -440,7 +440,7 @@ export const removeReply = (postId, parentId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removePost(postId));
     dispatch(unsetReply({ postId, parentId }));
-    dispatch(setToast('Comment removed'));
+    dispatch(setToast('Comment Removed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

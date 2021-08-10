@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.common.white,
     borderRadius: '50%',
     borderStyle: 'solid',
-    borderWidth: 7,
+    borderWidth: 2,
     height: 200,
     marginTop: '-18%',
     position: 'relative',
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1.5, 2),
   },
   banner: {
-    backgroundColor: theme.palette.grey[300],
+    backgroundColor: theme.palette.grey[100],
     backgroundImage: (profileUser) => (
       profileUser.profile?.banner
         ? `url(${profileUser.profile.banner})`
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bio: {
     marginTop: theme.spacing(1),
-    
+    fontFamily:"monospace",
   },
   editAvatarButton: {
     position: 'absolute',
@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     margin: theme.spacing(1, 2.5, 0, 0),
+   
   },
   extraInfoIcon: {
     color: theme.palette.text.disabled,
@@ -67,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     marginBottom: theme.spacing(1),
+   
   },
   extraInfoText: {
     fontSize: theme.typography.body2.fontSize,

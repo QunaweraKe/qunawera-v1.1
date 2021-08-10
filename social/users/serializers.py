@@ -15,7 +15,18 @@ class ProfileSerializer(serializers.ModelSerializer):
             "website",
         ]
 
-class ValidateUserNameMixin:
+
+
+
+
+
+    
+
+    
+
+class UserSerializer( serializers.ModelSerializer):
+    
+
     def validate(self, data):
         username = data.get("username")
         
@@ -26,10 +37,15 @@ class ValidateUserNameMixin:
                 }
             )
         return data
-
-
-
-class ValidatePasswordMixin:
+    def validate(self, data):
+        age_gap = data.get("age")
+        if age_gap < 18:
+            raise serializers.ValidationError(
+                {
+                    "age": "You must be atleast 18 years old to have an account",
+                }
+            )   
+        return data
     def validate(self, data):
         password = data.get("password")
         password2 = data.get("password2")
@@ -54,10 +70,7 @@ class ValidatePasswordMixin:
                 }
             )   
         return data
-
-
-class UserSerializer(ValidatePasswordMixin,ValidateUserNameMixin, serializers.ModelSerializer):
-
+  
     display_name = serializers.SerializerMethodField(read_only=True)
     followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     following = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
@@ -65,10 +78,11 @@ class UserSerializer(ValidatePasswordMixin,ValidateUserNameMixin, serializers.Mo
     password2 = serializers.CharField(write_only=True)
     profile = ProfileSerializer(read_only=True)
     slug = serializers.SlugField(read_only=True)
-
+    age=serializers.IntegerField(required=True)
     class Meta:
         model = User
         fields = [
+            "age",
             "created_at",
             "display_name",
             "email",
@@ -91,7 +105,31 @@ class UserSerializer(ValidatePasswordMixin,ValidateUserNameMixin, serializers.Mo
         return obj.display_name()
 
 
-class PasswordSerializer(ValidatePasswordMixin, serializers.ModelSerializer):
+class PasswordSerializer( serializers.ModelSerializer):
+    def validate(self, data):
+        password = data.get("password")
+        password2 = data.get("password2")
+        if password and password2 and password != password2:
+            raise serializers.ValidationError(
+                {
+                    "password2": "Passwords do not match.",
+                }
+            )
+                         
+        if not any (char.isdigit() for char in password):
+               raise serializers.ValidationError(
+                   {
+                       "password": "Include numbers in your password",
+                   }
+               )
+           
+        if len(password) < 8:
+            raise serializers.ValidationError(
+                {
+                    "password": "Password must be atleast 8 characters long",
+                }
+            )   
+        return data
     current_password = serializers.CharField(write_only=True)
     password = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)

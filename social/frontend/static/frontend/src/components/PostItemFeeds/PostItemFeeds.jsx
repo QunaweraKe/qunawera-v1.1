@@ -1,17 +1,18 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+
 // Material UI
 import { CardActionArea } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
+
 // Local
 import { route } from '../../constants';
 import {
@@ -23,7 +24,6 @@ import LikePost from '../LikePost';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
 import useStyles from './styles';
-import Repost from '../Repost';
 
 
 
@@ -96,7 +96,7 @@ const PostItemFeeds = ({ postId }) => {
               )}
             >
 
-              <ListItemText primary="View Details" className={classes.listItemSize} />
+              <ListItemText primary="More Details" className={classes.listItemSize} />
             </MenuItem>
             
             <MenuItem
@@ -120,7 +120,7 @@ const PostItemFeeds = ({ postId }) => {
 
           </Menu>
           <Link to={route.postDetail(post.id)} className={classes.Link} >
-          <CardActionArea >
+          <CardActionArea classes={{focusHighlight:classes.focus}} >
           <div className={classes.text}>
             <Box display="flex" p={1} justifyContent='flex-start'>
               <Paper square style={{width:"100%",backgroundColor:"inherit"}}>
@@ -132,7 +132,7 @@ const PostItemFeeds = ({ postId }) => {
                   && (
                     <>
                      
-                        <Typography variant="subtitle1" style={{ fontweight: "bolder" ,color:"textSecondary",textDecoration:"underline"}}>
+                        <Typography  className={classes.title}>
                           {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
 
                         </Typography >
@@ -176,15 +176,15 @@ const PostItemFeeds = ({ postId }) => {
   size="default"
   type="post"
 />
-<div className={classes.repostContainer}>
-          <Repost postId={postId} />
-        </div>
-</div>
-<span style={{fontFamily:"monospace",fontWeight:"bold",marginLeft:"2%"}}>         {post.liked.length || 0}{' '}{pluralizeLikes(post.liked.length)}</span>
-&middot;
-<span style={{fontFamily:"monospace",fontWeight:"bold",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '}{pluralizeComments(post.reply_ids?.length)}</span>
 
-      <Divider  />
+</div>
+
+      
+        
+<span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.liked.length || 0}{' '}{pluralizeLikes(post.liked.length)}</span>
+
+<span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '}{pluralizeComments(post.reply_ids?.length)}</span>
+
      
   
     </div>

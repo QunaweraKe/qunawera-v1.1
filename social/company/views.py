@@ -1,13 +1,12 @@
 
 from rest_framework import generics as rest_generics, status
 
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework.response import Response
+from . models import Team
 
+from .serializers import ContactUsSerializer,TeamSerializer
 
-from .serializers import ContactUsSerializer
-
-# Create your views here.
 class ContactUsView (rest_generics.CreateAPIView):
      permission_classes = [IsAuthenticated]
      serializer_class = ContactUsSerializer
@@ -21,4 +20,7 @@ class ContactUsView (rest_generics.CreateAPIView):
 
              return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+class TeamView (rest_generics.ListAPIView):
+     permission_classes = [AllowAny]
+     serializer_class = TeamSerializer
+     queryset=Team.objects.all()

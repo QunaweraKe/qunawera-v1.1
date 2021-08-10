@@ -105,10 +105,27 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 )}
             </div>
           </div>
+          <Divider />
           <div className={classes.infoContainer}>
-            <Typography variant="h6">
-              {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
+          <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
+          <Typography variant="h6"
+           style={{ fontWeight: "bolder",fontFamily:"monospace",textDecoration:"underline" }}>
+              {profileUser.name.charAt(0).toUpperCase() + profileUser.name.slice(1)}
             </Typography>
+            </Paper>
+        
+            <Paper square elevation={1} style={{ marginLeft: "2px" }}>
+            <Typography variant="h6"
+             style={{ fontFamily:"monospace"}}>
+            Username &middot;  {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
+            </Typography>
+            </Paper>
+            <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
+          <Typography variant="h6"
+           style={{ fontFamily:"monospace"}}>
+             Age &middot;  {profileUser.age}yrs
+            </Typography>
+            </Paper>
             <div className={classes.followContainer}>
               <Paper square elevation={3} style={{ marginLeft: "2px" }}>
                 <TextLink
@@ -142,7 +159,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
             {profileUser.profile.bio
               && (
                 <>
-                  <Typography variant="h7" style={{ fontWeight: "bolder" }}>
+                  <Typography variant="h7" style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
                     About
                   </Typography>
                   <Divider/>
@@ -155,11 +172,12 @@ const ProfileInfo = ({ loading, profileUser }) => {
               )}
 
 
-<Divider/>
             <div className={classes.extraInfoContainer}>
               <div className={classes.extraInfo}>
                 <EventNoteIcon className={classes.extraInfoIcon} />
-                <Typography className={classes.extraInfoText}>
+                <Typography className={classes.extraInfoText}
+                style={{fontFamily:"monospace",
+                fontWeight:"bold"}}>
 
                   Joined  on
                   {' '}
@@ -172,7 +190,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 && (
                   <div className={classes.extraInfo}>
                     <LocationIcon className={classes.extraInfoIcon} />
-                    <Typography className={classes.extraInfoText}>
+                    <Typography className={classes.extraInfoText}
+                    style={{fontFamily:"monospace",
+                    fontWeight:"bold"}}>
                       Lives in  {profileUser.profile.location}
                     </Typography>
                   </div>

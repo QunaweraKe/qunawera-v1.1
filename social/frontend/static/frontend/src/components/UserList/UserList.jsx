@@ -61,7 +61,7 @@ const UserList = ({ list }) => {
 
                 <Typography style =
                 {{fontFamily:"monospace"}}>
-                  {profileUser.profile.bio}
+                 About &middot; {profileUser.profile.bio}
                 </Typography>
               )}
           </ListItemText>

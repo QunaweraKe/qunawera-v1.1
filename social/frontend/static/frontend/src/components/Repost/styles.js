@@ -2,17 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
-  adornment: {
-    alignSelf: 'flex-end',
-    marginBottom: theme.spacing(1.3),
-  },
+
   avatarContainer: {
     marginRight: 14,
   },
-  card: {
-    borderColor: theme.palette.grey[400],
-    marginBottom: theme.spacing(2),
-  },
+
   contentContainer: {
     flexGrow: 1,
   },

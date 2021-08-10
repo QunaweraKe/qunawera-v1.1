@@ -46,13 +46,13 @@ const LikePost = ({ postId, size }) => {
     if (likedLength > 0) {
       if (isLiked) {
         if (likedLength === 1) {
-          result = `Liked `;
+          result = `You liked `;
         } else {
           const subLength = likedLength - 1;
-          result = `Liked by you and ${subLength} ${pluralizeOther(subLength)}`;
+          result = `Liked by you and ${subLength} ${pluralizeOther(subLength)}...`;
         }
       } else {
-        result = `Liked by ${likedLength} ${pluralizeOther(likedLength)}`;
+        result = `Liked by ${likedLength} ${pluralizeOther(likedLength)}...`;
       }
     } else {
       result = `Be the first to like `;

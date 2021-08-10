@@ -15,3 +15,17 @@ class  ContactUsSerializer(serializers.ModelSerializer):
             "description",
             "date_created"
         ]
+class  TeamSerializer(serializers.ModelSerializer):
+   
+
+    class Meta:
+        model=Team
+        fields =[
+            "Job_title",
+            "About",
+            "Roles",
+            "Skills",
+            " Status",
+            "Image",
+
+        ]
