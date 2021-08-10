@@ -23,8 +23,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // Local
 import Avatar from '../Avatar';
-import Footer from '../Footer';
-
 import { APP_NAME, route } from '../../constants';
 import LogOut from '../LogOut';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -160,7 +158,6 @@ const MobileMenu = () => {
         
          
         </List>
-        <Footer/>
         </CardContent>
         </Card>
       

@@ -56,6 +56,12 @@ const useStyles = makeStyles((theme) => ({
   postContainer: {
     display: 'flex',
     padding: theme.spacing(2, 2, 0.5,2 ),
+    backgroundColor: theme.palette.grey[50]
+  },
+  title:{
+    fontweight: "bolder" ,
+    marginBottom:"5px"
+  
   },
 
   textSize:{

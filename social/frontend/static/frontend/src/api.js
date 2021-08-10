@@ -40,10 +40,10 @@ export const descriptor = {
     url: '/api/posts/repost/',
   }),
 
-  editPost: (postId,skillset, body) => ({
+  editPost: (postId, body) => ({
     data: {
       body,
-      skillset,
+      
     },
     method: 'patch',
     url: `/api/posts/${postId}/`,

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '-18%',
     position: 'relative',
     width: 200,
-    marginLeft:"3%"
+    marginLeft:"1%"
   },
   avatarAndFollow: {
     display: 'flex',

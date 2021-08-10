@@ -16,17 +16,25 @@ class ProfileSerializer(serializers.ModelSerializer):
         ]
 
 
-
-
+class ValidateAgeMixin:
+    def validate(self, data):
+            age_gap = data.get("age")
+            if age_gap < 18:
+                raise serializers.ValidationError(
+                    {
+                        "age": "You must be atleast 18 years old to have an account",
+                    }
+                )   
+            return self.data
 
 
     
 
     
 
-class UserSerializer( serializers.ModelSerializer):
+class UserSerializer(ValidateAgeMixin, serializers.ModelSerializer):
     
-
+    '''
     def validate(self, data):
         username = data.get("username")
         
@@ -37,15 +45,8 @@ class UserSerializer( serializers.ModelSerializer):
                 }
             )
         return data
-    def validate(self, data):
-        age_gap = data.get("age")
-        if age_gap < 18:
-            raise serializers.ValidationError(
-                {
-                    "age": "You must be atleast 18 years old to have an account",
-                }
-            )   
-        return data
+'''
+   
     def validate(self, data):
         password = data.get("password")
         password2 = data.get("password2")
@@ -79,6 +80,7 @@ class UserSerializer( serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     slug = serializers.SlugField(read_only=True)
     age=serializers.IntegerField(required=True)
+    username=serializers.CharField(required=True)
     class Meta:
         model = User
         fields = [
@@ -129,7 +131,7 @@ class PasswordSerializer( serializers.ModelSerializer):
                     "password": "Password must be atleast 8 characters long",
                 }
             )   
-        return data
+        return self.data
     current_password = serializers.CharField(write_only=True)
     password = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)

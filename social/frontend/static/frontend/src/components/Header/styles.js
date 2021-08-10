@@ -3,12 +3,12 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 
   pushContainer: {
-    height: '100%',
+    height: '110%',
   },
   headerContainer: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
+    height: '120%',
     position: 'fixed',
     width: 60,
 

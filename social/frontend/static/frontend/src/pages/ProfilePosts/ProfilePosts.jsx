@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 // Material UI
-import Button from '@material-ui/core/Button';
+
 import Typography from '@material-ui/core/Typography';
 
 // Local
@@ -44,10 +44,7 @@ const ProfilePosts = () => {
     dispatch(getProfilePosts(slug, posts.next));
   };
 
-  const handlePost = () => {
-    const postButton = document.getElementById('header-post-button');
-    postButton.click();
-  };
+  
 
   return (
     <>
@@ -78,25 +75,12 @@ const ProfilePosts = () => {
                   <Typography
                     paragraph
                     variant="h6"
+                    color="primary"
                   >
-                    You have no posts
+                    You have no posts yet
                   </Typography>
 
-                  <Typography
-                    color="textSecondary"
-                    paragraph
-                    variant="body2"
-                  >
-                    When you post it&apos;ll show up here.
-                  </Typography>
-                  <Button
-                    color="primary"
-                    onClick={handlePost}
-                    variant="outlined"
-                    size="small"
-                  >
-                    Post now
-                  </Button>
+                  
                 </NoData>
               ) : (
                 <NoData>

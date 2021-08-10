@@ -119,6 +119,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
              style={{ fontFamily:"monospace"}}>
             Username &middot;  {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
             </Typography>
+          
             </Paper>
             <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
           <Typography variant="h6"

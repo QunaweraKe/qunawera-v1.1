@@ -292,7 +292,7 @@ export const editPost = (postId, body) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.editPost(postId, body));
     dispatch(setEditPost({ postId, body }));
-    dispatch(setToast('Post updated'));
+    dispatch(setToast('Post Updated'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

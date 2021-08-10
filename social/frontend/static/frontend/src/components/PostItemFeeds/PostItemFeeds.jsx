@@ -31,6 +31,7 @@ import useStyles from './styles';
 
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
+  const pluralizeShares = (length) => (length !== 1 ? 'Shares' : 'Share');
   const pluralizeComments = (length) => (length !== 1 ? ' Comments' : 'Comment');
   const classes = useStyles();
   const history = useHistory();
@@ -185,7 +186,7 @@ const PostItemFeeds = ({ postId }) => {
 
 <span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '}{pluralizeComments(post.reply_ids?.length)}</span>
 
-     
+<span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.repost_ids?.length || 0}{' '}{pluralizeShares(post.repost_ids?.length)}</span>     
   
     </div>
   );

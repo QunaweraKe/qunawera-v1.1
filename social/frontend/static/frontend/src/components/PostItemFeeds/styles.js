@@ -75,9 +75,7 @@ Link:{
   },
 
 title:{
-  fontweight: "bold" ,
-  color:"textSecondary",
-  textDecoration:"underline",
+  fontweight: "bolder" ,
   marginBottom:"5px"
 
 },

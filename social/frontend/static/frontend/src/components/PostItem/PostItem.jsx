@@ -89,7 +89,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
 
       <div className={classes.postContainer}
-      style={{ backgroundColor: "#ffffe0", minWidth: 200, marginTop: "8px" }}>
+      style={{ minWidth: 200, marginTop: "8px" }}>
 
 
         <div className={classes.avatarContainer}>
@@ -158,7 +158,19 @@ const PostItem = ({ expandReplies, postId }) => {
                 <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
                   {post.parent && <PostParent post={post.parent} />}
                 </Typography>
-              
+               
+                {post.title
+                  && (
+                    <>
+                     
+                        <Typography  className={classes.title}>
+                          {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
+
+                        </Typography >
+
+                     
+                    </>
+                  )}
               {post.body
                 && (
                   <>
