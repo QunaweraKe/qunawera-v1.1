@@ -12,10 +12,7 @@ const useStyles = makeStyles((theme) => ({
   color:"red",
  marginTop:"4px",
  },
-  toUpper:{
-    fontWeight:600,
-    textAlign:"center",
-  },
+
   button: {
     marginTop: theme.spacing(3),
   },

@@ -75,13 +75,9 @@ const Register = () => {
         }}>
           <CardContent>
 
-            <Typography
-              className={classes.toUpper}
-              color="primary"
-              variant="h5"
-            >
+           
               Join <AppName/>
-            </Typography>
+         
 
            
             {!isEmpty(errors)

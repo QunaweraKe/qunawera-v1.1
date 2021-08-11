@@ -12,7 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-
+import Divider from '@material-ui/core/Divider';
 // Local
 import { route } from '../../constants';
 import {
@@ -180,14 +180,14 @@ const PostItemFeeds = ({ postId }) => {
 
 </div>
 
-      
+
         
-<span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.liked.length || 0}{' '}{pluralizeLikes(post.liked.length)}</span>
+<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.liked.length || 0}{' '}{pluralizeLikes(post.liked.length)}</span>
 
-<span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '}{pluralizeComments(post.reply_ids?.length)}</span>
+<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '}{pluralizeComments(post.reply_ids?.length)}</span>
 
-<span style={{fontFamily:"monospace",fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.repost_ids?.length || 0}{' '}{pluralizeShares(post.repost_ids?.length)}</span>     
-  
+<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.repost_ids?.length || 0}{' '}{pluralizeShares(post.repost_ids?.length)}</span>     
+<Divider/>
     </div>
   );
 };
