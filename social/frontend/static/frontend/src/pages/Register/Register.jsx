@@ -1,3 +1,7 @@
+import React from 'react';
+import { useDispatch } from 'react-redux';
+
+
 // Material UI
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -7,17 +11,16 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Alert from '@material-ui/lab/Alert';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+//local
 import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { APP_NAME, route } from '../../constants';
+import { route } from '../../constants';
 import useUI from '../../hooks/useUI';
 import { createUser, key } from '../../redux/user';
 import { isEmpty } from '../../utils';
 import useStyles from './styles';
-
+import AppName from '../../components/AppName';
 
 
 
@@ -77,7 +80,7 @@ const Register = () => {
               color="primary"
               variant="h5"
             >
-              Join {APP_NAME}
+              Join <AppName/>
             </Typography>
 
            
@@ -158,7 +161,6 @@ const Register = () => {
                 autoComplete="age"
                 className={classes.formField}
                 error={Boolean(errors.age)}
-                fullWidth
                 helperText={errors.age}
                 id="age"
                 label="Age"

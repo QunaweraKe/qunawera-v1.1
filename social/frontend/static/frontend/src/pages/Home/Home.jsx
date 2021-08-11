@@ -23,12 +23,13 @@ import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
 import PageTitle from '../../components/PageTitle';
+import AppName from '../../components/AppName';
 import Posts from '../../components/Posts';
 import DialogPostForm from '../../components/DialogPostForm';
 import useUI from '../../hooks/useUI';
 import useStyles from './styles';
 import { getFeed, key, selectFeed } from '../../redux/post';
-import { APP_NAME, route } from '../../constants';
+import { route } from '../../constants';
 
 
 
@@ -79,7 +80,7 @@ const Home = ( ) => {
       <Box display="flex" p={1}>
         <Box p={1} flexGrow={1} >
         <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
-            {APP_NAME} 
+            <AppName/>
           </Typography>
         </Box>
         <Box p={1} >

@@ -1,5 +1,8 @@
-import { IconButton } from '@material-ui/core';
+
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 // Material UI
+import { IconButton } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,12 +14,12 @@ import Typography from '@material-ui/core/Typography';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Alert from '@material-ui/lab/Alert';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+//local
 import LinearProgressBar from '../../components/LinearProgressBar';
+import AppName from '../../components/AppName';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { APP_NAME, route } from '../../constants';
+import { route } from '../../constants';
 import useUI from '../../hooks/useUI';
 import { key, loginUser } from '../../redux/user';
 import { isEmpty } from '../../utils';
@@ -83,7 +86,7 @@ const Login = () => {
               variant="h5"
 
             >
-              Sign in to {APP_NAME}
+              Sign in to <AppName/>
             </Typography>
             {!isEmpty(errors)
               && (
@@ -171,7 +174,7 @@ const Login = () => {
                 size="large"
                 onClick={(e) => { setShowLogging(!logging) }}
               >
-                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>Signing in</span> {loading && <LinearProgressBar />}</>}
+                {logging ? <>Sign In</> : <><span style={{color:"primary",fontWeight:"bold"}}>Signing in</span> {loading && <LinearProgressBar />}</>}
 
 
               </Button>
