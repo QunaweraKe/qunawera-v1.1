@@ -15,11 +15,12 @@ import Alert from '@material-ui/lab/Alert';
 import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import { route } from '../../constants';
+import {APP_NAME, route } from '../../constants';
 import useUI from '../../hooks/useUI';
 import { createUser, key } from '../../redux/user';
 import { isEmpty } from '../../utils';
 import useStyles from './styles';
+
 import AppName from '../../components/AppName';
 
 
@@ -75,8 +76,9 @@ const Register = () => {
         }}>
           <CardContent>
 
-           
-              Join <AppName/>
+           <Typography color="primary"
+              variant="h5"> Join <AppName/></Typography>
+             
          
 
            
