@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
   
   listItem:{
     linespacing:"1px",
-    fontSize:12,
+    fontSize:15,
+    marginLeft:"2%"
   
   },
   cardActionsRoot: {
@@ -30,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: 'flex-end',
   
   },
+  status : {
+    fontSize:10,
+    fontWeight:"600",
+    marginLeft:2,
+    marginTop:6,
+    fontFamily:"monospace"
+ },
   repostContainer:{
  display:"flex",
  marginLeft:50,

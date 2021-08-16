@@ -49,6 +49,7 @@ class BasePostSerializer(serializers.ModelSerializer):
             "parent_id",
             "image",
             "title",
+            "closed"
             
         ]
 

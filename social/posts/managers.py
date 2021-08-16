@@ -12,7 +12,7 @@ class PostManager(QuerySet):
 
         Posts uses soft delete. If the post is not active, it was deleted.
         """
-        return self.filter(is_active=True)
+        return self.filter(is_active=True,closed=False)
 
     def feed(self, user: User):
         """Return the `user`'s posts, and the posts of the users they're

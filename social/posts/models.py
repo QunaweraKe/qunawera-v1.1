@@ -1,7 +1,7 @@
 from django.db import models
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager
-
+from django.template.defaultfilters import truncatechars
 
 
 class Post(SoftDeleteMixin, TimestampMixin):
@@ -53,6 +53,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     )
 
     objects = PostManager.as_manager()
+    closed=models.BooleanField(default=False)
    
     def __str__(self):
         ellipsis = "..." if len(self.body) > 60 else ""
@@ -67,3 +68,9 @@ class Post(SoftDeleteMixin, TimestampMixin):
         return self.alt.filter(is_active=True, is_reply=False).order_by("created_at")
     #def __str__(self) :
     #    return self.author
+    @property
+    def short_body(self):
+        return truncatechars(self.body,100)
+    @property
+    def short_title(self):
+        return truncatechars(self.title,100)

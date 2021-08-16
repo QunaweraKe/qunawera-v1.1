@@ -52,7 +52,7 @@ const DeletePost = React.forwardRef((props, ref) => {
   return (
     <>
       <MenuItem
-        style={{marginLeft:"4px"}}
+
         onClick={handleOpen}
         ref={ref}
       > 

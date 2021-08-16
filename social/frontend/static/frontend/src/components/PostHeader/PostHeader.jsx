@@ -52,19 +52,7 @@ const PostHeader = ({ post, repost, }) => {
       <Typography className={classes.headerTime} color="textSecondary">
         {'  '}  &middot;published {'  '} {dayjs(post.created_at).fromNow()}
       </Typography>
-     <Typography>
-      
-      {post.is_active 
-                ? (
-                  <div className={classes.headerTime} style={{color:"green"}} >
-                    &middot;active
-                    </div>
-                ) : (
-                  <div className={classes.headerTime} style={{color:"red"}}>
-                     &middot;not active
-                    </div>
-                )}
-                </Typography>
+  
     </div>
   );
 };

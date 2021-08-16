@@ -6,6 +6,6 @@ admin.site.site_header="Qunawera Admin "
 
 @admin.register(Post)
 class PostsAdmin(admin.ModelAdmin):
-    list_display=("author","is_active","title","body","image","created_at",)
+    list_display=("author","is_active","short_title","short_body","image","created_at","closed")
     search_fields=["author"]
     list_filter=('is_reply','is_active')

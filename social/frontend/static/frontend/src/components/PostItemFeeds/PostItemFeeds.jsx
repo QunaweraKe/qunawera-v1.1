@@ -69,6 +69,19 @@ const PostItemFeeds = ({ postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
+          <Typography>
+      
+      {post.is_active 
+                ? (
+                  <div className={classes.status} style={{color:"green"}} >
+                    status&middot;active
+                    </div>
+                ) : (
+                  <div className={classes.status} style={{color:"red"}}>
+                     status&middot;not active
+                    </div>
+                )}
+                </Typography>
 
           <IconButton
             className={classes.postAction}
@@ -94,17 +107,17 @@ const PostItemFeeds = ({ postId }) => {
             }}
           >
 
-            <MenuItem style={{marginLeft:"4%"}}
+            <MenuItem 
               onClick={() => (
                 history.push(route.postDetail(post.id))
               )}
             >
            <UnfoldMoreIcon/>
-              <ListItemText primary="More About Task ..." classes={{primary:classes.listItem}} />
+              <ListItemText primary="More About Task " classes={{primary:classes.listItem}} />
             </MenuItem>
             
             <MenuItem
-              style={{marginLeft:"4px"}}
+           
               onClick={() => (
                 history.push(route.profilePosts(post.author.slug))
               )}
