@@ -7,7 +7,7 @@ class PostPagination(CursorPagination):
 
 
 class ReplyPagination(CursorPagination):
-    ordering = "-created_at"
+    ordering = "created_at"
     page_size = 10
 
 

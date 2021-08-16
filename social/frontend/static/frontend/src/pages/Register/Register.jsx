@@ -40,7 +40,7 @@ const Register = () => {
     password: '',
     password2: '',
     username: '',
-    age:'',
+    
 
   });
 
@@ -154,21 +154,7 @@ const Register = () => {
                 InputLabelProps={{style:{fontSize:14}}}
                 variant="filled"
               />
-              <TextField
-                 required={true}
-                autoComplete="age"
-                className={classes.formField}
-                error={Boolean(errors.age)}
-                helperText={errors.age}
-                id="age"
-                label="Age"
-                name="age"
-                onChange={handleChange}
-                type="text"
-                value={formData.age}
-                InputLabelProps={{style:{fontSize:14}}}
-                variant="filled"
-              />
+            
               <Grid container spacing={2}>
              <Grid item xs={12} sm={6}>
               <TextField
@@ -244,8 +230,6 @@ const Register = () => {
 
 
 </Typography>
-
-   
   </div>
       </Container>
 

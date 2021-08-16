@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-
 const useStyles = makeStyles((theme) => ({
 
   ...theme.custom,
@@ -15,9 +14,10 @@ const useStyles = makeStyles((theme) => ({
 
   
   
-  listItemSize:{
-
-    color:theme.palette.textSecondary,
+  listItem:{
+    linespacing:"1px",
+    fontSize:12,
+  
   },
   cardActionsRoot: {
     paddingTop: 0,
@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexGrow: 1,
     alignSelf: 'flex-end',
+  
   },
   repostContainer:{
  display:"flex",
@@ -43,10 +44,11 @@ const useStyles = makeStyles((theme) => ({
   },
   postContainer: {
     display: 'flex',
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     margin: 'auto',
     width: "100%",
-    backgroundColor: theme.palette.grey[50]
+    marginTop: theme.spacing(3),
+   
   },
 
   textSize:{
@@ -73,15 +75,24 @@ Link:{
   textDecoration :"none",
   color:"black"
   },
-
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
 title:{
   fontweight: "bolder" ,
-  marginBottom:"5px"
+  marginBottom:"5px",
+
+
+},
+avatarMenu:{
+height:"2px",
+width:"2px"
 
 },
   root: {
     ...theme.custom.borders,
-  
+    backgroundColor:theme.palette.grey[50],
     position: 'relative',
     flexGrow: 1,
     '&:hover':{

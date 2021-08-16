@@ -14,7 +14,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
-import Typography from '@material-ui/core/Typography';
+
 
 
 // Local
@@ -78,7 +78,7 @@ const Repost = ({ postId }) => {
               className={classes.chip
               }
 
-              size="small"
+             
               color="primary"
               >
                <ShareIcon/>

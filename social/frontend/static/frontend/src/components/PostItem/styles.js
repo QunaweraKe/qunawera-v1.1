@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   pluralize : {
-  fontSize:"10px",
-  fontWeight:"bold",
+  fontSize:"12px",
+
   
 
   },

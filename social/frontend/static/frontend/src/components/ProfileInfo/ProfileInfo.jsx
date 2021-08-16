@@ -105,58 +105,35 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 )}
             </div>
           </div>
-          <Divider />
+         
           <div className={classes.infoContainer}>
           <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
           <Typography variant="h6"
-           style={{ fontWeight: "bolder",fontFamily:"monospace",textDecoration:"underline" }}>
+           style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
               {profileUser.name.charAt(0).toUpperCase() + profileUser.name.slice(1)}
             </Typography>
             </Paper>
-        
-            <Paper square elevation={1} style={{ marginLeft: "2px" }}>
+            <Divider />
+
             <Typography variant="h6"
              style={{ fontFamily:"monospace"}}>
-            Username &middot;  {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
+            <span style={{ fontWeight: "bolder" }}>Profile</span>
+            </Typography>
+            <Paper square elevation={1} style={{ marginLeft: "2px" }}>
+            <Typography variant="h7"
+             style={{ fontFamily:"monospace"}}>
+            Username {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
             </Typography>
           
             </Paper>
             <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
-          <Typography variant="h6"
+          <Typography variant="h7"
            style={{ fontFamily:"monospace"}}>
-             Age &middot;  {profileUser.age}yrs
+             Age {profileUser.age}yrs
             
             </Typography>
             </Paper>
-            <div className={classes.followContainer}>
-              <Paper square elevation={3} style={{ marginLeft: "2px" }}>
-                <TextLink
-                  className={classes.followLink}
-                  to={route.following(profileUser.slug)}
-                  variant="body2"
-                >
-                  <span className={classes.followCount}>
-
-
-                    &nbsp;Following &middot; {profileUser.following.length}
-                  </span>
-                </TextLink>
-              </Paper>
-
-              <Paper square elevation={3} style={{ marginLeft: "6px" }}>
-                <TextLink
-                  className={classes.followLink}
-                  to={route.followers(profileUser.slug)}
-                  variant="body2"
-                >
-                  <span className={classes.followCount}>
-
-                    &nbsp;Followers &middot; {profileUser.followers.length}
-
-                  </span>
-                </TextLink>
-              </Paper>
-            </div>
+         
 
             {profileUser.profile.bio
               && (
@@ -169,7 +146,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                     {profileUser.profile.bio}
                   </Typography>
 
-
+                  <Divider />
                 </>
               )}
 
@@ -179,7 +156,8 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 <EventNoteIcon className={classes.extraInfoIcon} />
                 <Typography className={classes.extraInfoText}
                 style={{fontFamily:"monospace",
-                fontWeight:"bold"}}>
+                fontWeight:"bold"}}
+                color="textSecondary">
 
                   Joined  on
                   {' '}
@@ -187,6 +165,8 @@ const ProfileInfo = ({ loading, profileUser }) => {
 
                 </Typography>
                 <br />
+
+
               </div>
               {profileUser.profile.location
                 && (
@@ -194,7 +174,8 @@ const ProfileInfo = ({ loading, profileUser }) => {
                     <LocationIcon className={classes.extraInfoIcon} />
                     <Typography className={classes.extraInfoText}
                     style={{fontFamily:"monospace",
-                    fontWeight:"bold"}}>
+                    fontWeight:"bold"}}
+                    color="textSecondary">
                       Lives in  {profileUser.profile.location}
                     </Typography>
                   </div>
@@ -213,7 +194,35 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   </div>
                 )}
             </div>
+<div className={classes.followContainer}>
+              <Paper square elevation={1} style={{ marginLeft: "2px" }}>
+                <TextLink
+                  className={classes.followLink}
+                  to={route.following(profileUser.slug)}
+                  variant="body2"
+                >
+                  <span className={classes.followCount}>
 
+
+                    &nbsp;Following &middot; {profileUser.following.length}
+                  </span>
+                </TextLink>
+              </Paper>
+
+              <Paper square elevation={1} style={{ marginLeft: "6px" }}>
+                <TextLink
+                  className={classes.followLink}
+                  to={route.followers(profileUser.slug)}
+                  variant="body2"
+                >
+                  <span className={classes.followCount}>
+
+                    &nbsp;Followers &middot; {profileUser.followers.length}
+
+                  </span>
+                </TextLink>
+              </Paper>
+            </div>
           </div>
         </>
       );

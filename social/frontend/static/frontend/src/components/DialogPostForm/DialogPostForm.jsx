@@ -38,37 +38,33 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 const DialogPostForm = () => {
+  const [image, setImage] = React.useState(null);
+  const [body, setBody] = React.useState("");
+  const [title, setTitle] = React.useState("");
 
-  const imageRef = React.useRef();
+
+  
+  const handleImage = (event) => {
+    event.preventDefault();
+    console.log(event.target.files);
+    setImage(event.target.files[0]);
+  };
+  const handleBody = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setBody(event.target.value);
+  };
+  const handleTitle = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setTitle(event.target.value);
+  };
+
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const { errors, loading } = useUI(key.createPost, null, false);
-  const [formData, setFormData] = React.useState({
-    title:'',
-    body: '',
-
-  });
-
-
-  const onChangePicture = (event, field) => {
-    const image = event.target.files[0];
-    const formData = FormData();
-    formData.append(field, image, image.name);
-        
-    dispatch(createPost(formData));
-    
-  };
-  const handleChange = (event) => {
-
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-
-
-    });
-  };
 
 
 
@@ -82,10 +78,21 @@ const DialogPostForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+  
+    try{
+    const formData = new FormData();
+    formData.append("body", body);
+    formData.append("title", title);
+    formData.append( "image",image, image.name);
     dispatch(createPost(formData));
-    setFormData('');
+    setImage('');
+    setTitle('');
+    setBody('');
     handleClose();
+    return console.log("success")
+  }catch(err){
+    return console.log("error")
+  }
   };
 
 
@@ -128,7 +135,7 @@ const DialogPostForm = () => {
             variant="h6"
             style={{ fontWeight: "bold" }}
           >
-            Post
+         Post a new task
           </Typography>
 
         </DialogTitle>
@@ -136,20 +143,20 @@ const DialogPostForm = () => {
           <div className={classes.avatarContainer}>
             <Avatar user={user} />
           </div>
-
+          <form onSubmit={handleSubmit}>
           <TextField
             required
             className={classes.inputContainer}
-            error={Boolean(errors.body)}
+            error={Boolean(errors.title)}
             autoComplete="off"
           
             fullWidthS
             id="title"
             label="Task title"
             name="title"
-            onChange={handleChange}
+            onChange={handleTitle}
             type="text"
-            value={formData.title}
+            value={title}
             variant="filled"
             
             helperText="Indicate the job name i.e baby sitter"
@@ -165,13 +172,12 @@ const DialogPostForm = () => {
             id="body"
             label="Description"
             name="body"
-            onChange={handleChange}
+            onChange={ handleBody}
             type="text"
-            value={formData.body}
             variant="filled"
             rows={7}
             helperText="Include payment & skillset required for task"
-
+            value={body}
           />
 
 
@@ -183,10 +189,12 @@ const DialogPostForm = () => {
 
           <br />
           <input
-            onChange={(event) =>  onChangePicture(event, 'image')}
+             
+             onChange={handleImage}
             type="file"
             accept="image/*"
             name="image"
+            id="image"
           />
 
 
@@ -196,7 +204,7 @@ const DialogPostForm = () => {
             className={classes.Button}
             color="primary"
             disabled={loading}
-            onClick={handleSubmit}
+            type="submit"
             size="large"
             variant="outlined"
 
@@ -216,7 +224,7 @@ const DialogPostForm = () => {
             Cancel
 
           </Button>
-  
+          </form>
         </DialogContent>
 
       </Dialog>

@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
     ),
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
-    borderColor: theme.palette.common.white,
+    borderColor: theme.palette.primary.main,
     borderRadius: '50%',
     borderStyle: 'solid',
-    borderWidth: 2,
+    borderWidth: 4,
     height: 200,
     marginTop: '-18%',
     position: 'relative',
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     height: 200,
     position: 'relative',
     width: '100%',
-    borderColor: theme.palette.common.white,
+  
   },
   bio: {
     marginTop: theme.spacing(1),
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize:'1.2em',
   },
   followLink: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
     padding:2,
   },
   imageControlContainer: {

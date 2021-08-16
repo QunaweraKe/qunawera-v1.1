@@ -21,7 +21,7 @@ const SkeletonLoader = () => {
         </Grid>
 
       </Grid>
-      <Skeleton style={{marginTop:"-2px" ,marginLeft:"2%",marginBottom:"15px"}}variant="rect" width="80%" height={90}animation="wave"  />
+      <Skeleton style={{marginTop:"-2px" ,marginLeft:"2%",marginBottom:"15px"}}variant="rect" width="80%" height={60}animation="wave"  />
       <Grid container spacing={2}>
         
         <Grid item >
@@ -30,7 +30,7 @@ const SkeletonLoader = () => {
         <Grid  >
           <Skeleton style={{marginLeft:"2%",marginTop:"25px",marginBottom:"5px"}} variant="text" width={80} animation="wave" />
         </Grid>
-        <Skeleton style={{marginTop:"15px" ,marginLeft:"2%",marginBottom:"15px"}}variant="rect" width="80%" height={70}animation="wave"  />
+        <Skeleton style={{marginTop:"15px" ,marginLeft:"2%",marginBottom:"15px"}}variant="rect" width="80%" height={30}animation="wave"  />
       </Grid>
     </div>
   );

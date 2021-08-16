@@ -42,6 +42,8 @@ const ConfirmationDialog = ({
       <Typography
         className={classes.text}
         color="textSecondary"
+        variant="body1"
+        
 
       >
         {text}

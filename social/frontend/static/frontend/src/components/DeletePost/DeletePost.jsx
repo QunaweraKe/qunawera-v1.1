@@ -3,13 +3,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-
+import RemoveCircleRoundedIcon from '@material-ui/icons/RemoveCircleRounded';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
+import {red }from '@material-ui/core/colors/red';
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
-
+import useStyles from './styles';
 import {
   key,
   removePost,
@@ -20,7 +21,7 @@ import {
 const DeletePost = React.forwardRef((props, ref) => {
   const { postId, setAnchorEl, type } = props;
   const dispatch = useDispatch();
-
+  const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
@@ -51,15 +52,18 @@ const DeletePost = React.forwardRef((props, ref) => {
   return (
     <>
       <MenuItem
+        style={{marginLeft:"4px"}}
         onClick={handleOpen}
         ref={ref}
-      >
+      > 
+         <RemoveCircleRoundedIcon style={{color:"red"}}/>
 
         <ListItemText
-          primary="Delete"
+          primary="Remove this item"
           primaryTypographyProps={{
-            color: 'error',
+            color:'error',
           }}
+          classes={{primary:classes.listItem}}
         />
       </MenuItem>
       <ConfirmationDialog
@@ -71,9 +75,9 @@ const DeletePost = React.forwardRef((props, ref) => {
         onClose={handleClose}
         onEntered={handleEntered}
         text={`
-          This action can’t be undone and it will be remove everything associated to this post .
+          This action can’t be undone and it will be remove everything associated to this post
         `}
-
+  
       />
     </>
   );

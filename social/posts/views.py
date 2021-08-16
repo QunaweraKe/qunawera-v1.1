@@ -47,6 +47,8 @@ class LikesAPIView(rest_views.APIView, PaginationMixin):
             type=2,
             post=post,
         ).delete()
+
+        
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def get(self, request, pk):
@@ -100,10 +102,9 @@ class PostAPIView(rest_generics.CreateAPIView):
     """
     permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
-
     def perform_create(self, serializer):
         parent_post_id = self.request.data.get("parent_id")
-
+     
         # Create notification.
         if parent_post_id:
             parent_post = get_object_or_404(Post, id=parent_post_id)

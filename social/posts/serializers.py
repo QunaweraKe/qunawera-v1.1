@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from users.serializers import UserSerializer
 from .models import Post
-from rest_framework.parsers import FileUploadParser
+
 
 class PostParentSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)
@@ -22,7 +22,7 @@ class PostParentSerializer(serializers.ModelSerializer):
 class BasePostSerializer(serializers.ModelSerializer):
     
     image = serializers.ImageField(
-        max_length=None, use_url=True,required=False
+        use_url=True,required=False
     )   
     author = UserSerializer(read_only=True)
     body = serializers.CharField(allow_blank=False,required=True)

@@ -135,7 +135,7 @@ export const editProfile = (payload, slug) => async (dispatch) => {
     const data = await api(descriptor.editProfile(payload));
     dispatch(setProfile(data));
     dispatch(setProfileData({ data, slug }));
-    dispatch(setToast('Profile has been updated.'));
+    dispatch(setToast('Updated.'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -204,7 +204,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.logoutUser);
     dispatch(logout());
-    dispatch(setToast('You have been logged out. '));
+    dispatch(setToast('You have been logged out,Bye! '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

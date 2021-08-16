@@ -6,7 +6,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 
@@ -56,7 +55,7 @@ const Index = () => {
           <div className={classes.ctaContainer}>
 
              <div className="container">
-              <Typography className={classes.branding}
+              <Typography 
             color="primary"
 
             style={{fontWeight:"bold",fontSize:"40px"}}

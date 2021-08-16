@@ -80,7 +80,7 @@ const Login = () => {
           <CardContent>
 
             <Typography
-              className={classes.toUpper}
+        
               color="primary"
               variant="h5"
 
@@ -173,7 +173,7 @@ const Login = () => {
                 size="large"
                 onClick={(e) => { setShowLogging(!logging) }}
               >
-                {logging ? <>Sign In</> : <><span style={{color:"primary",fontWeight:"bold"}}>Signing in</span> {loading && <LinearProgressBar />}</>}
+                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>Signing in</span> {loading && <LinearProgressBar />}</>}
 
 
               </Button>

@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+import rest_framework
 
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -156,3 +157,8 @@ AUTH_USER_MODEL = "users.User"
 
 AUTHENTICATION_BACKENDS = ["social.backends.UsernameOrEmailAuth"]
 
+
+#rest_framework
+REST_FRAMEWORK={
+    'DATETIME_FORMAT':'%Y-%m-%dT%H:%M:%S',
+}

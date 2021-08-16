@@ -60,9 +60,10 @@ const Footer = () => {
         {'  '}
 
         {APP_NAME} {' ,'} LLC .All rights reserved.
-
+        Powered by Labkats
 
       </Typography>
+     
       </Container>
 
 

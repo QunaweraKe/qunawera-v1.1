@@ -1,18 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-
-// Material UI
+//material ui
 import { CardActionArea } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import { AccountCircleRounded } from '@material-ui/icons';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import Divider from '@material-ui/core/Divider';
+import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
+import Grid from '@material-ui/core/Grid';
+
 // Local
 import { route } from '../../constants';
 import {
@@ -29,10 +31,12 @@ import useStyles from './styles';
 
 
 
+
+
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
   const pluralizeShares = (length) => (length !== 1 ? 'Shares' : 'Share');
-  const pluralizeComments = (length) => (length !== 1 ? ' Comments' : 'Comment');
+  const pluralizeComments = (length) => (length !== 1 ? 'Reviews' : 'Task Review');
   const classes = useStyles();
   const history = useHistory();
 
@@ -53,8 +57,7 @@ const PostItemFeeds = ({ postId }) => {
   return (
     <div className={classes.root}>
 
-      <div className={classes.postContainer}
-        style={{  minWidth: 200, marginTop: "8px" }}>
+      <Card  square className={classes.postContainer} variant="outlined">
 
 
         <div className={classes.avatarContainer}>
@@ -91,54 +94,64 @@ const PostItemFeeds = ({ postId }) => {
             }}
           >
 
-            <MenuItem
+            <MenuItem style={{marginLeft:"4%"}}
               onClick={() => (
                 history.push(route.postDetail(post.id))
               )}
             >
-
-              <ListItemText primary="More Details" className={classes.listItemSize} />
+           <UnfoldMoreIcon/>
+              <ListItemText primary="More About Task ..." classes={{primary:classes.listItem}} />
             </MenuItem>
             
             <MenuItem
+              style={{marginLeft:"4px"}}
               onClick={() => (
                 history.push(route.profilePosts(post.author.slug))
               )}
             >
+              <AccountCircleRounded/>
 
-              <ListItemText primary="Author's Profile" className={classes.listItemSize} />
+              <ListItemText primary="View  Profile" classes={{primary:classes.listItem}}  />
 
             </MenuItem>
          
             {post.is_author
               && (
+                <>
+             
                 <DeletePost
                   setAnchorEl={setAnchorEl}
                   postId={post.id}
                   type="post"
                 />
+                </>
               )}
 
           </Menu>
           <Link to={route.postDetail(post.id)} className={classes.Link} >
           <CardActionArea classes={{focusHighlight:classes.focus}} >
           <div className={classes.text}>
-            <Box display="flex" p={1} justifyContent='flex-start'>
-              <Paper square style={{width:"100%",backgroundColor:"inherit"}}>
+
+
                 <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
                   {post.parent && <PostParent post={post.parent} />}
                 </Typography>
-                
+                <CardMedia
+          className={classes.media}
+          
+          image={post.image}
+        />
+       
                 {post.title
                   && (
                     <>
                      
-                        <Typography  className={classes.title}>
+                        <Typography  className={classes.title} color="textSecondary">
                           {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
 
                         </Typography >
 
-                     
+             
                     </>
                   )}
 
@@ -146,7 +159,7 @@ const PostItemFeeds = ({ postId }) => {
                   && (
                     <>
                      
-                        <Typography variant="body3" paragraph>
+                        <Typography variant="body3" paragraph color="textSeconday"style={{lineSpacing:"1px"}}>
                           {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
                          }
                          
@@ -156,12 +169,6 @@ const PostItemFeeds = ({ postId }) => {
                      
                     </>
                   )}
-
-              </Paper>
-             
-              
-           
-            </Box>
            
           </div>
 
@@ -169,7 +176,10 @@ const PostItemFeeds = ({ postId }) => {
           </Link>
         </div>
   
-      </div>
+      </Card>
+
+      <Grid container spacing={1}>
+      <Grid item xs={12} sm={6} >
       <div className={classes.likeContainer}>
 
 <LikePost
@@ -179,16 +189,21 @@ const PostItemFeeds = ({ postId }) => {
 />
 
 </div>
+</Grid>
+<Grid item xs={12} sm={6} >
+  <div style={{marginTop:"5%"}}>
+<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>      {post.liked.length || 0}{' '} &middot; {pluralizeLikes(post.liked.length)}</span>
 
+<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '} &middot;{pluralizeComments(post.reply_ids?.length)}</span>
+
+<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.repost_ids?.length || 0}{' '} &middot;{pluralizeShares(post.repost_ids?.length)}</span> 
+</div>
+</Grid>
+</Grid>
+</div>
 
         
-<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.liked.length || 0}{' '}{pluralizeLikes(post.liked.length)}</span>
-
-<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '}{pluralizeComments(post.reply_ids?.length)}</span>
-
-<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.repost_ids?.length || 0}{' '}{pluralizeShares(post.repost_ids?.length)}</span>     
-<Divider/>
-    </div>
+ 
   );
 };
 

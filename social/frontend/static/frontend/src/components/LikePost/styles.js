@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   likeText:{
     fontFamily:"monospace",
   display:"flex",
-  marginLeft:"3%",
+  marginLeft:"1%",
   fontWeight:"bold",
     fontSize:11,
   

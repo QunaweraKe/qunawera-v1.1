@@ -16,7 +16,7 @@ import CircularProgress from '../CircularProgress';
 
 import useUI from '../../hooks/useUI';
 
-import { editProfile, editUser,key, selectUser } from '../../redux/user';
+import { editProfile, key, selectUser } from '../../redux/user';
 
 import useStyles from './styles';
 
@@ -54,7 +54,7 @@ const EditProfile = () => {
   const handleSubmit = async () => {
   
     await dispatch(editProfile(formData, user.slug));
-    dispatch(editUser(formData));
+   
     handleClose();
   };
 
@@ -67,7 +67,7 @@ const EditProfile = () => {
         size="small"
           style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
       >
-        Update Profile <InfoIcon/>
+        Update <InfoIcon/>
       </Button>
       <Dialog
         open={dialogOpen}

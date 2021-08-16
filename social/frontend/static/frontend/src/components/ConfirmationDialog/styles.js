@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     marginBottom: theme.spacing(2),
-    marginLeft:theme.spacing(1),
-    fontWeight:"bold"
+    marginLeft:theme.spacing(2),
+  
   },
   title: {
     marginBottom: theme.spacing(2),

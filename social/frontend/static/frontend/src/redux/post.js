@@ -239,7 +239,7 @@ export const createPost = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.createPost(payload));
     dispatch(setPost(data));
-    dispatch(setToast('New task listed '));
+    dispatch(setToast('New task added,wait as we moderate the listing '));
   } catch (error) {
     dispatch(setToast('An error occurred while trying to post', 'error'));
     console.error(error);
@@ -258,7 +258,7 @@ export const createReply = (author, body, parentId) => async (dispatch) => {
       parent_id: parentId,
     }));
     dispatch(setReply(data));
-    dispatch(setToast('Comment sent'));
+    dispatch(setToast('Review  sent'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -440,7 +440,7 @@ export const removeReply = (postId, parentId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removePost(postId));
     dispatch(unsetReply({ postId, parentId }));
-    dispatch(setToast('Comment Removed'));
+    dispatch(setToast('Review Removed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

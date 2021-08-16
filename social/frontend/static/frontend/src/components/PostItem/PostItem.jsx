@@ -3,13 +3,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Collapse from '@material-ui/core/Collapse';
 import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import ChatBubbleRoundedIcon from '@material-ui/icons/ChatBubbleRounded';
+import RateReviewOutlinedIcon  from '@material-ui/icons/RateReviewOutlined';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -44,7 +43,6 @@ import useStyles from './styles';
 
 const PostItem = ({ expandReplies, postId }) => {
 
-  const pluralizeOther = (length) => (length !== 1 ? 'comments' : 'comment');
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -189,40 +187,13 @@ const PostItem = ({ expandReplies, postId }) => {
 
       </div>
 
-
-
-      <Grid item xs={12} sm={6}>
-        <IconButton className={classes.pluralize}
-          onClick={handleReplies}>
-          {post.reply_ids?.length || 0}{' '}{pluralizeOther(post.reply_ids?.length)}
-        </IconButton>
-      </Grid >
       <Divider light />
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
       >
 
-        <div >
-
-          <IconButton
-            className={classes.replies}
-            disabled={loading}
-            onClick={() => (
-              history.push(route.postDetail(post.id))
-            )}
-          >
-
-
-
-            <ChatBubbleRoundedIcon />
-
-
-
-            {loading && <CircularProgress />}
-          </IconButton>
-
-        </div>
+        
         <div className={classes.likeContainer}>
 
           <LikePost
@@ -232,11 +203,31 @@ const PostItem = ({ expandReplies, postId }) => {
           />
 
         </div>
+       
         <div>
           <Repost postId={postId} />
         </div>
 
+        <div >
 
+<IconButton
+  className={classes.replies}
+  disabled={loading}
+  onClick={handleReplies}
+  
+  
+>
+
+
+
+  <RateReviewOutlinedIcon  />
+
+
+
+  {loading && <CircularProgress />}
+</IconButton>
+
+</div>
       </CardActions>
 
       {expanded && !loading
@@ -254,7 +245,8 @@ const PostItem = ({ expandReplies, postId }) => {
               <CardHeader
 
                 className={classes.replyHeader}
-                title="All Comments"
+                title="All Reviews"
+                
                 titleTypographyProps={{
                   className: classes.title,
                   variant: 'subtitle1',
@@ -262,8 +254,8 @@ const PostItem = ({ expandReplies, postId }) => {
 
                 }}
               />
-
-
+            
+          
 
               <NextButton
                 callback={handleNext}
@@ -280,7 +272,7 @@ const PostItem = ({ expandReplies, postId }) => {
             </CardContent>
           </Collapse>
         )}
-      <Divider light classes={{ root: classes.divider }} style={{ height: "5px" }} />
+      <Divider light classes={{ root: classes.divider }} style={{ height: "3px" }} />
     </div>
   );
 };

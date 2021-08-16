@@ -90,11 +90,12 @@ const SettingsAccount = () => {
         color="primary"
         disabled={loading}
         type="submit"
-        variant="contained"
+        variant="outlined"
       >
-        Save
+        Update
         {loading && <CircularProgress />}
       </Button>
+    
     </form>
   );
 };

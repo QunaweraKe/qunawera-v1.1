@@ -16,36 +16,16 @@ class ProfileSerializer(serializers.ModelSerializer):
         ]
 
 
-class ValidateAgeMixin:
-    def validate(self, data):
-            age_gap = data.get("age")
-            if age_gap < 18:
-                raise serializers.ValidationError(
-                    {
-                        "age": "You must be atleast 18 years old to have an account",
-                    }
-                )   
-            return self.data
+
+  
 
 
     
 
     
 
-class UserSerializer(ValidateAgeMixin, serializers.ModelSerializer):
-    
-    '''
-    def validate(self, data):
-        username = data.get("username")
-        
-        if '@' in username or '-' in username or '/' in username or '&' in username :
-             raise serializers.ValidationError(
-                {
-                    "username": "Character cannot be used as a username",
-                }
-            )
-        return data
-'''
+class UserSerializer( serializers.ModelSerializer):
+   
    
     def validate(self, data):
         password = data.get("password")
@@ -57,19 +37,6 @@ class UserSerializer(ValidateAgeMixin, serializers.ModelSerializer):
                 }
             )
                          
-        if not any (char.isdigit() for char in password):
-               raise serializers.ValidationError(
-                   {
-                       "password": "Include numbers in your password",
-                   }
-               )
-           
-        if len(password) < 8:
-            raise serializers.ValidationError(
-                {
-                    "password": "Password must be atleast 8 characters long",
-                }
-            )   
         return data
   
     display_name = serializers.SerializerMethodField(read_only=True)
@@ -79,12 +46,12 @@ class UserSerializer(ValidateAgeMixin, serializers.ModelSerializer):
     password2 = serializers.CharField(write_only=True)
     profile = ProfileSerializer(read_only=True)
     slug = serializers.SlugField(read_only=True)
-    age=serializers.IntegerField(required=True)
+    # age=serializers.DateField(required=True,format='%Y-%m-%dT%H:%M:%S')
     username=serializers.CharField(required=True)
     class Meta:
         model = User
         fields = [
-            "age",
+            #"age",
             "created_at",
             "display_name",
             "email",

@@ -82,8 +82,8 @@ const ReplyForm = ({ postId }) => {
         InputLabelProps={{style:{fontSize:13}}}
         label={
           replies.length
-            ? 'What\'s your comment?'
-            : 'Leave a comment'
+            ? 'What\'s your review?'
+            : 'Leave a review '
         }
         multiline
         onChange={handleChange}

@@ -156,8 +156,23 @@ const MobileMenu = () => {
               </div>
            
         
-         
+              <div style={{ marginLeft: '20%',marginTop:"20%" }}>
+      
+          
+      <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8em" }}>
+       {'© '}
+       {new Date().getFullYear()}
+       {'  '}
+     
+       {APP_NAME} {' ,'} LLC .All rights reserved.
+     
+     
+     </Typography>
+     
+        
+       </div>
         </List>
+        
         </CardContent>
         </Card>
       
