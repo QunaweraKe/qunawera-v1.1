@@ -31,6 +31,7 @@ const PostParent = ({ className, post }) => {
       <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
         {post.body}
       </Typography>
+      <img src={post.image} alt="null"/>
       </Link>
     </Paper>
   );

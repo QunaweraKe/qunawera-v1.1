@@ -57,7 +57,7 @@ const PostItemFeeds = ({ postId }) => {
   return (
     <div className={classes.root}>
 
-      <Card square className={classes.postContainer} variant="outlined">
+      <Card  className={classes.postContainer} variant="outlined">
 
 
         <div className={classes.avatarContainer}>
@@ -157,7 +157,7 @@ const PostItemFeeds = ({ postId }) => {
                 <CardMedia
                   className={classes.media}
 
-                  image={post.thumbnail}
+                  image={post.image}
                 />
 
                 {post.title

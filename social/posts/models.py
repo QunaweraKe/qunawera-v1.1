@@ -1,28 +1,9 @@
+
 from django.db import models
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager
 from django.template.defaultfilters import truncatechars
-from PIL import Image
-from io import BytesIO
-from django.core.files import File
 
-
-def make_thumbnail(image, size=(100, 100)):
-    """Makes thumbnails of given size from given image"""
-
-    im = Image.open(image)
-
-    im.convert('RGB') # convert mode
-
-    im.thumbnail(size,Image.ANTIALIAS) # resize image
-
-    thumb_io = BytesIO() # create a BytesIO object
-
-    im.save(thumb_io, 'JPEG', quality=250,) # save image to BytesIO object
-
-    thumbnail = File(thumb_io, name=image.name) # create a django friendly File object
-
-    return thumbnail
 class Post(SoftDeleteMixin, TimestampMixin):
   
     """
@@ -74,10 +55,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     objects = PostManager.as_manager()
     closed=models.BooleanField(default=False)
     
-    def save(self, *args, **kwargs):
-        self.thumbnail = make_thumbnail(self.image, size=(100, 100))
-
-        super().save(*args, **kwargs)
+   
     def __str__(self):
         ellipsis = "..." if len(self.body) > 60 else ""
         return f"{self.body[:100]}{ellipsis}"
@@ -100,3 +78,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     @property
     def approved(self):
         return (self.is_active)
+    @property
+    def image_url(self):
+         if self.image and hasattr (self.image,'url'):
+            return self.image.url

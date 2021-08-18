@@ -6,7 +6,7 @@ admin.site.site_header="Qunawera Admin "
 
 @admin.register(Post)
 class PostsAdmin(admin.ModelAdmin):
-    
+    readonly_fields=("liked","is_reply","author","image","thumbnail")
     list_display=("author","approved","short_title","short_body","image","created_at","closed")
     search_fields=["author"]
     list_filter=('is_active',)

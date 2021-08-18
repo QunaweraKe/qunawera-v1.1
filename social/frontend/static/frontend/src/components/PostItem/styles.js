@@ -29,8 +29,9 @@ const useStyles = makeStyles((theme) => ({
   
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: "300px",
+    width: "300px",
+
   },
   cardActionsRoot: {
     paddingTop: 0,

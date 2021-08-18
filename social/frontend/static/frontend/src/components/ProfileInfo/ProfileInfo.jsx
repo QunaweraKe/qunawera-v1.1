@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 
 // Material UI
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';

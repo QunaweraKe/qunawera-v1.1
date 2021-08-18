@@ -181,7 +181,7 @@ const PostItem = ({ expandReplies, postId }) => {
                  <CardMedia
                   className={classes.media}
 
-                  image={post.thumbnail}
+                  image={post.image}
                 />
 
                 
@@ -262,7 +262,7 @@ const PostItem = ({ expandReplies, postId }) => {
               <CardHeader
 
                 className={classes.replyHeader}
-                title="All Reviews"
+                title="Post Reviews"
                 
                 titleTypographyProps={{
                   className: classes.title,

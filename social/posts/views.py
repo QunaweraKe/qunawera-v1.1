@@ -131,7 +131,13 @@ class PostDetailAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         post.is_active = False
         post.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
+    def post(self, request, pk):
+        """ close post """
+        r_user = self.request.user
+        post = get_object_or_404(Post, author=r_user, pk=pk, is_active=True,closed=False)
+        post.closed = True
+        post.save()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     def get_queryset(self):
         return Post.objects.filter(pk=self.kwargs.get("pk")).active()
 

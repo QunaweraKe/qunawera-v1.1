@@ -47,8 +47,8 @@ const useStyles = makeStyles((theme) => ({
 
   postAction: {
     position: 'absolute',
-    right: theme.spacing(0.5),
-    top: theme.spacing(0.5),
+    right: theme.spacing(2),
+    top: theme.spacing(1),
   
    
   },
@@ -56,9 +56,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     padding: theme.spacing(1),
     margin: 'auto',
-    width: "90%",
     marginTop: theme.spacing(5),
-    marginLeft: theme.spacing(2),
+   
    
   },
 
@@ -103,7 +102,7 @@ width:"2px"
 
 },
   root: {
-    ...theme.custom.borders,
+  
     backgroundColor:theme.palette.grey[50],
     position: 'relative',
     flexGrow: 1,

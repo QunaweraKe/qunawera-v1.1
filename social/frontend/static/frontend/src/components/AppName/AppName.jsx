@@ -2,15 +2,14 @@ import React from 'react';
 
 //MATERIAL UI
 import Typography from '@material-ui/core/Typography';
-//local
-import './index.css';
+
 
 const AppName=() =>{
    
     return(
       <>
       <div className="font_type">
-      <Typography variant="h5"  style={{fontSize:"25px"}}>Qunawera</Typography>
+      <Typography variant="h5"  style={{fontSize:"25px",fontWeight:"bolder"}}>Qunawera</Typography>
       </div>
       </>
     );
@@ -18,4 +17,4 @@ const AppName=() =>{
     };
     
     export default AppName ;
-    //TODO:FONTS NOT REFLECTING **HINT:CHECK ON PARCEL 
+  

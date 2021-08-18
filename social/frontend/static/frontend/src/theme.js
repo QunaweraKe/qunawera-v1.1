@@ -33,6 +33,7 @@ const theme = createMuiTheme({
   typography:{
   fontFamily:"Arial",
   htmlFontSize:15,
+  fontSize:15,
   },
 
 
@@ -59,14 +60,11 @@ const theme = createMuiTheme({
 theme.custom = {
   border: {
     color: theme.palette.grey[50],
-    style: 'solid',
-    borderWidth:"3px"
+    style: 'none',
+    
   },
   borders: {
     borderColor: theme.palette.grey[50],
-    borderStyle: 'solid',
-    borderBottomWidth:"2px"
-    
 
   },
 };
