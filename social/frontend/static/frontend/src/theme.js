@@ -30,6 +30,9 @@ const theme = createMuiTheme({
 
     tonalOffset: 0.6,
   },
+  typography:{
+  fontFamily:"monospace"
+  },
 
   props: {
     MuiAccordion: {
@@ -59,7 +62,8 @@ theme.custom = {
   },
   borders: {
     borderColor: theme.palette.grey[50],
-    borderStyle: 'none',
+    borderStyle: 'solid',
+    borderBottomWidth:"2px"
     
 
   },

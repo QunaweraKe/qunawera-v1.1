@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
 
-  
+ 
   
   listItem:{
     linespacing:"1px",
@@ -49,13 +49,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     right: theme.spacing(0.5),
     top: theme.spacing(0.5),
+  
+   
   },
   postContainer: {
     display: 'flex',
     padding: theme.spacing(1),
     margin: 'auto',
-    width: "100%",
-    marginTop: theme.spacing(3),
+    width: "85%",
+    marginTop: theme.spacing(5),
    
   },
 
@@ -74,7 +76,7 @@ fontWeight:"bolder"
   fontSize:"14px",
   },
 postBody: {
-marginTop:0,
+marginTop:1,
 marginBottom:2,
 padding: theme.spacing(2, 2, 0.5, 2),
 },
@@ -86,6 +88,7 @@ Link:{
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+    marginRight:theme.spacing(3)
   },
 title:{
   fontweight: "bolder" ,

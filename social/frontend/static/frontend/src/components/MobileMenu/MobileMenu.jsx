@@ -1,34 +1,35 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-
 // Material UI
 import Badge from '@material-ui/core/Badge';
-import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import CancelIcon from '@material-ui/icons/Cancel';
 import ListIcon from '@material-ui/icons/List';
+import MenuIcon from '@material-ui/icons/Menu';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import Divider from '@material-ui/core/Divider';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-// Local
-import Avatar from '../Avatar';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { APP_NAME, route } from '../../constants';
-import LogOut from '../LogOut';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
-import {  selectUser } from '../../redux/user';
-
+import { selectUser } from '../../redux/user';
+// Local
+import PageTitle from '../PageTitle';
+import Avatar from '../Avatar';
+import LogOut from '../LogOut';
 import useStyles from './styles';
+
+
 
 const MobileMenu = () => {
   const classes = useStyles();
@@ -47,6 +48,7 @@ const MobileMenu = () => {
 
   return (
     <>
+    
       <IconButton
        className={classes.buttonAvatar}
 
@@ -64,7 +66,7 @@ const MobileMenu = () => {
        
       >
         <div className={classes.titleContainer}>
-      
+        <PageTitle title="mobile" />
           <IconButton
             color="primary"
             onClick={handleToggleDrawer}

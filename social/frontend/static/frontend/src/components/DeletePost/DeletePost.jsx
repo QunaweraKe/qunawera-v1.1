@@ -3,10 +3,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import RemoveCircleRoundedIcon from '@material-ui/icons/RemoveCircleRounded';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import {red }from '@material-ui/core/colors/red';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
@@ -56,12 +57,15 @@ const DeletePost = React.forwardRef((props, ref) => {
         onClick={handleOpen}
         ref={ref}
       > 
-         <RemoveCircleRoundedIcon style={{color:"red"}}/>
+      <ListItemIcon>
+      <DeleteOutlineIcon style={{color:"red"}}/>
+         </ListItemIcon>
+         
 
         <ListItemText
-          primary="Remove this item"
+          primary="Remove"
           primaryTypographyProps={{
-            color:'error',
+            
           }}
           classes={{primary:classes.listItem}}
         />

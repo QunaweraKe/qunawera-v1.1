@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
 import TextField from '@material-ui/core/TextField';
-import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -150,7 +149,7 @@ const DialogPostForm = () => {
             error={Boolean(errors.title)}
             autoComplete="off"
           
-            fullWidthS
+            fullWidth
             id="title"
             label="Task title"
             name="title"
@@ -159,7 +158,7 @@ const DialogPostForm = () => {
             value={title}
             variant="filled"
             
-            helperText="Indicate the job name i.e baby sitter"
+            helperText="Indicate the job title i.e baby sitter"
 
           />
           <TextField

@@ -108,7 +108,10 @@ export const descriptor = {
     method: 'delete',
     url: `/api/posts/${postId}/`,
   }),
-
+  closePost: (postId) => ({
+    method: 'post',
+    url: `/api/posts/${postId}/`,
+  }),
   //
   // User descriptors
   //

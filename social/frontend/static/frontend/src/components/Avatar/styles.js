@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     },
    
   },
+  avatar:{
+    boxShadow:theme.shadows[3],
+  },
 }));
 
 export default useStyles;

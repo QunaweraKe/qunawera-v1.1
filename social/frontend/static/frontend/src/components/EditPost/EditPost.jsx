@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -13,27 +14,17 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core';
+
 
 
 // Local
 import CircularProgress from '../CircularProgress';
 import DialogCloseButton from '../DialogCloseButton';
 import useUI from '../../hooks/useUI';
-
+import useStyles from './styles';
 import { editPost, key, selectPost } from '../../redux/post';
 
 
-const useStyles = makeStyles((theme) =>  ({
-  inputContainer: {
-    flexGrow: 1,
-    
-  },
-  margin: {
-    marginTop:theme.spacing(5),
-  
-  },
-}));
 
 
 const EditPost = React.forwardRef((props, ref) => {
@@ -83,9 +74,10 @@ const EditPost = React.forwardRef((props, ref) => {
         ref={ref}
       >
         <ListItemIcon>
-         
+         <BorderColorIcon/>
         </ListItemIcon>
-        <ListItemText primary="Edit Post" style={{color:"primary"}}/>
+        <ListItemText primary="Edit Post" 
+         classes={{primary:classes.listItem}}/>
       </MenuItem>
       <Dialog
         open={dialogOpen}

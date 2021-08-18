@@ -1,3 +1,10 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+//Material UI
+import CardMedia from '@material-ui/core/CardMedia';
+import { AccountCircleRounded } from '@material-ui/icons';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -10,10 +17,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import RateReviewOutlinedIcon  from '@material-ui/icons/RateReviewOutlined';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import CardTitle from '@material-ui/core/Card';
+
+
+// Local
 import { route } from '../../constants';
 import useUI from '../../hooks/useUI';
 import {
@@ -22,7 +30,6 @@ import {
   selectPost,
   selectReplies
 } from '../../redux/post';
-// Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import DeletePost from '../DeletePost';
@@ -135,8 +142,10 @@ const PostItem = ({ expandReplies, postId }) => {
                 history.push(route.profilePosts(post.author.slug))
               )}
             >
-
-              <ListItemText primary="Author's Profile" className={classes.listItemSize} />
+             <ListItemIcon>
+              <AccountCircleRounded />
+        </ListItemIcon>
+              <ListItemText primary="Author's Profile" classes={{ primary: classes.listItem }}  />
 
             </MenuItem>
         
@@ -169,6 +178,14 @@ const PostItem = ({ expandReplies, postId }) => {
                      
                     </>
                   )}
+                 <CardMedia
+                  className={classes.media}
+
+                  image={post.thumbnail}
+                />
+
+                
+                
               {post.body
                 && (
                   <>

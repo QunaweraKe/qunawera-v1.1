@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // Material UI
 import Button from '@material-ui/core/Button';
-import InfoIcon from '@material-ui/icons/Info';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -67,7 +66,7 @@ const EditProfile = () => {
         size="small"
           style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
       >
-        Update <InfoIcon/>
+        Edit
       </Button>
       <Dialog
         open={dialogOpen}

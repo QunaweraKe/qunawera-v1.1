@@ -7,7 +7,6 @@ import MuiAvatar from '@material-ui/core/Avatar';
 
 // Local
 import { route } from '../../constants';
-
 import useStyles from './styles';
 
 
@@ -33,6 +32,7 @@ const Avatar = ({
         to={route.profilePosts(user.slug)}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
+        style={{ boxShadow: '1px  rgba(0,0,0,.2)'}}
       />
     
     ) : (

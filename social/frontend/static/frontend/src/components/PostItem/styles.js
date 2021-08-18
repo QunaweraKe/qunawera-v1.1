@@ -22,9 +22,15 @@ const useStyles = makeStyles((theme) => ({
   color:theme.palette.primary.main,
   },
   
-  listItemSize:{
-
-    color:theme.palette.textSecondary,
+  listItem:{
+    linespacing:"1px",
+    fontSize:15,
+    marginLeft:"2%"
+  
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
   },
   cardActionsRoot: {
     paddingTop: 0,

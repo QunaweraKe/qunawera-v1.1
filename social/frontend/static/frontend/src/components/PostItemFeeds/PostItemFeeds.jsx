@@ -14,7 +14,7 @@ import { AccountCircleRounded } from '@material-ui/icons';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
 import Grid from '@material-ui/core/Grid';
-
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 // Local
 import { route } from '../../constants';
 import {
@@ -57,7 +57,7 @@ const PostItemFeeds = ({ postId }) => {
   return (
     <div className={classes.root}>
 
-      <Card  square className={classes.postContainer} variant="outlined">
+      <Card square className={classes.postContainer} variant="outlined">
 
 
         <div className={classes.avatarContainer}>
@@ -70,18 +70,18 @@ const PostItemFeeds = ({ postId }) => {
 
           <PostHeader post={post} />
           <Typography>
-      
-      {post.is_active 
-                ? (
-                  <div className={classes.status} style={{color:"green"}} >
-                    status&middot;active
-                    </div>
-                ) : (
-                  <div className={classes.status} style={{color:"red"}}>
-                     status&middot;not active
-                    </div>
-                )}
-                </Typography>
+
+            {post.is_active
+              ? (
+                <div className={classes.status} style={{ color: "green" }} >
+                  status(approved)
+                </div>
+              ) : (
+                <div className={classes.status} style={{ color: "red" }}>
+                  status(not approved)
+                </div>
+              )}
+          </Typography>
 
           <IconButton
             className={classes.postAction}
@@ -96,7 +96,7 @@ const PostItemFeeds = ({ postId }) => {
               vertical: 'bottom',
 
             }}
-            
+
             getContentAnchorEl={null}
             keepMounted
             open={Boolean(anchorEl)}
@@ -107,116 +107,136 @@ const PostItemFeeds = ({ postId }) => {
             }}
           >
 
-            <MenuItem 
+            <MenuItem
               onClick={() => (
                 history.push(route.postDetail(post.id))
               )}
             >
-           <UnfoldMoreIcon/>
-              <ListItemText primary="More About Task " classes={{primary:classes.listItem}} />
+                <ListItemIcon>
+                <UnfoldMoreIcon />
+        </ListItemIcon>
+              
+              <ListItemText primary="More About Task " classes={{ primary: classes.listItem }} />
             </MenuItem>
-            
+
             <MenuItem
-           
+
               onClick={() => (
                 history.push(route.profilePosts(post.author.slug))
               )}
             >
-              <AccountCircleRounded/>
-
-              <ListItemText primary="View  Profile" classes={{primary:classes.listItem}}  />
+              
+              <ListItemIcon>
+              <AccountCircleRounded />
+        </ListItemIcon>
+              <ListItemText primary="View  Profile" classes={{ primary: classes.listItem }} />
 
             </MenuItem>
-         
+
             {post.is_author
               && (
                 <>
-             
-                <DeletePost
-                  setAnchorEl={setAnchorEl}
-                  postId={post.id}
-                  type="post"
-                />
+
+                  <DeletePost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
+                    type="post"
+                  />
                 </>
               )}
 
           </Menu>
           <Link to={route.postDetail(post.id)} className={classes.Link} >
-          <CardActionArea classes={{focusHighlight:classes.focus}} >
-          <div className={classes.text}>
+            <CardActionArea classes={{ focusHighlight: classes.focus }} >
+              <div className={classes.text}>
 
 
                 <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
                   {post.parent && <PostParent post={post.parent} />}
                 </Typography>
                 <CardMedia
-          className={classes.media}
-          
-          image={post.image}
-        />
-       
+                  className={classes.media}
+
+                  image={post.thumbnail}
+                />
+
                 {post.title
                   && (
                     <>
-                     
-                        <Typography  className={classes.title} color="textSecondary">
-                          {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
 
-                        </Typography >
+                      <Typography className={classes.title} color="textSecondary">
+                        {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
 
-             
+                      </Typography >
+
+
                     </>
                   )}
 
                 {post.body
                   && (
                     <>
-                     
-                        <Typography variant="body3" paragraph color="textSeconday"style={{lineSpacing:"1px"}}>
-                          {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
-                         }
-                         
 
-                        </Typography >
+                      <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
+                        {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
+                        }
 
-                     
+
+                      </Typography >
+
+
                     </>
                   )}
-           
-          </div>
 
-          </CardActionArea>
+              </div>
+
+            </CardActionArea>
           </Link>
         </div>
-  
+
       </Card>
 
       <Grid container spacing={1}>
-      <Grid item xs={12} sm={6} >
-      <div className={classes.likeContainer}>
+        <Grid item xs={12} sm={6} >
+          <div className={classes.likeContainer}>
 
-<LikePost
-  postId={post.id}
-  size="default"
-  type="post"
-/>
+            <LikePost
+              postId={post.id}
+              size="default"
+              type="post"
+            />
 
-</div>
-</Grid>
-<Grid item xs={12} sm={6} >
-  <div style={{marginTop:"5%"}}>
-<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>      {post.liked.length || 0}{' '} &middot; {pluralizeLikes(post.liked.length)}</span>
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={6} >
+          <div style={{ marginTop: "5%" }} >
+            <span style={{
+              fontWeight: "bold",
+              fontSize: "11px",
+              marginLeft: "2%",
+              fontFamily: "monospace"
+            }} >      {post.liked.length || 0}{' '} &middot; {pluralizeLikes(post.liked.length)}</span>
 
-<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.reply_ids?.length || 0}{' '} &middot;{pluralizeComments(post.reply_ids?.length)}</span>
+            <span style={{
+              fontWeight: "bold",
+              fontSize: "11px",
+              marginLeft: "2%",
+              fontFamily: "monospace",
+            }}>         {post.reply_ids?.length || 0}{' '} &middot;{pluralizeComments(post.reply_ids?.length)}</span>
 
-<span style={{fontWeight:"bold",fontSize:"11px",marginLeft:"2%"}}>         {post.repost_ids?.length || 0}{' '} &middot;{pluralizeShares(post.repost_ids?.length)}</span> 
-</div>
-</Grid>
-</Grid>
-</div>
+            <span style={{
+              fontWeight: "bold",
+              fontSize: "11px",
+              marginLeft: "2%",
+              fontFamily: "monospace",
+            }}>         {post.repost_ids?.length || 0}{' '} &middot;{pluralizeShares(post.repost_ids?.length)}</span>
+          </div>
+        </Grid>
+      </Grid>
+    </div>
 
-        
- 
+
+
   );
 };
 

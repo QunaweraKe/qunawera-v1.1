@@ -21,9 +21,7 @@ class PostParentSerializer(serializers.ModelSerializer):
 
 class BasePostSerializer(serializers.ModelSerializer):
     
-    image = serializers.ImageField(
-        use_url=True,required=False
-    )   
+
     author = UserSerializer(read_only=True)
     body = serializers.CharField(allow_blank=False,required=True)
     title = serializers.CharField(allow_blank=True,required=False)
@@ -48,6 +46,7 @@ class BasePostSerializer(serializers.ModelSerializer):
             "parent",
             "parent_id",
             "image",
+            "thumbnail",
             "title",
             "closed"
             

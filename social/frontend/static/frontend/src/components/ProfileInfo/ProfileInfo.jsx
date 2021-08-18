@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 // Material UI
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +15,7 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import LinkIcon from '@material-ui/icons/Link';
 import LocationIcon from '@material-ui/icons/LocationOnOutlined';
 import Divider from '@material-ui/core/Divider';
+import InfoIcon from '@material-ui/icons/Info';
 // Local
 import TextLink from '../TextLink';
 import { route } from '../../constants';
@@ -35,13 +37,17 @@ const ProfileInfo = ({ loading, profileUser }) => {
     const image = event.target.files[0];
     const formData = new FormData();
     formData.append(field, image, image.name);
+    
     dispatch(editProfile(formData, user.slug));
+    console.log(formData)
   };
  const removeImage = () => {
-  imageRef.current.click(none);
+  imageRef.current.useRef(null);
+ 
  };
   const handleEditAvatar = () => {
     imageRef.current.click();
+   
   };
 
   const handleEditBanner = () => {
@@ -76,6 +82,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
             <div className={classes.avatar}>
               {user.slug === profileUser.slug && (
                 <>
+             
                   <input
                     hidden="hidden"
                     onChange={(event) => handleChange(event, 'image')}
@@ -93,6 +100,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 </>
               )}
             </div>
+            
             <div className={classes.followButton}>
               {user.slug !== profileUser.slug
                 ? (
@@ -105,7 +113,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 )}
             </div>
           </div>
-         
+          <Link href={profileUser.profile.image} style={{textDecoration:"underline",marginLeft:"5%"}}>
+                    View full image
+                  </Link>
           <div className={classes.infoContainer}>
           <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
           <Typography variant="h6"
@@ -117,19 +127,19 @@ const ProfileInfo = ({ loading, profileUser }) => {
 
             <Typography variant="h6"
              style={{ fontFamily:"monospace"}}>
-            <span style={{ fontWeight: "bolder" }}>Profile</span>
+            <span style={{ fontWeight: "bolder" }}>Profile info<InfoIcon/></span>
             </Typography>
             <Paper square elevation={1} style={{ marginLeft: "2px" }}>
             <Typography variant="h7"
              style={{ fontFamily:"monospace"}}>
-            Username {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
+            Username &middot; {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
             </Typography>
           
             </Paper>
             <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
           <Typography variant="h7"
            style={{ fontFamily:"monospace"}}>
-             Age {profileUser.age}yrs
+             Age  &middot;{profileUser.age}yrs
             
             </Typography>
             </Paper>
