@@ -31,8 +31,10 @@ const theme = createMuiTheme({
     tonalOffset: 0.6,
   },
   typography:{
-  fontFamily:"monospace"
+  fontFamily:"Arial",
+  htmlFontSize:15,
   },
+
 
   props: {
     MuiAccordion: {
