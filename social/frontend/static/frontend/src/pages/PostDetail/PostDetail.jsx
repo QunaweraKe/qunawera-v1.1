@@ -62,7 +62,7 @@ const PostDetail = () => {
               variant="h6"
               style={{fontWeight:"bolder"}}
             >
-              Post Details
+             Details
             </Typography>
           </div>
         </Heading>
