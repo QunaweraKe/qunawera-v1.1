@@ -39,7 +39,7 @@ const FollowButton = ({ className, user, size }) => {
       disabled={loading}
       edge="end"
       onClick={handleFollow}
-      size="large"
+      size="small"
       variant="outlined"
       style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
     >

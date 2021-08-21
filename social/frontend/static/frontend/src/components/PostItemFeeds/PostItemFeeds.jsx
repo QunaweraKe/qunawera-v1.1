@@ -27,6 +27,7 @@ import LikePost from '../LikePost';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
 import useStyles from './styles';
+import ClosePost from '../ClosePost';
 
 
 
@@ -145,7 +146,17 @@ const PostItemFeeds = ({ postId }) => {
                   />
                 </>
               )}
+ {post.is_author
+              && (
+                <>
 
+                  <ClosePost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
+                    type="post"
+                  />
+                </>
+              )}
           </Menu>
           <Link to={route.postDetail(post.id)} className={classes.Link} >
             <CardActionArea classes={{ focusHighlight: classes.focus }} >

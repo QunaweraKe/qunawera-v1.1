@@ -48,7 +48,7 @@ const ProfilePosts = () => {
 
   return (
     <>
-      <PageTitle title={profileUser.display_name || slug} />
+      <PageTitle title={profileUser.display_name  || slug} />
 
       <AuthLayout>
         <Heading>

@@ -11,6 +11,7 @@ urlpatterns = [
     path("<int:pk>/likes/", views.LikesAPIView.as_view(), name="likes"),
     path("<int:pk>/replies/", views.PostRepliesAPIView.as_view(), name="replies"),
     path("feed/", views.FeedAPIView.as_view(), name="feed"),
+    path("close/<int:pk>/", views.PostCloseAPIView.as_view(), name="post_close"),
     path(
         "profile/<str:slug>/likes/",
         views.ProfileLikesAPIView.as_view(),

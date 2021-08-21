@@ -57,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     margin: 'auto',
     marginTop: theme.spacing(5),
-   
+    width:"100%",
+    
    
   },
 
@@ -88,7 +89,8 @@ Link:{
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
-    marginRight:theme.spacing(1)
+    marginRight:theme.spacing(6),
+    width:"100%"
   },
 title:{
   fontweight: "bolder" ,

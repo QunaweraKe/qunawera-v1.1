@@ -26,6 +26,7 @@ export const key = {
   profilePosts: (slug) => `profilePosts_${slug}`,
   profilePostsNext: (slug) => `profilePostsNext_${slug}`,
   removePost: 'removePost',
+  closePost: 'closePost',
   replies: (postId) => `replies_${postId}`,
   repliesNext: (postId) => `repliesNext_${postId}`,
   reply: (parentId) => `reply_${parentId}`,
@@ -427,6 +428,20 @@ export const removePost = (postId, slug) => async (dispatch) => {
     await api(descriptor.removePost(postId));
     dispatch(unsetPost({ postId, slug }));
     dispatch(setToast('Post Removed'));
+  } catch (error) {
+    dispatch(setToast('Something went wrong', 'error'));
+    console.error(error);
+  } finally {
+    dispatch(unsetLoading(NAMESPACE, thisKey));
+  }
+};
+export const closePost = (postId, slug) => async (dispatch) => {
+  const thisKey = key.closePost;
+  try {
+    dispatch(setLoading(NAMESPACE, thisKey));
+    await api(descriptor.closePost(postId));
+    dispatch(unsetPost({ postId, slug }));
+    dispatch(setToast('Task closed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
