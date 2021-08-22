@@ -3,10 +3,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
-import {red }from '@material-ui/core/colors/red';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
@@ -54,7 +53,7 @@ const ClosePost = React.forwardRef((props, ref) => {
         ref={ref}
       > 
       <ListItemIcon>
-      <DeleteOutlineIcon style={{color:"red"}}/>
+      < HighlightOffIcon />
          </ListItemIcon>
          
 
@@ -67,7 +66,7 @@ const ClosePost = React.forwardRef((props, ref) => {
         />
       </MenuItem>
       <ConfirmationDialog
-        buttontext="Agree"
+        buttontext="Yes"
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}
@@ -75,7 +74,7 @@ const ClosePost = React.forwardRef((props, ref) => {
         onClose={handleClose}
         onEntered={handleEntered}
         text={`
-          This action can’t be undone and it will be remove everything associated to this post
+        Closing on a task marks it as done.It will not be available to other users.
         `}
   
       />

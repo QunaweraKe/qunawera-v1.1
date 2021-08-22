@@ -52,10 +52,10 @@ const RecommendedUsers = () => {
       rendered = (
         <NoData>
              <Typography
-                paragraph
-                variant="h6"
-                color="primary"
-                style={{fontWeight:"bolder"}}
+                 paragraph
+                 variant="subtitle1"
+                 color="primary"
+                 style={{fontFamily:"monospace",fontWeight:"bold"}}
               >
                 You don&apos;t have any recommended users right now
               </Typography>

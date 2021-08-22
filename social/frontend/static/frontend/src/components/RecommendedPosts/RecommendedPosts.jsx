@@ -113,14 +113,37 @@ const RecommendedPosts = () => {
       );
     } else {
       rendered = (
+        <>
+     
         <Typography
-          className={classes.noPosts}
-          color="textSecondary"
-          variant="body2"
-          justify="center"
+      paragraph
+      color="textSecondary"
+      align="center"
+      style={{fontFamily:"monospace",fontSize:"12px"}}
+      gutterbottom
+        
+      >
+        You don&apos;t have any recommended posts at the moment.
+      </Typography>
+      <Typography
+        paragraph
+     
+        color="textSecondary"
+        align="center"
+  
+        style={{fontFamily:"monospace",fontSize:"12px"}}
+        gutterbottom
+        
+      >
+     Refresh later.
+      </Typography>
+      <Typography
+          className={classes.noUsers}
         >
-       <NotAvailable style={{width:"60%",height:"60%"}}/>
+           <NotAvailable style={{width:"60%",height:"60%"}}/>
         </Typography>
+      </>
+      
       );
     }
     return rendered;

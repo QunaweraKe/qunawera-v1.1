@@ -58,9 +58,10 @@ const RecommendedPosts = () => {
             <NoData>
               <Typography
                 paragraph
-                variant="h6"
+                variant="subtitle1"
                 color="primary"
-                style={{fontWeight:"bolder"}}
+                style={{fontFamily:"monospace",fontWeight:"bold"}}
+                
               >
                 You don&apos;t have any recommended posts
               </Typography>

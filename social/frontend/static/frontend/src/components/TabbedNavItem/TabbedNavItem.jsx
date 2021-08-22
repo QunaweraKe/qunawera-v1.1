@@ -13,6 +13,7 @@ const TabbedNavItem = ({ active, children, to }) => {
 
   return (
     <Button
+      style={{fontSize:"bolder",}}
       className={classes.root}
       color="primary"
       component={Link}

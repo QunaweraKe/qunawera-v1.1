@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       ? theme.palette.primary.main
       : theme.palette.text.primary),
     display: 'flex',
-    flexGrow: 1,
+    flexGrow: 3,
     justifyContent: 'center',
     padding: theme.spacing(1, 2),
     transitionDuration: theme.transitions.duration.short,

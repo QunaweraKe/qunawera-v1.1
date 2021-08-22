@@ -32,6 +32,10 @@ class Post(SoftDeleteMixin, TimestampMixin):
         blank=True,
         max_length=1500,
     )
+    update_at=models.DateTimeField(
+        auto_now=True,
+        db_index=True,
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,

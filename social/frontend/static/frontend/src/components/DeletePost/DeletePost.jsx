@@ -71,7 +71,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         />
       </MenuItem>
       <ConfirmationDialog
-        buttontext="Agree"
+        buttontext="Yes,Remove"
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}

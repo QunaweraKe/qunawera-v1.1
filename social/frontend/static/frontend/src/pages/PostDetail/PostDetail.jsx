@@ -44,7 +44,7 @@ const PostDetail = () => {
         />
       );
     } else {
-      renderedPost = 'Post does not exist';
+      renderedPost = <div style={{align:"center",fontFamily:'monospace',fontSize:"12px"}}>Post does not exist.Contact support</div>;
     }
     return renderedPost;
   };

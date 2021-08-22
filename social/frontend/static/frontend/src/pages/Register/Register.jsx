@@ -185,7 +185,7 @@ const Register = () => {
                 fullWidth
                 helperText={errors.password2}
                 id="password2"
-                label="Repeat password"
+                label="Repeat Password"
                 name="password2"
                 onChange={handleChange}
                 type="password"

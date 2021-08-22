@@ -54,10 +54,11 @@ const PostLikes = () => {
         <NoData>
           <Typography
             paragraph
-            variant="h6"
+            variant="subtitle1"
             color="primary"
+            style={{fontFamily:"monospace",fontWeight:"bold"}}
           >
-           Post has no likes
+           Post has no likes yet
           </Typography>
          
         </NoData>

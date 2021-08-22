@@ -44,11 +44,11 @@ const ProfilePosts = () => {
     dispatch(getProfilePosts(slug, posts.next));
   };
 
-  
+
 
   return (
     <>
-      <PageTitle title={profileUser.display_name  || slug} />
+      <PageTitle title={profileUser.display_name || slug} />
 
       <AuthLayout>
         <Heading>
@@ -56,7 +56,7 @@ const ProfilePosts = () => {
           <Typography variant="h6">
             {profileUser.display_name || slug}
           </Typography>
-        
+
         </Heading>
         <ProfileInfo
           loading={profileUserLoading}
@@ -74,19 +74,28 @@ const ProfilePosts = () => {
                 <NoData>
                   <Typography
                     paragraph
-                    variant="h6"
+                    variant="subtitle1"
                     color="primary"
+                    style={{ fontFamily: "monospace", fontWeight: "bold" }}
                   >
                     You have no posts yet
                   </Typography>
+                  <Typography
+                    paragraph
+                    variant="body2"
+                    color="textSecondary"
+                    style={{ fontFamily: "monospace", }}
+                  >
+                    Once you post it will show up here...
+                  </Typography>
 
-                  
                 </NoData>
               ) : (
                 <NoData>
                   <Typography
                     paragraph
-                    variant="h6"
+                    variant="subtitle1"
+                    style={{ fontFamily: "monospace", fontWeight: "bold" }}
                   >
                     {profileUser.display_name || slug}
                     {' '}
@@ -96,6 +105,7 @@ const ProfilePosts = () => {
                     color="textSecondary"
                     paragraph
                     variant="body2"
+                    style={{ fontFamily: "monospace", }}
                   >
                     When
                     {' '}

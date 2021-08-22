@@ -76,10 +76,19 @@ const ProfileLikes = () => {
                 <NoData>
                   <Typography
                     paragraph
-                    variant="h5"
-                    color="textSecondary"
+                    variant="subtitle"
+                    color="primary"
+                    style={{ fontFamily: "monospace", fontWeight: "bold" }}
                   >
-                    You have not liked any post 
+                    You have not liked any post
+                  </Typography>
+                  <Typography
+                    paragraph
+                    variant="body2"
+                    color="textSecondary"
+                    style={{ fontFamily: "monospace" }}
+                  >
+                    Once you like a post it will show up here...
                   </Typography>
                   
                   <Button
@@ -87,6 +96,7 @@ const ProfileLikes = () => {
                     component={Link}
                     to={route.recommendedPosts}
                     variant="outlined"
+                    size="small"
                   >
                   Look for more posts
                   </Button>

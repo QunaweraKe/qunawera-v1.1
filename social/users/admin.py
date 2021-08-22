@@ -1,9 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import *
 
-UserAdmin.fieldsets += ('custom',{'fields':('name')}),
-
+BaseUserAdmin.fieldsets += ('custom',{'fields':('name')}),
 
 
 class UserProfileAdmin (admin.ModelAdmin):

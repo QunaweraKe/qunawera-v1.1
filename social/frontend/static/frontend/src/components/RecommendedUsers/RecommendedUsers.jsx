@@ -68,13 +68,37 @@ const RecommendedUsers = () => {
       );
     } else {
       rendered = (
+        <>
+     
         <Typography
+      paragraph
+      color="textSecondary"
+      align="center"
+      style={{fontFamily:"monospace",fontSize:"12px"}}
+      gutterbottom
+        
+      >
+        You don&apos;t have any users at the moment.
+      </Typography>
+      <Typography
+        paragraph
+     
+        color="textSecondary"
+        align="center"
+  
+        style={{fontFamily:"monospace",fontSize:"12px"}}
+        gutterbottom
+        
+      >
+     Refresh later.
+      </Typography>
+      <Typography
           className={classes.noUsers}
-          color="textSecondary"
-          variant="body2"
         >
            <NotAvailable style={{width:"60%",height:"60%"}}/>
         </Typography>
+      </>
+      
       );
     }
     return rendered;
@@ -93,7 +117,7 @@ const RecommendedUsers = () => {
           </IconButton>
         )}
         className={classes.cardHeader}
-        title="People You May Follow"
+        title="Who You May Follow"
         titleTypographyProps={{
           className: classes.title,
           variant: 'subtitle3',

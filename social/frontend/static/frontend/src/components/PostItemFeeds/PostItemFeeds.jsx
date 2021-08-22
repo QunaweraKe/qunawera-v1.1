@@ -1,33 +1,32 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-//material ui
-
-import { CardActionArea } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
+import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { AccountCircleRounded } from '@material-ui/icons';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+//material ui
+import PanToolIcon from '@material-ui/icons/PanTool';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
-import Grid from '@material-ui/core/Grid';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 // Local
 import { route } from '../../constants';
 import {
   selectPost
 } from '../../redux/post';
 import Avatar from '../Avatar';
+import ClosePost from '../ClosePost';
 import DeletePost from '../DeletePost';
 import LikePost from '../LikePost';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
 import useStyles from './styles';
-import ClosePost from '../ClosePost';
 
 
 
@@ -80,7 +79,7 @@ const PostItemFeeds = ({ postId }) => {
                 </div>
               ) : (
                 <div className={classes.status} style={{ color: "red" }}>
-                  status(not approved)
+                  status(not approved)<PanToolIcon />
                 </div>
               )}
           </Typography>
@@ -108,7 +107,10 @@ const PostItemFeeds = ({ postId }) => {
               vertical: 'top',
             }}
           >
-
+             {post.is_active
+              && (
+                <>
+               
             <MenuItem
               onClick={() => (
                 history.push(route.postDetail(post.id))
@@ -119,8 +121,11 @@ const PostItemFeeds = ({ postId }) => {
         </ListItemIcon>
               
               <ListItemText primary="More About Task " classes={{ primary: classes.listItem }} />
-            </MenuItem>
+           
 
+            </MenuItem>
+               </>
+               )}
             <MenuItem
 
               onClick={() => (
@@ -129,14 +134,14 @@ const PostItemFeeds = ({ postId }) => {
             >
               
               <ListItemIcon>
-              <AccountCircleRounded />
+              <AccountCircleRounded color="primary" />
         </ListItemIcon>
-              <ListItemText primary="View  Profile" classes={{ primary: classes.listItem }} />
+              <ListItemText primary="View  Author" classes={{ primary: classes.listItem }} />
 
             </MenuItem>
 
-            {post.is_author
-              && (
+            {post.is_author && post.is_active
+              &&  (
                 <>
 
                   <DeletePost
@@ -146,7 +151,7 @@ const PostItemFeeds = ({ postId }) => {
                   />
                 </>
               )}
- {post.is_author
+ {post.is_author && post.is_active
               && (
                 <>
 
@@ -158,8 +163,7 @@ const PostItemFeeds = ({ postId }) => {
                 </>
               )}
           </Menu>
-          <Link to={route.postDetail(post.id)} className={classes.Link} >
-            <CardActionArea classes={{ focusHighlight: classes.focus }} >
+         
               <div className={classes.text}>
 
 
@@ -202,8 +206,7 @@ const PostItemFeeds = ({ postId }) => {
 
               </div>
 
-            </CardActionArea>
-          </Link>
+         
         </div>
 
       </Card>
