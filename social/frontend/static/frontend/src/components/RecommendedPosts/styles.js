@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     '& li': {
-      borderBottom: `2px solid ${theme.palette.grey[50]}`,
+      borderBottom: `2px solid ${theme.palette.grey[100]}`,
     
       '&:last-child': {
         borderBottom: 'none',
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: 1,
     position: 'relative',
     marginBottom: theme.spacing(2),
-    width:"90%",
+    width:"100%",
   },
   title: {
     fontWeight: 'bold',

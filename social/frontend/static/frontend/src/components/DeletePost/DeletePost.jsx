@@ -63,7 +63,7 @@ const DeletePost = React.forwardRef((props, ref) => {
          
 
         <ListItemText
-          primary="Remove"
+          primary="Delete Post"
           primaryTypographyProps={{
             
           }}

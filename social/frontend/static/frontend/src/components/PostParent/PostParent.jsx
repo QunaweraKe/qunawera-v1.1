@@ -4,7 +4,7 @@ import {Link } from 'react-router-dom';
 // Material UI
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
+import CardMedia from '@material-ui/core/CardMedia';
 
 // Local
 import PostHeader from '../PostHeader';
@@ -31,7 +31,11 @@ const PostParent = ({ className, post }) => {
       <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
         {post.body}
       </Typography>
-      <img src={post.image} alt="null"/>
+      <CardMedia
+                  className={classes.media}
+
+                  image={post.image}
+                />
       </Link>
     </Paper>
   );

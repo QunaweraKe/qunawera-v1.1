@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.shortcuts import get_object_or_404
-
+from social.permissions import IsOwnerOrReadOnly
 from notifications.models import Notification
 from social.views import PaginationMixin
 from .pagination import UserPagination
@@ -180,3 +180,4 @@ class UserDetailAPIView(rest_generics.RetrieveAPIView):
 
     def get_object(self):
         return get_object_or_404(User, slug=self.kwargs.get("slug"))
+

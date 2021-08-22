@@ -36,7 +36,7 @@ import useStyles from './styles';
 
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
-  const pluralizeShares = (length) => (length !== 1 ? 'Shares' : 'Share');
+  const pluralizeShares = (length) => (length !== 1 ? 'Recommendations' : 'Recommendation');
   const pluralizeComments = (length) => (length !== 1 ? 'Reviews' : 'Task Review');
   const classes = useStyles();
   const history = useHistory();
@@ -78,9 +78,15 @@ const PostItemFeeds = ({ postId }) => {
                   status(approved)
                 </div>
               ) : (
+                <>
                 <div className={classes.status} style={{ color: "red" }}>
                   status(not approved)<PanToolIcon />
                 </div>
+                <Typography style={{fontSize:"12px",fontFamily:"monospace"}}>
+                  This post is only visible to you ,has limited functionality and will diasappear on reload.
+                  Kindly wait as we approve the task.
+                  </Typography>
+                  </>
               )}
           </Typography>
 
@@ -120,7 +126,7 @@ const PostItemFeeds = ({ postId }) => {
                 <UnfoldMoreIcon />
         </ListItemIcon>
               
-              <ListItemText primary="More About Task " classes={{ primary: classes.listItem }} />
+              <ListItemText primary="More Task Info " classes={{ primary: classes.listItem }} />
            
 
             </MenuItem>
@@ -170,12 +176,14 @@ const PostItemFeeds = ({ postId }) => {
                 <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
                   {post.parent && <PostParent post={post.parent} />}
                 </Typography>
+                {post.image
+                  && (
                 <CardMedia
                   className={classes.media}
 
                   image={post.image}
                 />
-
+                  )}
                 {post.title
                   && (
                     <>
@@ -211,20 +219,23 @@ const PostItemFeeds = ({ postId }) => {
 
       </Card>
 
-      <Grid container spacing={1}>
-        <Grid item xs={12} sm={6} >
+ 
           <div className={classes.likeContainer}>
-
+          { post.is_active
+              && (
+                <>
             <LikePost
               postId={post.id}
               size="default"
               type="post"
             />
+            </>
+              )}
 
           </div>
-        </Grid>
-        <Grid item xs={12} sm={6} >
-          <div style={{ marginTop: "5%" }} >
+      
+        
+          <div style={{ marginTop: "1%" }} >
             <span style={{
               fontWeight: "bold",
               fontSize: "11px",
@@ -246,8 +257,8 @@ const PostItemFeeds = ({ postId }) => {
               fontFamily: "monospace",
             }}>         {post.repost_ids?.length || 0}{' '} &middot;{pluralizeShares(post.repost_ids?.length)}</span>
           </div>
-        </Grid>
-      </Grid>
+        
+     
     </div>
 
 

@@ -3,10 +3,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import {green }from '@material-ui/core/colors/green';
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
@@ -53,12 +54,12 @@ const ClosePost = React.forwardRef((props, ref) => {
         ref={ref}
       > 
       <ListItemIcon>
-      < HighlightOffIcon />
+      < CheckCircleOutlineIcon style={{color:"green"}} />
          </ListItemIcon>
          
 
         <ListItemText
-          primary="Close task"
+          primary="Close Item"
           primaryTypographyProps={{
             
           }}

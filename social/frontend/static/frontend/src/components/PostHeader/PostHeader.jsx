@@ -42,7 +42,7 @@ const PostHeader = ({ post, repost, }) => {
         && (
 
           <Typography className={classes.headerTime} color="primary">
-            {' / '} Shared a post
+            {' / '} recommended a post by <span style={{fontFamily:"inherit",fontSize:"15px"}}>{post.parent.author.display_name}</span>
 
           </Typography>
 
@@ -50,7 +50,7 @@ const PostHeader = ({ post, repost, }) => {
         )}
 
       <Typography className={classes.headerTime} color="textSecondary">
-        {'  '}  &middot;published {'  '} {dayjs(post.created_at).fromNow()}
+        {'  '}  &middot;{'  '} {dayjs(post.created_at).fromNow()}
       </Typography>
   
     </div>

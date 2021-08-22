@@ -138,7 +138,7 @@ const RecommendedPosts = () => {
      Refresh later.
       </Typography>
       <Typography
-          className={classes.noUsers}
+          className={classes.noPosts}
         >
            <NotAvailable style={{width:"60%",height:"60%"}}/>
         </Typography>

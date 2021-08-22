@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     marginTop: theme.spacing(5),
     width:"100%",
-    
+    borderColor:theme.palette.grey[150]
    
   },
 
@@ -104,7 +104,7 @@ width:"2px"
 
 },
   root: {
-  
+    borderRadius:5,
     backgroundColor:theme.palette.grey[50],
     position: 'relative',
     flexGrow: 1,

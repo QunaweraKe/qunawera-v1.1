@@ -1,12 +1,3 @@
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-// Evergreen  UI
-import { ShareIcon } from 'evergreen-ui'
-// Material UI
-import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -14,21 +5,28 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
-
-
-
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+// Evergreen  UI
+import { ShareIcon } from 'evergreen-ui';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import useUI from '../../hooks/useUI';
+import { createRepost, key, selectPost } from '../../redux/post';
+import { selectUser } from '../../redux/user';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import DialogCloseButton from '../DialogCloseButton';
 import PostParent from '../PostParent';
-
-import useUI from '../../hooks/useUI';
-
-import { createRepost, key, selectPost } from '../../redux/post';
-import { selectUser } from '../../redux/user';
-
 import useStyles from './styles';
+
+
+
+
+
+
 
 const Repost = ({ postId }) => {
   const classes = useStyles();

@@ -41,6 +41,7 @@ const SettingsAccount = () => {
   };
 
   return (
+    <>
     <form
       className={classes.form}
       onSubmit={handleSubmit}
@@ -95,8 +96,10 @@ const SettingsAccount = () => {
         Update
         {loading && <CircularProgress />}
       </Button>
-    
+      
     </form>
+   
+    </>
   );
 };
 

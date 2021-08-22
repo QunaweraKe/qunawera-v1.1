@@ -15,8 +15,9 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import LinkIcon from '@material-ui/icons/Link';
 import LocationIcon from '@material-ui/icons/LocationOnOutlined';
 import Divider from '@material-ui/core/Divider';
-import InfoIcon from '@material-ui/icons/Info';
+
 // Local
+
 import TextLink from '../TextLink';
 import { route } from '../../constants';
 import EditProfile from '../EditProfile';
@@ -113,9 +114,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                 )}
             </div>
           </div>
-          <Link href={profileUser.profile.image} style={{textDecoration:"underline",marginLeft:"5%"}}>
-                    View full image
-                  </Link>
+         
           <div className={classes.infoContainer}>
           <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
           <Typography variant="h6"
@@ -127,24 +126,22 @@ const ProfileInfo = ({ loading, profileUser }) => {
 
             <Typography variant="h6"
              style={{ fontFamily:"monospace"}}>
-            <span style={{ fontWeight: "bolder" }}>Profile info<InfoIcon/></span>
+            <span style={{ fontWeight: "bolder" }}>Profile info</span>
             </Typography>
             <Paper square elevation={1} style={{ marginLeft: "2px" }}>
-            <Typography variant="h7"
+            
+            <Typography variant="h7" style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
+                    Username
+                  </Typography>
+            <Typography variant="body"
              style={{ fontFamily:"monospace"}}>
-            Username &middot; {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
+              &middot; {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
             </Typography>
           
             </Paper>
-            <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
-          <Typography variant="h7"
-           style={{ fontFamily:"monospace"}}>
-             Age  &middot;{profileUser.age}yrs
-            
-            </Typography>
-            </Paper>
+           
          
-
+      
             {profileUser.profile.bio
               && (
                 <>

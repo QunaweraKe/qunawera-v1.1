@@ -20,7 +20,7 @@ class PostsAdmin(admin.ModelAdmin):
     readonly_fields=("liked","is_reply","author","image","thumbnail")
     list_display=("id","author","approved","short_title","short_body","image","closed","created_at","update_at",)
     search_fields=["author"]
-    list_filter=('is_active',)
+    list_filter=('is_active','closed',)
     list_display_links = ("author",)
     actions = ['open_tasks','close_tasks','approve_status', 'disapprove_status']
     
