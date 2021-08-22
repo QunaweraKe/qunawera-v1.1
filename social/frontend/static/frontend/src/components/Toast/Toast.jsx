@@ -4,12 +4,13 @@ import { useDispatch } from 'react-redux';
 
 // Material UI
 import Snackbar from '@material-ui/core/Snackbar';
-
+import Typography from '@material-ui/core/Typography';
 
 import Alert from '@material-ui/lab/Alert';
 
 // Local
 import { unsetToast } from '../../redux/ui';
+
 
 
 
@@ -40,7 +41,10 @@ const Toast = ({ message, severity }) => {
         icon={false} 
         
       >
+        <Typography color="primary"style={{fontFamily:"monospace",fontSize:"12px"}}>
         {message}
+        </Typography>
+       
       </Alert>
     </Snackbar>
   );
