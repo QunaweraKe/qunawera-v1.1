@@ -1,119 +1,46 @@
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
-
 // MATERIAL UI
-import { Divider, Tooltip } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+//local
+import BackButton from '../../components/BackButton';
+import ContactUsDialog from '../../components/ContactUsDialog';
 
-import Slide from '@material-ui/core/Slide';
-//local import
-import { createContactUs, key } from '../../redux/user';
-import { APP_NAME} from '../../constants';
-//Function to slide up
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="down" ref={ref} {...props} />;
-});
+const useStyles = makeStyles((theme) => ({
 
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+ 
+}));
 
 
 const ContactUs = () => {
-  const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false);
-  const [formData, setFormData] = React.useState({
-    email: '',
-    description:'',
-
-  });
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-   
-
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-
-    });
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(createContactUs(formData));
-    setFormData('');
-    handleClose();
-  };
+  const classes= useStyles();
   return (
    <div>
-     <Tooltip title="Reach Us" arrow  placement="bottom">
-      <Button color="secondary" onClick={handleClickOpen} size="small">
-         <span style={{fontSize:"12px",fontWeight:"bolder"}}> Support</span>
-      </Button>
-      </Tooltip>
+     <>
+    <CssBaseline />
+    <main>
+       <BackButton/>
+        <div className={classes.heroContent}>
+          <Container maxWidth="md">
+            <Typography component="h5" variant="h2" align="center" color="primary" gutterBottom>
+             Qunawera Support Center
+            </Typography>
+            <Typography variant="subtitle" align="center" color="textSecondary" paragraph>
 
-      <Dialog open={open} maxWidth="md" onClose={handleClose} TransitionComponent={Transition} aria-labelled by="form-dialog-title">
-        <DialogTitle style={{fontSize:"25px",marginBottom:"10px",marginTop:"0px",fontWeight:"bold"}} id="form-dialog-title">{APP_NAME} Support</DialogTitle>
-
-        <Paper style={{padding:'0px',width:"100%",backgroundColor:"textSecondary"}}  elevation={1}>
-          
-        <DialogContent>
-
-          <DialogContentText>
-           Thank you for reaching out to us.
-            Please fill in all the fields below.
-          </DialogContentText>
-
-          <TextField
-           name="email"
-            color="textSecondary"
-            id="email"
-            label="Email Address"
-            type="email"
-          
-            onChange={handleChange}
-            type="email"
-            variant="filled"
-             value={formData.email}
-             fullWidth
-          />
-             <TextField
-             style={{marginTop:"10px"}}
-             variant="filled"
-             multiline
-            rows={6}
-            id="description"
-            label="Description"
-            onChange={handleChange}
-            type="text"
-            value={formData.description}
-            fullWidth
-            name="description"
-          />
-            <Divider orientation="horizontal " light variant='inset' />
-            <div style={{marginLeft:"15px",marginTop:"15px",marginBottom:"5px",padding:"3px"}}>
-          <Button    onClick={handleSubmit} color="primary" variant="outlined" >
-            Send
-          </Button>
-      
-          <Button  style={{marginLeft:"4px"}} onClick={handleClose} color="textSecondary" variant="outlined">
-            Cancel
-          </Button>
+            </Typography>
+            
+          </Container>
         </div>
-        
-          </DialogContent>
-          </Paper>
-      </Dialog>
-
+        <ContactUsDialog/>
+      </main>
+    </> 
     </div>
   );
 };

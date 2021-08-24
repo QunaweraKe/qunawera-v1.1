@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link} from 'react-router-dom';
+//Material UI
+import Typography from '@material-ui/core/Typography';
 // Local
+import { APP_NAME,route } from '../../constants';
 import Header from '../Header';
 import RecommendedUsers from '../RecommendedUsers';
 import RecommendedPosts from '../RecommendedPosts';
@@ -12,6 +15,7 @@ import {
 } from '../../redux/notifications';
 
 import useStyles from './styles';
+
 
 const AuthLayout = ({ children }) => {
   const classes = useStyles();
@@ -42,7 +46,11 @@ const AuthLayout = ({ children }) => {
       <aside className={classes.asideContainer}>
         <RecommendedUsers />
         <RecommendedPosts />
-
+        <Link to={route.team}> 
+        <Typography align="center" style={{fontFamily:"monospace",fontSize:"10px"}}>
+           Learn about {APP_NAME} LLC
+        </Typography>
+        </Link>
       </aside>
 
     </div>

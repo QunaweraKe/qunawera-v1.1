@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     height: theme.spacing(5),
     width: theme.spacing(5),
+    marginLeft:0,
   },
   control: {
   },
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     display: 'flex',
     marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(3),
   },
   textAndInteractContainer: {
     marginLeft: theme.spacing(2),

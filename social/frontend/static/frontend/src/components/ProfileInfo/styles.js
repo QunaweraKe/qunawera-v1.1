@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     ),
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
-    borderColor: theme.palette.primary.main,
+    borderColor: theme.palette.grey[100],
     borderRadius: '50%',
     borderStyle: 'solid',
     borderWidth: 3,

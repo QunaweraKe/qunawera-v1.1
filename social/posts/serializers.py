@@ -73,6 +73,7 @@ class PostSerializer(BasePostSerializer):
             "reply_ids",
             "repost_ids",
             "created_at",
+            "updated_at",
         ]
 
 

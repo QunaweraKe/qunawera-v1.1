@@ -20,7 +20,7 @@ const PostDetailNav = ({ active, postId }) => (
       active={active === 'likes'}
       to={route.postDetailLikes(postId)}
     >
-      Likes
+     Likes
     </TabbedNavItem>
   </TabbedNav>
 );

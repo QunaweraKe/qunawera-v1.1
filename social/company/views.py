@@ -24,3 +24,11 @@ class TeamView (rest_generics.ListAPIView):
      permission_classes = [AllowAny]
      serializer_class = TeamSerializer
      queryset=Team.objects.all()
+     def post(self, request):
+         serializer = TeamSerializer(data=request.data)
+         if serializer.is_valid():
+             serializer.save()
+             return Response(serializer.data,status=status.HTTP_201_CREATED)
+         else:
+
+             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

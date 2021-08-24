@@ -13,7 +13,7 @@ class  ContactUsSerializer(serializers.ModelSerializer):
         fields =[
             "email",
             "description",
-            "date_created"
+            "date_created",
         ]
 class  TeamSerializer(serializers.ModelSerializer):
    
@@ -25,7 +25,6 @@ class  TeamSerializer(serializers.ModelSerializer):
             "About",
             "Roles",
             "Skills",
-            " Status",
             "Image",
 
         ]

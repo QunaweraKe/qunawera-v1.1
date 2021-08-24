@@ -279,7 +279,7 @@ export const createRepost = (author, body, parentId) => async (dispatch) => {
       parent_id: parentId,
     }));
     dispatch(setPost(data));
-    dispatch(setToast('Post shared to those following you'));
+    dispatch(setToast('Post recommended to those following you'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -441,7 +441,7 @@ export const closePost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.closePost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Task closed'));
+    dispatch(setToast('Closed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

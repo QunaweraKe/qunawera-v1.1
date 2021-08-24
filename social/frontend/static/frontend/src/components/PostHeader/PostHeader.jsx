@@ -42,8 +42,14 @@ const PostHeader = ({ post, repost, }) => {
         && (
 
           <Typography className={classes.headerTime} color="primary">
-            {' / '} recommended a post by <span style={{fontFamily:"inherit",fontSize:"15px"}}>{post.parent.author.display_name}</span>
-
+           {' '}
+           {post.is_author
+            ? (
+             
+              <span style={{fontFamily:"inherit",fontSize:"12px"}}> recommended a post by {post.parent.author.display_name}</span>
+             ) : (
+              <span style={{fontFamily:"inherit",fontSize:"12px"}}> recommended  own post</span>
+              )}
           </Typography>
 
 

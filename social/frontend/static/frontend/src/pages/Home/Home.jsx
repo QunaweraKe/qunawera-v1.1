@@ -125,7 +125,7 @@ const Home = ( ) => {
                   paragraph
                   variant="body1"
                 >
-                  Lets get you started by following some people
+                  Lets get started 
                 </Typography>
 
                

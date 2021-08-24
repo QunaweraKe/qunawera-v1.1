@@ -2,7 +2,6 @@
 import Badge from '@material-ui/core/Badge';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
@@ -112,7 +111,7 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Feed" />
           </ListItem>
-          <Divider variant="middle"  light/>
+        
           <ListItem
             component={Link}
             button
@@ -124,7 +123,7 @@ const MobileMenu = () => {
             <ListItemText primary="Profile" />
           </ListItem>
 
-                    <Divider light variant="middle"/>
+                  
           <ListItem
             component={Link}
             button
@@ -140,7 +139,7 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Activities" />
           </ListItem>
-          <Divider  light variant="middle"/>
+         
           <ListItem
             component={Link}
             button
@@ -151,7 +150,6 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
-        <Divider  light variant="middle"/>
         
           <div className={classes.logout}>
               <LogOut/>
@@ -170,7 +168,11 @@ const MobileMenu = () => {
      
      
      </Typography>
-     
+     <Link to={route.team}> 
+        <Typography align="left" style={{fontFamily:"monospace",fontSize:"10px"}}>
+           Learn more about us.
+        </Typography>
+        </Link>
         
        </div>
         </List>

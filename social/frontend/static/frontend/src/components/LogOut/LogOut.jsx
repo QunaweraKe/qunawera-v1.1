@@ -81,7 +81,7 @@ const LogOut = () => {
             onClick={handleLogout}
             variant="outlined"
           >
-            <span className="nav-button-text">Yes,Log Out</span>
+            <span className="nav-button-text">Yes</span>
           </Button>
         </DialogActions>
       </Dialog>

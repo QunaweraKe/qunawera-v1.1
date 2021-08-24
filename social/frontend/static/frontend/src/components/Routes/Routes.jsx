@@ -6,7 +6,7 @@ import { route } from '../../constants';
 
 import AnonymousRoute from '../AnonymousRoute';
 import AuthRoute from '../AuthRoute';
-
+const Team = React.lazy(() => import('../../pages/Team'));
 const ContactUs = React.lazy(() => import('../../pages/ContactUs'));
 const SearchPosts = React.lazy(() => import('../../pages/SearchPosts'));
 const Followers = React.lazy(() => import('../../pages/Followers'));
@@ -40,6 +40,11 @@ const Routes = () => (
       component={Home}
       exact
       path={route.home}
+    />
+     <AuthRoute
+      component={Team}
+      exact
+      path={route.team}
     />
    
    <AuthRoute

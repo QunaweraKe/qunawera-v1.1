@@ -1,27 +1,28 @@
+import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import relativeTime from 'dayjs/plugin/relativeTime';
+//Material UI
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-// Evergreen  UI
-import { ShareIcon } from 'evergreen-ui';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import useUI from '../../hooks/useUI';
-import { createRepost, key, selectPost } from '../../redux/post';
-import { selectUser } from '../../redux/user';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import DialogCloseButton from '../DialogCloseButton';
 import PostParent from '../PostParent';
 import useStyles from './styles';
-
+import useUI from '../../hooks/useUI';
+import { createRepost, key, selectPost } from '../../redux/post';
+import { selectUser } from '../../redux/user';
 
 
 
@@ -69,23 +70,31 @@ const Repost = ({ postId }) => {
   return (
     <>
 
-   <IconButton
+  
 
-   onClick={handleOpen}
-              variant="outlined"
-              className={classes.chip
-              }
+               <MenuItem
 
-             
-              color="primary"
-              >
-               <ShareIcon/>
-               </IconButton>
+onClick={handleOpen}
+
+> 
+<ListItemIcon>
+<WhatshotIcon />
+ </ListItemIcon>
+ 
+
+<ListItemText
+  primary="Recommend"
+  primaryTypographyProps={{
+    
+  }}
+  classes={{primary:classes.listItem}}
+/>
+</MenuItem>
 
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
-        fullScreen
+        
   
       >
         <DialogTitle>
@@ -111,7 +120,7 @@ const Repost = ({ postId }) => {
               multiline
               onChange={handleChange}
             
-              placeholder="Say why you want to share this post (optional)"
+              placeholder="Say why you want to recommend this post to others (optional)"
               rowsMax={7}
               spellCheck
               value={body}
@@ -134,7 +143,7 @@ const Repost = ({ postId }) => {
             variant="outlined"
             size="small"
           >
-           Send
+           Post
             {loading && <CircularProgress />}
           </Button>
         </DialogActions>

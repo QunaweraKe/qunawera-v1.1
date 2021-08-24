@@ -8,7 +8,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
-import DeleteIcon from '@material-ui/icons/DeleteOutline';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 // Local
 import Avatar from '../Avatar';
@@ -48,11 +48,13 @@ const NotificationItem = ({ notification }) => {
         disabled={loading}
         onClick={handleRemove}
       >
-        <DeleteIcon
+
+{loading && <CircularProgress />}
+        <RemoveCircleIcon
           color="error"
           fontSize="small"
         />
-        {loading && <CircularProgress />}
+       
       </IconButton>
       <div className={classes.avatarContainer}>
         <Avatar user={notification.from_user} />
@@ -61,7 +63,7 @@ const NotificationItem = ({ notification }) => {
         <div className={classes.header}>
           <TextLink
             bold
-            className={classes.headerItem}
+           
             to={route.profilePosts(notification.from_user.slug)}
           >
             {notification.from_user.display_name}
@@ -70,9 +72,10 @@ const NotificationItem = ({ notification }) => {
             className={classes.headerItem}
             color="textSecondary"
             component="span"
+
           >
             
-            {' - '}
+            &middot;
             {dayjs(notification.created_at).fromNow()}
           </Typography>
         </div>

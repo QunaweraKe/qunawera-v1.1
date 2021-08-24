@@ -1,6 +1,16 @@
+//Default
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+
+//material ui
+import Grid from '@material-ui/core/Grid';
+import RateReviewOutlinedIcon  from '@material-ui/icons/RateReviewOutlined';
+import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -9,12 +19,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { AccountCircleRounded } from '@material-ui/icons';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-//material ui
 import PanToolIcon from '@material-ui/icons/PanTool';
-import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+
+
 // Local
 import { route } from '../../constants';
 import {
@@ -27,6 +36,7 @@ import LikePost from '../LikePost';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
 import useStyles from './styles';
+import Repost from '../Repost';
 
 
 
@@ -36,7 +46,6 @@ import useStyles from './styles';
 
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
-  const pluralizeShares = (length) => (length !== 1 ? 'Recommendations' : 'Recommendation');
   const pluralizeComments = (length) => (length !== 1 ? 'Reviews' : 'Task Review');
   const classes = useStyles();
   const history = useHistory();
@@ -58,7 +67,7 @@ const PostItemFeeds = ({ postId }) => {
   return (
     <div className={classes.root}>
 
-      <Card  className={classes.postContainer} variant="outlined">
+      <Card  square className={classes.postContainer} variant="outlined">
 
 
         <div className={classes.avatarContainer}>
@@ -70,25 +79,7 @@ const PostItemFeeds = ({ postId }) => {
         <div className={classes.post}>
 
           <PostHeader post={post} />
-          <Typography>
-
-            {post.is_active
-              ? (
-                <div className={classes.status} style={{ color: "green" }} >
-                  status(approved)
-                </div>
-              ) : (
-                <>
-                <div className={classes.status} style={{ color: "red" }}>
-                  status(not approved)<PanToolIcon />
-                </div>
-                <Typography style={{fontSize:"12px",fontFamily:"monospace"}}>
-                  This post is only visible to you ,has limited functionality and will diasappear on reload.
-                  Kindly wait as we approve the task.
-                  </Typography>
-                  </>
-              )}
-          </Typography>
+         
 
           <IconButton
             className={classes.postAction}
@@ -123,28 +114,34 @@ const PostItemFeeds = ({ postId }) => {
               )}
             >
                 <ListItemIcon>
-                <UnfoldMoreIcon />
+                <OpenInNewIcon />
         </ListItemIcon>
               
-              <ListItemText primary="More Task Info " classes={{ primary: classes.listItem }} />
+              <ListItemText primary="View Task  " classes={{ primary: classes.listItem }} />
            
 
             </MenuItem>
                </>
-               )}
+               )}  
+        
+        {post.is_active
+              && (   
+              <Repost postId={postId} />
+              )}
+           
             <MenuItem
 
-              onClick={() => (
-                history.push(route.profilePosts(post.author.slug))
-              )}
-            >
-              
-              <ListItemIcon>
-              <AccountCircleRounded color="primary" />
-        </ListItemIcon>
-              <ListItemText primary="View  Author" classes={{ primary: classes.listItem }} />
+onClick={() => (
+  history.push(route.profilePosts(post.author.slug))
+)}
+>
 
-            </MenuItem>
+<ListItemIcon>
+<AccountCircleRounded color="primary" />
+</ListItemIcon>
+<ListItemText primary="View  Author" classes={{ primary: classes.listItem }} />
+
+</MenuItem>
 
             {post.is_author && post.is_active
               &&  (
@@ -214,7 +211,25 @@ const PostItemFeeds = ({ postId }) => {
 
               </div>
 
-         
+              <Typography>
+
+{post.is_active 
+  ? (
+    <div className={classes.status} style={{fontFamily:"monospace", fontSize:"10px",color: "green" }} >
+      Status &middot;Approved &middot; Open
+    </div>
+  ) : (
+    <>
+    <div className={classes.status} style={{ color: "red" }}>
+     Status &middot;Not Approved &middot; Open<PanToolIcon />
+    </div>
+    <Typography style={{fontSize:"12px",fontFamily:"monospace"}}>
+      This post is only visible to you ,has limited functionality and will diasappear on reload.
+      Kindly wait as we approve the task.
+      </Typography>
+      </>
+  )}
+</Typography>
         </div>
 
       </Card>
@@ -233,32 +248,24 @@ const PostItemFeeds = ({ postId }) => {
               )}
 
           </div>
-      
-        
-          <div style={{ marginTop: "1%" }} >
-            <span style={{
-              fontWeight: "bold",
-              fontSize: "11px",
-              marginLeft: "2%",
-              fontFamily: "monospace"
-            }} >      {post.liked.length || 0}{' '} &middot; {pluralizeLikes(post.liked.length)}</span>
+          <Grid container spacing={1}>
+          <Grid item >
+       
+   <ButtonGroup  variant="outlined" disableElevation color="primary" className={classes.buttonGroup}>
+  <Button size="small"style={{fontFamily:"monospace"}}>{pluralizeLikes(post.liked.length)}</Button>
+  <Button size="small" style={{marginLeft:"1%"}}><FavoriteRoundedIcon/>{post.liked.length || 0}</Button>
+ 
+ 
+</ButtonGroup>
+</Grid >
 
-            <span style={{
-              fontWeight: "bold",
-              fontSize: "11px",
-              marginLeft: "2%",
-              fontFamily: "monospace",
-            }}>         {post.reply_ids?.length || 0}{' '} &middot;{pluralizeComments(post.reply_ids?.length)}</span>
-
-            <span style={{
-              fontWeight: "bold",
-              fontSize: "11px",
-              marginLeft: "2%",
-              fontFamily: "monospace",
-            }}>         {post.repost_ids?.length || 0}{' '} &middot;{pluralizeShares(post.repost_ids?.length)}</span>
-          </div>
-        
-     
+            <Grid item >
+<ButtonGroup disableElevation color="primary" className={classes.buttonGroup}>
+<Button size="small"style={{fontFamily:"monospace"}}>{pluralizeComments(post.reply_ids?.length)}</Button>
+  <Button size="small"style={{marginLeft:"1%"}}><RateReviewOutlinedIcon/> {post.reply_ids?.length || 0}</Button>
+</ButtonGroup>
+</Grid >
+                </Grid > 
     </div>
 
 
@@ -275,3 +282,4 @@ export default PostItemFeeds;
  //start end payment location
 //possible bug on reply item
 //f&u link text for users
+//add chip to approved

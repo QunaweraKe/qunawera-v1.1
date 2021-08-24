@@ -54,7 +54,7 @@ const Index = () => {
 
           <div className={classes.ctaContainer}>
 
-             <div className="container">
+           
               <Typography 
             color="primary"
 
@@ -66,7 +66,6 @@ const Index = () => {
           </Typography>
         
 
-    </div>
     
      <Typography color="textSecondary" variant="subtitle2" align="left" style={{fontWeight:"bold"}}>
 
@@ -139,13 +138,13 @@ const Index = () => {
             variant="subtitle1"
             >
 
-             Tasks & Interaction
+             Task Interaction
           </Typography>
         </h1>
       </div>
       <div className="role">
         <div className="block"></div>
-        <p><Typography variant="subtitle1"  color="primary" align="center" >
+        <p><Typography variant="subtitle4"  color="primary" align="center" >
 
           Join Millions of users around you
          </Typography></p>

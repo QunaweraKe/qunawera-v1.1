@@ -18,7 +18,7 @@ import Typography from '@material-ui/core/Typography';
 import RateReviewOutlinedIcon  from '@material-ui/icons/RateReviewOutlined';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import CardTitle from '@material-ui/core/Card';
+
 
 
 // Local
@@ -128,7 +128,7 @@ const PostItem = ({ expandReplies, postId }) => {
               vertical: 'top',
             }}
           >
-
+            <Repost postId={postId} />
             {post.is_author
               && (
                 <EditPost
@@ -221,9 +221,9 @@ const PostItem = ({ expandReplies, postId }) => {
 
         </div>
        
-        <div>
-          <Repost postId={postId} />
-        </div>
+       
+          
+        
 
         <div >
 

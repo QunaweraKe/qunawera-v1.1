@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
+import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -22,6 +23,7 @@ import { createPost, key } from '../../redux/post';
 import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
+import { DialogContentText } from '@material-ui/core';
 //functions
 const CustomTooltip = withStyles((theme) => ({
   tooltip: {
@@ -130,14 +132,14 @@ const DialogPostForm = () => {
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography
-            className={classes.title}
             variant="h6"
-            style={{ fontWeight: "bold" }}
+            
           >
          Post a new task
           </Typography>
 
         </DialogTitle>
+       
         <DialogContent>
           <div className={classes.avatarContainer}>
             <Avatar user={user} />
@@ -225,10 +227,23 @@ const DialogPostForm = () => {
           </Button>
           </form>
         </DialogContent>
+        <DialogContentText>
+          <Typography
+           align="center"
+           variant="body1"
+           paragraph
+          style={{ fontFamily: "monospace",fontSize:"15px" }}
+          >
+      Remember this post will be moderated by admin.<Link>Learn more...</Link>
+          </Typography>
 
+        </DialogContentText>
       </Dialog>
     </>
   );
 };
 
 export default DialogPostForm;
+
+
+//Create a learn more item

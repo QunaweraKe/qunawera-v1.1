@@ -20,7 +20,7 @@ const NotificationType = ({ notification }) => {
         <Typography>
           {notification.from_user.display_name}
           {' '}
-          reposted your
+          recommended your
           {' '}
           <TextLink to={route.postDetail(notification.post.id)}>
             post
@@ -43,13 +43,14 @@ const NotificationType = ({ notification }) => {
           <Typography>
             {notification.from_user.display_name}
             {' '}
-            replied to your
+            reviewed to your
             {' '}
-            <TextLink to={route.postDetail(notification.post.id)}>
+            <TextLink  className={classes.post} to={route.postDetail(notification.post.id)}>
               post
             </TextLink>
           </Typography>
-          <Typography className={classes.postBody}>
+          <Typography className={classes.postBody} color="textSecondary">
+            {notification.post.title}
             {notification.post.body}
           </Typography>
         </>
@@ -58,7 +59,7 @@ const NotificationType = ({ notification }) => {
         <Typography>
           {notification.from_user.display_name}
           {' '}
-          is following you.
+          is following your activities.
         </Typography>
       )}
     </>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 // Material UI
-import Button from '@material-ui/core/Button';
+
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -117,7 +117,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
          
           <div className={classes.infoContainer}>
           <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
-          <Typography variant="h6"
+          <Typography variant="subtitle" color="textSecondary"
            style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
               {profileUser.name.charAt(0).toUpperCase() + profileUser.name.slice(1)}
             </Typography>
@@ -145,7 +145,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
             {profileUser.profile.bio
               && (
                 <>
-                  <Typography variant="h7" style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
+                  <Typography variant="h6" style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
                     About
                   </Typography>
                   <Divider/>
@@ -162,8 +162,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
               <div className={classes.extraInfo}>
                 <EventNoteIcon className={classes.extraInfoIcon} />
                 <Typography className={classes.extraInfoText}
-                style={{fontFamily:"monospace",
-                fontWeight:"bold"}}
+                style={{fontFamily:"monospace"}}
                 color="textSecondary">
 
                   Joined  on
@@ -215,7 +214,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   </span>
                 </TextLink>
               </Paper>
-
+              
               <Paper square elevation={1} style={{ marginLeft: "6px" }}>
                 <TextLink
                   className={classes.followLink}

@@ -23,5 +23,6 @@ export const route = {
   register: '/register/',
   search: '/search/',
   searchposts:'/search/posts/',
+  team:'/company/team/',
   settings: '/settings/',
 };

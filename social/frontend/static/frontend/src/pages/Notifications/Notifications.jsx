@@ -67,6 +67,7 @@ const Notfications = () => {
            
             variant="h6"
             color="primary"
+            style={{fontFamily:"monospace"}}
           >
             You don&apos;t have any activities yet
           </Typography>
@@ -75,7 +76,7 @@ const Notfications = () => {
           <Typography
                   color="textSecondary"
                   style={{ fontWeight: "bolder" }}
-                  variant="h7"
+                  variant="body"
                 >
                   Your activities will show up here...
                 </Typography>
@@ -89,7 +90,7 @@ const Notfications = () => {
 
   return (
     <>
-      <PageTitle title="Home" />
+      <PageTitle title="Activities" />
 
       <AuthLayout>
         <Heading>

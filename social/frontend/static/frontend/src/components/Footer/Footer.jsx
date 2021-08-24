@@ -7,16 +7,18 @@ import Typography from '@material-ui/core/Typography';
 
 
 //local imports
-import ContactUs from '../../pages/ContactUs';
 import Terms from '../../components/Terms';
 import HowItWorks from '../../components/HowItWorks';
-import Locations from '../../components/Locations';
-import { APP_NAME} from '../../constants';
+import { APP_NAME, route } from '../../constants';
 import useStyles from './styles';
 const footers = [
   {
     title: 'Company',
-    description: ['Team',  <HowItWorks/>, <ContactUs/>, <Locations/>],
+    description: ['Team',  <HowItWorks/>, 'Contact us', 'Locations'],
+  },
+  {
+    title: 'Features',
+    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
   },
   {
     title: 'Resources',
@@ -35,11 +37,11 @@ const Footer = () => {
   return (
     <>
 
-<Container maxWidth="md" component="footer" className={classes.footer}>
+<Container maxWidth="lg" component="footer" className={classes.footer}>
         <Grid container spacing={4} justifyContent="space-evenly">
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h5" color="textSecondary" gutterBottom>
+              <Typography variant="h6" color="textPrimary" gutterBottom>
                 {footer.title}
               </Typography>
               <ul>
@@ -60,10 +62,9 @@ const Footer = () => {
         {'  '}
 
         {APP_NAME} {' ,'} LLC .All rights reserved.
-        Powered by Labkats
+
 
       </Typography>
-     
       </Container>
 
 

@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   headerItem: {
     marginLeft: 4,
-
+    fontFamily:"monospace",
+    fontSize:12,
     '&:first-child': {
       marginLeft: 0,
     },

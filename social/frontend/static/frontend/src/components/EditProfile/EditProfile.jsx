@@ -29,7 +29,7 @@ const EditProfile = () => {
   const [formData, setFormData] = React.useState({
     bio: user.profile.bio,
     location: user.profile.location,
-  
+    website: user.profile.website,
    
   });
 
@@ -110,7 +110,19 @@ const EditProfile = () => {
             value={formData.location}
             variant="filled"
           />
-        
+           <TextField
+            autoComplete="off"
+            className={classes.formField}
+            fullWidth
+            id="website"
+            label="Social media link"
+            name="website"
+            onChange={handleChange}
+            type="text"
+            value={formData.website}
+            variant="filled"
+            helperText="Copy & paste your social media link "
+          />
          
              <Button
             color="primary"
@@ -120,7 +132,7 @@ const EditProfile = () => {
             variant="outlined"
             
           >
-           Update
+         Save
             {loading && <CircularProgress />}
           </Button>
         </DialogContent>

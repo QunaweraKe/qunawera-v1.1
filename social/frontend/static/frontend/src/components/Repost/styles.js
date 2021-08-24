@@ -28,7 +28,12 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     margin: theme.spacing(1, 0),
   },
-
+  listItem:{
+    linespacing:"1px",
+    fontSize:15,
+    marginLeft:"2%"
+  
+  },
   postContainer: {
     display: 'flex',
   },

@@ -32,9 +32,10 @@ class Post(SoftDeleteMixin, TimestampMixin):
         blank=True,
         max_length=1500,
     )
-    update_at=models.DateTimeField(
+    updated_at=models.DateTimeField(
         auto_now=True,
         db_index=True,
+        null=True
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -58,7 +59,10 @@ class Post(SoftDeleteMixin, TimestampMixin):
 
     objects = PostManager.as_manager()
     closed=models.BooleanField(default=False)
-    
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        return super(Post, self).save(*args, **kwargs)
+
    
     def __str__(self):
         ellipsis = "..." if len(self.body) > 60 else ""

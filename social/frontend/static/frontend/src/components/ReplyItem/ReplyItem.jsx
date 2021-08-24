@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
-import Divider from '@material-ui/core/Divider';
+
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import Typography from '@material-ui/core/Typography';
@@ -41,7 +41,7 @@ const ReplyItem = ({ replyId }) => {
   return (
 <>
     <div className={classes.root}>
-      <Divider light  variant="inset"/>
+     
       <Avatar
         className={classes.avatar}
         user={reply.author}
@@ -119,6 +119,7 @@ const ReplyItem = ({ replyId }) => {
         <Grid item >
         <Typography className={classes.displayDate} color="textSecondary">
              {dayjs(reply.created_at).fromNow()}
+             {dayjs(reply.updated_at).fromNow()}
          </Typography>
          </Grid>
       <Grid item >
