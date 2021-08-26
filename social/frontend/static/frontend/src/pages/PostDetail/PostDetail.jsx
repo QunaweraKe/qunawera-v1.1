@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import AuthLayout from '../../components/AuthLayout';
 import BackButton from '../../components/BackButton';
 import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import Loading from '../../components/Loading';
 import PageTitle from '../../components/PageTitle';
 import PostDetailNav from '../../components/PostDetailNav';
@@ -16,7 +17,7 @@ import PostItem from '../../components/PostItem';
 import useUI from '../../hooks/useUI';
 import { getPostDetail, key, selectPost } from '../../redux/post';
 import useStyles from './styles';
-
+import Removed from '../../components/Files/Images/Removed.svg';
 const PostDetail = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -44,7 +45,17 @@ const PostDetail = () => {
         />
       );
     } else {
-      renderedPost = <div style={{align:"center",fontFamily:'monospace',fontSize:"12px"}}>Post does not exist.Contact support</div>;
+      renderedPost = 
+      <div style={{fontFamily:'monospace',fontSize:"16px"}}>
+        < Typography align="center">
+        This post has been deleted  .
+
+        </Typography>
+        < Typography align="center">
+        Contact support for more info. 
+
+        </Typography>
+        <Removed/></div>;
     }
     return renderedPost;
   };
@@ -54,8 +65,8 @@ const PostDetail = () => {
       <PageTitle title="Post detail" />
 
       <AuthLayout>
-        <Heading>
-          <BackButton />
+      <SubHeading >
+      <BackButton />
           <div>
             <Typography
               className={classes.heading}
@@ -65,12 +76,20 @@ const PostDetail = () => {
              Details
             </Typography>
           </div>
-        </Heading>
+       
+    
+    </SubHeading>
+        
+       
         <PostDetailNav
           active="post"
           postId={postId}
         />
         {renderPost()}
+        <Heading>
+        <Link style={{fontFamily:"monospace",marginLeft:"30%"}}> View  More Related tasks</Link>
+          
+        </Heading>
       </AuthLayout>
     </>
   );

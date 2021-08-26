@@ -61,7 +61,7 @@ const SearchInput = () => {
             </Button>
           ) : null}
         onInput={handleInput}
-        placeholder={`Search ${APP_NAME} users...` }
+        placeholder={`Type name or username...` }
         startAdornment={(
           <SearchIcon
             className={classes.searchIcon}

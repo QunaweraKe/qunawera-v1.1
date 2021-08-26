@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   header: {
-    alignItems: 'center',
-    display: 'flex',
+   
+    display: 'absolute',
     flexWrap: 'wrap',
     marginBottom:0,
 
@@ -20,8 +20,9 @@ const useStyles = makeStyles(() => ({
   headerTime : {
      fontSize:10,
      fontWeight:"600",
-     marginLeft:2,
+     marginLeft:5,
      marginTop:6,
+     marginRight:6,
      fontFamily:"monospace"
   },
 

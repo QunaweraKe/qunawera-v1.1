@@ -15,7 +15,6 @@ import TextField from '@material-ui/core/TextField';
 
 //local import
 import { createContactUs, key } from '../../redux/user';
-import { APP_NAME} from '../../constants';
 import PageTitle from '../../components/PageTitle';
 
 const ContactUsDialog= () => {
@@ -35,11 +34,7 @@ const ContactUsDialog= () => {
 
     });
   };
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleAccordionChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createContactUs(formData));
@@ -51,18 +46,7 @@ const ContactUsDialog= () => {
       <PageTitle title="Reach Us" />
 
      <>
-     <Accordion
-          expanded={expanded === 'email'}
-          onChange={handleAccordionChange('email')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            id="email-header"
-          >
-            <Typography style={{fontFamily:"monospace"}}>Submit your query</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            
+    
           <TextField
            name="email"
             color="textSecondary"
@@ -92,15 +76,12 @@ const ContactUsDialog= () => {
             <Divider orientation="horizontal " light variant='inset' />
             <div style={{marginLeft:"15px",marginTop:"15px",marginBottom:"5px",padding:"3px"}}>
           <Button    onClick={handleSubmit} color="primary" variant="outlined" >
-            Send
+            Submit
           </Button>
       
-          <Button  style={{marginLeft:"4px"}} onClick={handleClose} color="textSecondary" variant="outlined">
-            Cancel
-          </Button>
+    
         </div>
-          </AccordionDetails>
-        </Accordion>
+          
         
   </>
       

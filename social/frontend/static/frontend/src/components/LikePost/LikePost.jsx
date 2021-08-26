@@ -70,12 +70,12 @@ const LikePost = ({ postId, size }) => {
         onClick={handleLike}
       >
         {isLiked
-          ? <FavoriteRoundedIcon fontSize={size}  />
-          : < FavoriteBorderRoundedIcon fontSize={size} />}
+          ? <FavoriteRoundedIcon style={{marginLeft:"1%",fontSize:"30px"}}/>
+          : < FavoriteBorderRoundedIcon  style={{marginLeft:"1%",fontSize:"30px"}} />}
         
       </IconButton>
 
-      <Typography   className={classes.likeText} color="primary">
+      <Typography   className={classes.likeText} color="textSecondary">
         
       
   

@@ -3,7 +3,7 @@ import React from 'react';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
-
+import Divider from '@material-ui/core/Divider';
 // Local
 import TextLink from '../TextLink';
 
@@ -17,6 +17,7 @@ const NotificationType = ({ notification }) => {
   return (
     <>
       {notification.type === 1 && (
+        <>
         <Typography>
           {notification.from_user.display_name}
           {' '}
@@ -26,8 +27,17 @@ const NotificationType = ({ notification }) => {
             post
           </TextLink>
         </Typography>
+          <Typography className={classes.postBody} color="textSecondary">
+     
+          {notification.post.body.length > 80 ?
+                    `${notification.post.body.substring(0, 30)}...` : notification.post.body
+                  }
+        </Typography>
+        <Divider/>
+        </>
       )}
       {notification.type === 2 && (
+        <>
         <Typography>
           {notification.from_user.display_name}
           {' '}
@@ -37,6 +47,13 @@ const NotificationType = ({ notification }) => {
             post
           </TextLink>
         </Typography>
+        <Typography className={classes.postBody} color="textSecondary">
+        {notification.post.body.length > 80 ?
+                    `${notification.post.body.substring(0, 30)}...` : notification.post.body
+                  }
+      </Typography>
+      <Divider/>
+      </>
       )}
       {notification.type === 3 && (
         <>
@@ -48,18 +65,21 @@ const NotificationType = ({ notification }) => {
             <TextLink  className={classes.post} to={route.postDetail(notification.post.id)}>
               post
             </TextLink>
+            
           </Typography>
           <Typography className={classes.postBody} color="textSecondary">
-            {notification.post.title}
-            {notification.post.body}
+          {notification.post.body.length > 80 ?
+                    `${notification.post.body.substring(0, 30)}...` : notification.post.body
+                  }
           </Typography>
+          <Divider/>
         </>
       )}
       {notification.type === 4 && (
         <Typography>
           {notification.from_user.display_name}
           {' '}
-          is following your activities.
+        started following your activities.
         </Typography>
       )}
     </>

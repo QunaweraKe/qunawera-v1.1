@@ -28,16 +28,18 @@ const PostParent = ({ className, post }) => {
         repost
       />
     <Link to={route.postDetail(post.id)} className={classes.Link} >
-    <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
-        {post.title}
-      </Typography>
+
       <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
         {post.body}
       </Typography>
+      {post.image
+                  && (
       <CardMedia
                   className={classes.media}
                       image={post.image}
+
                 />
+                  )}
       </Link>
     </Paper>
   );

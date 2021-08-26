@@ -15,7 +15,7 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import LinkIcon from '@material-ui/icons/Link';
 import LocationIcon from '@material-ui/icons/LocationOnOutlined';
 import Divider from '@material-ui/core/Divider';
-
+import Card from '@material-ui/core/Card';
 // Local
 
 import TextLink from '../TextLink';
@@ -116,13 +116,14 @@ const ProfileInfo = ({ loading, profileUser }) => {
           </div>
          
           <div className={classes.infoContainer}>
+            <Card variant="outlined" square>
           <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
           <Typography variant="subtitle" color="textSecondary"
            style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
               {profileUser.name.charAt(0).toUpperCase() + profileUser.name.slice(1)}
             </Typography>
             </Paper>
-            <Divider />
+            
 
             <Typography variant="h6"
              style={{ fontFamily:"monospace"}}>
@@ -228,7 +229,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   </span>
                 </TextLink>
               </Paper>
+             
             </div>
+            </Card>
           </div>
         </>
       );

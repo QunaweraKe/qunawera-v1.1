@@ -75,8 +75,8 @@ const NotificationItem = ({ notification }) => {
 
           >
             
-            &middot;
-            {dayjs(notification.created_at).fromNow()}
+            Event time 
+            &middot; {dayjs(notification.created_at).fromNow()}
           </Typography>
         </div>
         <NotificationType notification={notification} />

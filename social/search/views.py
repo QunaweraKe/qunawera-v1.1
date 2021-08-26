@@ -21,7 +21,9 @@ class SearchAPIView(rest_generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     search_fields = ('username', 'name',)
     serializer_class = UserSerializer
-
+    ordering_fields = (
+        'username',
+    )
     def get_queryset(self):
         return (
             User.objects.select_related("profile")

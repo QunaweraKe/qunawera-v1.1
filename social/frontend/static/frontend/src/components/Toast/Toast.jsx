@@ -41,7 +41,7 @@ const Toast = ({ message, severity }) => {
         icon={false} 
         
       >
-        <Typography color="primary"style={{fontFamily:"monospace",fontSize:"12px"}}>
+        <Typography color="primary"style={{fontFamily:"monospace",fontSize:"12px",textDecoration:"underline"}}>
         {message}
         </Typography>
        

@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
-
+import PublicIcon from '@material-ui/icons/Public';
 // Local
 import PageTitle from '../../components/PageTitle';
 import { APP_NAME, route } from '../../constants';
@@ -138,16 +138,19 @@ const Index = () => {
             variant="subtitle1"
             >
 
-             Task Interaction
+             Find Work
           </Typography>
         </h1>
       </div>
       <div className="role">
-        <div className="block"></div>
+        <div className="block" ></div>
         <p><Typography variant="subtitle4"  color="primary" align="center" >
 
-          Join Millions of users around you
+     Based on your location
          </Typography></p>
+         <p><Typography variant="subtitle4"  color="primary" align="center" >
+ <PublicIcon/> 
+    </Typography></p>
       </div>
 
     </div>

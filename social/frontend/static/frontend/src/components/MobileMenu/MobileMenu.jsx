@@ -23,7 +23,6 @@ import { APP_NAME, route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { selectUser } from '../../redux/user';
 // Local
-import PageTitle from '../PageTitle';
 import Avatar from '../Avatar';
 import LogOut from '../LogOut';
 import useStyles from './styles';
@@ -65,7 +64,7 @@ const MobileMenu = () => {
        
       >
         <div className={classes.titleContainer}>
-        <PageTitle title="mobile" />
+       
           <IconButton
             color="primary"
             onClick={handleToggleDrawer}

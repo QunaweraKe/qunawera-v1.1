@@ -24,7 +24,7 @@ const UserSlug = ({ className, followsYou, profileUser }) => {
       {followsYou && profileUser.following.includes(user.id)
         && (
           <span className={classes.followsYou}>
-            Follows you
+            is following you
           </span>
         )}
     </Typography>

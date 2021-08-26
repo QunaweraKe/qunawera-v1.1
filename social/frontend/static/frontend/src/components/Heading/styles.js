@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     ...theme.custom.borders,
     alignItems: 'center',
-    backgroundColor:theme.palette.grey[50],
+    backgroundColor:theme.palette.grey[100],
     borderBottomWidth: 0,
     borderColor: '#FFF',
     display: 'flex',
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     top:0,
     zIndex: 1,
     height:70,
+    marginTop:"2%"
   },
 }));
 

@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => {
       padding: theme.spacing(1),
       margin: 'auto',
       marginTop: theme.spacing(3),
-      width: "100%",
       borderColor: theme.palette.grey[150],
     
     },
@@ -93,16 +92,22 @@ const useStyles = makeStyles((theme) => {
     },
     buttonGroup: {
       fontSize: 10,
-      marginTop:2,
+      marginTop:5,
       marginLeft:"2%"
     },
     avatarMenu: {
       height: "2px",
       width: "2px"
     },
+    paper: {
+      marginRight: theme.spacing(2),
+     position:"relative"
+    
+    },
     root: {
+   
       width:"100%",
-      backgroundColor: theme.palette.grey[50],
+   
       position: 'relative',
       flexGrow: 1,
       '&:hover': {

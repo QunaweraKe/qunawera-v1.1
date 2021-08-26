@@ -3,11 +3,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import {green }from '@material-ui/core/colors/green';
+
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
@@ -38,9 +37,7 @@ const ClosePost = React.forwardRef((props, ref) => {
     
   };
 
-  const handleEntered = () => {
-    setAnchorEl(null);
-  };
+
 
   const handleOpen = () => {
     setDialogOpen(true);
@@ -50,22 +47,23 @@ const ClosePost = React.forwardRef((props, ref) => {
     <>
       <MenuItem
 
-        onClick={handleOpen}
-        ref={ref}
-      > 
-      <ListItemIcon>
-      < CheckCircleOutlineIcon style={{color:"green"}} />
-         </ListItemIcon>
-         
+onClick={handleOpen}
+ref={ref}
+> 
 
-        <ListItemText
-          primary="Close Item"
-          primaryTypographyProps={{
-            
-          }}
-          classes={{primary:classes.listItem}}
-        />
-      </MenuItem>
+ 
+
+<ListItemText
+  primary=" Close this post?"
+  primaryTypographyProps={{
+    
+  }}
+  classes={{primary:classes.listItem}}
+/>
+</MenuItem>
+    
+  
+
       <ConfirmationDialog
         buttontext="Yes"
         loading={loading}
@@ -73,9 +71,9 @@ const ClosePost = React.forwardRef((props, ref) => {
         onclickfalse={handleClose}
         onclicktrue={handleClosePost}
         onClose={handleClose}
-        onEntered={handleEntered}
+     
         text={`
-        Closing on a task marks it as done.It will not be available to other users.
+        This action will  change the status of the post to closed which means it wont be visible to you and those following you .Are you sure about this?
         `}
   
       />
@@ -85,7 +83,7 @@ const ClosePost = React.forwardRef((props, ref) => {
 
 ClosePost.propTypes = {
   postId: PropTypes.number.isRequired,
-  setAnchorEl: PropTypes.func.isRequired,
+  
   
 };
 

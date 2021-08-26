@@ -150,7 +150,7 @@ export const editUser = (payload) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.editUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast('Your settings have changed.'));
+    dispatch(setToast('Account Details Updated'));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
@@ -167,7 +167,7 @@ export const follow = (slug, userId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.createFollow(slug));
     dispatch(setFollow(userId));
-    dispatch(setToast('Following...'));
+    dispatch(setToast('Following'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -219,7 +219,7 @@ export const unfollow = (slug, userId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removeFollow(slug));
     dispatch(unsetFollow(userId));
-    dispatch(setToast('Unfollowing...'));
+    dispatch(setToast('Unfollowing'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

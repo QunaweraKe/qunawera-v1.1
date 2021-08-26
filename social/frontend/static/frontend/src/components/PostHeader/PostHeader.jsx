@@ -41,14 +41,14 @@ const PostHeader = ({ post, repost, }) => {
       {post.parent
         && (
 
-          <Typography className={classes.headerTime} color="primary">
+          <Typography style={{marginLeft:"1%"}} color="textSecondary">
            {' '}
-           {post.is_author
+           {post.is_author 
             ? (
              
-              <span style={{fontFamily:"inherit",fontSize:"12px"}}> recommended a post by {post.parent.author.display_name}</span>
+              <span style={{fontFamily:"inherit",fontSize:"12px"}}> recommended a post( author &middot; {post.parent.author.display_name})</span>
              ) : (
-              <span style={{fontFamily:"inherit",fontSize:"12px"}}> recommended  own post</span>
+              <span style={{fontFamily:"inherit",fontSize:"12px"}}> recommended  a post by {post.parent.author.display_name}</span>
               )}
           </Typography>
 
@@ -56,7 +56,7 @@ const PostHeader = ({ post, repost, }) => {
         )}
 
       <Typography className={classes.headerTime} color="textSecondary">
-        {'  '}  &middot;{'  '} {dayjs(post.created_at).fromNow()}
+        {'  '} {dayjs(post.created_at).fromNow()}
       </Typography>
   
     </div>

@@ -44,7 +44,7 @@ const Search = () => {
           <Typography
             paragraph
             variant="h6"
-            color="secondary"
+            color="textSecondary"
             style={{fontWeight:"bolder"}}
           >
             user  &quot;
@@ -61,7 +61,7 @@ const Search = () => {
 
   return (
     <>
-      <PageTitle title="Home" />
+      <PageTitle title="Search Users" />
 
       <AuthLayout>
         <Heading>

@@ -15,10 +15,12 @@ import Paper from '@material-ui/core/Paper';
 
 
 // Local
+
 import WelcomeSvg from '../../components/Files/Images/newhome.svg';
 import AuthLayout from '../../components/AuthLayout';
 import StepperSlide from '../../components/StepperSlide';
 import SubHeading from '../../components/SubHeading';
+import Heading from '../../components/Heading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
@@ -113,6 +115,9 @@ const Home = ( ) => {
 
 
         </SubHeading>
+        <Heading>
+          pick a new location &middot; Nairobi
+        </Heading>
       
         <Posts
           loading={loading}
@@ -126,9 +131,11 @@ const Home = ( ) => {
                   variant="body1"
                 >
                   Lets get started 
+                
+             
                 </Typography>
-
-               
+            
+                
                 <Dialog open={open} onClose={handleClose} >
                   <StepperSlide />
                 </Dialog>
@@ -145,7 +152,7 @@ const Home = ( ) => {
               <div>
                 <Typography
                   color="textSecondary"
-                  style={{ fontWeight: "bolder" }}
+                  style={{ fontWeight: "bolder" ,fontFamily:"monospace"}}
                   variant="h7"
                 >
                   Your posts & those you follow  will show up here...

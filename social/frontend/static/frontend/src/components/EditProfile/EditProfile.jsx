@@ -68,6 +68,7 @@ const EditProfile = () => {
       >
         Edit
       </Button>
+
       <Dialog
         open={dialogOpen}
         onClose={handleClose}

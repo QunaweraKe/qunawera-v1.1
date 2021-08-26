@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 // Material UI
+import LocationIcon from '@material-ui/icons/LocationOnOutlined';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -12,7 +13,7 @@ import Divider from '@material-ui/core/Divider';
 // Local
 import Avatar from '../Avatar';
 import TextLink from '../TextLink';
-import UserSlug from '../UserSlug';
+
 
 import { route } from '../../constants';
 
@@ -52,16 +53,21 @@ const UserList = ({ list }) => {
             >
               {profileUser.display_name}
             </TextLink>
-            <UserSlug
-              className={classes.slug}
-              profileUser={profileUser}
-            />
+            
             {profileUser.profile.bio
               && (
 
-                <Typography style =
-                {{fontFamily:"monospace"}}>
+                <Typography color="textSecondary"
+                style={{fontFamily:"monospace",fontSize:"12px"}}>
                  About &middot; {profileUser.profile.bio}
+                </Typography>
+              )}
+              {profileUser.profile.location
+              && (
+
+                <Typography color="textSecondary" style =
+                {{fontFamily:"monospace",fontSize:"12px"}}>
+                 <LocationIcon/> {profileUser.profile.location}
                 </Typography>
               )}
           </ListItemText>

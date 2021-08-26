@@ -10,6 +10,13 @@ const useStyles = makeStyles((theme) => ({
   Link:{
     textDecoration :"none",
     },
+    media: {
+     
+      paddingTop: '56.25%',
+      marginRight: theme.spacing(2),
+      width: "100%",
+      
+    },
 }));
 
 export default useStyles;

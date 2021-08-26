@@ -15,7 +15,7 @@ const BackButton = () => {
   return (
     <IconButton
       className={classes.root}
-      color="textSecondary"
+      color="primary"
       onClick={() => history.goBack()}
     >
       < KeyboardBackspaceIcon />

@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   root: {
-   
+    backgroundColor: theme.palette.grey[50],
     position: 'sticky',
     top: 0,
     zIndex: 1,
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   searchFocus: {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.grey[50],
     borderColor: theme.palette.primary.main,
   },
   searchIcon: {

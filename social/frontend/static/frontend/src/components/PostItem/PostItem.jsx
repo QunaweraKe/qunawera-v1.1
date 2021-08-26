@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 //Material UI
+import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import { AccountCircleRounded } from '@material-ui/icons';
 import CardActions from '@material-ui/core/CardActions';
@@ -91,9 +92,9 @@ const PostItem = ({ expandReplies, postId }) => {
 
   return (
     <div className={classes.root}>
+  
 
-
-      <div className={classes.postContainer}
+      <Card variant="outlined" className={classes.postContainer}
       style={{ minWidth: 200, marginTop: "8px" }}>
 
 
@@ -178,13 +179,14 @@ const PostItem = ({ expandReplies, postId }) => {
                      
                     </>
                   )}
-                 <CardMedia
+                  {post.image
+                  && (
+                <CardMedia
                   className={classes.media}
-                  style={{ height: 250,width:500 }}
+
                   image={post.image}
                 />
-
-                
+                  )}
                 
               {post.body
                 && (
@@ -202,9 +204,9 @@ const PostItem = ({ expandReplies, postId }) => {
 
         </div>
 
-      </div>
+        </Card>
 
-      <Divider light />
+     
       <CardActions
         classes={{ root: classes.cardActionsRoot }}
         disableSpacing
@@ -254,6 +256,7 @@ const PostItem = ({ expandReplies, postId }) => {
             timeout="auto"
             unmountOnExit
           >
+            <Card variant="outlined">
             <CardContent
               className={classes.replyContent}
 
@@ -262,7 +265,7 @@ const PostItem = ({ expandReplies, postId }) => {
               <CardHeader
 
                 className={classes.replyHeader}
-                title="Task Reviews"
+                title="All Reviews"
                 
                 titleTypographyProps={{
                   className: classes.title,
@@ -272,7 +275,7 @@ const PostItem = ({ expandReplies, postId }) => {
                 }}
               />
             
-          
+            <Divider light />
 
               <NextButton
                 callback={handleNext}
@@ -287,9 +290,10 @@ const PostItem = ({ expandReplies, postId }) => {
               ))}
 
             </CardContent>
+            </Card>
           </Collapse>
         )}
-      <Divider light classes={{ root: classes.divider }} style={{ height: "3px" }} />
+     
     </div>
   );
 };

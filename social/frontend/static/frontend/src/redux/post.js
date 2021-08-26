@@ -279,7 +279,7 @@ export const createRepost = (author, body, parentId) => async (dispatch) => {
       parent_id: parentId,
     }));
     dispatch(setPost(data));
-    dispatch(setToast('Post recommended to those following you'));
+    dispatch(setToast('Post recommended '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
