@@ -1,6 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+
+//DROPZONE JS
+import Dropzone from "react-dropzone";
 // Material UI
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
@@ -42,6 +45,9 @@ const DialogPostForm = () => {
   const [image, setImage] = React.useState(null);
   const [body, setBody] = React.useState("");
   const [title, setTitle] = React.useState("");
+  const [fileNames, setFileNames] = React.useState([]);
+  const handleDrop = acceptedFiles =>
+    setFileNames(acceptedFiles.map(file => file.name));
 
 
   
@@ -114,7 +120,7 @@ const DialogPostForm = () => {
         </CustomTooltip>
       </div>
       <Dialog
-        fullScreen
+        
         open={dialogOpen}
         onClose={handleClose}
         TransitionComponent={Transition}
@@ -182,35 +188,43 @@ const DialogPostForm = () => {
           />
 
 
-
-
-         
-
-      
-
           <br />
-          <input
-             
+
+          <Dropzone onDrop={handleDrop}>
+        {({ getRootProps, getInputProps }) => (
+          <div {...getRootProps({ className: "dropzone" })}>
+            <input  
              onChange={handleImage}
-            type="file"
-            accept="image/*"
             name="image"
             id="image"
-          />
+            {...getInputProps()} />
+            <p>Drag'n'drop files, or click to select files</p>
+          </div>
+        )}
+      </Dropzone>
+      <div>
+        <strong>Files:</strong>
+        <ul>
+          {fileNames.map(fileName => (
+            <li key={fileName}>{fileName}</li>
+          ))}
+        </ul>
+      </div>
+        
 
 
           <br />
-       
           <Button
-            className={classes.Button}
+            size="large"
             color="primary"
             disabled={loading}
             type="submit"
-            size="large"
-            variant="outlined"
-
+            variant="contained"
+            className={classes.Button}
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
-            Submit
+            <span className="nav-button-text">Submit</span>
+       
             {loading && <CircularProgress />}
           </Button>
           <Button
@@ -232,7 +246,7 @@ const DialogPostForm = () => {
            align="center"
            variant="body1"
            paragraph
-          style={{ fontFamily: "monospace",fontSize:"15px" }}
+          style={{ fontFamily: "monospace",fontSize:"10px" }}
           >
       Remember this post will be moderated by admin.<Link>Learn more...</Link>
           </Typography>

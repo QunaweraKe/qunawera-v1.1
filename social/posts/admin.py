@@ -19,7 +19,7 @@ class PostsAdmin(admin.ModelAdmin):
         queryset.updated(is_active=False)
         
     readonly_fields=("liked","is_reply","author","image","thumbnail")
-    list_display=("id","author","approved","short_title","short_body","image","closed","created_at","updated_at",)
+    list_display=("id","author","approved","short_title","short_body","image","get_likes_count","closed","created_at","updated_at",)
     search_fields=["author"]
     list_filter=('is_active','closed',)
     list_display_links = ("author",)

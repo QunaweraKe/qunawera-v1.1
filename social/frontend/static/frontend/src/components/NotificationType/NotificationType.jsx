@@ -60,7 +60,7 @@ const NotificationType = ({ notification }) => {
           <Typography>
             {notification.from_user.display_name}
             {' '}
-            reviewed to your
+            reviewed  your
             {' '}
             <TextLink  className={classes.post} to={route.postDetail(notification.post.id)}>
               post

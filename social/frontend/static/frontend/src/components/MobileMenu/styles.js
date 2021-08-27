@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     marginBottom: theme.spacing(2),
   },
+ 
   buttonAvatar: {
     cursor: 'pointer',
     marginRight: theme.spacing(2),

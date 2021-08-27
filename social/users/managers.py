@@ -67,16 +67,19 @@ class UserManager(UM):
         return self.get_queryset().active()
 
     def create_superuser(self,username, password=None,**kwargs):
+       
         user=self._create_user(
             password=password,
             username=username,
             is_superuser=True,
+            is_staff=True,
+            
             **kwargs
-
+            
                                )
         user.is_admin=True
         user.save(using=self._db)
-
+        
         return user
 
 

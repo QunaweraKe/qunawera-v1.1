@@ -11,6 +11,7 @@ const NAMESPACE = 'notifications';
 // Keys
 //
 export const key = {
+  removeAllNotification: ' removeAllNotification',
   notifications: 'notifications',
   notificationsNext: 'notificationsNext',
   unreadNotifications: 'unreadNotifications',
@@ -107,6 +108,21 @@ export const removeNotification = (notificationId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removeNotification(notificationId));
     dispatch(unsetNotification(notificationId));
+  } catch (error) {
+    dispatch(setToast('Something went wrong', 'error'));
+    console.error(error);
+  } finally {
+    dispatch(unsetLoading(NAMESPACE, thisKey));
+  }
+};
+
+
+export const removeAllNotification = () => async (dispatch) => {
+  const thisKey = key.removeAllNotification;
+  try {
+    dispatch(setLoading(NAMESPACE, thisKey));
+    await api(descriptor.removeAllNotification);
+    dispatch(unsetNotification);
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

@@ -22,9 +22,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
 
 
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+  
   },
   navList: {
     width: '100%',

@@ -21,6 +21,7 @@ import useUI from '../../hooks/useUI';
 import {
   key,
   removeNotification,
+  removeAllNotification,
 } from '../../redux/notifications';
 
 import { route } from '../../constants';
@@ -33,13 +34,15 @@ const NotificationItem = ({ notification }) => {
   dayjs.extend(relativeTime);
 
   const { loading } = useUI(
-    key.removeNotification(notification.id), null, false,
+    key.removeNotification(notification.id), null, false,key.removeAllNotification
   );
 
   const handleRemove = () => {
     dispatch(removeNotification(notification.id));
   };
-
+  const handleRemoveAll = () => {
+    dispatch(removeAllNotification);
+  };
   return (
     <div className={classes.root}>
       <IconButton
@@ -48,6 +51,20 @@ const NotificationItem = ({ notification }) => {
         disabled={loading}
         onClick={handleRemove}
       >
+
+{loading && <CircularProgress />}
+        <RemoveCircleIcon
+          color="error"
+          fontSize="small"
+        />
+       
+      </IconButton>
+      <IconButton
+        className={classes.removeButton}
+        color="primary"
+        disabled={loading}
+        onClick={handleRemoveAll}
+      >ra
 
 {loading && <CircularProgress />}
         <RemoveCircleIcon

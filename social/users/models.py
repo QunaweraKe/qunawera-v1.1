@@ -49,7 +49,8 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
         method would return the user's username if `name` was not set. Instead
         of changing this throughout the frontend I left it as is.
         """
-        return self.username
+        ellipsis = "..." if len(self.username) > 15 else ""
+        return f"{self.username[:15]}{ellipsis}"
 
     def follow(self, user: object) -> None:
         """ Follow `user`. """

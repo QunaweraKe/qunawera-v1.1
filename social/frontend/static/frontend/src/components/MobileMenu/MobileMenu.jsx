@@ -3,7 +3,7 @@ import Badge from '@material-ui/core/Badge';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Drawer from '@material-ui/core/Drawer';
-import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -23,6 +23,7 @@ import { APP_NAME, route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { selectUser } from '../../redux/user';
 // Local
+import PageTitle from '../PageTitle';
 import Avatar from '../Avatar';
 import LogOut from '../LogOut';
 import useStyles from './styles';
@@ -57,14 +58,16 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="left"
-        className={classes.drawer}
+        anchor="right"
+        openSecondary={true}
+        docked={true} 
         open={drawerOpen}
         onClose={handleToggleDrawer}
+        width="50%"
        
       >
         <div className={classes.titleContainer}>
-       
+        <PageTitle title="mobile" />
           <IconButton
             color="primary"
             onClick={handleToggleDrawer}
@@ -81,22 +84,20 @@ const MobileMenu = () => {
         <CardContent>
           <Avatar
             className={classes.avatar}
-            size={50}
+            size={70}
             user={user}
           />
-          <Grid container spacing={7}>
-           <Grid item>
+         
 
           <Typography variant="subtitle1">
            {user.display_name}  
           </Typography>
-           </Grid>
-           </Grid>
+           
 
         </CardContent>
          </Card>
         </div>
-
+<Divider/>
  <Card square >
         <CardContent>
         <List className={classes.list}>
@@ -149,7 +150,7 @@ const MobileMenu = () => {
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
-        
+          <Divider/>
           <div className={classes.logout}>
               <LogOut/>
               </div>

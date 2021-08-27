@@ -78,6 +78,10 @@ class Post(SoftDeleteMixin, TimestampMixin):
     #def __str__(self) :
     #    return self.author
     @property
+    def get_likes_count(self):
+        return self.liked.count()
+    
+    @property
     def short_body(self):
         return truncatechars(self.body,100)
     @property

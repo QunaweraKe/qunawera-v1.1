@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
     secondary: {
 
-      main: '#1877F2',
+      main: '#808080',
       // dark: will be calculated from palette.secondary.main,
       contrastText: '#ffcc00',
     },
@@ -110,11 +110,13 @@ theme.overrides = {
       },
     },
   },
+
   MuiButton: {
 
     root: {
       borderRadius: 2,
       textTransform: 'normal',
+      color: theme.palette.secondary.main
 
     },
     sizeLarge: {

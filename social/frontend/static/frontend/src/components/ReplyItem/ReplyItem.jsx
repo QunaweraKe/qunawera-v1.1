@@ -119,7 +119,7 @@ const ReplyItem = ({ replyId }) => {
         <Grid item >
         <Typography className={classes.displayDate} color="textSecondary">
              {dayjs(reply.created_at).fromNow()}
-             {dayjs(reply.updated_at).fromNow()}
+           
          </Typography>
          </Grid>
       <Grid item >

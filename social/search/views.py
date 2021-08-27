@@ -36,12 +36,15 @@ class SearchPostsAPIView(rest_generics.ListAPIView):
 
     Searches `posts` fields.
     """
-    queryset = Post.objects.all().order_by('-created_at')
+   
     filter_backends = [filters.SearchFilter]
     pagination_class = SearchPagination
     permission_classes = [IsAuthenticated]
-    search_fields = ('body',)
+    search_fields = ('body','title')
     serializer_class = BasePostSerializer
-    
+    def get_queryset(self):
+        return (
+            Post.objects.all().order_by('-created_at')
+        )
     
 ''' todo :finish filter by posts /Check on API END POINT'''

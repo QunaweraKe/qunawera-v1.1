@@ -11,7 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import Slide from '@material-ui/core/Slide';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import { Typography } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+
 //local
 import { logoutUser } from '../../redux/user';
 import { APP_NAME } from '../../constants';
@@ -74,12 +74,13 @@ const LogOut = () => {
           <Button onClick={handleClose}     color="textSecondary" size="small" variant="outlined">
             Cancel
           </Button>
-          <Divider orientation="vertical" />
+          
           <Button
             size="small"
             color="primary"
             onClick={handleLogout}
-            variant="outlined"
+            variant="contained"
+            style={{boxShadow:"none",borderRadius:"2px",}}
           >
             <span className="nav-button-text">Yes</span>
           </Button>

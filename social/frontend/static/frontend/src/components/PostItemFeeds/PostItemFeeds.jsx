@@ -260,7 +260,7 @@ const PostItemFeeds = ({ postId }) => {
                   <div className={classes.status} style={{ color: "red" }}>
                   <PanToolIcon />   Status&middot;Not Approved &middot; Open
                   </div>
-                  <Typography style={{ fontSize: "12px", fontFamily: "monospace",position:"relative" }}>
+                  <Typography color="primary"style={{ fontSize: "12px", fontFamily: "monospace",position:"relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
                     Kindly wait as we approve the task.
                   </Typography>

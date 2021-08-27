@@ -44,3 +44,10 @@ def remove_notification_view(request, pk):
     n = get_object_or_404(Notification, pk=pk, to_user=request.user)
     n.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(["delete"])
+@permission_classes([IsAuthenticated])
+def remove_all_notification_view(request):
+    Notification.objects.all().delete(to_user=request.user)
+    return Response(status=status.HTTP_204_NO_CONTENT)
