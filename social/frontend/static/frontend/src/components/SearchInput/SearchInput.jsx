@@ -9,7 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
 import Divider from '@material-ui/core/Divider';
 // Local
-import { APP_NAME } from '../../constants';
+
 
 import { getSearch, selectSearchString } from '../../redux/search';
 
@@ -42,7 +42,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div style={{width:"100%",backgroundColor:"#fff"}}>
+  <>
       <Box  className={classes.root}p={0} flexGrow={1} >
       <InputBase
         classes={{
@@ -72,7 +72,8 @@ const SearchInput = () => {
         value={searchString}
       />
       </Box>
-    </div>
+ <Divider style={{height:5,}}/>
+ </>
   );
 };
 

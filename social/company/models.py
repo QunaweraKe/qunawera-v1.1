@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields.citext import CIEmailField
 
 #Key Qunawera Information resides here
 # Create your models here.
@@ -35,12 +34,14 @@ class Team(models.Model):
 
 
 class  ContactUs(models.Model):
-       email=CIEmailField(max_length=255,unique=True,)
+       title =models.CharField(max_length=150)
+       email=models.EmailField(max_length=255)
        description=models.TextField(blank=False,max_length="400")
-       date_created=models.DateTimeField(auto_now_add=True,
-        db_index=True,)
+       date_created=models.DateTimeField(auto_now_add=True,db_index=True,)
+       Screenshot=models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
+        
        def __str__(self):
-           return self.email
+           return self.title
 
        class Meta:
         verbose_name_plural="Contact Us"

@@ -159,7 +159,7 @@ const DialogPostForm = () => {
           
             fullWidth
             id="title"
-            label="Task title"
+            label="Title"
             name="title"
             onChange={handleTitle}
             type="text"
@@ -190,13 +190,14 @@ const DialogPostForm = () => {
 
           <br />
 
-          <Dropzone onDrop={handleDrop}>
+          <Dropzone onDrop={handleDrop}  onChange={handleImage}>
         {({ getRootProps, getInputProps }) => (
           <div {...getRootProps({ className: "dropzone" })}>
             <input  
              onChange={handleImage}
             name="image"
             id="image"
+            type="file"
             {...getInputProps()} />
             <p>Drag'n'drop files, or click to select files</p>
           </div>

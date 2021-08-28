@@ -4,11 +4,8 @@ import { useDispatch } from 'react-redux';
 
 // MATERIAL UI
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import { Divider, Tooltip } from '@material-ui/core';
+
+import { Divider } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -19,70 +16,117 @@ import PageTitle from '../../components/PageTitle';
 
 const ContactUsDialog= () => {
   const dispatch = useDispatch();
-  const [formData, setFormData] = React.useState({
-    email: '',
-    description:'',
-
-  });
-
+ const [description, setDescription] = React.useState("");
+  const [title, setTitle] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [Screenshot, setScreenshot] = React.useState(null);
    
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-
-    });
+  const handleScreenshot = (event) => {
+    event.preventDefault();
+    console.log(event.target.files);
+    setScreenshot(event.target.files[0]);
+  };
+  const handleDescription = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setDescription(event.target.value);
+  };
+  const handleTitle = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setTitle(event.target.value);
+  };
+  const handleEmail = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setEmail(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+  
+    try{
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("description", description);
+    formData.append("title", title);
+    formData.append( "Screenshot",Screenshot, Screenshot.name);
     dispatch(createContactUs(formData));
-    setFormData('');
+    setsetScreenshot('');
+    setDescription('');
+    setTitle('');
+    setEmail('');
    
+    return console.log("success")
+  }catch(err){
+    return console.log("error")
+  }
   };
+
+
+ 
   return (
    <div>
       <PageTitle title="Reach Us" />
 
      <>
-    
+     <form  onSubmit={handleSubmit}>
+  
           <TextField
            name="email"
             color="textSecondary"
             id="email"
             label="Email Address"
             type="email"
-            onChange={handleChange}
-            variant="filled"
-             value={formData.email}
+            onChange={handleEmail}
+            variant="outlined"
+             value={email}
              fullWidth
-             required
+             required="True"
+          />
+            <TextField
+             style={{marginTop:"10px"}}
+             variant="outlined"
+            id="title"
+            label="Subject"
+            onChange={handleTitle}
+            type="text"
+            value={title}
+            fullWidth
+            name="title"
+            required="True"
           />
              <TextField
              style={{marginTop:"10px"}}
-             variant="filled"
+             variant="outlined"
              multiline
             rows={6}
             id="description"
             label="Description"
-            onChange={handleChange}
+            onChange={handleDescription}
             type="text"
-            value={formData.description}
+            value={description}
             fullWidth
             name="description"
-            required
+            required="True"
+          />
+          <input
+          onChange={handleScreenshot}
+          name="Screenshot"
+          id="Screenshot"
+          type="file"
           />
             <Divider orientation="horizontal " light variant='inset' />
             <div style={{marginLeft:"15px",marginTop:"15px",marginBottom:"5px",padding:"3px"}}>
-          <Button    onClick={handleSubmit} color="primary" variant="outlined" >
+          <Button  type="submit" color="primary" variant="outlined" >
             Submit
           </Button>
       
     
         </div>
           
-        
+        </form>
   </>
       
     </div>

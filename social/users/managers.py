@@ -66,9 +66,10 @@ class UserManager(UM):
         """ See :class:`UserQuerySet` :meth:`active`. """
         return self.get_queryset().active()
 
-    def create_superuser(self,username, password=None,**kwargs):
+    def create_superuser(self,username,name, password=None,**kwargs):
        
         user=self._create_user(
+            name=name,
             password=password,
             username=username,
             is_superuser=True,

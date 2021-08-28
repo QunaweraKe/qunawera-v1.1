@@ -98,7 +98,7 @@ export const createContactUs = (payload) => async (dispatch) => {
     dispatch(setToast('Submitted'));
     
   } catch (error) {
-    dispatch(setToast('Something went  wrong,please check that you have entered correct details', 'error'));
+    dispatch(setToast('Error occurred during submission', 'error'));
    
     console.error(error);
   } finally {

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import LinkIcon from '@material-ui/icons/Link';
 import LocationIcon from '@material-ui/icons/LocationOnOutlined';
@@ -73,8 +73,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   classes={{ root: classes.rootEditImage }}
                   className={classes.editBannerButton}
                   onClick={handleEditBanner}
+                  color="primary"
                 >
-                  <CameraAltIcon />
+                  <AddAPhotoIcon />
                 </IconButton>
               </>
             )}
@@ -94,8 +95,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
                     classes={{ root: classes.rootEditImage }}
                     className={classes.editAvatarButton}
                     onClick={handleEditAvatar}
+                    color="primary"
                   >
-                    <CameraAltIcon />
+                    <AddAPhotoIcon />
                   </IconButton>
                   
                 </>

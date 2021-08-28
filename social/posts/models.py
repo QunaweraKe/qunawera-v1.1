@@ -78,7 +78,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     #def __str__(self) :
     #    return self.author
     @property
-    def get_likes_count(self):
+    def likes_count(self):
         return self.liked.count()
     
     @property

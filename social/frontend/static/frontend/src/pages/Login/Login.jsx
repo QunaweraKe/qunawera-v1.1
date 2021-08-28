@@ -85,7 +85,7 @@ const Login = () => {
               variant="h5"
 
             >
-              Sign in to <AppName/>
+              Sign In to <AppName/>
             </Typography>
             {!isEmpty(errors)
               && (
@@ -181,12 +181,13 @@ const Login = () => {
           </CardContent>
 
         </Card>
-
+        <Card variant="outlined"  className={classes.card}>
         <Typography className={classes.register}>
-          <span style={{ textDecoration: "underline" }}>New to {APP_NAME}  </span>{'?'}{'  '}
+          <span >New to {APP_NAME}  </span>{'?'}{'  '}
           <TextLink to={route.register}>Create New Account.</TextLink>
 
         </Typography>
+        </Card>
         <div style={{ marginLeft: '20%',marginTop:"20%" }}>
       
           

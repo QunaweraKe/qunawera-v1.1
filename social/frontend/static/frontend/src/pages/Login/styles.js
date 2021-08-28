@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(0),
   },
   register: {
+    marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
     textAlign: 'center',
     fontSize:15,
@@ -47,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
 
   textAlign:"center",
 
+  },
+  card:{
+    marginTop: theme.spacing(3),
   },
 }));
 

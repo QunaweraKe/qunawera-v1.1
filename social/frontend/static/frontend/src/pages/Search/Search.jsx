@@ -66,8 +66,12 @@ const Search = () => {
       <AuthLayout>
         <Heading>
           <MobileMenu />
-          <SearchInput />
+        
+            <div style={{marginRight:2,}}>
+            <SearchInput />
+            </div>
         </Heading>
+        
         {render()}
         <NextButton
           callback={handleNext}

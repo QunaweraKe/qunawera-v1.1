@@ -69,7 +69,7 @@ const PostDetail = () => {
       <BackButton />
           <div>
             <Typography
-              className={classes.heading}
+            
               variant="h6"
               style={{fontWeight:"bolder"}}
             >

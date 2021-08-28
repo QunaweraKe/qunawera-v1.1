@@ -8,7 +8,7 @@ class PostPagination(CursorPagination):
 
 class ReplyPagination(CursorPagination):
     ordering = "created_at"
-    page_size = 10
+    page_size = 7
 
 
 class ProfileLikesPagination(CursorPagination):

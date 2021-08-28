@@ -23,7 +23,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 
 // Local
-
+import DeviceDetection from '../DeviceDetection';
 import LogOut from '../LogOut';
 import {APP_NAME, route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -186,7 +186,7 @@ const Header = () => {
 
 
 </Typography>
-
+<DeviceDetection/>
    
   </div>
       </div>

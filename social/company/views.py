@@ -12,14 +12,12 @@ class ContactUsView (rest_generics.CreateAPIView):
      serializer_class = ContactUsSerializer
     
      def post(self, request):
-         serializer = ContactUsSerializer(data=request.data)
-         if serializer.is_valid():
-             serializer.save()
-             return Response(serializer.data,status=status.HTTP_201_CREATED)
-         else:
-
-             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+         contactus=request.data
+         serializer = ContactUsSerializer(data=contactus)
+         if serializer.is_valid(raise_exception=True):
+            contactus_saved=serializer.save()
+         return Response({"success":"posted '{}' created successfully".format(contactus_saved.AllowID)})
+         
 class TeamView (rest_generics.ListAPIView):
      permission_classes = [AllowAny]
      serializer_class = TeamSerializer

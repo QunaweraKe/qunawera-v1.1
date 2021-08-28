@@ -1,10 +1,10 @@
 
 import React from 'react';
 // MATERIAL UI
+
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 //local
 import BackButton from '../../components/BackButton';
 import ContactUsDialog from '../../components/ContactUsDialog';
@@ -24,21 +24,24 @@ const ContactUs = () => {
   return (
    <div>
      <>
-    <CssBaseline />
+   
     <main>
        <BackButton/>
         <div className={classes.heroContent}>
-          <Container maxWidth="md">
-            <Typography component="h5" variant="h2" align="center" color="primary" gutterBottom>
-             Qunawera Support Center
+      
+          <Container maxWidth="sm">
+            <Typography component="h7" variant="h4" align="center" color="primary" gutterBottom>
+              Support Center
             </Typography>
-            <Typography variant="subtitle" align="center" color="textSecondary" paragraph>
-
-            </Typography>
-            
+                 
+    <Typography>Fill in all the fields below.</Typography>
           </Container>
         </div>
+        <Container maxWidth="sm">
+        
         <ContactUsDialog/>
+       
+        </Container>
       </main>
     </> 
     </div>

@@ -5,11 +5,6 @@ import { useHistory } from 'react-router-dom';
 
 
 //material ui
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuList from '@material-ui/core/MenuList';
 import Grid from '@material-ui/core/Grid';
 import RateReviewOutlinedIcon from '@material-ui/icons/RateReviewOutlined';
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
@@ -59,46 +54,7 @@ const PostItemFeeds = ({ postId }) => {
   const post = useSelector((s) => selectPost(s, postId));
 
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-
-    prevOpen.current = open;
-  }, [open]);
-
+  
 
   return (
     <>
@@ -283,42 +239,7 @@ const PostItemFeeds = ({ postId }) => {
               />
             </>
           )}
-          <Button
-          ref={anchorRef}
-          aria-controls={open ? 'menu-list-grow' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          Quick Actions delete, edit, close
-        </Button>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper className={classes.paper}>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>{post.is_author && post.is_active
-              && (
-                <>
-
-                  <ClosePost
-                    setAnchorEl={setAnchorEl}
-                    postId={post.id}
-                    type="post"
-                  />
-                </>
-              )}</MenuItem>
-      
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-              
+         
 
       </div>
       <Grid container spacing={1}>

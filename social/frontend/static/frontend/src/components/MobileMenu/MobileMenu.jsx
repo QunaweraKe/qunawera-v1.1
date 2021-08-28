@@ -27,7 +27,7 @@ import PageTitle from '../PageTitle';
 import Avatar from '../Avatar';
 import LogOut from '../LogOut';
 import useStyles from './styles';
-
+import DeviceDetection from '../DeviceDetection';
 
 
 const MobileMenu = () => {
@@ -168,6 +168,7 @@ const MobileMenu = () => {
      
      
      </Typography>
+     <DeviceDetection/>
      <Link to={route.team}> 
         <Typography align="left" style={{fontFamily:"monospace",fontSize:"10px"}}>
            Learn more about us.

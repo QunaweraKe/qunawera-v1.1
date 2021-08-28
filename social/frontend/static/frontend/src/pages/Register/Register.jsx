@@ -212,12 +212,13 @@ const Register = () => {
           </CardContent>
         </Card>
 
-
+        <Card variant="outlined"  className={classes.card}>
        <Typography className={classes.login}>
-        <span style={{textDecoration:"underline"}}>Already a member </span> {'?'}  {'  '}
+        <span >Already a member </span> {'?'}  {'  '}
        <TextLink to={route.login}>
       Login</TextLink>
         </Typography>
+        </Card>
         <div style={{ marginLeft: '20%',marginTop:"20%" }}>
       
           

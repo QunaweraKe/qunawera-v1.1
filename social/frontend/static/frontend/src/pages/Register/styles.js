@@ -24,13 +24,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   login: {
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(2),
      marginBottom: theme.spacing(2),
     textAlign: 'center',
     fontSize:15,
    fontWeight:600,
    letterSpacing:'2',
   },
+  card:{
+    marginTop: theme.spacing(2),
+  }
 
 }));
 

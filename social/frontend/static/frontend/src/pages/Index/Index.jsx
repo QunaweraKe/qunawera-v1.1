@@ -138,19 +138,16 @@ const Index = () => {
             variant="subtitle1"
             >
 
-             Find Work
+             Stranded with a task?
           </Typography>
         </h1>
       </div>
       <div className="role">
         <div className="block" ></div>
         <p><Typography variant="subtitle4"  color="primary" align="center" >
-
-     Based on your location
+          Meet people who can help you.
          </Typography></p>
-         <p><Typography variant="subtitle4"  color="primary" align="center" >
- <PublicIcon/> 
-    </Typography></p>
+        
       </div>
 
     </div>
