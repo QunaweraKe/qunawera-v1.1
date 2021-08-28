@@ -1,7 +1,6 @@
 from rest_framework import serializers
-
 from .models import *
-
+from difflib import SequenceMatcher
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -14,30 +13,10 @@ class ProfileSerializer(serializers.ModelSerializer):
             "location",
             "website",
         ]
+         
 
+class UserSerializer(serializers.ModelSerializer):
 
-
-  
-
-
-    
-
-    
-
-class UserSerializer( serializers.ModelSerializer):
-   
-   
-    def validate(self, data):
-        password = data.get("password")
-        password2 = data.get("password2")
-        if password and password2 and password != password2:
-            raise serializers.ValidationError(
-                {
-                    "password2": "Passwords do not match.",
-                }
-            )
-                         
-        return data
   
     display_name = serializers.SerializerMethodField(read_only=True)
     followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
@@ -65,19 +44,19 @@ class UserSerializer( serializers.ModelSerializer):
             "slug",
             "username",
         ]
-
-    def create(self, validated_data):
-        del validated_data["password2"]
-        return User.objects.create_user(**validated_data)
-
-    def get_display_name(self, obj):
-        return obj.display_name()
-
-
-class PasswordSerializer( serializers.ModelSerializer):
+#validation function to to validate password fields...
     def validate(self, data):
         password = data.get("password")
         password2 = data.get("password2")
+        username = data.get("username")
+        email = data.get("email")
+        max_similarity = 0.7
+        if SequenceMatcher(a=password.lower(), b=username.lower()).quick_ratio() > max_similarity:
+            raise serializers.ValidationError(
+                {"password": "The password is too similar to the username."},)
+        if SequenceMatcher(a=password.lower(), b=email.lower()).quick_ratio() > max_similarity:
+            raise serializers.ValidationError(
+                {"password":"The password is too similar to the email."},)
         if password and password2 and password != password2:
             raise serializers.ValidationError(
                 {
@@ -95,10 +74,20 @@ class PasswordSerializer( serializers.ModelSerializer):
         if len(password) < 8:
             raise serializers.ValidationError(
                 {
-                    "password": "Password must be atleast 8 characters long",
+                    "password": "This password is too short. It must contain at least 8 characters.",
                 }
             )   
-        return self.data
+        return super(UserSerializer, self).validate(data)
+    def create(self, validated_data):
+        del validated_data["password2"]
+        return User.objects.create_user(**validated_data)
+
+    def get_display_name(self, obj):
+        return obj.display_name()
+
+
+class PasswordSerializer( serializers.ModelSerializer):
+   
     current_password = serializers.CharField(write_only=True)
     password = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)

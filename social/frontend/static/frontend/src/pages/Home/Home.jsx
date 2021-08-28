@@ -115,7 +115,7 @@ const Home = ( ) => {
 
 
         </SubHeading>
-        <Heading>
+        <Heading >
           pick a new location &middot; Nairobi
         </Heading>
       
