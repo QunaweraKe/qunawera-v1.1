@@ -37,6 +37,8 @@ const useStyles = makeStyles((theme) => ({
     height: 200,
     position: 'relative',
     width: '100%',
+    marginTop:5,
+    borderRadius:5,
   
   },
   bio: {

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginLeft:theme.spacing(0),
     position:"relative",
-    width:"auto"
+    width:"100%"
   },
   divider: {
     height: 28,
