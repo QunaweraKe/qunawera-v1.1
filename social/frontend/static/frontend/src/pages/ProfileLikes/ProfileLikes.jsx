@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 // Local
 import AuthLayout from '../../components/AuthLayout';
 import BackButton from '../../components/BackButton';
-import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
 import PageTitle from '../../components/PageTitle';
@@ -54,12 +54,12 @@ const ProfileLikes = () => {
       />
 
       <AuthLayout>
-        <Heading>
+        <SubHeading>
           <BackButton />
           <Typography align="center" variant="h6">
             {profileUser.display_name || slug}
           </Typography>
-        </Heading>
+        </SubHeading>
         <ProfileInfo
           loading={profileUserLoading}
           profileUser={profileUser}

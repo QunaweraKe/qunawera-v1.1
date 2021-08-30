@@ -18,7 +18,7 @@ class PostsAdmin(admin.ModelAdmin):
     def disapprove_status(modeladmin,request,queryset):
         queryset.updated(is_active=False)
         
-    readonly_fields=("liked","is_reply","author","image","thumbnail")
+   # readonly_fields=("liked","is_reply","author","image","thumbnail")
     list_display=("id","author","approved","short_title","short_body","image","likes_count","closed","created_at","updated_at",)
     search_fields=["author"]
     list_filter=('is_active','closed',"is_reply",)

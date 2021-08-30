@@ -50,11 +50,16 @@ const PostItemFeeds = ({ postId }) => {
   const pluralizeComments = (length) => (length !== 1 ? 'Reviews' : 'Task Review');
   const classes = useStyles();
   const history = useHistory();
-
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const post = useSelector((s) => selectPost(s, postId));
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
-  
 
   return (
     <>
@@ -76,7 +81,7 @@ const PostItemFeeds = ({ postId }) => {
 
           <IconButton
             className={classes.postAction}
-            onClick={handleMenuOpen}
+          onClick={handleMenuOpen}
           >
             <MoreHorizIcon />
           </IconButton>
