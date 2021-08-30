@@ -53,7 +53,7 @@ const ProfilePosts = () => {
       <AuthLayout>
         <Heading>
           <BackButton />
-          <Typography variant="h6">
+          <Typography align="center" variant="h6">
             {profileUser.display_name || slug}
           </Typography>
 

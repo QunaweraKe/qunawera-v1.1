@@ -95,7 +95,7 @@ const Notfications = () => {
       <AuthLayout>
         <Heading>
           <MobileMenu />
-          <Typography variant="h6" style={{fontWeight:"bolder"}}>
+          <Typography  variant="h6" style={{fontWeight:"bolder"}}>
             Activities
           </Typography>
         </Heading>

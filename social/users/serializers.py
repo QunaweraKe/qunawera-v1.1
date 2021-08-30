@@ -44,7 +44,7 @@ class UserSerializer(serializers.ModelSerializer):
             "slug",
             "username",
         ]
-#validation function to to validate password fields...
+#validation function to to validate password fields,username...
     def validate(self, data):
         password = data.get("password")
         password2 = data.get("password2")
@@ -63,7 +63,10 @@ class UserSerializer(serializers.ModelSerializer):
                     "password2": "Passwords do not match.",
                 }
             )
-                         
+        if User.objects.filter(username=username).exists():
+    
+             raise serializers.ValidationError(
+                {"username":"User with that username already exists."},)          
         if not any (char.isdigit() for char in password):
                raise serializers.ValidationError(
                    {
