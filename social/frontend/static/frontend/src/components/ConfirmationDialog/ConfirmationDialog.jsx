@@ -50,7 +50,7 @@ const ConfirmationDialog = ({
       </Typography>
       <div className={classes.buttonContainer}>
         <Button
-          className={classes.button}
+          style={{boxShadow:"none",borderRadius:"5px",}}
           onClick={onclickfalse}
           color="secondary"
           variant="outlined"
@@ -59,10 +59,10 @@ const ConfirmationDialog = ({
         </Button>
         <Button
           className={classes.button}
-          color="primary"
           disabled={loading}
           onClick={onclicktrue}
-          variant="outlined"
+          variant="contained"
+          style={{boxShadow:"none",borderRadius:"5px",}}
         >
           {buttontext}
           {loading && <CircularProgress />}

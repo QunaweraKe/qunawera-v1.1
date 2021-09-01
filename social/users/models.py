@@ -87,14 +87,16 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
 
 
 
-
+    
 
 
     def unfollow(self, user: object) -> None:
         """ Unfollow `user`. """
         self.following.remove(user)
 
-
+    class Meta:
+        
+        verbose_name_plural='Active Accounts'
 class Profile(models.Model):
     class SexTypes(models.TextChoices):
         MALE = "M"

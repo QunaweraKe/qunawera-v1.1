@@ -10,12 +10,21 @@ class  ContactUsSerializer(serializers.ModelSerializer):
     
     class Meta:
         model=ContactUs
-        fields =[
+        fields =(
             "email",
             "description",
             "title",
             "Screenshot"
-        ]
+        )
+
+    def create(self, validated_data):
+        contact=ContactUs.objects.create(
+            email=validated_data['email'],
+            description=validated_data['description'],
+            title=validated_data['title'],
+            Screenshot=validated_data['Screenshot'],
+        )
+        return contact
 class  TeamSerializer(serializers.ModelSerializer):
    
 

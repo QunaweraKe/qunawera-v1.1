@@ -71,7 +71,8 @@ const LogOut = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}     color="textSecondary" size="small" variant="outlined">
+          <Button onClick={handleClose}     color="textSecondary" size="small" variant="outlined"
+                  style={{boxShadow:"none",borderRadius:"5px",}}>
             Cancel
           </Button>
           
@@ -80,7 +81,7 @@ const LogOut = () => {
             color="primary"
             onClick={handleLogout}
             variant="contained"
-            style={{boxShadow:"none",borderRadius:"2px",}}
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
             <span className="nav-button-text">Yes</span>
           </Button>

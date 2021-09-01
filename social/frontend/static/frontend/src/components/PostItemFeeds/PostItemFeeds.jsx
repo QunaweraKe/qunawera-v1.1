@@ -65,7 +65,7 @@ const PostItemFeeds = ({ postId }) => {
     <>
     <div className={classes.root}>
 
-      <Card square className={classes.postContainer} variant="outlined">
+      <Card className={classes.postContainer} variant="outlined">
 
 
         <div className={classes.avatarContainer}>
@@ -115,7 +115,7 @@ const PostItemFeeds = ({ postId }) => {
                       <OpenInNewIcon />
                     </ListItemIcon>
 
-                    <ListItemText primary="View Details  " classes={{ primary: classes.listItem }} />
+                    <ListItemText primary="In Details  " classes={{ primary: classes.listItem }} />
 
 
                   </MenuItem>

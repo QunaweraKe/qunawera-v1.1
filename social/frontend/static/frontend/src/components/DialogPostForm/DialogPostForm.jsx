@@ -2,9 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-//DROPZONE JS
-import Dropzone from "react-dropzone";
 // Material UI
+import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -16,6 +15,8 @@ import Slide from '@material-ui/core/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/EditOutlined';
+import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -42,19 +43,22 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 const DialogPostForm = () => {
-  const [image, setImage] = React.useState(null);
+  const [image, setImage] = React.useState({ preview: "", raw: "" });
   const [body, setBody] = React.useState("");
   const [title, setTitle] = React.useState("");
-  const [fileNames, setFileNames] = React.useState([]);
-  const handleDrop = acceptedFiles =>
-    setFileNames(acceptedFiles.map(file => file.name));
 
 
   
   const handleImage = (event) => {
     event.preventDefault();
     console.log(event.target.files);
-    setImage(event.target.files[0]);
+    if (event.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(event.target.files[0]),
+        raw: event.target.files[0]
+      });
+    }
+    
   };
   const handleBody = (event) => {
     event.preventDefault();
@@ -81,6 +85,7 @@ const DialogPostForm = () => {
 
   const handleOpen = () => {
     setDialogOpen(true);
+    setImage('');
   };
 
   const handleSubmit = (event) => {
@@ -90,7 +95,7 @@ const DialogPostForm = () => {
     const formData = new FormData();
     formData.append("body", body);
     formData.append("title", title);
-    formData.append( "image",image, image.name);
+    formData.append( "image",image.raw, image.name);
     dispatch(createPost(formData));
     setImage('');
     setTitle('');
@@ -119,8 +124,9 @@ const DialogPostForm = () => {
           </Button>
         </CustomTooltip>
       </div>
+     
       <Dialog
-        
+        fullScreen
         open={dialogOpen}
         onClose={handleClose}
         TransitionComponent={Transition}
@@ -135,6 +141,7 @@ const DialogPostForm = () => {
               Form has invalid inputs.
             </Alert>
           )}
+           <Container maxWidth="sm">
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography
@@ -165,10 +172,10 @@ const DialogPostForm = () => {
             type="text"
             value={title}
             variant="filled"
-            
-            helperText="Indicate the job title i.e baby sitter"
+          
 
           />
+             <br />
           <TextField
             required
             className={classes.inputContainer}
@@ -183,36 +190,32 @@ const DialogPostForm = () => {
             type="text"
             variant="filled"
             rows={7}
-            helperText="Include payment & skillset required for task"
+            helperText="Include payment & skillset required in your description"
             value={body}
           />
 
 
           <br />
+          <Divider/>
+<Card variant ="outlined"  style={{marginTop:4,marginLeft:5,borderRadius:5,marginBottom:5}}>
 
-          <Dropzone onDrop={handleDrop}  onChange={handleImage}>
-        {({ getRootProps, getInputProps }) => (
-          <div {...getRootProps({ className: "dropzone" })}>
+  <label>
+  {image.preview ? <img src={image.preview} style={{marginTop:5,marginLeft:5,borderRadius:5,marginBottom:5,height:"50px",width:"50px"}}/> : (
+   <>
+    <Typography align="center" >Your upload will appear here... </Typography>
+   </>)}
+ </label>
+ </Card>
+
+ 
             <input  
-             onChange={handleImage}
+            onChange={handleImage}
             name="image"
             id="image"
             type="file"
-            {...getInputProps()} />
-            <p>Drag'n'drop files, or click to select files</p>
-          </div>
-        )}
-      </Dropzone>
-      <div>
-        <strong>Files:</strong>
-        <ul>
-          {fileNames.map(fileName => (
-            <li key={fileName}>{fileName}</li>
-          ))}
-        </ul>
-      </div>
-        
+       />
 
+     
 
           <br />
           <Button
@@ -253,7 +256,9 @@ const DialogPostForm = () => {
           </Typography>
 
         </DialogContentText>
+        </Container>
       </Dialog>
+
     </>
   );
 };

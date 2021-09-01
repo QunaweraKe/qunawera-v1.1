@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop:0,
     borderWidth:1,
     border:"solid",
-    borderRadius:5,
+ 
   },
 }));
 

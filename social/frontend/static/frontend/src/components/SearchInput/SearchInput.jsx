@@ -72,7 +72,7 @@ const SearchInput = () => {
         value={searchString}
       />
       </Box>
- <Divider style={{height:5,}}/>
+
  </>
   );
 };

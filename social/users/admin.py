@@ -10,9 +10,30 @@ class UserAdmin(admin.ModelAdmin):
     exclude=('password',)
     inlines = [ProfileInline,]
 
+    def get_queryset(self, request):
+        qs=super(UserAdmin,self).get_queryset(request)
+        return  qs.filter(is_active=True)
+    
+    
+
 class UserProfileAdmin (admin.ModelAdmin):
     model=Profile
     list_display=('user','bio','image','location','sex','banner')
 admin.site.register(Profile,UserProfileAdmin)
 
 
+
+
+
+class DeletedAccounts(User):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Inactive Accounts'
+
+class Inactive(UserAdmin):
+    readonly_fields=('is_active',)
+    def get_queryset(self, request):
+        qs=super(UserAdmin,self).get_queryset(request)
+        return  qs.filter(is_active=False)
+    
+admin.site.register(DeletedAccounts,Inactive)

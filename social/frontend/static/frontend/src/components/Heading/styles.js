@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1,
     height:70,
     marginTop:"0%",
-    borderRadius:5
+    
   },
 }));
 

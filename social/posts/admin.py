@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post,Reported
+from datetime import datetime
 from django.contrib.auth import  get_user_model
 User = get_user_model()
 admin.site.site_header="Qunawera Admin "
-admin.site.index_title="Site Portal "
+admin.site.index_title=" Portal "
 @admin.register(Post)
 class PostsAdmin(admin.ModelAdmin):
     
@@ -32,3 +33,36 @@ class PostsAdmin(admin.ModelAdmin):
         return  qs.filter(is_reply=False)
     
     
+
+@admin.register( Reported)
+class ReportedAdmin(admin.ModelAdmin):
+    list_display=("author","statement","reported_post","time","report_status",)
+    search_fields=["author"]
+
+
+class PostsToday(Post):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Posted Today'
+
+class PostsByDay(PostsAdmin):
+    
+    def get_queryset(self,request):
+        today=datetime.date.today()
+        qs=super(PostsAdmin,self).get_queryset(request)
+        return qs.filter(created_at__range=[today])
+admin.site.register(PostsToday,PostsByDay)
+
+class PostsNotApproved(Post):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Posts Not Approved'
+
+class NotApproved(PostsAdmin):
+    
+    
+    def get_queryset(self, request):
+        qs=super(PostsAdmin,self).get_queryset(request)
+        return  qs.filter(is_active=False)
+    
+admin.site.register(PostsNotApproved,NotApproved)

@@ -4,20 +4,24 @@ const useStyles = makeStyles((theme) => ({
   inputInput: {
     
     padding: theme.spacing(1, 2, 1, 1.5),
-    flexGrow: 1,
+
   },
   root: {
+    borderColor:theme.palette.primary.main,
     borderRadius:5,
+    border:"solid",
+    borderWidth:1,
     backgroundColor: theme.palette.common.white,
     position: 'sticky',
-    top: 0,
-    zIndex: 1,
+    top: -2,
+    zIndex: 2,
     padding: '2px 2px',
     display: 'flex',
     alignItems: 'center',
     marginLeft:theme.spacing(0),
     position:"relative",
-    width:"100%"
+    width:"auto",
+    height:60,
   },
   divider: {
     height: 28,
@@ -32,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchIcon: {
     color: theme.palette.grey[400],
+    marginLeft:3,
   },
   searchIconFocus: {
     color: theme.palette.primary.main,

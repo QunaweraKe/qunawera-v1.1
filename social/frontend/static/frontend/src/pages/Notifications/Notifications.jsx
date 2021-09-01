@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 // Local
 import AuthLayout from '../../components/AuthLayout';
-import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import Loading from '../../components/Loading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
@@ -93,12 +93,12 @@ const Notfications = () => {
       <PageTitle title="Activities" />
 
       <AuthLayout>
-        <Heading>
+        <SubHeading>
           <MobileMenu />
-          <Typography  variant="h6" style={{fontWeight:"bolder"}}>
+          <Typography  variant="h6" style={{fontWeight:"bolder",marginLeft:2,}}>
             Activities
           </Typography>
-        </Heading>
+        </SubHeading>
         {renderNotifications()}
         <NextButton
           callback={handleNext}

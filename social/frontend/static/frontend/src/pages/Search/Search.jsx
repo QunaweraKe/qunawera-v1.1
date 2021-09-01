@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 // Local
 import AuthLayout from '../../components/AuthLayout';
-import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import MobileMenu from '../../components/MobileMenu';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
@@ -64,13 +64,13 @@ const Search = () => {
       <PageTitle title="Search Users" />
 
       <AuthLayout>
-        <Heading>
+        <SubHeading>
           <MobileMenu />
         
-            <div style={{marginRight:2,}}>
+            <div style={{marginLeft:20,}}>
             <SearchInput />
             </div>
-        </Heading>
+        </SubHeading>
         
         {render()}
         <NextButton

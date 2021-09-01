@@ -1,9 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
-
+import {red} from '@material-ui/core/colors/red';
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   button: {
     width: '45%',
+    backgroundColor:'red',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
   buttonContainer: {
     display: 'flex',

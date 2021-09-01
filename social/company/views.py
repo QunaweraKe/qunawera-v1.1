@@ -3,20 +3,15 @@ from rest_framework import generics as rest_generics, status
 
 from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework.response import Response
-from . models import Team
+from . models import Team,ContactUs
 
 from .serializers import ContactUsSerializer,TeamSerializer
 
 class ContactUsView (rest_generics.CreateAPIView):
      permission_classes = [IsAuthenticated]
      serializer_class = ContactUsSerializer
-    
-     def post(self, request):
-         contactus=request.data
-         serializer = ContactUsSerializer(data=contactus)
-         if serializer.is_valid(raise_exception=True):
-            contactus_saved=serializer.save()
-         return Response({"success":"posted '{}' created successfully".format(contactus_saved.AllowID)})
+     queryset=ContactUs.objects.all()
+     
          
 class TeamView (rest_generics.ListAPIView):
      permission_classes = [AllowAny]

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "posts",
     "search",
     "users.apps.UsersConfig",
-    "company"
+    "company",
+    "analytics",
 
 ]
 

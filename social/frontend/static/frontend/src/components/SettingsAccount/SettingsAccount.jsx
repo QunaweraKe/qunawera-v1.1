@@ -91,7 +91,8 @@ const SettingsAccount = () => {
         color="primary"
         disabled={loading}
         type="submit"
-        variant="outlined"
+        variant="contained"
+        style={{boxShadow:"none",borderRadius:"5px",}}
       >
         Update
         {loading && <CircularProgress />}

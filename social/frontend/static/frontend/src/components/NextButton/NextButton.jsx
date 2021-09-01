@@ -5,7 +5,7 @@ import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 
 // Local
-import LinearProgressBar from '../LinearProgressBar';
+
 
 import useStyles from './styles';
 
@@ -23,7 +23,7 @@ const NextButton = ({ callback, loading, nextUrl }) => {
         fullWidth
       >
          view  more 
-        {loading && <LinearProgressBar />}
+        {loading }
       </IconButton>
     ) : null;
 };

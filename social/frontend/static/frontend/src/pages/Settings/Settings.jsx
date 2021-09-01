@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // Local
 import AuthLayout from '../../components/AuthLayout';
 import BackButton from '../../components/BackButton';
-import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import PageTitle from '../../components/PageTitle';
 import SettingsAccount from '../../components/SettingsAccount';
 import SettingsPassword from '../../components/SettingsPassword';
@@ -28,14 +28,14 @@ const Settings = () => {
       <PageTitle title="Settings" />
 
       <AuthLayout>
-        <Heading>
+        <SubHeading>
           <BackButton />
           <div>
             <Typography variant="h6"  style={{fontWeight:"bolder"}}>
               Settings
             </Typography>
           </div>
-        </Heading>
+        </SubHeading>
         <Accordion
           expanded={expanded === 'account'}
           onChange={handleChange('account')}

@@ -182,7 +182,7 @@ const Header = () => {
   {new Date().getFullYear()}
   {'  '}
 
-  {APP_NAME} {' ,'} LLC .All rights reserved.
+  {APP_NAME} {' ,'} LLC .
 
 
 </Typography>

@@ -3,7 +3,8 @@ from django.db import models
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager
 from django.template.defaultfilters import truncatechars
-
+from django.contrib.auth import  get_user_model
+User = get_user_model()
 class Post(SoftDeleteMixin, TimestampMixin):
   
     """
@@ -94,3 +95,23 @@ class Post(SoftDeleteMixin, TimestampMixin):
     def image_url(self):
          if self.image and hasattr (self.image,'url'):
             return self.image.url
+
+    class Meta:
+          verbose_name_plural="All posts"
+
+class Reported(models.Model):
+    statement=models.TextField(blank=True,
+        max_length=1500,)
+    author=models.ForeignKey('users.User',on_delete=models.CASCADE)
+    reported_post=models.ForeignKey('Post',on_delete=models.CASCADE)
+    time=models.DateTimeField(auto_now_add=True)
+    report_status=models.BooleanField(default=False)
+    #approval status
+#filter by today in admin site
+
+    def __str__(self):
+ 
+        return "%s  %s   %s" %(self.author,self.reported_post,self.time)
+    class Meta:
+        verbose_name="reported post"
+        verbose_name_plural="reported posts"

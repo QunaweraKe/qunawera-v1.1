@@ -130,7 +130,8 @@ const EditProfile = () => {
             disabled={loading}
             onClick={handleSubmit}
             size="large"
-            variant="outlined"
+            variant="contained"
+            style={{boxShadow:"none",borderRadius:"5px",}}
             
           >
          Save
