@@ -15,6 +15,7 @@ from .serializers import (
     PostSerializer,
     ReplySerializer,
     RepostSerializer,
+  
 )
 
 User = get_user_model()
@@ -130,7 +131,18 @@ class PostCloseAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         post.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-  
+class ReportedAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = PostDetailSerializer
+
+    def delete(self, request, pk):
+        """ Remove post. """
+
+        report_post = get_object_or_404(Post, pk=pk,is_active=True)
+        report_post.is_reported = True
+        report_post.save()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+     
 
 class PostDetailAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]

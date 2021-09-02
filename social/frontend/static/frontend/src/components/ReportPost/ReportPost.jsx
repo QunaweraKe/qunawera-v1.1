@@ -3,43 +3,46 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-
+import ReportIcon from '@material-ui/icons/Report';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 
 // Local
+
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
 import useStyles from './styles';
 import {
   key,
-  closePost,
+  reportPost,
   selectPost,
 } from '../../redux/post';
 
-const ClosePost = React.forwardRef((props, ref) => {
-  const { postId, setAnchorEl } = props;
+const ReportPost = React.forwardRef((props, ref) => {
+  const { postId, setAnchorEl} = props;
   const dispatch = useDispatch();
   const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
+  const handleEntered = () => {
+    setAnchorEl(null);
+  };
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
-  const { loading } = useUI(key.closePost, null, false);
+  const { loading } = useUI(key.reportPost, null, false);
 
   const handleClose = () => {
     setDialogOpen(false);
   };
 
-  const handleClosePost = async () => {
-      await dispatch(closePost(postId, post.author.slug));
+  const handlereportPost = async () => {
+      await dispatch(reportPost(postId, post.author.slug));
   
     
   };
 
-  const handleEntered = () => {
-    setAnchorEl(null);
-  };
+
 
   const handleOpen = () => {
     setDialogOpen(true);
@@ -53,10 +56,13 @@ onClick={handleOpen}
 ref={ref}
 > 
 
- 
+<ListItemIcon>
+      <ReportIcon style={{color:"red"}}/>
+         </ListItemIcon>
+         
 
 <ListItemText
-  primary=" Close this post?"
+  primary=" Report"
   primaryTypographyProps={{
     
   }}
@@ -71,12 +77,12 @@ ref={ref}
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}
-        onclicktrue={handleClosePost}
-        onClose={handleClose}
+        onclicktrue={handlereportPost }
+        onClick={handleClose}
         onEntered={handleEntered}
      
         text={`
-        This action will  change the status of the post to closed which means it wont be visible to you and those following you .Are you sure about this?
+        Do you really want to report this post?
         `}
   
       />
@@ -84,10 +90,10 @@ ref={ref}
   );
 });
 
-ClosePost.propTypes = {
+ReportPost.propTypes = {
   postId: PropTypes.number.isRequired,
   setAnchorEl: PropTypes.func.isRequired,
   
 };
 
-export default ClosePost;
+export default ReportPost;

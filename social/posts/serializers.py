@@ -1,9 +1,9 @@
-from django.http import request
+
 from rest_framework import serializers
-from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from users.serializers import UserSerializer
 from .models import Post
+
 
 
 class PostParentSerializer(serializers.ModelSerializer):
@@ -12,6 +12,7 @@ class PostParentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
+            "is_reported",
             "author",
             "body",
             "created_at",
@@ -54,7 +55,8 @@ class BasePostSerializer(serializers.ModelSerializer):
             "image",
             "thumbnail",
             "title",
-            "closed"
+            "closed",
+             "is_reported",
             
         ]
 
@@ -74,6 +76,7 @@ class PostSerializer(BasePostSerializer):
             "repost_ids",
             "created_at",
             "updated_at",
+            "is_reported",
         ]
 
 

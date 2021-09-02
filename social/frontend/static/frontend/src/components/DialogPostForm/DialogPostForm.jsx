@@ -141,7 +141,7 @@ const DialogPostForm = () => {
               Form has invalid inputs.
             </Alert>
           )}
-           <Container maxWidth="sm">
+           <Container maxWidth="md">
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography
@@ -202,7 +202,7 @@ const DialogPostForm = () => {
   <label>
   {image.preview ? <img src={image.preview} style={{marginTop:5,marginLeft:5,borderRadius:5,marginBottom:5,height:"50px",width:"50px"}}/> : (
    <>
-    <Typography align="center" >Your upload will appear here... </Typography>
+    <Typography paragraph variant="body3" align="center" >Your upload will appear here... </Typography>
    </>)}
  </label>
  </Card>
@@ -213,6 +213,7 @@ const DialogPostForm = () => {
             name="image"
             id="image"
             type="file"
+            capture="environment"
        />
 
      

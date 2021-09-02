@@ -12,6 +12,7 @@ urlpatterns = [
     path("<int:pk>/replies/", views.PostRepliesAPIView.as_view(), name="replies"),
     path("feed/", views.FeedAPIView.as_view(), name="feed"),
     path("close/<int:pk>/", views.PostCloseAPIView.as_view(), name="post_close"),
+    path("report/<int:pk>/", views.ReportedAPIView.as_view(), name="reported"),
     path(
         "profile/<str:slug>/likes/",
         views.ProfileLikesAPIView.as_view(),

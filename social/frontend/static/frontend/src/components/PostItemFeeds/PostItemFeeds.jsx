@@ -23,7 +23,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import PanToolIcon from '@material-ui/icons/PanTool';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { red } from '@material-ui/core/colors/red';
+import { green } from '@material-ui/core/colors/green';
 
 // Local
 import { route } from '../../constants';
@@ -31,7 +31,7 @@ import {
   selectPost
 } from '../../redux/post';
 import Avatar from '../Avatar';
-import ClosePost from '../ClosePost';
+import ReportPost from '../ReportPost';
 import DeletePost from '../DeletePost';
 import LikePost from '../LikePost';
 import PostHeader from '../PostHeader';
@@ -161,7 +161,14 @@ const PostItemFeeds = ({ postId }) => {
                   />
                 </>
               )}
-            
+
+   
+
+                  <ReportPost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
+                  />
+           
           </Menu>
 
           <div className={classes.text}>
@@ -218,10 +225,10 @@ const PostItemFeeds = ({ postId }) => {
                 </div>
               ) : (
                 <>
-                  <div className={classes.status} style={{ color: "red" }}>
-                  <PanToolIcon />   Status&middot;Not Approved &middot; Open
+                  <div className={classes.status} style={{ color: "green" }}>
+                  <PanToolIcon />   Status&middot;Pending
                   </div>
-                  <Typography color="primary"style={{ fontSize: "12px", fontFamily: "monospace",position:"relative" }}>
+                  <Typography color="green"style={{ fontSize: "16px", fontFamily: "monospace",position:"relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
                     Kindly wait as we approve the task.
                   </Typography>

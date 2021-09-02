@@ -60,6 +60,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
 
     objects = PostManager.as_manager()
     closed=models.BooleanField(default=False)
+    is_reported=models.BooleanField(default=False)
     def save(self, *args, **kwargs):
         ''' On save, update timestamps '''
         return super(Post, self).save(*args, **kwargs)
@@ -99,19 +100,3 @@ class Post(SoftDeleteMixin, TimestampMixin):
     class Meta:
           verbose_name_plural="All posts"
 
-class Reported(models.Model):
-    statement=models.TextField(blank=True,
-        max_length=1500,)
-    author=models.ForeignKey('users.User',on_delete=models.CASCADE)
-    reported_post=models.ForeignKey('Post',on_delete=models.CASCADE)
-    time=models.DateTimeField(auto_now_add=True)
-    report_status=models.BooleanField(default=False)
-    #approval status
-#filter by today in admin site
-
-    def __str__(self):
- 
-        return "%s  %s   %s" %(self.author,self.reported_post,self.time)
-    class Meta:
-        verbose_name="reported post"
-        verbose_name_plural="reported posts"

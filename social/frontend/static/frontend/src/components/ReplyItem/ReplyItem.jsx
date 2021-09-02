@@ -14,7 +14,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
 // Local
 import Avatar from '../Avatar';
-import TextLink from '../TextLink'
+import TextLink from '../TextLink';
+import ReportPost from '../ReportPost';
 import DeletePost from '../DeletePost';
 import EditPost from '../EditPost';
 import LikePost from '../LikePost';
@@ -106,6 +107,11 @@ const ReplyItem = ({ replyId }) => {
                   <EditPost
                     setAnchorEl={setAnchorEl}
                     postId={reply.id}
+                  />
+                  <ReportPost
+                    setAnchorEl={setAnchorEl}
+                    postId={reply.id}
+                    
                   />
                 </Menu>
                    
