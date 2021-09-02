@@ -48,14 +48,14 @@ const PostDetail = () => {
       renderedPost = 
       <div style={{fontFamily:'monospace',fontSize:"16px"}}>
         < Typography align="center">
-        This post has been deleted  .
+        This post has been removed  .
 
         </Typography>
         < Typography align="center">
         Contact support for more info. 
 
         </Typography>
-        <Removed/></div>;
+        <Removed style={{height:300,width:300}}/></div>;
     }
     return renderedPost;
   };

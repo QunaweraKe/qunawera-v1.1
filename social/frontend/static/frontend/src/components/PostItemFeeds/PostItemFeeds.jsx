@@ -220,7 +220,7 @@ const PostItemFeeds = ({ postId }) => {
             {post.is_active
               ? (
                 <div className={classes.status} style={{ fontFamily: "monospace", fontSize: 10, color: "green" }} >
-                  Status &middot; Open
+                  Status &middot; Approved
               
                 </div>
               ) : (

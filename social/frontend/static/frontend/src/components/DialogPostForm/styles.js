@@ -7,19 +7,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     
   },
-  contentContainer: {
-    display: 'flex',
-  },
 
-  input: {
-    padding: theme.spacing(2, 0),
-  },
-  inputContainer: {
-    flexGrow: 1,
-    
-  },
   margin: {
-    marginTop:5,
+    marginTop:7,
 
   },
   Button: {

@@ -160,7 +160,6 @@ const DialogPostForm = () => {
           <form onSubmit={handleSubmit}>
           <TextField
             required
-            className={classes.inputContainer}
             error={Boolean(errors.title)}
             autoComplete="off"
           
@@ -171,14 +170,14 @@ const DialogPostForm = () => {
             onChange={handleTitle}
             type="text"
             value={title}
-            variant="filled"
+            variant="outlined"
           
 
           />
-             <br />
+           
           <TextField
+          className={classes.margin}
             required
-            className={classes.inputContainer}
             error={Boolean(errors.body)}
             autoComplete="off"
             multiline
@@ -188,7 +187,7 @@ const DialogPostForm = () => {
             name="body"
             onChange={ handleBody}
             type="text"
-            variant="filled"
+            variant="outlined"
             rows={7}
             helperText="Include payment & skillset required in your description"
             value={body}
@@ -197,12 +196,12 @@ const DialogPostForm = () => {
 
           <br />
           <Divider/>
-<Card variant ="outlined"  style={{marginTop:4,marginLeft:5,borderRadius:5,marginBottom:5}}>
+<Card variant ="outlined"  style={{width:120,marginTop:4,marginLeft:5,borderRadius:5,marginBottom:5}}>
 
   <label>
   {image.preview ? <img src={image.preview} style={{marginTop:5,marginLeft:5,borderRadius:5,marginBottom:5,height:"50px",width:"50px"}}/> : (
    <>
-    <Typography paragraph variant="body3" align="center" >Your upload will appear here... </Typography>
+    <Typography style={{fontSize:15}}paragraph align="center" >Your upload will appear here... </Typography>
    </>)}
  </label>
  </Card>
@@ -239,7 +238,7 @@ const DialogPostForm = () => {
             onClick={handleClose}
             size="large"
             variant="outlined"
-
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
             Cancel
 
