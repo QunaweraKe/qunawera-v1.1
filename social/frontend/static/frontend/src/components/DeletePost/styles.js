@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   listItem:{
     linespacing:"1px",
     fontSize:15,
-  
+    margin:2,
   },
  
 }));

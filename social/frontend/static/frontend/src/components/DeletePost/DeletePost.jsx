@@ -20,7 +20,7 @@ import {
 } from '../../redux/post';
 
 const DeletePost = React.forwardRef((props, ref) => {
-  const { postId, setAnchorEl, type } = props;
+  const { postId,  type } = props;
   const dispatch = useDispatch();
   const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
@@ -42,10 +42,6 @@ const DeletePost = React.forwardRef((props, ref) => {
     }
   };
 
-  const handleEntered = () => {
-    setAnchorEl(null);
-  };
-
   const handleOpen = () => {
     setDialogOpen(true);
   };
@@ -63,7 +59,7 @@ const DeletePost = React.forwardRef((props, ref) => {
          
 
         <ListItemText
-          primary="Delete Post"
+          primary="Delete"
           primaryTypographyProps={{
             
           }}
@@ -77,7 +73,7 @@ const DeletePost = React.forwardRef((props, ref) => {
         onclickfalse={handleClose}
         onclicktrue={handleDelete}
         onClose={handleClose}
-        onEntered={handleEntered}
+       
         text={`
           This action can’t be undone and it will be remove everything associated to this post
         `}
@@ -89,7 +85,6 @@ const DeletePost = React.forwardRef((props, ref) => {
 
 DeletePost.propTypes = {
   postId: PropTypes.number.isRequired,
-  setAnchorEl: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['post', 'reply']).isRequired,
 };
 

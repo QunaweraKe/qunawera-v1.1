@@ -3,10 +3,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 // Local
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
@@ -18,7 +18,7 @@ import {
 } from '../../redux/post';
 
 const ClosePost = React.forwardRef((props, ref) => {
-  const { postId, setAnchorEl } = props;
+  const { postId} = props;
   const dispatch = useDispatch();
   const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
@@ -37,9 +37,6 @@ const ClosePost = React.forwardRef((props, ref) => {
     
   };
 
-  const handleEntered = () => {
-    setAnchorEl(null);
-  };
 
   const handleOpen = () => {
     setDialogOpen(true);
@@ -53,10 +50,12 @@ onClick={handleOpen}
 ref={ref}
 > 
 
- 
+<ListItemIcon>
+      <HighlightOffIcon />
+         </ListItemIcon>
 
 <ListItemText
-  primary=" Close this post?"
+  primary=" Close"
   primaryTypographyProps={{
     
   }}
@@ -73,7 +72,7 @@ ref={ref}
         onclickfalse={handleClose}
         onclicktrue={handleClosePost}
         onClose={handleClose}
-        onEntered={handleEntered}
+        
      
         text={`
         This action will  change the status of the post to closed which means it wont be visible to you and those following you .Are you sure about this?
@@ -86,7 +85,7 @@ ref={ref}
 
 ClosePost.propTypes = {
   postId: PropTypes.number.isRequired,
-  setAnchorEl: PropTypes.func.isRequired,
+
   
 };
 

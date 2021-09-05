@@ -48,7 +48,7 @@ const DialogPostForm = () => {
   const [title, setTitle] = React.useState("");
 
 
-  
+
   const handleImage = (event) => {
     event.preventDefault();
     console.log(event.target.files);
@@ -58,7 +58,7 @@ const DialogPostForm = () => {
         raw: event.target.files[0]
       });
     }
-    
+
   };
   const handleBody = (event) => {
     event.preventDefault();
@@ -90,21 +90,21 @@ const DialogPostForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
-    try{
-    const formData = new FormData();
-    formData.append("body", body);
-    formData.append("title", title);
-    formData.append( "image",image.raw, image.name);
-    dispatch(createPost(formData));
-    setImage('');
-    setTitle('');
-    setBody('');
-    handleClose();
-    return console.log("success")
-  }catch(err){
-    return console.log("error")
-  }
+
+    try {
+      const formData = new FormData();
+      formData.append("body", body);
+      formData.append("title", title);
+      formData.append("image", image.raw, image.name);
+      dispatch(createPost(formData));
+      setImage('');
+      setTitle('');
+      setBody('');
+      handleClose();
+      return console.log("success")
+    } catch (err) {
+      return console.log("error")
+    }
   };
 
 
@@ -124,7 +124,7 @@ const DialogPostForm = () => {
           </Button>
         </CustomTooltip>
       </div>
-     
+
       <Dialog
         fullScreen
         open={dialogOpen}
@@ -141,121 +141,124 @@ const DialogPostForm = () => {
               Form has invalid inputs.
             </Alert>
           )}
-           <Container maxWidth="md">
-        <DialogTitle>
-          <DialogCloseButton onClick={handleClose} />
-          <Typography
-            variant="h6"
-            
-          >
-         Post a new task
-          </Typography>
+        <Container maxWidth="md">
+          <DialogTitle>
+            <DialogCloseButton onClick={handleClose} />
+            <Typography
+              variant="h6"
 
-        </DialogTitle>
-       
-        <DialogContent>
-          <div className={classes.avatarContainer}>
-            <Avatar user={user} />
-          </div>
-          <form onSubmit={handleSubmit}>
-          <TextField
-            required
-            error={Boolean(errors.title)}
-            autoComplete="off"
+            >
+              Post a new task
+            </Typography>
+
+          </DialogTitle>
+
+          <DialogContent>
+            <div className={classes.avatarContainer}>
+              <Avatar user={user} />
+            </div>
+
+            <TextField
+              required
+              error={Boolean(errors.title)}
+              autoComplete="off"
+
+              fullWidth
+              id="title"
+              label="Title"
+              name="title"
+              onChange={handleTitle}
+              type="text"
+              value={title}
+              variant="outlined"
+
+
+            />
+
+            <TextField
+              className={classes.margin}
+              required
+              error={Boolean(errors.body)}
+              autoComplete="off"
+              multiline
+              fullWidth
+              id="body"
+              label="Description"
+              name="body"
+              onChange={handleBody}
+              type="text"
+              variant="outlined"
+              rows={7}
+              helperText="Include payment & skillset required in your description"
+              value={body}
+            />
+
+
+            <br />
+        
+            <Card variant="outlined" style={{width: 150, marginTop: 8, marginLeft:10, borderRadius: 5, marginBottom: 5 }}>
+
+              <label>
+                {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "100px", width: "100px" }} /> : (
+                  <>
+                    <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
+                  </>)}
+              </label>
+            </Card>
+
+<label className={classes.input}>
+  <label for="upload file">
+    </label>
+            <input
+              onChange={handleImage}
+              name="image"
+              id="image"
+              type="file"
+              capture="environment"
           
-            fullWidth
-            id="title"
-            label="Title"
-            name="title"
-            onChange={handleTitle}
-            type="text"
-            value={title}
-            variant="outlined"
-          
+            />
 
-          />
-           
-          <TextField
-          className={classes.margin}
-            required
-            error={Boolean(errors.body)}
-            autoComplete="off"
-            multiline
-            fullWidth
-            id="body"
-            label="Description"
-            name="body"
-            onChange={ handleBody}
-            type="text"
-            variant="outlined"
-            rows={7}
-            helperText="Include payment & skillset required in your description"
-            value={body}
-          />
+</label>
 
+            <br />
+            <Button
+              size="large"
+              color="primary"
+              disabled={loading}
+              onClick={handleSubmit}
+              variant="contained"
+              className={classes.Button}
+              style={{ boxShadow: "none", borderRadius: "5px", }}
+            >
+              <span className="nav-button-text">Post</span>
 
-          <br />
-          <Divider/>
-<Card variant ="outlined"  style={{width:120,marginTop:4,marginLeft:5,borderRadius:5,marginBottom:5}}>
+              {loading && <CircularProgress />}
+            </Button>
+            <Button
+              className={classes.Button}
+              color="textSecondary"
+              disabled={loading}
+              onClick={handleClose}
+              size="large"
+              variant="outlined"
+              style={{ boxShadow: "none", borderRadius: "5px", }}
+            >
+              Cancel
 
-  <label>
-  {image.preview ? <img src={image.preview} style={{marginTop:5,marginLeft:5,borderRadius:5,marginBottom:5,height:"50px",width:"50px"}}/> : (
-   <>
-    <Typography style={{fontSize:15}}paragraph align="center" >Your upload will appear here... </Typography>
-   </>)}
- </label>
- </Card>
+            </Button>
 
- 
-            <input  
-            onChange={handleImage}
-            name="image"
-            id="image"
-            type="file"
-            capture="environment"
-       />
+          </DialogContent>
+          <DialogContentText>
+            <Typography
+              align="center"
+              variant="body1"
+              paragraph
+              style={{ fontFamily: "monospace", fontSize: "10px" }}
+            >
+              Remember this post will be moderated by admin.<Link>Learn more...</Link>
+            </Typography>
 
-     
-
-          <br />
-          <Button
-            size="large"
-            color="primary"
-            disabled={loading}
-            type="submit"
-            variant="contained"
-            className={classes.Button}
-            style={{boxShadow:"none",borderRadius:"5px",}}
-          >
-            <span className="nav-button-text">Submit</span>
-       
-            {loading && <CircularProgress />}
-          </Button>
-          <Button
-            className={classes.Button}
-            color="textSecondary"
-            disabled={loading}
-            onClick={handleClose}
-            size="large"
-            variant="outlined"
-            style={{boxShadow:"none",borderRadius:"5px",}}
-          >
-            Cancel
-
-          </Button>
-          </form>
-        </DialogContent>
-        <DialogContentText>
-          <Typography
-           align="center"
-           variant="body1"
-           paragraph
-          style={{ fontFamily: "monospace",fontSize:"10px" }}
-          >
-      Remember this post will be moderated by admin.<Link>Learn more...</Link>
-          </Typography>
-
-        </DialogContentText>
+          </DialogContentText>
         </Container>
       </Dialog>
 

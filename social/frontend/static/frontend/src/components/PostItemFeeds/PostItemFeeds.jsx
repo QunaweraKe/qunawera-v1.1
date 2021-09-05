@@ -39,7 +39,7 @@ import PostParent from '../PostParent';
 import useStyles from './styles';
 import Repost from '../Repost';
 import EditPost from '../EditPost';
-
+import ClosePost from '../ClosePost';
 
 
 
@@ -51,42 +51,181 @@ const PostItemFeeds = ({ postId }) => {
   const classes = useStyles();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchor, setAnchor] = React.useState(null);
   const post = useSelector((s) => selectPost(s, postId));
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
+  const handleClick = (event) => {
+    setAnchor(event.currentTarget);
+  };
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+  const handleClose = () => {
+    setAnchor(null);
   };
 
 
   return (
     <>
-    <div className={classes.root}>
+      <div className={classes.root}>
 
-      <Card className={classes.postContainer} variant="outlined">
-
-
-        <div className={classes.avatarContainer}>
-
-          <Avatar user={post.author} />
-
-        </div>
-
-        <div className={classes.post}>
-
-          <PostHeader post={post} />
+        <Card className={classes.postContainer} variant="outlined">
 
 
-          <IconButton
-            className={classes.postAction}
-          onClick={handleMenuOpen}
-          >
-            <MoreHorizIcon />
-          </IconButton>
+          <div className={classes.avatarContainer}>
+
+            <Avatar user={post.author} />
+
+          </div>
+
+          <div className={classes.post}>
+
+            <PostHeader post={post} />
+
+
+            <IconButton
+              className={classes.postAction}
+              onClick={handleMenuOpen}
+            >
+              <MoreHorizIcon />
+            </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                horizontal: 'right',
+                vertical: 'bottom',
+
+              }}
+
+              getContentAnchorEl={null}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              transformOrigin={{
+                horizontal: 'right',
+                vertical: 'top',
+              }}
+            >
+              {post.is_active
+                && (
+                  <>
+
+                    <MenuItem
+                      onClick={() => (
+                        history.push(route.postDetail(post.id))
+                      )}
+                    >
+                      <ListItemIcon>
+                        <OpenInNewIcon />
+                      </ListItemIcon>
+
+                      <ListItemText primary="In Details  " classes={{ primary: classes.listItem }} />
+
+
+                    </MenuItem>
+                  </>
+                )}
+
+              {post.is_active
+                && (
+                  <Repost
+                    postId={post.id}
+                    type="post"
+                    setAnchorEl={setAnchorEl} />
+                )}
+
+              <MenuItem
+
+                onClick={() => (
+                  history.push(route.profilePosts(post.author.slug))
+                )}
+              >
+
+                <ListItemIcon>
+                  <AccountCircleRounded color="primary" />
+                </ListItemIcon>
+                <ListItemText primary="View  Author's Profile" classes={{ primary: classes.listItem }} />
+
+              </MenuItem>
+              <ReportPost
+                setAnchorEl={setAnchorEl}
+                postId={post.id}
+              />
+
+            </Menu>
+
+            <div className={classes.text}>
+
+
+              <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+                {post.parent && <PostParent post={post.parent} />}
+              </Typography>
+              {post.title
+                && (
+                  <>
+
+                    <Typography className={classes.title}>
+                      {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
+
+                    </Typography >
+
+
+                  </>
+                )}
+
+              {post.body
+                && (
+                  <>
+
+                    <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
+                      {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
+                      }
+
+
+                    </Typography >
+
+
+                  </>
+                )}
+
+              {post.image
+                && (
+                  <CardMedia
+                    className={classes.media}
+
+                    image={post.image}
+                  />
+                )}
+            
+            </div>
+
+          
+          </div>
+
+        </Card>
+
+
+        <div className={classes.likeContainer}>
+          {post.is_active
+            && (
+              <>
+                <LikePost
+                  postId={post.id}
+                  size="default"
+                  type="post"
+                />
+              </>
+            )}
+         {post.is_author && post.is_active
+                && (
+          <Button className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            Actions
+          </Button>
+           )}
           <Menu
-            anchorEl={anchorEl}
+            anchorEl={anchor}
             anchorOrigin={{
               horizontal: 'right',
               vertical: 'bottom',
@@ -95,188 +234,77 @@ const PostItemFeeds = ({ postId }) => {
 
             getContentAnchorEl={null}
             keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
+            open={Boolean(anchor)}
+            onClose={handleClose}
             transformOrigin={{
               horizontal: 'right',
-              vertical: 'top',
+              vertical: 'bottom',
             }}
           >
-            {post.is_active
-              && (
-                <>
-
-                  <MenuItem
-                    onClick={() => (
-                      history.push(route.postDetail(post.id))
-                    )}
-                  >
-                    <ListItemIcon>
-                      <OpenInNewIcon />
-                    </ListItemIcon>
-
-                    <ListItemText primary="In Details  " classes={{ primary: classes.listItem }} />
-
-
-                  </MenuItem>
-                </>
-              )}
-            {post.is_author && post.is_active
-            && (
-            <EditPost
-              setAnchorEl={setAnchorEl}
-              postId={post.id}
-            />
-)}
-            {post.is_active
-              && (
-                <Repost
+{post.is_author && post.is_active
+ && (
+   <>
+            <MenuItem className={classes.menuItems} onClick={handleClose}> 
+             
+                <EditPost
+                  setAnchorEl={setAnchorEl}
                   postId={post.id}
-                  type="post"
-                  setAnchorEl={setAnchorEl} />
-              )}
-
-            <MenuItem
-
-              onClick={() => (
-                history.push(route.profilePosts(post.author.slug))
-              )}
-            >
-
-              <ListItemIcon>
-                <AccountCircleRounded color="primary" />
-              </ListItemIcon>
-              <ListItemText primary="View  Author's Profile" classes={{ primary: classes.listItem }} />
-
-            </MenuItem>
-
-            {post.is_author && post.is_active
-              && (
-                <>
-
-                  <DeletePost
-                    setAnchorEl={setAnchorEl}
-                    postId={post.id}
-                    type="post"
-                  />
-                </>
-              )}
-
-   
-
-                  <ReportPost
-                    setAnchorEl={setAnchorEl}
-                    postId={post.id}
-                  />
-           
-          </Menu>
-
-          <div className={classes.text}>
-
-
-            <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
-              {post.parent && <PostParent post={post.parent} />}
-            </Typography>
-            {post.image
-              && (
-                <CardMedia
-                  className={classes.media}
-
-                  image={post.image}
                 />
-              )}
-            {post.title
-              && (
-                <>
-
-                  <Typography className={classes.title} color="textSecondary">
-                    {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
-
-                  </Typography >
-
-
-                </>
-              )}
-
-            {post.body
-              && (
-                <>
-
-                  <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
-                    {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
-                    }
-
-
-                  </Typography >
-
-
-                </>
-              )}
-
-          </div>
-
+             </MenuItem>
+        
+                <ClosePost 
+                setAnchorEl={setAnchorEl}
+                postId={post.id}
+                />
+                <DeletePost
+                setAnchorEl={setAnchorEl}
+                postId={post.id}
+                type="post"/>
+             
+             </>)}
+          </Menu>
           <Typography>
 
-            {post.is_active
-              ? (
-                <div className={classes.status} style={{ fontFamily: "monospace", fontSize: 10, color: "green" }} >
-                  Status &middot; Approved
-              
-                </div>
-              ) : (
-                <>
-                  <div className={classes.status} style={{ color: "green" }}>
-                  <PanToolIcon />   Status&middot;Pending
-                  </div>
-                  <Typography color="green"style={{ fontSize: "16px", fontFamily: "monospace",position:"relative" }}>
-                    This post is only visible to you as the author ,has limited functionality and will disappear on reload.
-                    Kindly wait as we approve the task.
-                  </Typography>
-                </>
-              )}
-          </Typography>
+{post.is_active
+  ? (
+    <div className={classes.status} style={{ fontFamily: "monospace", fontSize: 10, color: "green" }} >
+      Status &middot; Approved
+
+    </div>
+  ) : (
+    <>
+      <div className={classes.status} style={{ color: "green" }}>
+        <PanToolIcon />   Status&middot;Pending
+      </div>
+      <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
+        This post is only visible to you as the author ,has limited functionality and will disappear on reload.
+        Kindly wait as we approve the task.
+      </Typography>
+    </>
+  )}
+</Typography>
         </div>
+        <Grid container spacing={1}>
+          <Grid item >
 
-      </Card>
+            <ButtonGroup size="small" variant="outlined" disableElevation className={classes.buttonGroup}>
+              <Button disabled size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
+              <Button disabled size="small" style={{ marginLeft: "1%" }}><FavoriteRoundedIcon />{post.liked.length || 0}</Button>
+            </ButtonGroup>
+          </Grid >
 
-
-      <div className={classes.likeContainer}>
-        {post.is_active
-          && (
-            <>
-              <LikePost
-                postId={post.id}
-                size="default"
-                type="post"
-              />
-            </>
-          )}
-         
+          <Grid item >
+            <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
+              <Button size="small" disabled style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
+              <Button disabled size="small" style={{ marginLeft: "1%" }}><RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}</Button>
+            </ButtonGroup>
+          </Grid >
+        </Grid >
 
       </div>
-      <Grid container spacing={1}>
-        <Grid item >
 
-          <ButtonGroup size="small" variant="outlined" disableElevation className={classes.buttonGroup}>
-            <Button disabled size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
-            <Button disabled size="small" style={{ marginLeft: "1%" }}><FavoriteRoundedIcon />{post.liked.length || 0}</Button>
-
-
-          </ButtonGroup>
-        </Grid >
-
-        <Grid item >
-          <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
-            <Button size="small" disabled style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
-            <Button disabled size="small" style={{ marginLeft: "1%" }}><RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}</Button>
-          </ButtonGroup>
-        </Grid >
-      </Grid >
-    
-    </div>
-
-<Divider light style={{marginTop:6}}/>
-</>
+      <Divider light style={{ marginTop: 6 }} />
+    </>
 
   );
 };

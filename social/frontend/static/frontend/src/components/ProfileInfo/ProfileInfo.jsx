@@ -119,12 +119,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
          
           <div className={classes.infoContainer}>
             <Card variant="outlined" square>
-          <Paper square elevation={1} style={{ marginLeft: "2px",marginBottom:"2%" }}>
-          <Typography variant="subtitle" color="textSecondary"
-           style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
-              {profileUser.name.charAt(0).toUpperCase() + profileUser.name.slice(1)}
-            </Typography>
-            </Paper>
+
+         
+          
             
 
             <Typography variant="h6"
@@ -133,14 +130,16 @@ const ProfileInfo = ({ loading, profileUser }) => {
             </Typography>
             <Paper square elevation={1} style={{ marginLeft: "2px" }}>
             
-            <Typography variant="h7" style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
-                    Username
-                  </Typography>
+           
             <Typography variant="body"
              style={{ fontFamily:"monospace"}}>
-              &middot; {profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)}
+               {profileUser.name.charAt(0).toUpperCase() + profileUser.name.slice(1)}
+
             </Typography>
-          
+            <Typography variant="subtitle" color="textSecondary"
+           style={{ fontWeight: "bolder",fontFamily:"monospace" }}>
+             ({profileUser.display_name.charAt(0).toUpperCase() + profileUser.display_name.slice(1)})
+            </Typography>
             </Paper>
            
          

@@ -13,7 +13,7 @@ import InputBase from '@material-ui/core/InputBase';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
+import ShareIcon from '@material-ui/icons/Share';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -78,12 +78,12 @@ onClick={handleOpen}
 
 > 
 <ListItemIcon>
-<WhatshotIcon />
+<ShareIcon />
  </ListItemIcon>
  
 
 <ListItemText
-  primary="Recommend"
+  primary="Share"
   primaryTypographyProps={{
     
   }}
@@ -120,7 +120,7 @@ onClick={handleOpen}
               multiline
               onChange={handleChange}
             
-              placeholder="Say why you want to recommend this post to others (optional)"
+              placeholder="Say why you want to share this post to others (optional)"
               rowsMax={7}
               spellCheck
               value={body}
@@ -133,15 +133,18 @@ onClick={handleOpen}
             variant="outlined"
             size="small"
             color="textSecondary"
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
             Cancel
           </Button>
           <Button
+          size="small"
             color="primary"
             disabled={loading}
             onClick={handleSubmit}
             variant="outlined"
-            size="small"
+            size="contained"
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
            Post
             {loading && <CircularProgress />}

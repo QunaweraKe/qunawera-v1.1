@@ -86,7 +86,7 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
         super().save(*args, **kwargs)
 
 
-
+        
     
 
 

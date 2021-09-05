@@ -8,7 +8,7 @@ admin.site.index_title=" Portal "
 @admin.register(Post)
 class PostsAdmin(admin.ModelAdmin):
     
-    def activate(modeladmin,request,queryset):
+    def activate_post(modeladmin,request,queryset):
         queryset.update(is_active=True)
     def approve_reported(modeladmin,request,queryset):
         queryset.update(is_reported=True, is_active=False)
@@ -19,7 +19,7 @@ class PostsAdmin(admin.ModelAdmin):
     def open_post(modeladmin,request,queryset):
         queryset.update(closed=False)
        
-    def deactivate(modeladmin,request,queryset):
+    def deactivate_post(modeladmin,request,queryset):
         queryset.update(is_active=False)
         
    # readonly_fields=("liked","is_reply","author","image","thumbnail")
@@ -27,7 +27,7 @@ class PostsAdmin(admin.ModelAdmin):
     search_fields=["author"]
     list_filter=('is_active','closed',"is_reply",)
     list_display_links = ("author",)
-    actions = ['open_post','close_post','activate', 'deactivate','approve_reported','disapprove_reported']
+    actions = ['open_post','close_post','activate_post', 'deactivate_post','approve_reported','disapprove_reported']
     list_per_page = 20 
     exclude=("parent",)
 
@@ -60,7 +60,7 @@ class NotApproved(PostsAdmin):
     
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_active=False)
+        return  qs.filter(is_active=False,is_reported=False)
     
 admin.site.register(PostsNotApproved,NotApproved)
 

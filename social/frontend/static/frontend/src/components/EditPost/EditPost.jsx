@@ -76,7 +76,7 @@ const EditPost = React.forwardRef((props, ref) => {
         <ListItemIcon>
          <BorderColorIcon/>
         </ListItemIcon>
-        <ListItemText primary="Edit Post" 
+        <ListItemText primary="Edit " 
          classes={{primary:classes.listItem}}/>
       </MenuItem>
       <Dialog
@@ -89,7 +89,7 @@ const EditPost = React.forwardRef((props, ref) => {
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography variant="h6">
-            Edit post
+            Edit Post
           </Typography>
         </DialogTitle>
         <DialogContent dividers>
@@ -120,6 +120,7 @@ const EditPost = React.forwardRef((props, ref) => {
             onClick={handleClose}
             variant="outlined"
             size="small"
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
             Cancel
           </Button>
@@ -127,8 +128,9 @@ const EditPost = React.forwardRef((props, ref) => {
             color="primary"
             disabled={loading || body.trim().length === 0}
             onClick={handleEdit}
-            variant="outlined"
-             size="small"
+            variant="contained"
+            size="small"
+            style={{boxShadow:"none",borderRadius:"5px",}}
           >
             Save
             {loading && <CircularProgress />}

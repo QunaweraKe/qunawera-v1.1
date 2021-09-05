@@ -1,7 +1,7 @@
 from rest_framework import generics as rest_generics, status, views as rest_views
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
+from analytics.mixins import obj_mixin
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
 from notifications.models import Notification
@@ -144,7 +144,7 @@ class ReportedAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
      
 
-class PostDetailAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
+class PostDetailAPIView(obj_mixin,rest_generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     serializer_class = PostDetailSerializer
 
@@ -157,6 +157,7 @@ class PostDetailAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
     def get_queryset(self):
+        
         return Post.objects.filter(pk=self.kwargs.get("pk")).active()
 
 

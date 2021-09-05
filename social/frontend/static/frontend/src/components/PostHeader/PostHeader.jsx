@@ -42,9 +42,7 @@ const PostHeader = ({ post, repost, }) => {
         && (
 
           <Typography className={classes.headerItem} style={{marginLeft:"1%",fontSize:15}} color="textSecondary">
-           {' '}
-           
-             recommended a post
+             shared a post
           </Typography>
 
 

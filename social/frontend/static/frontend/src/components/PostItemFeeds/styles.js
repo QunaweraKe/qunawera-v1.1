@@ -21,7 +21,16 @@ const useStyles = makeStyles((theme) => {
     cardActionsRoot: {
       paddingTop: 0,
     },
+menuItems:{
+  '&:hover': {
+    backgroundColor: 'transparent',
+  },
+},
 
+actionButton:{
+  marginLeft:20,
+  textDecoration:"underline"
+},
     likeContainer: {
       alignItems: 'center',
       display: 'flex',
@@ -63,7 +72,8 @@ const useStyles = makeStyles((theme) => {
       fontWeight: "bold"
     },
     title: {
-      fontWeight: "bolder"
+      fontWeight: "bolder",
+      fontSize: "25px",
     },
     text: {
       fontSize: "14px",
@@ -84,7 +94,8 @@ const useStyles = makeStyles((theme) => {
       paddingTop: '56.25%',
       marginRight: theme.spacing(2),
       width: "100%",
-      objectFit: 'cover'
+      objectFit: 'cover',
+      borderRadius:5,
     },
     title: {
       fontweight: "bolder",

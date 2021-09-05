@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
 
   margin: {
     marginTop:7,
+    marginBottom:2,
 
   },
   Button: {
@@ -18,8 +19,14 @@ const useStyles = makeStyles((theme) => ({
 
   },
   
-
-
+input:{
+position:"absolute",
+margin:3,
+display:"flex",
+padding:6,
+cursor:"pointer"
+}
+,
 }));
 
 export default useStyles;

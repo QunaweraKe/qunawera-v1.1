@@ -41,7 +41,7 @@ const FollowButton = ({ className, user, size }) => {
       onClick={handleFollow}
       size="small"
       variant="outlined"
-      style={{ boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
+      style={{ fontWeight:700,boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
     >
       {following ? 'following' : 'follow'}
       {loading && <CircularProgress />}

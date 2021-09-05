@@ -43,7 +43,6 @@ class Post(SoftDeleteMixin, TimestampMixin):
         db_index=True,
     )
     image = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
-    thumbnail=models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
     is_reply = models.BooleanField(default=False)
     liked = models.ManyToManyField(
         "users.User",
@@ -61,9 +60,8 @@ class Post(SoftDeleteMixin, TimestampMixin):
     objects = PostManager.as_manager()
     closed=models.BooleanField(default=False)
     is_reported=models.BooleanField(default=False)
-    def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
-        return super(Post, self).save(*args, **kwargs)
+
+    
 
    
     def __str__(self):

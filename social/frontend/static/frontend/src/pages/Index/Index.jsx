@@ -135,7 +135,7 @@ const Index = () => {
         <h1>
           <Typography className={classes.ctaItem}
             color="secondary"
-            variant="subtitle1"
+            variant="subtitle4"
             >
 
              Stranded with a task?
@@ -144,8 +144,8 @@ const Index = () => {
       </div>
       <div className="role">
         <div className="block" ></div>
-        <p><Typography variant="subtitle4"  color="primary" align="center" >
-          Meet people who can help you.
+        <p><Typography variant="subtitle4" style={{marginLeft:4,}} color="primary"  >
+          Meet people who can do it.
          </Typography></p>
         
       </div>

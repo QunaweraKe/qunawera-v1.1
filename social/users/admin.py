@@ -5,7 +5,7 @@ class ProfileInline(admin.StackedInline):
     model = Profile
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'display_name','name', 'email','is_active','is_staff')
+    list_display = ('id', 'display_name','name', 'email','is_active','is_staff','last_login')
     list_editabl=('display_name',)
     exclude=('password',)
     inlines = [ProfileInline,]

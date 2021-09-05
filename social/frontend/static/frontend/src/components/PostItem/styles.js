@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => {
     },
     replyContent:{
 
-      backgroundColor: theme.palette.grey[50],
+      backgroundColor: theme.palette.common.white[50],
     },
     root: {
       width:"100%",
