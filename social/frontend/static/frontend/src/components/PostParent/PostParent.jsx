@@ -19,7 +19,6 @@ const PostParent = ({ className, post }) => {
       classes={{ root: classes.parentContainer }}
       className={className}
       elevation={0}
-      square
     >
 
 
@@ -28,7 +27,10 @@ const PostParent = ({ className, post }) => {
         repost
       />
     <Link to={route.postDetail(post.id)} className={classes.Link} >
+    <Typography color="textSecondary" className={classes.title}>
+                      {post.title}
 
+                    </Typography >
       <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
         {post.body}
       </Typography>

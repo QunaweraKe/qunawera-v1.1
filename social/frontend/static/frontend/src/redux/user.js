@@ -26,6 +26,7 @@ export const key = {
   follow: (userId) => `follow_${userId}`,
   login: 'login',
   logout: 'logout',
+  removeaccount: 'removeaccount',
 };
 
 //
@@ -61,6 +62,7 @@ export default reducer;
 // Actions
 //
 const logout = () => ({ type: `${NAMESPACE}/logout` });
+
 
 //
 // Selectors
@@ -205,6 +207,20 @@ export const logoutUser = () => async (dispatch) => {
     await api(descriptor.logoutUser);
     dispatch(logout());
     dispatch(setToast('You have been logged out,Bye! '));
+  } catch (error) {
+    dispatch(setToast('Something went wrong', 'error'));
+    console.error(error);
+  } finally {
+    dispatch(unsetLoading(NAMESPACE, thisKey));
+  }
+};
+export const removeAccount = () => async (dispatch) => {
+  const thisKey = key.removeaccount;
+  try {
+    dispatch(setLoading(NAMESPACE, thisKey));
+    await api(descriptor.removeAccount);
+    dispatch(logout());
+    dispatch(setToast('Your account has been deleted successfully'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

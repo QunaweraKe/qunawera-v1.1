@@ -455,7 +455,7 @@ export const reportPost = (postId) => async (dispatch) => {
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.reportPost(postId));
-    dispatch(setToast(' Received,wait as we check in to the matter'));
+    dispatch(setToast(' Report submitted,wait as we check in to the matter'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

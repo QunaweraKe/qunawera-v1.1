@@ -5,11 +5,13 @@ class ProfileInline(admin.StackedInline):
     model = Profile
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
+    def activate_users(modeladmin,request,queryset):
+        queryset.update(is_active=True)
     list_display = ('id', 'display_name','name', 'email','is_active','is_staff','last_login')
     list_editabl=('display_name',)
     exclude=('password',)
     inlines = [ProfileInline,]
-
+    actions = ['activate_users',]
     def get_queryset(self, request):
         qs=super(UserAdmin,self).get_queryset(request)
         return  qs.filter(is_active=True)

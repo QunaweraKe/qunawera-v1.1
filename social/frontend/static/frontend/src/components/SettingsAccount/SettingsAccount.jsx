@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 // Material UI
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
+import Grid from '@material-ui/core/Grid';
 // Local
 import CircularProgress from '../CircularProgress';
-
+import DeleteAccount from '../DeleteAccount';
 import useUI from '../../hooks/useUI';
 
 import { editUser, key, selectUser } from '../../redux/user';
@@ -86,6 +86,8 @@ const SettingsAccount = () => {
         type="text"
         value={formData.email}
       />
+       <Grid container spacing={6}>
+      <Grid item xs={24} sm={12}>
       <Button
         className={`${classes.formField} ${classes.submit}`}
         color="primary"
@@ -97,7 +99,12 @@ const SettingsAccount = () => {
         Update
         {loading && <CircularProgress />}
       </Button>
-      
+      </Grid >
+
+<Grid item xs={12} sm={6}>
+      <DeleteAccount   className={`${classes.formField} ${classes.submit}`}/>
+      </Grid >
+      </Grid >
     </form>
    
     </>

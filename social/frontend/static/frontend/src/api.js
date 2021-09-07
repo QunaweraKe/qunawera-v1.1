@@ -189,6 +189,10 @@ export const descriptor = {
     method: 'post',
     url: '/api/users/auth/logout/',
   }),
+  removeAccount: ({
+    method: 'post',
+    url: '/api/users/auth/remove-account/',
+  }),
 
   removeFollow: (slug) => ({
     method: 'delete',

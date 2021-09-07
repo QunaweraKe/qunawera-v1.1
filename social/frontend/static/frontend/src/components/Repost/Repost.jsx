@@ -14,6 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ShareIcon from '@material-ui/icons/Share';
+import Container from '@material-ui/core/Container';
 // Local
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
@@ -94,9 +95,10 @@ onClick={handleOpen}
       <Dialog
         open={dialogOpen}
         onClose={handleClose}
-        
+        fullScreen
   
       >
+         <Container maxWidth="sm">
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           
@@ -120,7 +122,7 @@ onClick={handleOpen}
               multiline
               onChange={handleChange}
             
-              placeholder="Say why you want to share this post to others (optional)"
+              placeholder="Tell us why you want to share this post(optional)"
               rowsMax={7}
               spellCheck
               value={body}
@@ -142,14 +144,15 @@ onClick={handleOpen}
             color="primary"
             disabled={loading}
             onClick={handleSubmit}
-            variant="outlined"
-            size="contained"
+            variant="contained"
+            
             style={{boxShadow:"none",borderRadius:"5px",}}
           >
            Post
             {loading && <CircularProgress />}
           </Button>
         </DialogActions>
+        </Container>
       </Dialog>
     </>
   );

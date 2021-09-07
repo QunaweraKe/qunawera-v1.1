@@ -9,11 +9,10 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Slide from '@material-ui/core/Slide';
-import LogoutIcon from '@material-ui/icons/ExitToApp';
 import { Typography } from '@material-ui/core';
-
+import { red } from '@material-ui/core/colors/red';
 //local
-import { logoutUser } from '../../redux/user';
+import { removeAccount } from '../../redux/user';
 import { APP_NAME } from '../../constants';
 
 //Function to slide up
@@ -21,12 +20,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-
-const LogOut = () => {
+const DeleteAccount = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
-  const handleLogout = () => {
-    dispatch(logoutUser());
+  const handleRemove = () => {
+    dispatch(removeAccount());
   };
   const handleClickOpen = () => {
     setOpen(true);
@@ -41,8 +39,8 @@ const LogOut = () => {
 
 
 
-      <Button variant="outlined" fullwidth  color="primary" startIcon={<LogoutIcon />}  onClick={handleClickOpen}>
-        <span className="nav-button-text">Logout</span>
+      <Button variant="outlined" fullwidth  color="primary"  style={{boxShadow:"none",borderRadius:"5px",}} onClick={handleClickOpen}>
+        <span className="nav-button-text">Delete  Account</span>
       </Button>
       <Dialog
         open={open}
@@ -57,7 +55,7 @@ const LogOut = () => {
         <DialogContent
         >
           <DialogContentText id="alert-dialog-slide-description">
-            <Typography variant="subtitle1" style={{ fontWeight: "bolder" }} color="black">Are you sure you want to log out of {APP_NAME}{"?"}</Typography>
+            <Typography variant="subtitle1" style={{ fontWeight: "bolder" ,color:"red"}} >If you decide to delete your {APP_NAME}  account you will lose your profile and all related activities.This action cannot be undone.Are you sure you want to do this{"?"}</Typography>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -69,11 +67,11 @@ const LogOut = () => {
           <Button
             size="small"
             color="primary"
-            onClick={handleLogout}
+            onClick={handleRemove}
             variant="contained"
             style={{boxShadow:"none",borderRadius:"5px",}}
           >
-            <span className="nav-button-text">Yes</span>
+            <span className="nav-button-text">Yes,I Agree</span>
           </Button>
         </DialogActions>
       </Dialog>
@@ -86,4 +84,4 @@ const LogOut = () => {
   ;
 
 
-export default LogOut;
+export default DeleteAccount;

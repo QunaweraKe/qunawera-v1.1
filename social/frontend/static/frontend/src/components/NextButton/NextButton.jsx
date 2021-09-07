@@ -22,7 +22,7 @@ const NextButton = ({ callback, loading, nextUrl }) => {
         
         fullWidth
       >
-         view  more 
+         view  more posts
         {loading }
       </IconButton>
     ) : null;

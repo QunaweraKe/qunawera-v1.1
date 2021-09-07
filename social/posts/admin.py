@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Post
-from datetime import datetime
+from datetime import datetime,timedelta,time
 from django.contrib.auth import  get_user_model
 User = get_user_model()
 admin.site.site_header="Qunawera Admin "
@@ -45,9 +45,12 @@ class PostsToday(Post):
 class PostsByDay(PostsAdmin):
     
     def get_queryset(self,request):
-        today=datetime.date.today()
+        today=datetime.now().date()
+        tomorrow=today+timedelta(1)
+        today_start=datetime.combine(today,time())
+        today_end=datetime.combine(tomorrow,time())
         qs=super(PostsAdmin,self).get_queryset(request)
-        return qs.filter(created_at__range=[today])
+        return qs.filter(created_at__lte=today_start,created_at__gte=today_end)
 admin.site.register(PostsToday,PostsByDay)
 
 class PostsNotApproved(Post):

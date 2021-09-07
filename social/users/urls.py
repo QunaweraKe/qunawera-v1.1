@@ -7,6 +7,7 @@ app_name = "users"
 urlpatterns = [
     path("auth/login/", views.login_view, name="login"),
     path("auth/logout/", views.logout_view, name="logout"),
+    path("auth/remove-account/", views.remove_account, name="remove_account"),
     path("auth/register/", views.register_view, name="register"),
     path("edit-password/", views.EditPasswordAPIView.as_view(), name="edit_password"),
     path("edit-profile/", views.EditProfileAPIView.as_view(), name="edit_profile"),

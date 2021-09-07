@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   headerItem: {
-    marginLeft: 4,
+    marginLeft: 6,
     fontFamily:"monospace",
     fontSize:12,
     '&:first-child': {
-      marginLeft: 0,
+      marginLeft: 2,
     },
   },
   notification: {

@@ -72,6 +72,7 @@ const EditPost = React.forwardRef((props, ref) => {
       <MenuItem
         onClick={handleOpen}
         ref={ref}
+        className={classes.menuItem}
       >
         <ListItemIcon>
          <BorderColorIcon/>

@@ -40,7 +40,7 @@ const DeviceDetection = () => {
 
   return (
 <>
-<Typography style={{fontFamily:"monospace",fontSize:"10px",fontWight:"bold"}}>For: {deviceType}</Typography>
+<Typography style={{fontFamily:"monospace",fontSize:"10px",fontWight:"bold"}}> {deviceType}</Typography>
 </>
 
 

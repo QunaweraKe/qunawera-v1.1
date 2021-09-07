@@ -15,7 +15,6 @@ import Slide from '@material-ui/core/Slide';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/EditOutlined';
-import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
 // Local
 import Avatar from '../Avatar';
@@ -156,6 +155,8 @@ const DialogPostForm = () => {
           <DialogContent>
             <div className={classes.avatarContainer}>
               <Avatar user={user} />
+              <br/>
+              <Typography variant="body4" style={{marginLeft:0}} color="textSecondary">*required</Typography>
             </div>
 
             <TextField
@@ -185,12 +186,14 @@ const DialogPostForm = () => {
               id="body"
               label="Description"
               name="body"
+              defaultValue="sup"
               onChange={handleBody}
               type="text"
               variant="outlined"
               rows={7}
               helperText="Include payment & skillset required in your description"
               value={body}
+              inputProps={{minLength:12}}
             />
 
 
@@ -199,7 +202,7 @@ const DialogPostForm = () => {
             <Card variant="outlined" style={{width: 150, marginTop: 8, marginLeft:10, borderRadius: 5, marginBottom: 5 }}>
 
               <label>
-                {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "100px", width: "100px" }} /> : (
+                {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
                   <>
                     <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
                   </>)}
@@ -215,7 +218,7 @@ const DialogPostForm = () => {
               id="image"
               type="file"
               capture="environment"
-          
+            required
             />
 
 </label>

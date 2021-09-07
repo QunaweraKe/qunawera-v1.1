@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => {
       alignItems: 'flex-end',
       display: 'flex',
       flexDirection: 'column',
-      marginLeft: 1,
+      marginLeft:0,
     },
 
 
@@ -21,22 +21,25 @@ const useStyles = makeStyles((theme) => {
     cardActionsRoot: {
       paddingTop: 0,
     },
-menuItems:{
-  '&:hover': {
-    backgroundColor: 'transparent',
-  },
-},
+
 
 actionButton:{
-  marginLeft:20,
-  textDecoration:"underline"
+  justifyContent: 'flex-end',
+ 
+  fontWeight:"bolder",
+  fontSize:15,
+   '&:hover': {
+    backgroundColor:"none",
+  },
+  flexGrow: 1,
 },
     likeContainer: {
       alignItems: 'center',
       display: 'flex',
       flexGrow: 1,
-      alignSelf: 'flex-end',
+      
     },
+   
     status: {
       fontSize: 10,
       fontWeight: "600",
@@ -57,8 +60,8 @@ actionButton:{
     },
     postContainer: {
       display: 'flex',
-      padding: theme.spacing(1),
-      margin: 'auto',
+      padding: theme.spacing(2),
+      margin: 3,
       marginTop: theme.spacing(3),
       borderColor: theme.palette.grey[150],
     
@@ -75,9 +78,7 @@ actionButton:{
       fontWeight: "bolder",
       fontSize: "25px",
     },
-    text: {
-      fontSize: "14px",
-    },
+   
     postBody: {
       marginTop: 1,
       marginBottom: 2,
@@ -116,9 +117,8 @@ actionButton:{
     
     },
     root: {
-   
-      width:"100%",
-   
+
+      marginTop:6,
       position: 'relative',
       flexGrow: 1,
       '&:hover': {

@@ -7,8 +7,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 // Local
 import Avatar from '../Avatar';
@@ -21,7 +21,6 @@ import useUI from '../../hooks/useUI';
 import {
   key,
   removeNotification,
-  removeAllNotification,
 } from '../../redux/notifications';
 
 import { route } from '../../constants';
@@ -34,15 +33,13 @@ const NotificationItem = ({ notification }) => {
   dayjs.extend(relativeTime);
 
   const { loading } = useUI(
-    key.removeNotification(notification.id), null, false,key.removeAllNotification
+    key.removeNotification(notification.id), null, false
   );
 
   const handleRemove = () => {
     dispatch(removeNotification(notification.id));
   };
-  const handleRemoveAll = () => {
-    dispatch(removeAllNotification);
-  };
+ 
   return (
     <div className={classes.root}>
       <IconButton
@@ -53,26 +50,13 @@ const NotificationItem = ({ notification }) => {
       >
 
 {loading && <CircularProgress />}
-        <RemoveCircleIcon
+        <HighlightOffIcon
           color="error"
           fontSize="small"
         />
        
       </IconButton>
-      <IconButton
-        className={classes.removeButton}
-        color="primary"
-        disabled={loading}
-        onClick={handleRemoveAll}
-      >ra
-
-{loading && <CircularProgress />}
-        <RemoveCircleIcon
-          color="error"
-          fontSize="small"
-        />
-       
-      </IconButton>
+     
       <div className={classes.avatarContainer}>
         <Avatar user={notification.from_user} />
       </div>
@@ -92,7 +76,7 @@ const NotificationItem = ({ notification }) => {
 
           >
             
-            Event time 
+            event time 
             &middot; {dayjs(notification.created_at).fromNow()}
           </Typography>
         </div>

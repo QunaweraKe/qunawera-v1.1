@@ -4,12 +4,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.shortcuts import get_object_or_404
-from social.permissions import IsOwnerOrReadOnly
 from notifications.models import Notification
 from social.views import PaginationMixin
 from .pagination import UserPagination
 from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer
-
+from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
@@ -130,7 +129,13 @@ def logout_view(request):
     logout(request)
     return Response(status=status.HTTP_204_NO_CONTENT)
 
-
+@login_required
+@api_view(["post"])
+def remove_account(request):
+    user_pk = request.user.pk
+    logout(request)
+    User.objects.filter(pk=user_pk).update(is_active=False)
+    return Response(status=status.HTTP_200_OK)
 class LongRecommendedUsersAPIView(rest_generics.ListAPIView):
     """Get paginated recommended users for the recommended users page.
 

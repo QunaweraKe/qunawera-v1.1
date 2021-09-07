@@ -11,7 +11,8 @@ const NAMESPACE = 'notifications';
 // Keys
 //
 export const key = {
-  removeAllNotification: ' removeAllNotification',
+  removeAllNotification: () => (
+    `removeNotification`),
   notifications: 'notifications',
   notificationsNext: 'notificationsNext',
   unreadNotifications: 'unreadNotifications',
@@ -122,7 +123,7 @@ export const removeAllNotification = () => async (dispatch) => {
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removeAllNotification);
-    dispatch(unsetNotification);
+    dispatch(unsetNotification(data));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

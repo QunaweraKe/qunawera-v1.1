@@ -15,7 +15,6 @@ import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
-import Divider from '@material-ui/core/Divider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { AccountCircleRounded } from '@material-ui/icons';
@@ -47,7 +46,7 @@ import ClosePost from '../ClosePost';
 
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
-  const pluralizeComments = (length) => (length !== 1 ? 'Reviews' : 'Task Review');
+  const pluralizeComments = (length) => (length !== 1 ? 'Responses' : 'Response');
   const classes = useStyles();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -146,17 +145,19 @@ const PostItemFeeds = ({ postId }) => {
                 <ListItemIcon>
                   <AccountCircleRounded color="primary" />
                 </ListItemIcon>
-                <ListItemText primary="View  Author's Profile" classes={{ primary: classes.listItem }} />
+                <ListItemText primary="Author's Profile" classes={{ primary: classes.listItem }} />
 
               </MenuItem>
+              {post.is_active
+                && (
               <ReportPost
                 setAnchorEl={setAnchorEl}
                 postId={post.id}
               />
-
+)}
             </Menu>
 
-            <div className={classes.text}>
+        
 
 
               <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
@@ -202,7 +203,6 @@ const PostItemFeeds = ({ postId }) => {
             </div>
 
           
-          </div>
 
         </Card>
 
@@ -221,10 +221,11 @@ const PostItemFeeds = ({ postId }) => {
          {post.is_author && post.is_active
                 && (
           <Button className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            Actions
+            Author Actions
           </Button>
            )}
           <Menu
+          
             anchorEl={anchor}
             anchorOrigin={{
               horizontal: 'right',
@@ -244,13 +245,13 @@ const PostItemFeeds = ({ postId }) => {
 {post.is_author && post.is_active
  && (
    <>
-            <MenuItem className={classes.menuItems} onClick={handleClose}> 
+            
              
                 <EditPost
                   setAnchorEl={setAnchorEl}
                   postId={post.id}
                 />
-             </MenuItem>
+           
         
                 <ClosePost 
                 setAnchorEl={setAnchorEl}
@@ -267,10 +268,8 @@ const PostItemFeeds = ({ postId }) => {
 
 {post.is_active
   ? (
-    <div className={classes.status} style={{ fontFamily: "monospace", fontSize: 10, color: "green" }} >
-      Status &middot; Approved
-
-    </div>
+    <>
+    </>
   ) : (
     <>
       <div className={classes.status} style={{ color: "green" }}>
@@ -302,8 +301,6 @@ const PostItemFeeds = ({ postId }) => {
         </Grid >
 
       </div>
-
-      <Divider light style={{ marginTop: 6 }} />
     </>
 
   );
