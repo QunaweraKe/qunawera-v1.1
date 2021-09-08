@@ -55,6 +55,7 @@ const RecommendedPosts = () => {
       rendered = <Loading />;
     } else if (posts.length) {
       rendered = (
+        
         <>
    
         <CardContent>

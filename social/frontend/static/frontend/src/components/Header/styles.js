@@ -25,22 +25,25 @@ const useStyles = makeStyles((theme) => ({
   
   },
   navList: {
-    width: '100%',
+    width: '110%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+   
+    marginTop:6,
+    borderRadius:5,
     elevation:3,
     '& .MuiButton-root': {
-      fontSize: 20,
+      marginLeft:5,
+      fontSize: 25,
       height: 45,
       minWidth: 'initial',
       transitionDuration: theme.transitions.duration.short,
       transitionProperty: 'all',
       transitionTimingFunction: theme.transitions.easing.easeInOut,
-      width: 45,
+      width: 100,
 
       '&:hover': {
-        backgroundColor: fade(theme.palette.primary.light, 0.1),
-        color: theme.palette.primary.main,
+        backgroundColor: fade(theme.palette.primary.light, 0.5),
+        color: theme.palette.secondary.main,
       },
 
       [theme.breakpoints.up('lg')]: {
@@ -51,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiButton-root .nav-button-text': {
       display: 'none',
       fontSize:16,
-      fontWeight:500,
+      fontWeight:800,
 
       [theme.breakpoints.up('lg')]: {
         display: 'inline',
@@ -78,11 +81,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  logoutMargin:{
- marginTop:theme.spacing(2),
- marginBottom:theme.spacing(2),
 
-  },
   footer:{
     display: 'none',
   

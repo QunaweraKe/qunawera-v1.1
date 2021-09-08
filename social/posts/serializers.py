@@ -17,6 +17,8 @@ class PostParentSerializer(serializers.ModelSerializer):
             "body",
             "created_at",
             "id",
+            "image",
+            "title",
            
         ]
 
@@ -53,6 +55,7 @@ class BasePostSerializer(serializers.ModelSerializer):
             "title",
             "closed",
              "is_reported",
+             "deleted",
             
         ]
 

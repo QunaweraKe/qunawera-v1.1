@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
   display:"flex",
   marginLeft:"1%",
   fontWeight:"bold",
-    fontSize:11,
+    fontSize:13,
   
     '&:hover, &:focus': {
-      backgroundColor: fade(theme.palette.primary.main, 0.05),
+      backgroundColor: "none",
       color: "#000",
     },
 

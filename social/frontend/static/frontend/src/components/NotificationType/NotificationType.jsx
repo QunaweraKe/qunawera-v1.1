@@ -21,13 +21,13 @@ const NotificationType = ({ notification }) => {
         <Typography>
           {notification.from_user.display_name}
           {' '}
-          recommended your
+          shared your
           {' '}
           <TextLink to={route.postDetail(notification.post.id)}>
-            post
+            post.
           </TextLink>
         </Typography>
-          <Typography className={classes.postBody} color="textSecondary">
+          <Typography className={classes.post} color="textSecondary">
      
           {notification.post.body.length > 80 ?
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
@@ -44,10 +44,10 @@ const NotificationType = ({ notification }) => {
           liked your
           {' '}
           <TextLink to={route.postDetail(notification.post.id)}>
-            post
+            post.
           </TextLink>
         </Typography>
-        <Typography className={classes.postBody} color="textSecondary">
+        <Typography className={classes.post} color="textSecondary">
         {notification.post.body.length > 80 ?
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
@@ -63,7 +63,7 @@ const NotificationType = ({ notification }) => {
             reviewed  your
             {' '}
             <TextLink  className={classes.post} to={route.postDetail(notification.post.id)}>
-              post
+              post.
             </TextLink>
             
           </Typography>

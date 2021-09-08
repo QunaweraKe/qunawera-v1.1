@@ -14,7 +14,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-
+import Container from '@material-ui/core/Container';
 
 
 // Local
@@ -87,13 +87,15 @@ const EditPost = React.forwardRef((props, ref) => {
         onExited={handleExited}
         fullScreen
       >
+        <Container maxWidth="sm">
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography variant="h6">
-            Edit Post
+            Edit
           </Typography>
         </DialogTitle>
-        <DialogContent dividers>
+        <br/>
+        <DialogContent >
          
            <TextField
             required
@@ -107,8 +109,8 @@ const EditPost = React.forwardRef((props, ref) => {
             onChange={handleChange}
             type="text"
             value={body}
-            variant="filled"
-            rows={4}
+            variant="outlined"
+           rows={10}
             
 
           />
@@ -137,6 +139,7 @@ const EditPost = React.forwardRef((props, ref) => {
             {loading && <CircularProgress />}
           </Button>
         </DialogActions>
+        </Container>
       </Dialog>
     </>
   );

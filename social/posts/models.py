@@ -38,6 +38,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
         db_index=True,
         null=True
     )
+    deleted=models.BooleanField(default=False)
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,

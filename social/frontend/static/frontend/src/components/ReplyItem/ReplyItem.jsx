@@ -63,9 +63,8 @@ const ReplyItem = ({ replyId }) => {
             <Typography
               color="textSecondary"
               component="span"
-              align ="center"
-              display="inline"
-              variant="body8"
+              display="block"
+              variant="body5"
             >
 
               {reply.body}

@@ -96,7 +96,7 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
 
     class Meta:
         
-        verbose_name_plural='Active Accounts'
+        verbose_name_plural='Active User Accounts'
 class Profile(models.Model):
     class SexTypes(models.TextChoices):
         MALE = "M"

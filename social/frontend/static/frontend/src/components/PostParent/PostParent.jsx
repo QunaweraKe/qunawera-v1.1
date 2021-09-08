@@ -28,11 +28,21 @@ const PostParent = ({ className, post }) => {
       />
     <Link to={route.postDetail(post.id)} className={classes.Link} >
     <Typography color="textSecondary" className={classes.title}>
+    {post.title
+                  && (
+                    <>
+                     
                       {post.title}
-
+                      </>
+                  )}
                     </Typography >
       <Typography style={{ marginLeft:"3px",fontSize: "12px", letterSpacing: '1px' }}>
+      {post.body
+                && (
+                  <>
         {post.body}
+        </>
+                )}
       </Typography>
       {post.image
                   && (

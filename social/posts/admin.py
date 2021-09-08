@@ -23,7 +23,7 @@ class PostsAdmin(admin.ModelAdmin):
         queryset.update(is_active=False)
         
    # readonly_fields=("liked","is_reply","author","image","thumbnail")
-    list_display=("id","author","approved","short_title","short_body","image","likes_count","closed","created_at","updated_at","is_reported")
+    list_display=("id","author","approved","short_title","short_body","image","likes_count","deleted","closed","created_at","updated_at","is_reported")
     search_fields=["author"]
     list_filter=('is_active','closed',"is_reply",)
     list_display_links = ("author",)
@@ -63,7 +63,7 @@ class NotApproved(PostsAdmin):
     
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_active=False,is_reported=False)
+        return  qs.filter(is_active=False,is_reported=False,deleted=False)
     
 admin.site.register(PostsNotApproved,NotApproved)
 
@@ -109,3 +109,32 @@ class AllReportedPosts(PostsAdmin):
     
     
 admin.site.register(ReportedPosts,AllReportedPosts)
+
+
+class DeletedPosts(Post):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Deleted Posts'
+
+class AllDeletedPosts(PostsAdmin):
+    
+    def get_queryset(self, request):
+        qs=super(PostsAdmin,self).get_queryset(request)
+        return  qs.filter(is_reply=False,deleted=True)
+    
+    
+admin.site.register(DeletedPosts,AllDeletedPosts)
+
+class DeletedReplies(Post):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Deleted Replies'
+
+class AllDeletedReplies(PostsAdmin):
+    
+    def get_queryset(self, request):
+        qs=super(PostsAdmin,self).get_queryset(request)
+        return  qs.filter(is_reply=True,deleted=True)
+    
+    
+admin.site.register(DeletedReplies,AllDeletedReplies)

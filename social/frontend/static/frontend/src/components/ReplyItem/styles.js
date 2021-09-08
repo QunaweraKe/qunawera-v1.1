@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   control: {
   },
   text: {
+    borderRadius:5,
     backgroundColor: theme.palette.grey[100],
     marginBottom: theme.spacing(0.25),
     padding: theme.spacing(0.5, 2),

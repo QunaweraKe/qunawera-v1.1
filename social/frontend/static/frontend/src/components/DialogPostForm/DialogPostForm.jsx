@@ -140,7 +140,7 @@ const DialogPostForm = () => {
               Form has invalid inputs.
             </Alert>
           )}
-        <Container maxWidth="md">
+        <Container maxWidth="sm">
           <DialogTitle>
             <DialogCloseButton onClick={handleClose} />
             <Typography
@@ -166,7 +166,7 @@ const DialogPostForm = () => {
 
               fullWidth
               id="title"
-              label="Title"
+              label="Role"
               name="title"
               onChange={handleTitle}
               type="text"
@@ -186,20 +186,18 @@ const DialogPostForm = () => {
               id="body"
               label="Description"
               name="body"
-              defaultValue="sup"
               onChange={handleBody}
               type="text"
               variant="outlined"
               rows={7}
-              helperText="Include payment & skillset required in your description"
               value={body}
-              inputProps={{minLength:12}}
+            
             />
 
 
             <br />
         
-            <Card variant="outlined" style={{width: 150, marginTop: 8, marginLeft:10, borderRadius: 5, marginBottom: 5 }}>
+            <Card variant="outlined" style={{width: 250, marginTop: 8, marginLeft:10, borderRadius: 5, marginBottom: 5 }}>
 
               <label>
                 {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
@@ -256,7 +254,7 @@ const DialogPostForm = () => {
               align="center"
               variant="body1"
               paragraph
-              style={{ fontFamily: "monospace", fontSize: "10px" }}
+              style={{ fontFamily: "monospace", fontSize: "13px" }}
             >
               Remember this post will be moderated by admin.<Link>Learn more...</Link>
             </Typography>

@@ -46,9 +46,7 @@ class LikesAPIView(rest_views.APIView, PaginationMixin):
             to_user=post.author,
             type=2,
             post=post,
-        ).delete()
-
-        
+        ).delete()      
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def get(self, request, pk):
@@ -151,8 +149,8 @@ class PostDetailAPIView(obj_mixin,rest_generics.RetrieveUpdateDestroyAPIView):
     def delete(self, request, pk):
         """ Remove post. """
         r_user = self.request.user
-        post = get_object_or_404(Post, author=r_user, pk=pk, is_active=True)
-        post.is_active = False
+        post = get_object_or_404(Post, author=r_user, pk=pk, is_active=True,deleted=False)
+        post.deleted = True
         post.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
     

@@ -22,7 +22,10 @@ const useStyles = makeStyles((theme) => {
       paddingTop: 0,
     },
 
-
+    title: {
+      fontWeight: "bolder",
+      fontSize: "25px",
+    },
 actionButton:{
   justifyContent: 'flex-end',
  
@@ -70,10 +73,7 @@ actionButton:{
     textSize: {
       fontSize: 14,
     },
-    subtitle: {
-      fontSize: "13px",
-      fontWeight: "bold"
-    },
+  
     title: {
       fontWeight: "bolder",
       fontSize: "25px",
@@ -98,10 +98,7 @@ actionButton:{
       objectFit: 'cover',
       borderRadius:5,
     },
-    title: {
-      fontweight: "bolder",
-      marginBottom: "5px",
-    },
+    
     buttonGroup: {
       fontSize: 10,
       marginTop:5,

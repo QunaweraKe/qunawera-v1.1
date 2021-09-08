@@ -12,7 +12,7 @@ class PostManager(QuerySet):
 
         Posts uses soft delete. If the post is not active, it was deleted.
         """
-        return self.filter(is_active=True,closed=False)
+        return self.filter(is_active=True,closed=False, deleted=False)
 
     def feed(self, user: User):
         """Return the `user`'s posts, and the posts of the users they're
@@ -65,15 +65,18 @@ class PostManager(QuerySet):
             the aside column. Long queries are for the recommended posts page,
             which is paginated.
         """
+      
         qs = (
             self.posts()
             .exclude(author__followers=user)
             .filter(
                 ~Q(author=user),
+              
+
                 parent=None,
             )
             .order_by("?")
         )
         if long is False:
-            qs = qs[:9]
+            qs = qs[:7]
         return qs

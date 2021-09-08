@@ -1,7 +1,7 @@
 //Default
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 
 
 //material ui
@@ -23,7 +23,7 @@ import PanToolIcon from '@material-ui/icons/PanTool';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { green } from '@material-ui/core/colors/green';
-
+import { red } from '@material-ui/core/colors/red';
 // Local
 import { route } from '../../constants';
 import {
@@ -150,59 +150,59 @@ const PostItemFeeds = ({ postId }) => {
               </MenuItem>
               {post.is_active
                 && (
-              <ReportPost
-                setAnchorEl={setAnchorEl}
-                postId={post.id}
-              />
-)}
-            </Menu>
-
-        
-
-
-              <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
-                {post.parent && <PostParent post={post.parent} />}
-              </Typography>
-              {post.title
-                && (
-                  <>
-
-                    <Typography className={classes.title}>
-                      {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
-
-                    </Typography >
-
-
-                  </>
-                )}
-
-              {post.body
-                && (
-                  <>
-
-                    <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
-                      {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
-                      }
-
-
-                    </Typography >
-
-
-                  </>
-                )}
-
-              {post.image
-                && (
-                  <CardMedia
-                    className={classes.media}
-
-                    image={post.image}
+                  <ReportPost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
                   />
                 )}
-            
-            </div>
+            </Menu>
 
-          
+
+
+
+            <Typography className={classes.postBody} variant="body8" style={{ fontSize: "12px", letterSpacing: '1px' }}>
+              {post.parent && <PostParent post={post.parent} />}
+            </Typography>
+            {post.title
+              && (
+                <>
+
+                  <Typography className={classes.title} color="textSecondary">
+                    {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
+
+                  </Typography >
+
+
+                </>
+              )}
+
+            {post.body
+              && (
+                <>
+
+                  <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
+                    {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
+                    }
+
+
+                  </Typography >
+
+
+                </>
+              )}
+
+            {post.image
+              && (
+                <CardMedia
+                  className={classes.media}
+
+                  image={post.image}
+                />
+              )}
+
+          </div>
+
+
 
         </Card>
 
@@ -218,14 +218,14 @@ const PostItemFeeds = ({ postId }) => {
                 />
               </>
             )}
-         {post.is_author && post.is_active
-                && (
-          <Button className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            Author Actions
-          </Button>
-           )}
+          {post.is_author && post.is_active
+            && (
+              <Button className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+                Actions
+              </Button>
+            )}
           <Menu
-          
+
             anchorEl={anchor}
             anchorOrigin={{
               horizontal: 'right',
@@ -242,60 +242,73 @@ const PostItemFeeds = ({ postId }) => {
               vertical: 'bottom',
             }}
           >
-{post.is_author && post.is_active
- && (
-   <>
-            
-             
-                <EditPost
-                  setAnchorEl={setAnchorEl}
-                  postId={post.id}
-                />
-           
-        
-                <ClosePost 
-                setAnchorEl={setAnchorEl}
-                postId={post.id}
-                />
-                <DeletePost
-                setAnchorEl={setAnchorEl}
-                postId={post.id}
-                type="post"/>
-             
-             </>)}
+            {post.is_author && post.is_active
+              && (
+                <>
+
+
+                  <EditPost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
+                  />
+
+
+                  <ClosePost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
+                  />
+                  <DeletePost
+                    setAnchorEl={setAnchorEl}
+                    postId={post.id}
+                    type="post" />
+
+                </>)}
           </Menu>
           <Typography>
 
-{post.is_active
-  ? (
-    <>
-    </>
-  ) : (
-    <>
-      <div className={classes.status} style={{ color: "green" }}>
-        <PanToolIcon />   Status&middot;Pending
-      </div>
-      <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
-        This post is only visible to you as the author ,has limited functionality and will disappear on reload.
-        Kindly wait as we approve the task.
-      </Typography>
-    </>
-  )}
-</Typography>
+            {post.is_active
+              ? (
+                <>
+                </>
+              ) : (
+                <>
+                  <div className={classes.status} style={{ color: "green" }}>
+                    <PanToolIcon />   Status&middot;Pending
+                  </div>
+                  <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
+                    This post is only visible to you as the author ,has limited functionality and will disappear on reload.
+                    Kindly wait as we approve the task.
+                  </Typography>
+                </>
+              )}
+          </Typography>
         </div>
         <Grid container spacing={1}>
           <Grid item >
 
             <ButtonGroup size="small" variant="outlined" disableElevation className={classes.buttonGroup}>
               <Button disabled size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
-              <Button disabled size="small" style={{ marginLeft: "1%" }}><FavoriteRoundedIcon />{post.liked.length || 0}</Button>
+              <Button
+               component={Link}
+               to={route.postLikes(post.id)} 
+              size="small" 
+              style={{ marginLeft: "1%", color: "red" }}>
+                <FavoriteRoundedIcon />
+                {post.liked.length || 0}
+                </Button>
             </ButtonGroup>
           </Grid >
 
           <Grid item >
             <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
               <Button size="small" disabled style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
-              <Button disabled size="small" style={{ marginLeft: "1%" }}><RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}</Button>
+              <Button
+               component={Link}
+                size="small"
+                to={route.postDetail(post.id)}
+                color="primary" style={{ marginLeft: "1%" }}>
+                <RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}
+              </Button>
             </ButtonGroup>
           </Grid >
         </Grid >

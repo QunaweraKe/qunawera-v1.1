@@ -128,7 +128,9 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return Response(status=status.HTTP_204_NO_CONTENT)
-
+"""
+Performing a soft delete option for user
+"""
 @login_required
 @api_view(["post"])
 def remove_account(request):

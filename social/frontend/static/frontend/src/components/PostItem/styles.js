@@ -57,12 +57,10 @@ const useStyles = makeStyles((theme) => {
     textSize: {
       fontSize: 14,
     },
-    subtitle: {
-      fontSize: "13px",
-      fontWeight: "bold"
-    },
+   
     title: {
-      fontWeight: "bolder"
+      fontWeight: "bolder",
+      fontSize: "25px",
     },
     text: {
       fontSize: "14px",

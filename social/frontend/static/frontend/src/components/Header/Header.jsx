@@ -7,7 +7,6 @@ import { Link, useLocation } from 'react-router-dom';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import NIcon from '@material-ui/icons/Notifications';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import Divider from '@material-ui/core/Divider';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -51,6 +50,7 @@ const Header = () => {
         >
           <ListItem disableGutters>
             <Button
+            fullWidth
               color={active(route.home) ? 'primary': 'secondary.main' }
               component={Link}
               size="large"
@@ -66,6 +66,7 @@ const Header = () => {
           </ListItem>
           <ListItem disableGutters>
             <Button
+            fullWidth
               color={
                 active(route.profilePosts(user.slug))  ? 'primary' : 'secondary.main' }
               component={Link}
@@ -84,6 +85,7 @@ const Header = () => {
 
           <ListItem disableGutters>
             <Button
+            fullWidth
               color={active(route.settings) ?  'primary' : 'secondary.main'}
               component={Link}
               size="large"
@@ -99,6 +101,7 @@ const Header = () => {
           </ListItem>
            <ListItem disableGutters>
             <Button
+            fullWidth
               color={active(route.searchposts) ? 'primary' : 'default'}
               component={Link}
               size="large"
@@ -109,7 +112,7 @@ const Header = () => {
             </Button>
           </ListItem>
         </List>
-           <Divider light/>
+         
 
              <List
           className={classes.navList}
@@ -118,6 +121,7 @@ const Header = () => {
         >
           <ListItem disableGutters>
            <Button
+           fullWidth
               color={active(route.notifications) ? 'primary' : 'default'}
               component={Link}
               startIcon={(
@@ -141,6 +145,7 @@ const Header = () => {
           
            <ListItem disableGutters>
             <Button
+            fullWidth
               color={active(route.recommendedPosts) ? 'primary' : 'default'}
               component={Link}
               size="large"
@@ -151,32 +156,32 @@ const Header = () => {
             </Button>
           </ListItem>
           
-      
- <Divider light/>
-         
          
           <ListItem disableGutters>
           <Button
-    color={active(route.recommendedPosts) ? 'primary' : 'default'}
+          fullWidth
+    color={active(route.contactUs) ? 'primary' : 'default'}
    component={Link}
    size="large"
    startIcon={<ContactSupportIcon />}
    to={route.contactUs}>
   <span className="nav-button-text">Help</span>
    </Button>
-          </ListItem>
-          
-          <ListItem disableGutters className={classes.logoutMargin}>
+   </ListItem>
     
-          <LogOut/>
-
-          </ListItem>
           
  </List>
-   
+ <List
+          className={classes.navList}
+          component="nav"
+
+        >
+ <ListItem disableGutters>
+ <LogOut className={classes.headerContainer}/>
+ </ListItem>
+ </List>
  <div style={{ marginLeft: '10%',marginTop:"20%" }}>
-      
-  
+
       <Typography  color="textSecondary" style={{ fontSize: ".8em" }}>
   {'© '}
   {new Date().getFullYear()}

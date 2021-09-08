@@ -85,28 +85,7 @@ const Home = ( ) => {
             <AppName/>
           </Typography>
         </Box>
-        <Box p={1} >
-        <ButtonGroup fullwidth variant="outlined" color="primary"  >
-
-<DialogPostForm />
-<CustomTooltip title="explore posts and users" arrow disableFocusListener>
-  <Button
-    size="small"
-    color='primary'
-    component={Link}
-    to={route.search}
-
-
-  >
-    <SearchIcon />
-  </Button>
-  
- 
-</CustomTooltip>
-
-</ButtonGroup>
-
-        </Box>
+       
        
       </Box>
       </div>

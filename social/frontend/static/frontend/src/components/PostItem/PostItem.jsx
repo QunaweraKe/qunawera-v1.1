@@ -171,7 +171,7 @@ const PostItem = ({ expandReplies, postId }) => {
                   && (
                     <>
                      
-                        <Typography  className={classes.title}>
+                        <Typography  className={classes.title} color="textSecondary">
                           {post.title.charAt(0).toUpperCase()}{post.title.slice(1)}
 
                         </Typography >
@@ -179,16 +179,7 @@ const PostItem = ({ expandReplies, postId }) => {
                      
                     </>
                   )}
-                  {post.image
-                  && (
-                <CardMedia
-                  className={classes.media}
-
-                  image={post.image}
-                />
-                  )}
-                
-              {post.body
+                    {post.body
                 && (
                   <>
 
@@ -198,6 +189,16 @@ const PostItem = ({ expandReplies, postId }) => {
                     </Typography >
                   </>
                 )}
+                  {post.image
+                  && (
+                <CardMedia
+                  className={classes.media}
+
+                  image={post.image}
+                />
+                  )}
+                
+            
               
             </div>
 
@@ -275,13 +276,8 @@ const PostItem = ({ expandReplies, postId }) => {
                 }}
               />
             
-            <Divider light />
+          
 
-              <NextButton
-                callback={handleNext}
-                loading={nextLoading}
-                nextUrl={replies.next}
-              />
               {replies.results.map((replyId) => (
                 <ReplyItem
                   key={replyId}
@@ -289,6 +285,11 @@ const PostItem = ({ expandReplies, postId }) => {
                 />
               ))}
 
+                <NextButton
+                callback={handleNext}
+                loading={nextLoading}
+                nextUrl={replies.next}
+              />
             </CardContent>
             </Card>
           </Collapse>

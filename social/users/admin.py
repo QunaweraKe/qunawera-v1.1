@@ -14,7 +14,7 @@ class UserAdmin(admin.ModelAdmin):
     actions = ['activate_users',]
     def get_queryset(self, request):
         qs=super(UserAdmin,self).get_queryset(request)
-        return  qs.filter(is_active=True)
+        return  qs.filter(is_active=True,is_staff=False)
     
     
 
@@ -30,12 +30,39 @@ admin.site.register(Profile,UserProfileAdmin)
 class DeletedAccounts(User):
     class Meta:
         proxy=True
-        verbose_name_plural='Inactive Accounts'
+        verbose_name_plural='Inactive User Accounts'
 
 class Inactive(UserAdmin):
     readonly_fields=('is_active',)
     def get_queryset(self, request):
         qs=super(UserAdmin,self).get_queryset(request)
-        return  qs.filter(is_active=False)
+        return  qs.filter(is_active=False,is_staff=False)
     
 admin.site.register(DeletedAccounts,Inactive)
+
+
+class SuperUserAccounts(User):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Active Admin Accounts'
+
+class SuperAccounts(UserAdmin):
+    readonly_fields=('is_active','is_staff')
+    def get_queryset(self, request):
+        qs=super(UserAdmin,self).get_queryset(request)
+        return  qs.filter(is_active=True,is_staff=True)
+    
+admin.site.register(SuperUserAccounts,SuperAccounts)
+
+class   InactiveSuperUserAccounts(User):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Inactive Admin Accounts'
+
+class   InactiveSuperAccounts(UserAdmin):
+    readonly_fields=('is_active','is_staff')
+    def get_queryset(self, request):
+        qs=super(UserAdmin,self).get_queryset(request)
+        return  qs.filter(is_active=False,is_staff=True)
+    
+admin.site.register(InactiveSuperUserAccounts,InactiveSuperAccounts)
