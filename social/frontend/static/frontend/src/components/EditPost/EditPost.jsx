@@ -87,7 +87,7 @@ const EditPost = React.forwardRef((props, ref) => {
         onExited={handleExited}
         fullScreen
       >
-        <Container maxWidth="sm">
+        <Container maxWidth="md">
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography variant="h6">

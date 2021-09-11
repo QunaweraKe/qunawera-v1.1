@@ -56,6 +56,7 @@ class BasePostSerializer(serializers.ModelSerializer):
             "closed",
              "is_reported",
              "deleted",
+           
             
         ]
 

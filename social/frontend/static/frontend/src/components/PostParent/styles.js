@@ -6,11 +6,14 @@ const useStyles = makeStyles((theme) => ({
    borderColor:theme.palette.grey[100],
    border:"solid",
    borderWidth:1,
-    marginTop: theme.spacing(0),
-    padding: theme.spacing(1, 1),
+   marginTop: theme.spacing(0),
+  padding: theme.spacing(1, 1),
+  width:350,
+  marginLeft: theme.spacing(1),
   },
   Link:{
     textDecoration :"none",
+    color:'#000',
     },
     media: {
       borderRadius:"5px",

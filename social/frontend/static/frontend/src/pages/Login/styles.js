@@ -8,12 +8,16 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
   },
+  textLink:{
+
+    fontWeight:700,
+     },
   container: {
     marginTop: 40,
     maxWidth: 450,
   },
   formField: {
-    marginTop: theme.spacing(0),
+    marginTop: theme.spacing(2),
   },
   register: {
     marginBottom: theme.spacing(2),

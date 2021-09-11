@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Post
-from datetime import datetime,timedelta,time
+import datetime
 from django.contrib.auth import  get_user_model
 User = get_user_model()
 admin.site.site_header="Qunawera Admin "
@@ -23,13 +23,13 @@ class PostsAdmin(admin.ModelAdmin):
         queryset.update(is_active=False)
         
    # readonly_fields=("liked","is_reply","author","image","thumbnail")
-    list_display=("id","author","approved","short_title","short_body","image","likes_count","deleted","closed","created_at","updated_at","is_reported")
+    list_display=("id","author","approved","parent","short_title","short_body","image","likes_count","deleted","closed","created_at","updated_at","is_reported")
     search_fields=["author"]
     list_filter=('is_active','closed',"is_reply",)
     list_display_links = ("author",)
     actions = ['open_post','close_post','activate_post', 'deactivate_post','approve_reported','disapprove_reported']
     list_per_page = 20 
-    exclude=("parent",)
+   # exclude=("parent",)
 
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
@@ -45,12 +45,10 @@ class PostsToday(Post):
 class PostsByDay(PostsAdmin):
     
     def get_queryset(self,request):
-        today=datetime.now().date()
-        tomorrow=today+timedelta(1)
-        today_start=datetime.combine(today,time())
-        today_end=datetime.combine(tomorrow,time())
+        today=datetime.date.today()
+      
         qs=super(PostsAdmin,self).get_queryset(request)
-        return qs.filter(created_at__lte=today_start,created_at__gte=today_end)
+        return qs.filter(created_at__gt=today)
 admin.site.register(PostsToday,PostsByDay)
 
 class PostsNotApproved(Post):
@@ -91,7 +89,7 @@ class ReportedPostReplies(PostsAdmin):
     
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_reply=True,is_reported=True)
+        return  qs.filter(is_reply=True,is_reported=True,deleted=False,closed=False)
     
     
 admin.site.register(ReportedReplies,ReportedPostReplies)
@@ -105,7 +103,7 @@ class AllReportedPosts(PostsAdmin):
     
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_reply=False,is_reported=True)
+        return  qs.filter(is_reply=False,is_reported=True,deleted=False,closed=False)
     
     
 admin.site.register(ReportedPosts,AllReportedPosts)
@@ -120,7 +118,7 @@ class AllDeletedPosts(PostsAdmin):
     
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_reply=False,deleted=True)
+        return  qs.filter(is_reply=False,deleted=True,closed=False)
     
     
 admin.site.register(DeletedPosts,AllDeletedPosts)
@@ -134,7 +132,22 @@ class AllDeletedReplies(PostsAdmin):
     
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_reply=True,deleted=True)
+        return  qs.filter(is_reply=True,deleted=True,closed=False)
     
     
 admin.site.register(DeletedReplies,AllDeletedReplies)
+
+
+class Closed(Post):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Closed Posts'
+
+class AllClosedPosts(PostsAdmin):
+    
+     def get_queryset(self, request):
+        qs=super(PostsAdmin,self).get_queryset(request)
+        return  qs.filter(is_reply=False,deleted=False,closed=True)
+    
+    
+admin.site.register(Closed,AllClosedPosts)

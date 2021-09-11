@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
 
       '&:hover': {
         backgroundColor: fade(theme.palette.primary.light, 0.5),
-        color: theme.palette.secondary.main,
+        
+        
       },
 
       [theme.breakpoints.up('lg')]: {
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiButton-root .nav-button-text': {
       display: 'none',
       fontSize:16,
-      fontWeight:800,
+     
 
       [theme.breakpoints.up('lg')]: {
         display: 'inline',

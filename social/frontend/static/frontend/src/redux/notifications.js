@@ -49,6 +49,11 @@ const notificationsSlice = createSlice({
         state.notifications.results.filter((obj) => obj.id !== payload)
       );
     },
+    unsetAllNotification: (state, { payload }) => {
+      state.notifications.results =  payload;
+       
+  
+    },
   },
 });
 
@@ -123,7 +128,7 @@ export const removeAllNotification = () => async (dispatch) => {
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removeAllNotification);
-    dispatch(unsetNotification(data));
+    dispatch(unsetAllNotification(data));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

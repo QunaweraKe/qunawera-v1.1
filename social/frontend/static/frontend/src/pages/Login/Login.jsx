@@ -115,11 +115,12 @@ const Login = () => {
                 value={formData.login}
                 InputLabelProps={{ style: { fontSize: 14 } }}
               />
+              <br/>
               <TextField
                 variant="filled"
                 required
                 autoComplete="current-password"
-
+                className={classes.formField}
                 error={!isEmpty(errors)}
                 fullWidth
                 id="password"
@@ -184,7 +185,7 @@ const Login = () => {
         <Card variant="outlined"  className={classes.card}>
         <Typography className={classes.register}>
           <span >New to {APP_NAME}  </span>{'?'}{'  '}
-          <TextLink to={route.register}>Create New Account.</TextLink>
+          <TextLink to={route.register} className={classes.textLink}>Create New Account.</TextLink>
 
         </Typography>
         </Card>

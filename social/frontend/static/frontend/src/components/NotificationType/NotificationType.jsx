@@ -33,7 +33,7 @@ const NotificationType = ({ notification }) => {
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
         </Typography>
-        <Divider/>
+        <Divider className={classes.divideColor}/>
         </>
       )}
       {notification.type === 2 && (
@@ -52,7 +52,7 @@ const NotificationType = ({ notification }) => {
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
       </Typography>
-      <Divider/>
+      <Divider className={classes.divideColor}/>
       </>
       )}
       {notification.type === 3 && (
@@ -72,15 +72,18 @@ const NotificationType = ({ notification }) => {
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
           </Typography>
-          <Divider/>
+          <Divider className={classes.divideColor}/>
         </>
       )}
       {notification.type === 4 && (
+        <>
         <Typography>
           {notification.from_user.display_name}
           {' '}
         started following your activities.
         </Typography>
+          <Divider className={classes.divideColor}/>
+          </>
       )}
     </>
   );

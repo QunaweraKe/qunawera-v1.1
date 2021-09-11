@@ -1,4 +1,5 @@
 
+import datetime
 from django.db import models
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager
@@ -62,9 +63,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     closed=models.BooleanField(default=False)
     is_reported=models.BooleanField(default=False)
 
-    
 
-   
     def __str__(self):
         ellipsis = "..." if len(self.body) > 60 else ""
         return f"{self.body[:100]}{ellipsis}"

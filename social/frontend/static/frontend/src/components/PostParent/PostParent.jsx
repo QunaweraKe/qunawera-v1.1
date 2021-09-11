@@ -19,6 +19,7 @@ const PostParent = ({ className, post }) => {
       classes={{ root: classes.parentContainer }}
       className={className}
       elevation={0}
+  
     >
 
 

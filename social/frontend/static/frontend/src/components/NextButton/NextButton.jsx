@@ -19,10 +19,10 @@ const NextButton = ({ callback, loading, nextUrl }) => {
         color="secondary"
         disabled={loading}
         onClick={callback}
-        
-        fullWidth
+        variant="outlined"
+       
       >
-         view  more posts
+         view  more 
         {loading }
       </IconButton>
     ) : null;

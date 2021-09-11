@@ -85,7 +85,7 @@ const Home = ( ) => {
             <AppName/>
           </Typography>
         </Box>
-       
+        <DialogPostForm/>
        
       </Box>
       </div>

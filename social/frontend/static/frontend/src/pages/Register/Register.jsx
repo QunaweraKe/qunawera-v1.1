@@ -215,8 +215,8 @@ const Register = () => {
         <Card variant="outlined"  className={classes.card}>
        <Typography className={classes.login}>
         <span >Already a member </span> {'?'}  {'  '}
-       <TextLink to={route.login}>
-      Login</TextLink>
+       <TextLink to={route.login} className={classes.textLink}>
+      Login.</TextLink>
         </Typography>
         </Card>
         <div style={{ marginLeft: '20%',marginTop:"20%" }}>

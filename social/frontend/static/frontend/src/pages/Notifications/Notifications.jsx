@@ -99,7 +99,7 @@ const Notfications = () => {
       <AuthLayout>
         <SubHeading>
           <MobileMenu />
-          <Typography  variant="h6" style={{fontWeight:"bolder",marginLeft:2,}}>
+          <Typography align="center" variant="h6" style={{fontWeight:"bolder"}}>
             Activities
           </Typography>
           <IconButton

@@ -33,6 +33,7 @@ const Toast = ({ message, severity }) => {
       open={open}
       autoHideDuration={4500}
       onClose={handleClose}
+      style={{borderRadius:5,}}
       >
       <Alert
         elevation={0}
@@ -41,7 +42,7 @@ const Toast = ({ message, severity }) => {
         icon={false} 
         
       >
-        <Typography color="textSecondary"style={{fontFamily:"monospace",fontSize:"16px",textDecoration:"none"}}>
+        <Typography style={{fontFamily:"RobotoDraft",fontSize:"16px",textDecoration:"none",alignItems:"center",padding:"2px 4px",transitionDuration:".5s",}}>
         {message}
         </Typography>
        

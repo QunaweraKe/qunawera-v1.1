@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
    fontSize:19,
    fontFamily:"Arial"
   },
+  divideColor:{
+    backgroundColor:theme.palette.primary.main,
+  },
 }));
 
 export default useStyles;

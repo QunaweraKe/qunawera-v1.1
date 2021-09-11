@@ -76,9 +76,9 @@ const PostItemFeeds = ({ postId }) => {
           <div className={classes.avatarContainer}>
 
             <Avatar user={post.author} />
-
+           
           </div>
-
+        
           <div className={classes.post}>
 
             <PostHeader post={post} />
@@ -91,6 +91,7 @@ const PostItemFeeds = ({ postId }) => {
               <MoreHorizIcon />
             </IconButton>
             <Menu
+          
               anchorEl={anchorEl}
               anchorOrigin={{
                 horizontal: 'right',
@@ -275,7 +276,7 @@ const PostItemFeeds = ({ postId }) => {
                   <div className={classes.status} style={{ color: "green" }}>
                     <PanToolIcon />   Status&middot;Pending
                   </div>
-                  <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
+                  <Typography align="center"color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
                     Kindly wait as we approve the task.
                   </Typography>

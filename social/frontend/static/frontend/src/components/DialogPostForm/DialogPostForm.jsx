@@ -75,8 +75,15 @@ const DialogPostForm = () => {
   const user = useSelector(selectUser);
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const { errors, loading } = useUI(key.createPost, null, false);
+  const [open, setOpen] = React.useState(false);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
+  const handleDialogClose = () => {
+    setOpen(false);
+  };
 
   const handleClose = () => {
     setDialogOpen(false);
@@ -84,7 +91,7 @@ const DialogPostForm = () => {
 
   const handleOpen = () => {
     setDialogOpen(true);
-    setImage('');
+   
   };
 
   const handleSubmit = (event) => {
@@ -196,16 +203,24 @@ const DialogPostForm = () => {
 
 
             <br />
-        
-            <Card variant="outlined" style={{width: 250, marginTop: 8, marginLeft:10, borderRadius: 5, marginBottom: 5 }}>
+            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Upload Image
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleDialogClose}
+   
+      >
+        <DialogContent>
+          
 
               <label>
                 {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
                   <>
                     <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
                   </>)}
-              </label>
-            </Card>
+              </label>  
+          
 
 <label className={classes.input}>
   <label for="upload file">
@@ -220,7 +235,27 @@ const DialogPostForm = () => {
             />
 
 </label>
+</DialogContent>
+<Button
+              size="large"
+              color="primary"
+              disabled={loading}
+              onClick={handleDialogClose}
+              variant="contained"
+              className={classes.Button}
+              style={{ boxShadow: "none", borderRadius: "5px", }}
+            >
+              <span className="nav-button-text">Use Currently selected</span>
 
+              {loading && <CircularProgress />}
+            </Button>
+</Dialog>
+      <label>
+                {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
+                  <>
+                    <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
+                  </>)}
+              </label>  
             <br />
             <Button
               size="large"
@@ -228,7 +263,6 @@ const DialogPostForm = () => {
               disabled={loading}
               onClick={handleSubmit}
               variant="contained"
-              className={classes.Button}
               style={{ boxShadow: "none", borderRadius: "5px", }}
             >
               <span className="nav-button-text">Post</span>

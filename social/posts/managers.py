@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.aggregates import ArrayAgg
+
 from django.db.models import Q, QuerySet
 from django.db.models.expressions import OrderBy
 
@@ -56,6 +57,7 @@ class PostManager(QuerySet):
         :param user: User to retrieve posts from.
         """
         return self.posts().filter(author=user)
+   
 
     def recommend_posts(self, user: User, long: bool = False):
         """Recommend posts to `user`.
@@ -65,16 +67,9 @@ class PostManager(QuerySet):
             the aside column. Long queries are for the recommended posts page,
             which is paginated.
         """
-      
+       
         qs = (
-            self.posts()
-            .exclude(author__followers=user)
-            .filter(
-                ~Q(author=user),
-              
-
-                parent=None,
-            )
+            self.posts().exclude(author__followers=user).filter(~Q(author=user),parent=None ,)
             .order_by("?")
         )
         if long is False:

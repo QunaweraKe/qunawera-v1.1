@@ -12,7 +12,10 @@ const useStyles = makeStyles((theme) => ({
   color:"red",
  marginTop:"4px",
  },
+ textLink:{
 
+fontWeight:700,
+ },
   button: {
     marginTop: theme.spacing(3),
   },

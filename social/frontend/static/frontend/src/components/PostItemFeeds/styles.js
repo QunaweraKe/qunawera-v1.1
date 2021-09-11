@@ -63,8 +63,8 @@ actionButton:{
     },
     postContainer: {
       display: 'flex',
-      padding: theme.spacing(2),
-      margin: 3,
+      padding: theme.spacing(1),
+      margin: 5,
       marginTop: theme.spacing(3),
       borderColor: theme.palette.grey[150],
     
@@ -73,7 +73,7 @@ actionButton:{
     textSize: {
       fontSize: 14,
     },
-  
+
     title: {
       fontWeight: "bolder",
       fontSize: "25px",
