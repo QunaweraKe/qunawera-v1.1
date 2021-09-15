@@ -261,7 +261,7 @@ export const createReply = (author, body, parentId) => async (dispatch) => {
       parent_id: parentId,
     }));
     dispatch(setReply(data));
-    dispatch(setToast('Review  sent'));
+    dispatch(setToast('Comment  sent'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

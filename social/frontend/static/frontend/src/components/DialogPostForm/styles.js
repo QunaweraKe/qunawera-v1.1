@@ -14,19 +14,24 @@ const useStyles = makeStyles((theme) => ({
 
   },
   Button: {
-    marginTop:25,
-    margin:theme.spacing(2),
+    marginTop:10,
+    margin:theme.spacing(1),
 
   },
-  
-input:{
-position:"absolute",
-margin:3,
-display:"flex",
-padding:6,
-cursor:"pointer"
-}
-,
+
+  addButton: {
+    margin:theme.spacing(1),
+    marginTop:25,
+  },
+imageCard:{
+  border:'dotted',
+  borderWidth:2,
+  borderColor:theme.palette.grey[500],
+   marginTop: 5,
+   borderRadius: 5, 
+   marginBottom: 5,
+     width: "250px" ,
+},
 }));
 
 export default useStyles;

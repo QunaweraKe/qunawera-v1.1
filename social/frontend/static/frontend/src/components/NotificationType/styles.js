@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
    fontFamily:"Arial"
   },
   divideColor:{
-    backgroundColor:theme.palette.primary.main,
+    backgroundColor:theme.palette.grey[50],
   },
 }));
 

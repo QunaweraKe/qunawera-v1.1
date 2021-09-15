@@ -2,16 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
-  root: {
-    height: (size) => size,
-    width: (size) => size,
-    display: 'flex',
-    '& > *': {
-      margin: theme.spacing(0),
-    },
-   
-  },
-
+  readMore:{
+    color:theme.palette.secondary.main,
+    textDecoration:"underline",
+    letterSpacing:"1px",
+    cursor:"pointer",
+    
+        },
 }));
 
 export default useStyles;

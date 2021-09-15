@@ -67,6 +67,8 @@ actionButton:{
       margin: 5,
       marginTop: theme.spacing(3),
       borderColor: theme.palette.grey[150],
+      marginBottom: theme.spacing(2),
+      
     
     },
 
@@ -100,9 +102,9 @@ actionButton:{
     },
     
     buttonGroup: {
-      fontSize: 10,
       marginTop:5,
-      marginLeft:"2%"
+      marginLeft:10,
+      marginBottom:8,
     },
     avatarMenu: {
       height: "2px",
@@ -113,8 +115,9 @@ actionButton:{
      position:"relative"
     
     },
+    
     root: {
-
+   
       marginTop:6,
       position: 'relative',
       flexGrow: 1,

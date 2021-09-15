@@ -11,8 +11,7 @@ const NAMESPACE = 'notifications';
 // Keys
 //
 export const key = {
-  removeAllNotification: () => (
-    `removeNotification`),
+
   notifications: 'notifications',
   notificationsNext: 'notificationsNext',
   unreadNotifications: 'unreadNotifications',
@@ -49,11 +48,7 @@ const notificationsSlice = createSlice({
         state.notifications.results.filter((obj) => obj.id !== payload)
       );
     },
-    unsetAllNotification: (state, { payload }) => {
-      state.notifications.results =  payload;
-       
   
-    },
   },
 });
 
@@ -123,16 +118,3 @@ export const removeNotification = (notificationId) => async (dispatch) => {
 };
 
 
-export const removeAllNotification = () => async (dispatch) => {
-  const thisKey = key.removeAllNotification;
-  try {
-    dispatch(setLoading(NAMESPACE, thisKey));
-    await api(descriptor.removeAllNotification);
-    dispatch(unsetAllNotification(data));
-  } catch (error) {
-    dispatch(setToast('Something went wrong', 'error'));
-    console.error(error);
-  } finally {
-    dispatch(unsetLoading(NAMESPACE, thisKey));
-  }
-};

@@ -32,7 +32,7 @@ const Avatar = ({
         to={route.profilePosts(user.slug)}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...rest}
-        style={{ boxShadow: '1px  rgba(0,0,0,.2)'}}
+        style={{ boxShadow: '1.5px  rgba(0,0,0,.2)'}}
       />
     
     ) : (
@@ -54,7 +54,7 @@ const Avatar = ({
 Avatar.defaultProps = {
   className: null,
   linkable: true,
-  size: 40,
+  size: 60,
 };
 
 Avatar.propTypes = {

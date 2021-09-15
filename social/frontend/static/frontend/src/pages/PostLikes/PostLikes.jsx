@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 // Local
 import AuthLayout from '../../components/AuthLayout';
 import BackButton from '../../components/BackButton';
-import Heading from '../../components/Heading';
+import SubHeading from '../../components/SubHeading';
 import Loading from '../../components/Loading';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
@@ -72,7 +72,7 @@ const PostLikes = () => {
       <PageTitle title="Post likes" />
 
       <AuthLayout>
-        <Heading>
+        <SubHeading>
           <BackButton />
           <div>
             <Typography
@@ -83,7 +83,7 @@ const PostLikes = () => {
               Post likes
             </Typography>
           </div>
-        </Heading>
+        </SubHeading>
         <PostDetailNav
           active="likes"
           postId={postId}

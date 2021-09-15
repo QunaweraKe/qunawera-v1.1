@@ -228,8 +228,5 @@ export const descriptor = {
     method: 'delete',
     url: `/api/notifications/${notificationId}/`,
   }),
-  removeAllNotification: () => ({
-    method: 'delete',
-    url: `/api/notifications/remove-all/`,
-  }),
+ 
 };

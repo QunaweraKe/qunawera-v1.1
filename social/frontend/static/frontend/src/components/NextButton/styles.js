@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize:"15px",
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
-    width:"100%"
+    width:"100%",
+    padding:5,
   },
 }));
 

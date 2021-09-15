@@ -5,8 +5,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import IconButton from '@material-ui/core/IconButton';
 // Local
 import AuthLayout from '../../components/AuthLayout';
 import SubHeading from '../../components/SubHeading';
@@ -18,13 +16,13 @@ import NotificationItem from '../../components/NotificationItem';
 import PageTitle from '../../components/PageTitle';
 import Notification from '../../components/Files/Images/notification.svg';
 import useUI from '../../hooks/useUI';
-import CircularProgress from '../../components/CircularProgress';
+
 import {
   getNotifications,
   key,
   selectNotifications,
   selectUnreadNotificationsCount,
-  removeAllNotification,
+ 
 } from '../../redux/notifications';
 
 const Notfications = () => {
@@ -33,9 +31,7 @@ const Notfications = () => {
   const { loadingnotification } = useUI(key.removeAllNotification, null, false);
   const notifications = useSelector(selectNotifications);
   const unreadNotificationsCount = useSelector(selectUnreadNotificationsCount);
-  const handleRemoveAll = () => {
-    dispatch(removeAllNotification);
-  };
+
   const { fetched, loading, nextLoading } = useUI(
     key.notifications, key.notificationsNext,
   );
@@ -102,20 +98,7 @@ const Notfications = () => {
           <Typography align="center" variant="h6" style={{fontWeight:"bolder"}}>
             Activities
           </Typography>
-          <IconButton
-      
-        color="primary"
-        disabled={loadingnotification}
-        onClick={handleRemoveAll}
-      >
-
-{loading && <CircularProgress />}
-        <HighlightOffIcon
-          color="error"
-          fontSize="small"
-        />
-       
-      </IconButton>
+        
         </SubHeading>
         {renderNotifications()}
         <NextButton

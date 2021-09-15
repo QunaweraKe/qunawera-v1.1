@@ -1,8 +1,6 @@
 import os
 from pathlib import Path
-
 from dotenv import load_dotenv
-
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 
@@ -56,10 +54,24 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+     "users.middleware.ActiveUserMiddleware" ,
 ]
 
 ROOT_URLCONF = "social.urls"
 
+#dummy cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
+# Number of seconds of inactivity before a user is marked offline
+USER_ONLINE_TIMEOUT = 300
+
+# Number of seconds that we will keep track of inactive users before
+# their last seen is removed from the cache
+USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 
 
 #session expiry

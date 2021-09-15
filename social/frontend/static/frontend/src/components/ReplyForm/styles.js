@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   replyForm: {
     alignItems: 'center',
     display: 'flex',
+    position:'sticky'
   },
   textField: {
     flexGrow: 1,

@@ -58,12 +58,11 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="right"
+        anchor="bottom"
         openSecondary={true}
         docked={true} 
         open={drawerOpen}
         onClose={handleToggleDrawer}
-        width="50%"
        
       >
         <div className={classes.titleContainer}>

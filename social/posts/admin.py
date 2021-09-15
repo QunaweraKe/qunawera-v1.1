@@ -40,7 +40,7 @@ class PostsAdmin(admin.ModelAdmin):
 class PostsToday(Post):
     class Meta:
         proxy=True
-        verbose_name_plural='Posted Today'
+        verbose_name_plural='Posted Today-Approved'
 
 class PostsByDay(PostsAdmin):
     
@@ -48,8 +48,21 @@ class PostsByDay(PostsAdmin):
         today=datetime.date.today()
       
         qs=super(PostsAdmin,self).get_queryset(request)
-        return qs.filter(created_at__gt=today)
+        return qs.filter(created_at__gt=today,is_active=True,closed=False,deleted=False)
 admin.site.register(PostsToday,PostsByDay)
+class PostsTodayNotApproved(Post):
+    class Meta:
+        proxy=True
+        verbose_name_plural='Posted Today-Not Approved'
+
+class PostsNotApproved(PostsAdmin):
+    
+    def get_queryset(self,request):
+        today=datetime.date.today()
+      
+        qs=super(PostsAdmin,self).get_queryset(request)
+        return qs.filter(created_at__gt=today,is_active=False)
+admin.site.register( PostsTodayNotApproved,PostsNotApproved)
 
 class PostsNotApproved(Post):
     class Meta:

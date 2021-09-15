@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
 
@@ -28,7 +28,7 @@ import useStyles from './styles';
 const ProfileInfo = ({ loading, profileUser }) => {
   const classes = useStyles(profileUser);
   const dispatch = useDispatch();
-
+  dayjs.extend(relativeTime);
   const bannerRef = React.useRef();
   const imageRef = React.useRef();
 
@@ -119,11 +119,6 @@ const ProfileInfo = ({ loading, profileUser }) => {
          
           <div className={classes.infoContainer}>
             <Card variant="outlined" square>
-
-         
-          
-            
-
             <Typography variant="h6"
              style={{ fontFamily:"monospace"}}>
             <span style={{ fontWeight: "bolder" }}>Profile info</span>
@@ -173,7 +168,13 @@ const ProfileInfo = ({ loading, profileUser }) => {
 
                 </Typography>
                 <br />
+ <Typography className={classes.extraInfoText}
+                style={{fontFamily:"monospace"}}
+                color="textSecondary">
+                  {dayjs(profileUser.profile.last_seen).fromNow()}
+                  {dayjs(profileUser.profile.online).fromNow()}
 
+                </Typography>
 
               </div>
               {profileUser.profile.location

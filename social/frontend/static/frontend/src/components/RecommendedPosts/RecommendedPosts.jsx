@@ -167,7 +167,7 @@ const RecommendedPosts = () => {
         title="Related Posts"
         titleTypographyProps={{
           className: classes.title,
-          variant: 'subtitle3 ',
+          variant: 'subtitle2 ',
         }}
       />
       {renderPostsList()}

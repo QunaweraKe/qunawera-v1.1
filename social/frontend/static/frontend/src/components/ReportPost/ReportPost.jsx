@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import ReportIcon from '@material-ui/icons/Report';
+import ReportProblemIcon from '@material-ui/icons/ReportProblem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -57,7 +57,7 @@ ref={ref}
 > 
 
 <ListItemIcon>
-      <ReportIcon style={{color:"red"}}/>
+      <ReportProblemIcon style={{color:"red"}}/>
          </ListItemIcon>
          
 

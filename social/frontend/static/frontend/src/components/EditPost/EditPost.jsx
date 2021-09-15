@@ -104,7 +104,6 @@ const EditPost = React.forwardRef((props, ref) => {
             multiline
             fullWidth
             id="body"
-            label="Description"
             name="body"
             onChange={handleChange}
             type="text"

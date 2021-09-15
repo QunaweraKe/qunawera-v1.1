@@ -46,7 +46,7 @@ import ClosePost from '../ClosePost';
 
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
-  const pluralizeComments = (length) => (length !== 1 ? 'Responses' : 'Response');
+  const pluralizeComments = (length) => (length !== 1 ? 'Comments' : 'Comments');
   const classes = useStyles();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -68,9 +68,24 @@ const PostItemFeeds = ({ postId }) => {
 
   return (
     <>
-      <div className={classes.root}>
+      <div className={classes.root}
+     >
 
-        <Card className={classes.postContainer} variant="outlined">
+        <Card 
+          style={{
+            boxShadow:
+              /* The top layer shadow */
+              '0 1px 1px rgba(0,0,0,0.15)',
+            /* The second layer */
+            boxShadow: '0 10px 0 -5px #eee',
+            /* The second layer shadow */
+            boxShadow: '0 10px 1px -3px rgba(0,0,0,0.15)',
+            /* The third layer */
+            boxShadow: '0 20px 0 -10px #eee',
+            borderRadius:"15px",
+    
+          }}className={classes.postContainer} variant="outlined"
+       >
 
 
           <div className={classes.avatarContainer}>
@@ -180,18 +195,19 @@ const PostItemFeeds = ({ postId }) => {
             {post.body
               && (
                 <>
-
+                
                   <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
+                 
                     {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
                     }
-
-
                   </Typography >
-
-
-                </>
+                  
+               
+                 
+                    
+                    </>
               )}
-
+ 
             {post.image
               && (
                 <CardMedia
@@ -276,7 +292,7 @@ const PostItemFeeds = ({ postId }) => {
                   <div className={classes.status} style={{ color: "green" }}>
                     <PanToolIcon />   Status&middot;Pending
                   </div>
-                  <Typography align="center"color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
+                  <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
                     Kindly wait as we approve the task.
                   </Typography>
@@ -293,7 +309,7 @@ const PostItemFeeds = ({ postId }) => {
                component={Link}
                to={route.postLikes(post.id)} 
               size="small" 
-              style={{ marginLeft: "1%", color: "red" }}>
+              style={{borderRadius:6, marginLeft: "1%", color: "red" }}>
                 <FavoriteRoundedIcon />
                 {post.liked.length || 0}
                 </Button>
@@ -307,7 +323,7 @@ const PostItemFeeds = ({ postId }) => {
                component={Link}
                 size="small"
                 to={route.postDetail(post.id)}
-                color="primary" style={{ marginLeft: "1%" }}>
+                color="primary" style={{borderRadius:6, marginLeft: "1%" }}>
                 <RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}
               </Button>
             </ButtonGroup>
@@ -330,3 +346,7 @@ export default PostItemFeeds;
 //possible bug on reply item
 //f&u link text for users
 //add chip to approved
+
+
+
+//Add Tags category before related posts-should contain key words...

@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
+    position:"relative"
   },
   textAndInteractContainer: {
     marginLeft: theme.spacing(2),

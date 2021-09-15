@@ -13,7 +13,7 @@ const Loading = ({ spacing }) => {
   return (
     <div className={classes.root}>
       <CircularProgress
-        size={20}
+        size={22}
         thickness={8}
       />
     </div>
