@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 // Material UI
+import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
@@ -166,7 +167,7 @@ const DialogPostForm = () => {
             >
               Post a new task
             </Typography>
-
+<Divider/>
           </DialogTitle>
 
           <DialogContent>

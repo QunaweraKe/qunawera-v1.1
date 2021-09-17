@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     borderColor: theme.palette.grey[100],
     borderRadius: '50%',
-    borderStyle: 'solid',
+    border: 'solid',
     borderWidth: 3,
     height: 200,
     marginTop: '-18%',
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1.5, 2),
   },
   banner: {
+    padding:4,
     backgroundColor: theme.palette.grey[100],
     backgroundImage: (profileUser) => (
       profileUser.profile?.banner

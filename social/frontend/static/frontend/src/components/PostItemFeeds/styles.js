@@ -63,11 +63,12 @@ actionButton:{
     },
     postContainer: {
       display: 'flex',
-      padding: theme.spacing(1),
-      margin: 5,
+      padding: theme.spacing(2),
+      margin:8,
       marginTop: theme.spacing(3),
       borderColor: theme.palette.grey[150],
       marginBottom: theme.spacing(2),
+      minWidth:350,
       
     
     },
@@ -117,7 +118,7 @@ actionButton:{
     },
     
     root: {
-   
+      marginBottom:8,
       marginTop:6,
       position: 'relative',
       flexGrow: 1,

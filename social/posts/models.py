@@ -37,12 +37,14 @@ class Post(SoftDeleteMixin, TimestampMixin):
     updated_at=models.DateTimeField(
         auto_now=True,
         db_index=True,
-        null=True
+        null=True,
+        editable=False
     )
     deleted=models.BooleanField(default=False)
     created_at = models.DateTimeField(
         auto_now_add=True,
         db_index=True,
+        editable=False,
     )
     image = models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
     is_reply = models.BooleanField(default=False)

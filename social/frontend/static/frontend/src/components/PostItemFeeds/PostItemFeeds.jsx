@@ -1,7 +1,7 @@
 //Default
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link,useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 //material ui
@@ -18,7 +18,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { AccountCircleRounded } from '@material-ui/icons';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PanToolIcon from '@material-ui/icons/PanTool';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -46,7 +46,8 @@ import ClosePost from '../ClosePost';
 
 const PostItemFeeds = ({ postId }) => {
   const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
-  const pluralizeComments = (length) => (length !== 1 ? 'Comments' : 'Comments');
+  const pluralizeComments = (length) => (length !== 1 ? 'Comments' : 'Comment');
+  const pluralizeShares = (length) => (length !== 1 ? 'Shares' : 'Share');
   const classes = useStyles();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -69,31 +70,26 @@ const PostItemFeeds = ({ postId }) => {
   return (
     <>
       <div className={classes.root}
-     >
+      >
 
-        <Card 
+        <Card
           style={{
             boxShadow:
               /* The top layer shadow */
               '0 1px 1px rgba(0,0,0,0.15)',
             /* The second layer */
             boxShadow: '0 10px 0 -5px #eee',
-            /* The second layer shadow */
-            boxShadow: '0 10px 1px -3px rgba(0,0,0,0.15)',
-            /* The third layer */
-            boxShadow: '0 20px 0 -10px #eee',
-            borderRadius:"15px",
-    
-          }}className={classes.postContainer} variant="outlined"
-       >
+
+          }} className={classes.postContainer} variant="outlined"
+        >
 
 
           <div className={classes.avatarContainer}>
 
             <Avatar user={post.author} />
-           
+
           </div>
-        
+
           <div className={classes.post}>
 
             <PostHeader post={post} />
@@ -103,10 +99,10 @@ const PostItemFeeds = ({ postId }) => {
               className={classes.postAction}
               onClick={handleMenuOpen}
             >
-              <MoreHorizIcon />
+              <ExpandMoreIcon />
             </IconButton>
             <Menu
-          
+
               anchorEl={anchorEl}
               anchorOrigin={{
                 horizontal: 'right',
@@ -195,19 +191,19 @@ const PostItemFeeds = ({ postId }) => {
             {post.body
               && (
                 <>
-                
+
                   <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
-                 
+
                     {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
                     }
                   </Typography >
-                  
-               
-                 
-                    
-                    </>
+
+
+
+
+                </>
               )}
- 
+
             {post.image
               && (
                 <CardMedia
@@ -233,6 +229,26 @@ const PostItemFeeds = ({ postId }) => {
                   size="default"
                   type="post"
                 />
+              </>
+            )}
+
+          {post.parent
+
+            ? (<>
+            </>
+            ) : (
+              <>
+                {post.is_active
+                  && (
+                    <Repost
+                      postId={post.id}
+                      type="post"
+                      setAnchorEl={setAnchorEl} />
+                  )}
+                <span>
+
+                  {post.repost_ids?.length}
+                </span>
               </>
             )}
           {post.is_author && post.is_active
@@ -306,13 +322,13 @@ const PostItemFeeds = ({ postId }) => {
             <ButtonGroup size="small" variant="outlined" disableElevation className={classes.buttonGroup}>
               <Button disabled size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
               <Button
-               component={Link}
-               to={route.postLikes(post.id)} 
-              size="small" 
-              style={{borderRadius:6, marginLeft: "1%", color: "red" }}>
+                component={Link}
+                to={route.postLikes(post.id)}
+                size="small"
+                style={{ borderRadius: 6, marginLeft: "1%", color: "red" }}>
                 <FavoriteRoundedIcon />
                 {post.liked.length || 0}
-                </Button>
+              </Button>
             </ButtonGroup>
           </Grid >
 
@@ -320,10 +336,10 @@ const PostItemFeeds = ({ postId }) => {
             <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
               <Button size="small" disabled style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
               <Button
-               component={Link}
+                component={Link}
                 size="small"
                 to={route.postDetail(post.id)}
-                color="primary" style={{borderRadius:6, marginLeft: "1%" }}>
+                color="primary" style={{ borderRadius: 6, marginLeft: "1%" }}>
                 <RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}
               </Button>
             </ButtonGroup>

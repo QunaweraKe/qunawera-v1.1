@@ -9,7 +9,7 @@ from social.views import PaginationMixin
 from .pagination import UserPagination
 from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer
 from django.contrib.auth.decorators import login_required
-
+from .signals import logged_in
 User = get_user_model()
 
 
@@ -114,11 +114,13 @@ def login_view(request):
     cred_password = request.data.get("password")
     remember_me = request.data.get("rememberMe")
     user = authenticate(request, login=cred_login, password=cred_password)
+
     if user is not None:
         if not remember_me:
             # Session will expire when the user closes their browser.
             request.session.set_expiry(0)
         login(request, user)
+        logged_in.send(user.__class__,instance=user,request=request)
         data = UserSerializer(user).data
         return Response(data=data, status=status.HTTP_200_OK)
     return Response(status=status.HTTP_401_UNAUTHORIZED)
