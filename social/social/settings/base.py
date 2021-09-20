@@ -73,11 +73,6 @@ USER_ONLINE_TIMEOUT = 300
 # their last seen is removed from the cache
 USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 
-
-#session expiry
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = 80 * 60 #
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -147,7 +142,9 @@ TIME_ZONE = "Africa/Nairobi"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
+#session
+SESSION_EXPIRE_AT_BROWSER_CLOSE=False
+SESSION_COOKIE_AGE=5*60
 
 # This is the directory for production when used with
 # `./manage.py collectstatic`.

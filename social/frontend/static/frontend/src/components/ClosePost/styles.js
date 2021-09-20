@@ -4,7 +4,9 @@ const useStyles = makeStyles((theme) => ({
 
   ...theme.custom,
 
-
+  Icon:{
+    color:theme.palette.primary.main
+  },
   
   
   listItem:{

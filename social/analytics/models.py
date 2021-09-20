@@ -29,10 +29,11 @@ class UserSession(models.Model):
     user=models.ForeignKey('users.User',on_delete=models.CASCADE)
     session_key=models.CharField(max_length=100,null=True)
     time_loggedin=models.DateTimeField(auto_now_add=True)
-    ip_address=models.CharField(max_length=150,blank=True,null=True)
+    ip_address=models.CharField(max_length=250,blank=True,null=True)
     is_active=models.BooleanField(default=True)
     in_active=models.BooleanField(default=False)
-    def get_time_logged_in(self):
+    
+    def time_logged_in(self):
         return humanize.naturaltime(self.time_loggedin)
    
 
@@ -76,11 +77,12 @@ signal_viewed.connect(obj_viewed_receiver)
 
 def loggedin_receiver(sender,instance,request,*args,**kwargs):
     user=instance
-    session_key=request.session.session_key
+    session_key=request.session.session_key,
+    ip_address=get_client_ip
     UserSession.objects.create(
         user=user,
+         ip_address=ip_address,
         session_key=session_key,
-        ip_address=get_client_ip,
+      
     )
-    print(instance)
 logged_in.connect(loggedin_receiver)

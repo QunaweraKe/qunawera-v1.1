@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -51,7 +51,7 @@ ref={ref}
 > 
 
 <ListItemIcon>
-      <HighlightOffIcon />
+      <CheckCircleIcon className={classes.Icon} />
          </ListItemIcon>
 
 <ListItemText

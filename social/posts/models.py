@@ -64,7 +64,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     objects = PostManager.as_manager()
     closed=models.BooleanField(default=False)
     is_reported=models.BooleanField(default=False)
-
+    report_statement=models.TextField(max_length=450)
 
     def __str__(self):
         ellipsis = "..." if len(self.body) > 60 else ""

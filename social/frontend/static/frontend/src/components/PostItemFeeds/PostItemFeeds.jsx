@@ -139,13 +139,6 @@ const PostItemFeeds = ({ postId }) => {
                   </>
                 )}
 
-              {post.is_active
-                && (
-                  <Repost
-                    postId={post.id}
-                    type="post"
-                    setAnchorEl={setAnchorEl} />
-                )}
 
               <MenuItem
 

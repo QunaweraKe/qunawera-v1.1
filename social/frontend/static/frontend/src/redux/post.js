@@ -280,7 +280,7 @@ export const createRepost = (author, body, parentId) => async (dispatch) => {
       parent_id: parentId,
     }));
     dispatch(setPost(data));
-    dispatch(setToast('Post recommended '));
+    dispatch(setToast('Post shared '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -452,10 +452,11 @@ export const closePost = (postId, slug) => async (dispatch) => {
 };
 export const reportPost = (postId) => async (dispatch) => {
   const thisKey = key.reportPost;
+
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.reportPost(postId));
-    dispatch(setToast(' Report submitted,wait as we check in to the matter'));
+    dispatch(setToast(' Report is under review ,kindly wait as we check in to the matter'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

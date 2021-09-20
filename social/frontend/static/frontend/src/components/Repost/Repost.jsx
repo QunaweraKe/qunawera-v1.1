@@ -10,7 +10,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputBase from '@material-ui/core/InputBase';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ShareIcon from '@material-ui/icons/Share';
@@ -82,14 +81,6 @@ onClick={handleOpen}
 <ShareIcon />
  </ListItemIcon>
  
-
-<ListItemText
-  primary="Share"
-  primaryTypographyProps={{
-    
-  }}
-  classes={{primary:classes.listItem}}
-/>
 </MenuItem>
 
       <Dialog

@@ -129,18 +129,14 @@ class PostCloseAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         post.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-class ReportedAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = PostDetailSerializer
-
-    def delete(self, request, pk):
-        """ Remove post. """
+class ReportedAPIView(rest_generics.CreateAPIView):
+    def post(self, request, pk):
+        """ Report post. """
 
         report_post = get_object_or_404(Post, pk=pk,is_active=True)
         report_post.is_reported = True
         report_post.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
-     
 
 class PostDetailAPIView(obj_mixin,rest_generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]

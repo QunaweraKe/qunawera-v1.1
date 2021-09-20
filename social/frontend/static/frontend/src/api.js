@@ -109,7 +109,8 @@ export const descriptor = {
     url: `/api/posts/close/${postId}/`,
   }),
   reportPost: (postId) => ({
-    method: 'delete',
+
+    method: 'post',
     url: `/api/posts/report/${postId}/`,
   }),
   removePost: (postId) => ({

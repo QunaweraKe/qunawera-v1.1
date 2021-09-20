@@ -37,6 +37,7 @@ class BasePostSerializer(serializers.ModelSerializer):
     parent_id = serializers.IntegerField(
         required=False, write_only=True, allow_null=True
     )
+    report_statement=serializers.CharField(required=False)
 
     class Meta:
         model = Post
@@ -56,7 +57,7 @@ class BasePostSerializer(serializers.ModelSerializer):
             "closed",
              "is_reported",
              "deleted",
-           
+           "report_statement",
             
         ]
 
@@ -77,6 +78,7 @@ class PostSerializer(BasePostSerializer):
             "created_at",
             "updated_at",
             "is_reported",
+            "report_statement"
         ]
 
 
