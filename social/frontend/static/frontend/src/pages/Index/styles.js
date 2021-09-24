@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   indexLayout: {
     width: '100%',
     height:'70%',
-    backgroundColor:"#ffdab9",
+    backgroundColor:theme.palette.grey[100],
     [theme.breakpoints.up('md')]: {
       display: 'grid',
       gridTemplateColumns: '50% 50%',
