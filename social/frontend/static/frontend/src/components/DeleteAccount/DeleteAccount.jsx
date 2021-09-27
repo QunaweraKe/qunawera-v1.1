@@ -39,7 +39,7 @@ const DeleteAccount = () => {
 
 
 
-      <Button variant="outlined" fullwidth  color="primary"  style={{boxShadow:"none",borderRadius:"5px",}} onClick={handleClickOpen}>
+      <Button variant="outlined" fullwidth   style={{boxShadow:"none",borderRadius:"5px",color:"red"}} onClick={handleClickOpen}>
         <span className="nav-button-text">Delete  Account</span>
       </Button>
       <Dialog
@@ -55,7 +55,7 @@ const DeleteAccount = () => {
         <DialogContent
         >
           <DialogContentText id="alert-dialog-slide-description">
-            <Typography variant="subtitle1" style={{ fontWeight: "bolder" ,color:"red"}} >If you decide to delete your {APP_NAME}  account you will lose your profile and all related activities.This action cannot be undone.Are you sure you want to do this{"?"}</Typography>
+            <Typography variant="subtitle1" color="textSecondary" style={{ fontWeight: "bold"}} >If you decide to delete your {APP_NAME}  account you will lose your profile and all related activities.This action cannot be undone.Are you sure you want to do this{"?"}</Typography>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

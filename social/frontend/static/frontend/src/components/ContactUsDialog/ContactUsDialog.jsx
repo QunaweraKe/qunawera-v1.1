@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 
 // MATERIAL UI
 
-
-import { Divider } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -71,6 +70,7 @@ const ContactUsDialog= () => {
       <PageTitle title="Reach Us" />
 
      <>
+     <Container style={{padding:4,marginLeft:20}} maxWidth="md">
      <form  onSubmit={handleSubmit}>
   
           <TextField
@@ -117,16 +117,15 @@ const ContactUsDialog= () => {
           id="Screenshot"
           type="file"
           />
-            <Divider orientation="horizontal " light variant='inset' />
-            <div style={{marginLeft:"15px",marginTop:"15px",marginBottom:"5px",padding:"3px"}}>
-          <Button  type="submit" color="primary" variant="outlined" >
+          
+
+          <Button fullWidth  type="submit" color="primary" variant="contained" >
             Submit
           </Button>
       
-    
-        </div>
           
         </form>
+        </Container>
   </>
       
     </div>

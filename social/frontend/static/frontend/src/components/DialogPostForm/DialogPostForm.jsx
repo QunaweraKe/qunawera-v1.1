@@ -164,8 +164,9 @@ const DialogPostForm = () => {
             <Typography
               variant="h5"
               align="center"
+              color="textSecondary"
             >
-              Post a new task
+              Create New Post
             </Typography>
 <Divider/>
           </DialogTitle>

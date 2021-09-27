@@ -36,7 +36,7 @@ class Team(models.Model):
 class  ContactUs(models.Model):
        title =models.CharField(max_length=150)
        email=models.EmailField(max_length=255)
-       description=models.TextField(blank=False,max_length="400")
+       description=models.TextField(blank=False,max_length=250)
        date_created=models.DateTimeField(auto_now_add=True,db_index=True,)
        Screenshot=models.ImageField(upload_to="images/%Y/%m/%d/", blank=True,null=True)
         

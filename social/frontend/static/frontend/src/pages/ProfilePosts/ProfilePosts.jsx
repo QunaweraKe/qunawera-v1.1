@@ -53,9 +53,8 @@ const ProfilePosts = () => {
       <AuthLayout>
         <SubHeading>
           <BackButton />
-          <Typography style={{letterSpacing:2}} variant="h6">
-           
-            {profileUser.display_name.charAt(0).toUpperCase() || slug}{profileUser.display_name.slice(1) || slug}
+          <Typography color="textSecondary"style={{letterSpacing:1,textTransform:"uppercase",fontWeight:"bold"}} variant="h6">
+            {profileUser.display_name || slug}
           </Typography>
 
         </SubHeading>

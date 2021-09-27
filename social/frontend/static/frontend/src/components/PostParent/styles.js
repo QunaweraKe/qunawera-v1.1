@@ -8,8 +8,7 @@ const useStyles = makeStyles((theme) => ({
    borderWidth:1,
    marginTop: theme.spacing(0),
   padding: theme.spacing(1, 1),
-  width:350,
-  marginLeft: theme.spacing(1),
+  
   },
   Link:{
     textDecoration :"none",
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     media: {
       borderRadius:"5px",
       paddingTop: '56.25%',
-      marginRight: theme.spacing(2),
+      
      
     },
 

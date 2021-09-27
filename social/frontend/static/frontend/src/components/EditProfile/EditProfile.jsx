@@ -8,7 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-
+import Container from '@material-ui/core/Container';
 // Local
 import DialogCloseButton from '../DialogCloseButton';
 import CircularProgress from '../CircularProgress';
@@ -74,6 +74,7 @@ const EditProfile = () => {
         onClose={handleClose}
         fullScreen
       >
+        <Container maxWidth="sm">
         <DialogTitle>
           
           <Typography
@@ -95,14 +96,14 @@ const EditProfile = () => {
             onChange={handleChange}
             type="text"
             value={formData.bio}
-            rows={4}
+            rows={5}
             variant="filled"
             multiline
           />
+          <br/>
           <TextField
             autoComplete="off"
             className={classes.formField}
-            fullWidth
             id="location"
             label="Location"
             name="location"
@@ -110,11 +111,12 @@ const EditProfile = () => {
             type="text"
             value={formData.location}
             variant="filled"
+            fullWidth
           />
+          <br/>
            <TextField
             autoComplete="off"
             className={classes.formField}
-            fullWidth
             id="website"
             label="Social media link"
             name="website"
@@ -122,8 +124,10 @@ const EditProfile = () => {
             type="text"
             value={formData.website}
             variant="filled"
-            helperText="Copy & paste your social media link "
+            fullWidth
+            helperText="Paste your social media url"
           />
+          <br/>
          
              <Button
             color="primary"
@@ -138,7 +142,7 @@ const EditProfile = () => {
             {loading && <CircularProgress />}
           </Button>
         </DialogContent>
-          
+        </Container>
       </Dialog>
     </>
   );

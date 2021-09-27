@@ -15,7 +15,16 @@ class ProfileSerializer(serializers.ModelSerializer):
             "website",
         ]
          
-
+class AccountChangeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+          
+            "email",
+            "name",
+            "username",
+        ]
+            
 class UserSerializer(serializers.ModelSerializer):
     last_seen = serializers.SerializerMethodField()
     online = serializers.SerializerMethodField()

@@ -95,13 +95,20 @@ export const createContactUs = (payload) => async (dispatch) => {
   const thisKey = key.createContactUs;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
-    const data=await api(descriptor.createContactUs(payload));
-    dispatch(setUser(data));
+    await api(descriptor.createContactUs(payload));
+    window.location = route.contactUs;   
     dispatch(setToast('Submitted'));
     
   } catch (error) {
     dispatch(setToast('Error occurred during submission', 'error'));
-   
+    if (error.response) {
+      dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
+      // For IndexLoginForm. Redirect them to the login page if their
+      // credentials are incorrect.
+      if (history) {
+        history.push(route.contactUs);
+      }
+    }
     console.error(error);
   } finally {
     dispatch(unsetLoading(NAMESPACE, thisKey));

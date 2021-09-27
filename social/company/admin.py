@@ -18,5 +18,5 @@ admin.site.register(Team,TeamAdmin)
 
 class ContactUsAdmin(admin.ModelAdmin):
     model=ContactUs
-    list_display=('email','description','date_created')
+    list_display=('email','description','Screenshot','date_created')
 admin.site.register(ContactUs,ContactUsAdmin)

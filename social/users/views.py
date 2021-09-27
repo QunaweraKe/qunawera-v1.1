@@ -7,7 +7,10 @@ from django.shortcuts import get_object_or_404
 from notifications.models import Notification
 from social.views import PaginationMixin
 from .pagination import UserPagination
-from .serializers import PasswordSerializer, ProfileSerializer, UserSerializer
+from .serializers import (PasswordSerializer,
+ ProfileSerializer,
+  UserSerializer,
+ AccountChangeSerializer)
 from django.contrib.auth.decorators import login_required
 from .signals import logged_in
 User = get_user_model()
@@ -45,7 +48,7 @@ class EditUserAPIView(rest_generics.UpdateAPIView):
     """ Edit user: username, email, etc. """
 
     permission_classes = [IsAuthenticated]
-    serializer_class = UserSerializer
+    serializer_class = AccountChangeSerializer
 
     def get_object(self):
         return self.request.user
