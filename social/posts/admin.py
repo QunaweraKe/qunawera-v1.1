@@ -33,15 +33,16 @@ class PostsAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs=super(PostsAdmin,self).get_queryset(request)
-        return  qs.filter(is_reply=False)
+        return  qs.filter(is_reply=False,closed=False,deleted=False,is_active=True)
     
 
 
 class PostsToday(Post):
+
     class Meta:
         proxy=True
         verbose_name_plural='Posted Today-Approved'
-
+      
 class PostsByDay(PostsAdmin):
     
     def get_queryset(self,request):

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 //material ui
 
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 // Local
 import TextLink from '../TextLink';
@@ -16,11 +17,11 @@ const ShowMoreRecommended = ({ to }) => {
     <TextLink
       className={classes.link}
       to={to}
-      variant="body1"
+     
       
     
     >
-     Show more
+    See More  <ArrowForwardIcon style={{marginLeft:90,}}/>
     </TextLink>
 
     

@@ -5,9 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 
 
 //material ui
+
 import Grid from '@material-ui/core/Grid';
-import RateReviewOutlinedIcon from '@material-ui/icons/RateReviewOutlined';
-import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -19,6 +18,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
 import { AccountCircleRounded } from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PanToolIcon from '@material-ui/icons/PanTool';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -39,7 +39,7 @@ import useStyles from './styles';
 import Repost from '../Repost';
 import EditPost from '../EditPost';
 import ClosePost from '../ClosePost';
-
+import OpenPost from '../OpenPost';
 
 
 
@@ -80,7 +80,9 @@ const PostItemFeeds = ({ postId }) => {
             /* The second layer */
             boxShadow: '0 10px 0 -5px #eee',
 
-          }} className={classes.postContainer} variant="outlined"
+          }} 
+          className={classes.postContainer}
+           variant="outlined"
         >
 
 
@@ -214,40 +216,11 @@ const PostItemFeeds = ({ postId }) => {
 
 
         <div className={classes.likeContainer}>
-          {post.is_active
-            && (
-              <>
-                <LikePost
-                  postId={post.id}
-                  size="default"
-                  type="post"
-                />
-              </>
-            )}
 
-          {post.parent
-
-            ? (<>
-            </>
-            ) : (
-              <>
-                {post.is_active
-                  && (
-                    <Repost
-                      postId={post.id}
-                      type="post"
-                      setAnchorEl={setAnchorEl} />
-                  )}
-                <span>
-
-                  {post.repost_ids?.length}
-                </span>
-              </>
-            )}
           {post.is_author && post.is_active
             && (
               <Button className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                Actions
+               < PersonAddIcon/> Actions
               </Button>
             )}
           <Menu
@@ -278,11 +251,30 @@ const PostItemFeeds = ({ postId }) => {
                     postId={post.id}
                   />
 
+                  {post.parent
 
-                  <ClosePost
-                    setAnchorEl={setAnchorEl}
-                    postId={post.id}
-                  />
+                    ? (<>
+                    </>
+                    ) : (
+                      <>
+
+                   {post.closed
+
+                           ?( 
+                            <OpenPost
+                            setAnchorEl={setAnchorEl}
+                            postId={post.id}
+                          /> ):(
+                            <ClosePost
+                            setAnchorEl={setAnchorEl}
+                            postId={post.id}
+                          />
+                           
+                          )}
+                       
+
+                      </>
+                    )}
                   <DeletePost
                     setAnchorEl={setAnchorEl}
                     postId={post.id}
@@ -290,6 +282,8 @@ const PostItemFeeds = ({ postId }) => {
 
                 </>)}
           </Menu>
+
+
           <Typography>
 
             {post.is_active
@@ -308,34 +302,80 @@ const PostItemFeeds = ({ postId }) => {
                 </>
               )}
           </Typography>
+          {post.is_active
+            && (
+              <>
+                <LikePost
+                  postId={post.id}
+                  size="default"
+                  type="post"
+                />
+              </>
+            )}
+          {post.parent
+
+            ? (<>
+            </>
+            ) : (
+              <>
+                {post.is_active
+                  && (
+                    <Repost
+                      postId={post.id}
+                      type="post"
+                      setAnchorEl={setAnchorEl}
+                    />
+                  )}
+              </>
+            )}
         </div>
-        <Grid container spacing={1}>
+        <Grid container spacing={1}  >
           <Grid item >
 
-            <ButtonGroup size="small" variant="outlined" disableElevation className={classes.buttonGroup}>
-              <Button disabled size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
+            <ButtonGroup
+              size="large" disableElevation className={classes.buttonGroup}>
+              <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
               <Button
                 component={Link}
                 to={route.postLikes(post.id)}
-                size="small"
                 style={{ borderRadius: 6, marginLeft: "1%", color: "red" }}>
-                <FavoriteRoundedIcon />
+
                 {post.liked.length || 0}
               </Button>
             </ButtonGroup>
           </Grid >
-
+  
           <Grid item >
-            <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
-              <Button size="small" disabled style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
+      
+            <ButtonGroup disableElevation className={classes.buttonGroup}>
+              <Button variant="standard" size="large" style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
               <Button
                 component={Link}
-                size="small"
                 to={route.postDetail(post.id)}
                 color="primary" style={{ borderRadius: 6, marginLeft: "1%" }}>
-                <RateReviewOutlinedIcon /> {post.reply_ids?.length || 0}
+                {post.reply_ids?.length || 0}
               </Button>
             </ButtonGroup>
+          </Grid >
+          <Grid item >
+        
+            {post.parent
+
+              ? (<>
+              </>
+              ) : (
+                <>
+             
+                  <ButtonGroup disableElevation className={classes.buttonGroup}>
+                    <Button size="large" variant="standard"  style={{ fontFamily: "monospace" }}>{pluralizeShares(post.repost_ids?.length)}</Button>
+                    <Button
+
+                      color="textSecondary" style={{ borderRadius: 6, marginLeft: "1%" }}>
+                      {post.repost_ids?.length || 0}
+                    </Button>
+                  </ButtonGroup>
+                </>
+              )}
           </Grid >
         </Grid >
 
@@ -356,6 +396,6 @@ export default PostItemFeeds;
 //f&u link text for users
 //add chip to approved
 
-
+//Divider in btngrp betwn
 
 //Add Tags category before related posts-should contain key words...

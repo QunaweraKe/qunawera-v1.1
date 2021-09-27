@@ -40,7 +40,18 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginBottom: theme.spacing(2),
   },
- 
+ share:{
+   marginLeft:theme.spacing(1),
+   fontFamily:"monospace",
+   display:"flex",
+   fontWeight:"bold",
+  fontSize:13,
+ },
+ shareIcon:{
+  marginLeft:theme.spacing(4),
+  display:"flex",
+  position:"relative"
+}
 }));
 
 export default useStyles;

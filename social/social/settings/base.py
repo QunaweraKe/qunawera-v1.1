@@ -143,8 +143,8 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 #session
-SESSION_EXPIRE_AT_BROWSER_CLOSE=False
-SESSION_COOKIE_AGE=5*60
+#SESSION_EXPIRE_AT_BROWSER_CLOSE=False
+#SESSION_COOKIE_AGE=5*60
 
 # This is the directory for production when used with
 # `./manage.py collectstatic`.

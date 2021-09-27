@@ -105,8 +105,13 @@ export const descriptor = {
   }),
 
   closePost: (postId) => ({
-    method: 'delete',
+    method: 'post',
     url: `/api/posts/close/${postId}/`,
+  }),
+
+  openPost: (postId) => ({
+    method: 'post',
+    url: `/api/posts/open-post/${postId}/`,
   }),
   reportPost: (postId) => ({
 

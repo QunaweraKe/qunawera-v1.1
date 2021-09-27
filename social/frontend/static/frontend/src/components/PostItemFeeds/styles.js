@@ -27,19 +27,17 @@ const useStyles = makeStyles((theme) => {
       fontSize: "25px",
     },
 actionButton:{
-  justifyContent: 'flex-end',
- 
+  justifyContent: 'flex-start',
   fontWeight:"bolder",
   fontSize:15,
    '&:hover': {
     backgroundColor:"none",
   },
-  flexGrow: 1,
 },
     likeContainer: {
       alignItems: 'center',
       display: 'flex',
-      flexGrow: 1,
+     
       
     },
    
@@ -105,7 +103,7 @@ actionButton:{
     
     buttonGroup: {
       marginTop:5,
-      marginLeft:10,
+      marginLeft:0,
       marginBottom:8,
     },
     avatarMenu: {

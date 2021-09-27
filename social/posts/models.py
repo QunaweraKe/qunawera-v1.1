@@ -98,5 +98,5 @@ class Post(SoftDeleteMixin, TimestampMixin):
             return self.image.url
 
     class Meta:
-          verbose_name_plural="All posts"
+          verbose_name_plural="Active posts"
 

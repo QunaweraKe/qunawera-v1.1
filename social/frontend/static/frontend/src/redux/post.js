@@ -28,6 +28,7 @@ export const key = {
   reportPost:'reportPost',
   removePost: 'removePost',
   closePost: 'closePost',
+  openPost: 'openPost',
   replies: (postId) => `replies_${postId}`,
   repliesNext: (postId) => `repliesNext_${postId}`,
   reply: (parentId) => `reply_${parentId}`,
@@ -442,7 +443,21 @@ export const closePost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.closePost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Closed'));
+    dispatch(setToast('Post Closed'));
+  } catch (error) {
+    dispatch(setToast('Something went wrong', 'error'));
+    console.error(error);
+  } finally {
+    dispatch(unsetLoading(NAMESPACE, thisKey));
+  }
+};
+export const openPost = (postId, slug) => async (dispatch) => {
+  const thisKey = key.openPost;
+  try {
+    dispatch(setLoading(NAMESPACE, thisKey));
+    await api(descriptor.openPost(postId));
+    dispatch(unsetPost({ postId, slug }));
+    dispatch(setToast('Post Opened'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

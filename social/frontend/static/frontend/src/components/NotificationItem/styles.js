@@ -6,18 +6,17 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     marginRight: 10,
+    marginBottom:6,
   },
   header: {
     alignItems: 'center',
     display: 'flex',
   },
   headerItem: {
-    marginLeft: 6,
+    marginLeft: 100,
     fontFamily:"monospace",
-    fontSize:12,
-    '&:first-child': {
-      marginLeft: 2,
-    },
+    fontSize:13,
+  
   },
   notification: {
     flexGrow: 1,
@@ -25,15 +24,16 @@ const useStyles = makeStyles((theme) => ({
   removeButton: {
     position: 'absolute',
     right: theme.spacing(1),
-    top: theme.spacing(1),
+    top: theme.spacing(3),
   },
   root: {
+    marginBottom:5,
     borderBottomWidth: 1,
     borderColor: theme.custom.border.color,
     borderStyle: theme.custom.border.style,
-    borderWidth: 0,
+    borderWidth:2,
     display: 'flex',
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     position: 'relative',
   },
 }));

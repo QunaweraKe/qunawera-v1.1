@@ -3,7 +3,6 @@ import React from 'react';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 // Local
 import TextLink from '../TextLink';
 
@@ -15,10 +14,10 @@ const NotificationType = ({ notification }) => {
   const classes = useStyles();
 
   return (
-    <>
+    <div>
       {notification.type === 1 && (
         <>
-        <Typography>
+        <Typography  className={classes.post}>
           {notification.from_user.display_name}
           {' '}
           shared your
@@ -33,12 +32,12 @@ const NotificationType = ({ notification }) => {
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
         </Typography>
-        <Divider className={classes.divideColor}/>
+ 
         </>
       )}
       {notification.type === 2 && (
         <>
-        <Typography>
+        <Typography  className={classes.post}>
           {notification.from_user.display_name}
           {' '}
           liked your
@@ -52,15 +51,15 @@ const NotificationType = ({ notification }) => {
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
       </Typography>
-      <Divider className={classes.divideColor}/>
+     
       </>
       )}
       {notification.type === 3 && (
         <>
-          <Typography>
+          <Typography  className={classes.post}>
             {notification.from_user.display_name}
             {' '}
-            reviewed  your
+            commented on your
             {' '}
             <TextLink  className={classes.post} to={route.postDetail(notification.post.id)}>
               post.
@@ -72,7 +71,7 @@ const NotificationType = ({ notification }) => {
                     `${notification.post.body.substring(0, 30)}...` : notification.post.body
                   }
           </Typography>
-          <Divider className={classes.divideColor}/>
+      
         </>
       )}
       {notification.type === 4 && (
@@ -82,10 +81,10 @@ const NotificationType = ({ notification }) => {
           {' '}
         started following your activities.
         </Typography>
-          <Divider className={classes.divideColor}/>
+        
           </>
       )}
-    </>
+    </div>
   );
 };
 

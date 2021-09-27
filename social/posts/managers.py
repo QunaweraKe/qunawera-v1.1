@@ -13,7 +13,7 @@ class PostManager(QuerySet):
 
         Posts uses soft delete. If the post is not active, it was deleted.
         """
-        return self.filter(is_active=True,closed=False, deleted=False)
+        return self.filter(is_active=True, deleted=False)
 
     def feed(self, user: User):
         """Return the `user`'s posts, and the posts of the users they're
@@ -22,7 +22,7 @@ class PostManager(QuerySet):
         :param user: User to retrieve feed from.
         """
         return (
-            self.posts().filter(Q(author__followers=user) | Q(author=user)).distinct()
+            self.posts().exclude(closed=True).filter(Q(author__followers=user) | Q(author=user)).distinct()
         )
 
     def posts(self):

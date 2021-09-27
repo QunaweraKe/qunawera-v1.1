@@ -7,7 +7,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 // Material UI
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import DeleteOutlineRoundedIcon from '@material-ui/icons/DeleteOutlineRounded';
 
 
 // Local
@@ -15,7 +15,7 @@ import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
 import NotificationType from '../NotificationType';
 import TextLink from '../TextLink';
-
+import Divider from '@material-ui/core/Divider';
 import useUI from '../../hooks/useUI';
 
 import {
@@ -41,6 +41,7 @@ const NotificationItem = ({ notification }) => {
   };
  
   return (
+    <>
     <div className={classes.root}>
       <IconButton
         className={classes.removeButton}
@@ -50,13 +51,13 @@ const NotificationItem = ({ notification }) => {
       >
 
 {loading && <CircularProgress />}
-        <HighlightOffIcon
+        <DeleteOutlineRoundedIcon
           color="error"
           fontSize="small"
         />
        
       </IconButton>
-     
+   
       <div className={classes.avatarContainer}>
         <Avatar user={notification.from_user} />
       </div>
@@ -69,20 +70,22 @@ const NotificationItem = ({ notification }) => {
           >
             {notification.from_user.display_name}
           </TextLink>
-          <Typography
-            className={classes.headerItem}
-            color="textSecondary"
-            component="span"
-
-          >
-            
-            event time 
-            &middot; {dayjs(notification.created_at).fromNow()}
-          </Typography>
+          
         </div>
         <NotificationType notification={notification} />
       </div>
+      <Typography
+            className={classes.headerItem}
+            color="textSecondary"
+            component="span"
+           
+          >
+            
+          {dayjs(notification.created_at).fromNow()}
+          </Typography>
     </div>
+      <Divider/>
+      </>
   );
 };
 

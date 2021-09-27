@@ -4,14 +4,14 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import relativeTime from 'dayjs/plugin/relativeTime';
 //Material UI
+import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Typography from '@material-ui/core/Typography';
 import ShareIcon from '@material-ui/icons/Share';
 import Container from '@material-ui/core/Container';
 // Local
@@ -72,18 +72,19 @@ const Repost = ({ postId }) => {
 
   
 
-               <MenuItem
-
+               <IconButton
+               color="primary"
+               className={classes.shareIcon} 
 onClick={handleOpen}
 
 > 
-<ListItemIcon>
-<ShareIcon />
- </ListItemIcon>
- 
-</MenuItem>
 
-      <Dialog
+<ShareIcon />
+</IconButton>
+<Typography className={classes.share} color="textSecondary">
+  Share
+</Typography>
+       <Dialog
         open={dialogOpen}
         onClose={handleClose}
         fullScreen

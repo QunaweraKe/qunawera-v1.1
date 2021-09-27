@@ -3,45 +3,39 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
-import FlagIcon from '@material-ui/icons/Flag';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 // Local
-
 import ConfirmationDialog from '../ConfirmationDialog';
 import useUI from '../../hooks/useUI';
 import useStyles from './styles';
 import {
   key,
-  reportPost,
+  openPost,
   selectPost,
 } from '../../redux/post';
 
-const ReportPost = React.forwardRef((props, ref) => {
-  const { postId, setAnchorEl} = props;
+const OpenPost = React.forwardRef((props, ref) => {
+  const { postId} = props;
   const dispatch = useDispatch();
   const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
-  const handleEntered = () => {
-    setAnchorEl(null);
-  };
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
-  const { loading } = useUI(key.reportPost, null, false);
+  const { loading } = useUI(key.closePost, null, false);
 
   const handleClose = () => {
     setDialogOpen(false);
   };
 
-  const handlereportPost = async () => {
-      await dispatch(reportPost(postId, post.author.slug));
+  const handleOpenPost = async () => {
+      await dispatch(openPost(postId, post.author.slug));
   
     
   };
-
 
 
   const handleOpen = () => {
@@ -57,12 +51,11 @@ ref={ref}
 > 
 
 <ListItemIcon>
-      <FlagIcon style={{color:"red"}}/>
+      <CheckCircleIcon className={classes.Icon} />
          </ListItemIcon>
-         
 
 <ListItemText
-  primary=" Report "
+  primary=" Open "
   primaryTypographyProps={{
     
   }}
@@ -70,19 +63,18 @@ ref={ref}
 />
 </MenuItem>
     
-  
 
       <ConfirmationDialog
         buttontext="Yes"
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}
-        onclicktrue={handlereportPost }
-        onClick={handleClose}
-        onEntered={handleEntered}
+        onclicktrue={handleOpenPost}
+        onClose={handleClose}
+        
      
         text={`
-        Do you really want to report this post?
+      This will make your post visible to your followers again.
         `}
   
       />
@@ -90,10 +82,10 @@ ref={ref}
   );
 });
 
-ReportPost.propTypes = {
+OpenPost.propTypes = {
   postId: PropTypes.number.isRequired,
-  setAnchorEl: PropTypes.func.isRequired,
+
   
 };
 
-export default ReportPost;
+export default OpenPost;

@@ -33,4 +33,7 @@ urlpatterns = [
         views.RecommendedPostsAPIView.as_view(),
         name="recommended_posts",
     ),
+     path("open-post/<int:pk>/",
+         views.PostOpenAPIView.as_view(),
+         name="post_open"),
 ]

@@ -43,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
 
       '&:hover': {
         backgroundColor: fade(theme.palette.grey[50]),
-        borderTopRightRadius:15,
-        borderBottonRightRadius:15,
+        borderTopRightRadius:25,
+        borderBottomRightRadius:25,
         
       },
 
