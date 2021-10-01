@@ -36,7 +36,7 @@ const Toast = ({ message, severity }) => {
       style={{borderRadius:5,}}
       >
       <Alert
-        elevation={0}
+        elevation={1}
         onClose={handleClose}
         severity={severity}
         icon={false} 

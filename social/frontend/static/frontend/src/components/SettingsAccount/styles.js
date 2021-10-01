@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(1),
     },
   },
+  alert: {
+    marginTop: theme.spacing(1),
+  },
   submit: {
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),

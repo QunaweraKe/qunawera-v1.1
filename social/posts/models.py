@@ -1,5 +1,4 @@
 
-import datetime
 from django.db import models
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager

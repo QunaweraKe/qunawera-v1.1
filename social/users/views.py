@@ -1,3 +1,4 @@
+
 from rest_framework import generics as rest_generics, status, views as rest_views
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
@@ -18,7 +19,7 @@ User = get_user_model()
 
 
 
-class EditPasswordAPIView(rest_generics.UpdateAPIView):
+class EditPasswordAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     """ Edit password. """
 
     permission_classes = [IsAuthenticated]
@@ -34,7 +35,7 @@ class EditPasswordAPIView(rest_generics.UpdateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class EditProfileAPIView(rest_generics.UpdateAPIView):
+class EditProfileAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     """ Edit profile: bio, location, website, etc. """
 
     permission_classes = [IsAuthenticated]
@@ -43,8 +44,16 @@ class EditProfileAPIView(rest_generics.UpdateAPIView):
     def get_object(self):
         return self.request.user.profile
 
+    def delete (self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            remove_image = serializer.validated_data.get("image")
+            remove_image.delete(save=False)
+            return Response(status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class EditUserAPIView(rest_generics.UpdateAPIView):
+
+class EditUserAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     """ Edit user: username, email, etc. """
 
     permission_classes = [IsAuthenticated]
@@ -143,6 +152,9 @@ def remove_account(request):
     logout(request)
     User.objects.filter(pk=user_pk).update(is_active=False)
     return Response(status=status.HTTP_200_OK)
+
+
+    
 class LongRecommendedUsersAPIView(rest_generics.ListAPIView):
     """Get paginated recommended users for the recommended users page.
 

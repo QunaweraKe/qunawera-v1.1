@@ -175,7 +175,7 @@ const DialogPostForm = () => {
             <div className={classes.avatarContainer}>
               <Avatar user={user} />
             </div>
-
+<form onSubmit={handleSubmit}>
             <TextField
               required
               error={Boolean(errors.title)}
@@ -277,7 +277,7 @@ const DialogPostForm = () => {
               size="large"
               color="primary"
               disabled={loading}
-              onClick={handleSubmit}
+               type="submit"
               variant="contained"
               style={{ boxShadow: "none", borderRadius: "5px", }}
             >
@@ -285,7 +285,7 @@ const DialogPostForm = () => {
 
               {loading && <CircularProgress />}
             </Button>
-
+</form>
           </DialogContent>
           <DialogContentText>
             <Typography

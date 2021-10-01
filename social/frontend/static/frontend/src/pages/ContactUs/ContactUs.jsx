@@ -29,12 +29,11 @@ const ContactUs = () => {
        <BackButton/>
         <div className={classes.heroContent}>
       
-          <Container maxWidth="sm">
+          <Container maxWidth="md">
             <Typography component="h7" variant="h4" align="center" color="primary" gutterBottom>
               Support Center
             </Typography>
-                 
-    <Typography>Fill in all the fields below.</Typography>
+                
           </Container>
         </div>
         <Container maxWidth="sm">

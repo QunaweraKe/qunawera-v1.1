@@ -18,7 +18,7 @@ import {
 } from '../../redux/post';
 
 const ClosePost = React.forwardRef((props, ref) => {
-  const { postId} = props;
+  const { postId, setAnchorEl} = props;
   const dispatch = useDispatch();
   const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
@@ -37,7 +37,9 @@ const ClosePost = React.forwardRef((props, ref) => {
     
   };
 
-
+  const handleEntered = () => {
+    setAnchorEl(null);
+  };
   const handleOpen = () => {
     setDialogOpen(true);
   };
@@ -72,7 +74,7 @@ ref={ref}
         onclickfalse={handleClose}
         onclicktrue={handleClosePost}
         onClose={handleClose}
-        
+        onEntered={handleEntered}
      
         text={`
         This action will  change the status of the post to closed which means it wont be visible to you and those following you .Are you sure about this?
@@ -85,6 +87,7 @@ ref={ref}
 
 ClosePost.propTypes = {
   postId: PropTypes.number.isRequired,
+  setAnchorEl: PropTypes.func.isRequired,
 
   
 };

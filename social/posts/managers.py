@@ -1,8 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.aggregates import ArrayAgg
-
+import random
 from django.db.models import Q, QuerySet
-from django.db.models.expressions import OrderBy
+from django.db.models.expressions import Exists, OrderBy, OuterRef
 
 User = get_user_model()
 
@@ -22,7 +22,7 @@ class PostManager(QuerySet):
         :param user: User to retrieve feed from.
         """
         return (
-            self.posts().exclude(closed=True).filter(Q(author__followers=user) | Q(author=user)).distinct()
+            self.posts().exclude(closed=True,author__is_active=False).filter(Q(author__followers=user) | Q(author=user)).distinct()
         )
 
     def posts(self):
@@ -66,12 +66,18 @@ class PostManager(QuerySet):
         :param long: Whether or not to limit the query. Limited queries are for
             the aside column. Long queries are for the recommended posts page,
             which is paginated.
+        
         """
-       
+        random_sample=self.posts().values_list("id",flat=True)
+        random_id_list=random.sample(list(random_sample),min(len(random_sample),5))
+        has_item=self.posts().filter(
+            author_id=OuterRef('pk')
+    
+       )
         qs = (
-            self.posts().exclude(author__followers=user).filter(~Q(author=user),parent=None ,)
-            .order_by("?")
+            self.posts().annotate(n_posts=Exists(has_item)).exclude(author__followers=user).filter(~Q(author=user),parent=None ,id__in=random_id_list)
+            .order_by("-n_posts")
         )
         if long is False:
-            qs = qs[:7]
+            qs = qs[:5]
         return qs

@@ -46,16 +46,15 @@ const PostDetail = () => {
       );
     } else {
       renderedPost = 
-      <div style={{fontFamily:'monospace',fontSize:"16px"}}>
-        < Typography align="center">
+      <div >
+        < Typography align="center" color="textSecondary"style={{marginTop:4,fontFamily:'monospace',fontSize:"26px"}}>
         This post has been removed  .
 
         </Typography>
-        < Typography align="center">
-        Contact support for more info. 
-
-        </Typography>
-        <Removed style={{height:300,width:300}}/></div>;
+      
+        <Removed style={{height:300,width:300}}/>
+        
+        </div>;
     }
     return renderedPost;
   };

@@ -7,6 +7,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
 
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -22,7 +23,7 @@ import TextLink from '../TextLink';
 import { route } from '../../constants';
 import EditProfile from '../EditProfile';
 import FollowButton from '../FollowButton';
-import { editProfile, selectUser } from '../../redux/user';
+import { editProfile, selectUser,removeImage } from '../../redux/user';
 import useStyles from './styles';
 
 const ProfileInfo = ({ loading, profileUser }) => {
@@ -42,15 +43,14 @@ const ProfileInfo = ({ loading, profileUser }) => {
     dispatch(editProfile(formData, user.slug));
     console.log(formData)
   };
- const removeImage = () => {
-  imageRef.current.useRef(null);
- 
- };
+
   const handleEditAvatar = () => {
     imageRef.current.click();
    
   };
-
+ const removeProfileImage=() =>{
+  dispatch(removeImage());
+ };
   const handleEditBanner = () => {
     bannerRef.current.click();
   };
@@ -99,8 +99,16 @@ const ProfileInfo = ({ loading, profileUser }) => {
                   >
                     <AddAPhotoIcon />
                   </IconButton>
-                  
+                  <Button
+                  classes={{ root: classes.rootEditImage }}
+                  className={classes.editBannerButton}
+                  onClick={removeProfileImage}
+                 
+                >
+                  remove image
+                </Button>
                 </>
+
               )}
             </div>
             
@@ -168,13 +176,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
 
                 </Typography>
                 <br />
- <Typography className={classes.extraInfoText}
-                style={{fontFamily:"monospace"}}
-                color="textSecondary">
-                  {dayjs(profileUser.profile.last_seen).fromNow()}
-                  {dayjs(profileUser.profile.online).fromNow()}
 
-                </Typography>
 
               </div>
               {profileUser.profile.location

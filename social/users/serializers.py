@@ -1,4 +1,5 @@
-from rest_framework import serializers
+from rest_framework import serializers, status
+from rest_framework.response import Response
 from .models import *
 from django.conf import settings
 from difflib import SequenceMatcher
@@ -26,8 +27,6 @@ class AccountChangeSerializer(serializers.ModelSerializer):
         ]
             
 class UserSerializer(serializers.ModelSerializer):
-    last_seen = serializers.SerializerMethodField()
-    online = serializers.SerializerMethodField()
     display_name = serializers.SerializerMethodField(read_only=True)
     followers = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     following = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
@@ -53,24 +52,8 @@ class UserSerializer(serializers.ModelSerializer):
             "profile",
             "slug",
             "username",
-            'last_seen',
-             'online',
         ]
-    def get_last_seen(self, obj):
-        last_seen = cache.get('seen_%s' % obj.username)
-        obj.last_seen = last_seen
-        return last_seen
 
-    def get_online(self, obj):
-        if obj.last_seen:
-            now = datetime.datetime.now()
-            delta = datetime.timedelta(seconds=settings.USER_ONLINE_TIMEOUT)
-            if now > obj.last_seen + delta:
-                return False
-            else:
-                return True
-        else:
-            return False
 #validation function to to validate password fields,username...
     def validate(self, data):
         password = data.get("password")
@@ -90,6 +73,11 @@ class UserSerializer(serializers.ModelSerializer):
                     "password2": "Passwords do not match.",
                 }
             )
+        
+        if not password.check_password("password"):
+                raise serializers.ValidationError(
+                             {"password":"Password does not match any on our records."}
+                )
         if User.objects.filter(username=username).exists():
     
              raise serializers.ValidationError(
@@ -108,6 +96,10 @@ class UserSerializer(serializers.ModelSerializer):
                 }
             )   
         return super(UserSerializer, self).validate(data)
+
+
+    
+  
     def create(self, validated_data):
         del validated_data["password2"]
         return User.objects.create_user(**validated_data)

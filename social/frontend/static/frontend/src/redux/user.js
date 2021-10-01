@@ -27,6 +27,7 @@ export const key = {
   login: 'login',
   logout: 'logout',
   removeaccount: 'removeaccount',
+  removeImage:'removeImage',
 };
 
 //
@@ -235,7 +236,19 @@ export const removeAccount = () => async (dispatch) => {
     dispatch(unsetLoading(NAMESPACE, thisKey));
   }
 };
-
+export const removeImage = () => async (dispatch) => {
+  const thisKey = key.removeImage;
+  try {
+    dispatch(setLoading(NAMESPACE, thisKey));
+    await api(descriptor.removeImage);
+    dispatch(setToast('Removed'));
+  } catch (error) {
+    dispatch(setToast('Something went wrong', 'error'));
+    console.error(error);
+  } finally {
+    dispatch(unsetLoading(NAMESPACE, thisKey));
+  }
+};
 export const unfollow = (slug, userId) => async (dispatch) => {
   const thisKey = key.follow(userId);
   try {

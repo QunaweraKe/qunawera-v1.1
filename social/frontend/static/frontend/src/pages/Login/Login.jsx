@@ -93,7 +93,7 @@ const Login = () => {
                   className={classes.alert}
                   severity="error"
                 >
-                  Either your username and/or password was incorrect.Check it & try again.
+                  Your username and/or password was incorrect.Check it & try again.
                 </Alert>
               )}
             <form

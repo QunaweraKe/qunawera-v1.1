@@ -25,7 +25,7 @@ class PostParentSerializer(serializers.ModelSerializer):
 class BasePostSerializer(serializers.ModelSerializer):
     
     image = serializers.ImageField(
-        use_url=True,required=False,allow_empty_file=True
+        use_url=True,required=False,allow_empty_file=True,allow_null=True
     )  
       
     author = UserSerializer(read_only=True)

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import Alert from '@material-ui/lab/Alert';
 // Local
 import CircularProgress from '../CircularProgress';
 import DeleteAccount from '../DeleteAccount';
@@ -103,6 +104,12 @@ const SettingsAccount = () => {
 
 <Grid item xs={12} sm={6}>
       <DeleteAccount   className={`${classes.formField} ${classes.submit}`}/>
+      <Alert
+        className={classes.alert}
+        severity="warning"
+      >
+        You will be automatically logged out of your session.
+      </Alert>
       </Grid >
       </Grid >
     </form>

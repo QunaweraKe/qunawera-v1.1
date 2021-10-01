@@ -7,7 +7,9 @@ from .models import *
 
 class  ContactUsSerializer(serializers.ModelSerializer):
     """Create post for contact us. """
-    
+    Screenshot = serializers.ImageField(
+        use_url=True,required=False,allow_empty_file=True
+    ) 
     class Meta:
         model=ContactUs
         fields =(
