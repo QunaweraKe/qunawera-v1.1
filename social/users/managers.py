@@ -26,17 +26,21 @@ class UserQuerySet(models.QuerySet):
             the aside column. Long queries are for the recommended users page,
             which is paginated.
         """
+        import random
+        random_sample=self.active().values_list("id",flat=True)
+        random_id_list=random.sample(list(random_sample),min(len(random_sample),8))
         qs = (
             self.active()
             .exclude(followers=user)
             .exclude(id=user.id)
             .prefetch_related("following")
             .prefetch_related("followers")
-            .order_by('?')
+            .filter(id__in=random_id_list)
+
         )
        
         if long is False:
-            qs = qs[:7]
+            qs = qs[:20]
         return qs
 
 

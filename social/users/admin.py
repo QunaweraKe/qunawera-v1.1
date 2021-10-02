@@ -6,6 +6,11 @@ class ProfileInline(admin.StackedInline):
     model = Profile
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
+    def get_actions(self, request):
+        actions=super(UserAdmin,self).get_actions(request)
+        if request.user.is_superuser != False :
+            del actions['delete_selected']
+        return actions
     def activate_users(modeladmin,request,queryset):
         queryset.update(is_active=True)
     list_display = ('id', 'display_name','name', 'email','is_active','is_staff','created_at','last_login')

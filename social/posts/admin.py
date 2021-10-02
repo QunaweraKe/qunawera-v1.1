@@ -1,25 +1,37 @@
 from django.contrib import admin
+import csv
+from django.http import HttpResponse
+from django.contrib.auth.models import Group
 from .models import Post
 import datetime
+from .export_csv import ExportCsvMixin
 from django.contrib.auth import  get_user_model
 User = get_user_model()
+admin.site.unregister(Group)
 admin.site.site_header="Qunawera Admin "
 admin.site.index_title=" Portal "
+
+
+
 @admin.register(Post)
-class PostsAdmin(admin.ModelAdmin):
-    
-    def activate_post(modeladmin,request,queryset):
+class PostsAdmin(admin.ModelAdmin,ExportCsvMixin):
+    def get_actions(self, request):
+        actions=super(PostsAdmin,self).get_actions(request)
+        if request.user.is_superuser != False :
+            del actions['delete_selected']
+        return actions
+    def activate_selected_post(modeladmin,request,queryset):
         queryset.update(is_active=True)
     def approve_reported(modeladmin,request,queryset):
         queryset.update(is_reported=True, is_active=False)
-    def disapprove_reported(modeladmin,request,queryset):
+    def unapprove_reported(modeladmin,request,queryset):
         queryset.update(is_reported=False, is_active=True)
-    def close_post(modeladmin,request,queryset):
+    def close_selected_post(modeladmin,request,queryset):
         queryset.update(closed=True)
-    def open_post(modeladmin,request,queryset):
+    def open_selected_post(modeladmin,request,queryset):
         queryset.update(closed=False)
        
-    def deactivate_post(modeladmin,request,queryset):
+    def deactivate_selected_post(modeladmin,request,queryset):
         queryset.update(is_active=False)
         
    # readonly_fields=("liked","is_reply","author","image","thumbnail")
@@ -27,7 +39,7 @@ class PostsAdmin(admin.ModelAdmin):
     search_fields=["author__name"]
     list_filter=('is_active','closed',"is_reply",)
     list_display_links = ("author",)
-    actions = ['open_post','close_post','activate_post', 'deactivate_post','approve_reported','disapprove_reported']
+    actions = ['export_as_csv','open_selected_post','close_selected_post','activate_selected_post', 'deactivate_selected_post','approve_reported','unapprove_reported']
     list_per_page = 20 
    # exclude=("parent",)
 

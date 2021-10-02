@@ -77,7 +77,7 @@ const ContactUsDialog= () => {
             expandIcon={<ExpandMoreIcon />}
             id="support-header"
           >
-            <Typography style={{fontFamily:"monospace"}}>Fill Fields Below </Typography>
+            <Typography style={{fontFamily:"monospace"}}>Reach Us </Typography>
           </AccordionSummary>
           <AccordionDetails>
           <form  onSubmit={handleSubmit}>

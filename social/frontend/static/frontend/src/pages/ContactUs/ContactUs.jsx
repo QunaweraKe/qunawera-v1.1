@@ -25,15 +25,17 @@ const ContactUs = () => {
    <div>
      <>
    
-    <main>
+   
        <BackButton/>
+        <main>
         <div className={classes.heroContent}>
       
           <Container maxWidth="md">
+        
             <Typography component="h7" variant="h4" align="center" color="primary" gutterBottom>
               Support Center
             </Typography>
-                
+              
           </Container>
         </div>
         <Container maxWidth="sm">
