@@ -19,7 +19,7 @@ import Typography from '@material-ui/core/Typography';
 import { AccountCircleRounded } from '@material-ui/icons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import PanToolIcon from '@material-ui/icons/PanTool';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { green } from '@material-ui/core/colors/green';
@@ -80,9 +80,9 @@ const PostItemFeeds = ({ postId }) => {
             /* The second layer */
             boxShadow: '0 10px 0 -5px #eee',
 
-          }} 
+          }}
           className={classes.postContainer}
-           variant="outlined"
+          variant="outlined"
         >
 
 
@@ -189,14 +189,20 @@ const PostItemFeeds = ({ postId }) => {
 
                   <Typography variant="body3" paragraph color="textSeconday" >
 
-                  {showMore ? post.body : `${post.body .substring(0, 150)}`}
-                  <Button 
-                  style={{ lineSpacing: "1px",fontWeight:"bold",marginLeft:10,fontSize:12 }}
-                   color="primary"
-                   onClick={(e) => { setShowMore(!showMore) }}>
-                  {showMore ? "Show less" : "Read more..."}
-                  </Button>
-                    
+                    {showMore ? post.body : `${post.body.substring(0, 150)}`}
+                    {(post.body.length > 150)
+                      ? (
+                        <Button
+                          style={{ lineSpacing: "1px", fontWeight: 700, marginLeft: 10, fontSize: 12 }}
+                          color="primary"
+                          onClick={() => { setShowMore(!showMore) }}>
+                          {showMore ? "Show less" : "Read more..."}
+                        </Button>
+                      ) : (
+                        <>
+                        </>
+                      )}
+
                   </Typography >
 
 
@@ -226,7 +232,7 @@ const PostItemFeeds = ({ postId }) => {
           {post.is_author && post.is_active
             && (
               <Button className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-               < PersonAddIcon/> Actions
+                < PersonAddIcon /> Actions
               </Button>
             )}
           <Menu
@@ -264,20 +270,20 @@ const PostItemFeeds = ({ postId }) => {
                     ) : (
                       <>
 
-                   {post.closed
+                        {post.closed
 
-                           ?( 
+                          ? (
                             <OpenPost
-                            setAnchorEl={setAnchorEl}
-                            postId={post.id}
-                          /> ):(
+                              setAnchorEl={setAnchorEl}
+                              postId={post.id}
+                            />) : (
                             <ClosePost
-                            setAnchorEl={setAnchorEl}
-                            postId={post.id}
-                          />
-                           
+                              setAnchorEl={setAnchorEl}
+                              postId={post.id}
+                            />
+
                           )}
-                       
+
 
                       </>
                     )}
@@ -299,7 +305,7 @@ const PostItemFeeds = ({ postId }) => {
               ) : (
                 <>
                   <div className={classes.status} style={{ color: "green" }}>
-                    <PanToolIcon />   Status&middot;Pending
+                     Status&middot;Pending  <AccessTimeIcon />  
                   </div>
                   <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
@@ -335,9 +341,11 @@ const PostItemFeeds = ({ postId }) => {
               </>
             )}
         </div>
+  
         <Grid container spacing={1}  >
           <Grid item >
-
+          {post.is_active
+                && (
             <ButtonGroup
               size="large" disableElevation className={classes.buttonGroup}>
               <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
@@ -349,10 +357,12 @@ const PostItemFeeds = ({ postId }) => {
                 {post.liked.length || 0}
               </Button>
             </ButtonGroup>
+                 )}
           </Grid >
-  
+
           <Grid item >
-      
+          {post.is_active
+                && (
             <ButtonGroup disableElevation className={classes.buttonGroup}>
               <Button variant="standard" size="large" style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
               <Button
@@ -362,29 +372,32 @@ const PostItemFeeds = ({ postId }) => {
                 {post.reply_ids?.length || 0}
               </Button>
             </ButtonGroup>
+            )}
           </Grid >
           <Grid item >
-        
+
             {post.parent
 
               ? (<>
               </>
               ) : (
                 <>
-             
+             {post.is_active
+                && (
                   <ButtonGroup disableElevation className={classes.buttonGroup}>
-                    <Button size="large" variant="standard"  style={{ fontFamily: "monospace" }}>{pluralizeShares(post.repost_ids?.length)}</Button>
+                    <Button size="large" variant="standard" style={{ fontFamily: "monospace" }}>{pluralizeShares(post.repost_ids?.length)}</Button>
                     <Button
 
                       color="textSecondary" style={{ borderRadius: 6, marginLeft: "1%" }}>
                       {post.repost_ids?.length || 0}
                     </Button>
                   </ButtonGroup>
+                  )}
                 </>
               )}
           </Grid >
         </Grid >
-
+       
       </div>
     </>
 
