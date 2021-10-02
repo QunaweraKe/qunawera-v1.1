@@ -174,7 +174,7 @@ const Login = () => {
                 size="large"
                 onClick={(e) => { setShowLogging(!logging) }}
               >
-                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>Signing in</span> {loading && <LinearProgressBar />}</>}
+                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>Signing in</span> {loading && <CircularProgressBar />}</>}
 
 
               </Button>
