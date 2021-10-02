@@ -1,6 +1,4 @@
 from django.contrib import admin
-import csv
-from django.http import HttpResponse
 from django.contrib.auth.models import Group
 from .models import Post
 import datetime
@@ -22,15 +20,19 @@ class PostsAdmin(admin.ModelAdmin,ExportCsvMixin):
         return actions
     def activate_selected_post(modeladmin,request,queryset):
         queryset.update(is_active=True)
+    activate_selected_post.short_description = "Activate Selected Posts"
     def approve_reported(modeladmin,request,queryset):
         queryset.update(is_reported=True, is_active=False)
+    approve_reported.short_description = "Approve Reported Posts"
     def unapprove_reported(modeladmin,request,queryset):
         queryset.update(is_reported=False, is_active=True)
+    unapprove_reported.short_description = "UnApprove Reported Posts"
     def close_selected_post(modeladmin,request,queryset):
         queryset.update(closed=True)
+    close_selected_post.short_description = "Close All Selected Posts"
     def open_selected_post(modeladmin,request,queryset):
         queryset.update(closed=False)
-       
+    open_selected_post.short_description = "Open All Selected Posts" 
     def deactivate_selected_post(modeladmin,request,queryset):
         queryset.update(is_active=False)
         
@@ -40,7 +42,7 @@ class PostsAdmin(admin.ModelAdmin,ExportCsvMixin):
     list_filter=('is_active','closed',"is_reply",)
     list_display_links = ("author",)
     actions = ['export_as_csv','open_selected_post','close_selected_post','activate_selected_post', 'deactivate_selected_post','approve_reported','unapprove_reported']
-    list_per_page = 20 
+    list_per_page = 100 
    # exclude=("parent",)
 
     def get_queryset(self, request):

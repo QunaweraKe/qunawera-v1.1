@@ -15,6 +15,11 @@ class UsersessionAdmin(admin.ModelAdmin):
 
 
 class LogEntryAdmin(admin.ModelAdmin):
+    def get_actions(self, request):
+        actions=super(LogEntryAdmin,self).get_actions(request)
+        if request.user.is_superuser != False :
+            del actions['delete_selected']
+        return actions
     list_display=('content_type','user','action_time')
 admin.site.register(LogEntry,LogEntryAdmin)
 

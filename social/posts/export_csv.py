@@ -1,6 +1,6 @@
 import csv
 from django.http import HttpResponse
-
+import time
 
 
 class ExportCsvMixin:
@@ -10,7 +10,10 @@ class ExportCsvMixin:
         field_names = [field.name for field in meta.fields]
 
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename={}.csv'.format(meta)
+        response['Content-Disposition'] = 'attachment; filename="{time}".csv'.format(
+            time=time.strftime("%Y-%m-%d  %H-%M" ,time.localtime())
+            ).encode()
+          
         writer = csv.writer(response)
 
         writer.writerow(field_names)

@@ -65,7 +65,7 @@ const PostItemFeeds = ({ postId }) => {
   const handleClose = () => {
     setAnchor(null);
   };
-
+  const [showMore, setShowMore] = React.useState(false);
 
   return (
     <>
@@ -187,10 +187,16 @@ const PostItemFeeds = ({ postId }) => {
               && (
                 <>
 
-                  <Typography variant="body3" paragraph color="textSeconday" style={{ lineSpacing: "1px" }}>
+                  <Typography variant="body3" paragraph color="textSeconday" >
 
-                    {post.body.charAt(0).toUpperCase()}{post.body.slice(1)
-                    }
+                  {showMore ? post.body : `${post.body .substring(0, 150)}`}
+                  <Button 
+                  style={{ lineSpacing: "1px",fontWeight:"bold",marginLeft:10,fontSize:12 }}
+                   color="primary"
+                   onClick={(e) => { setShowMore(!showMore) }}>
+                  {showMore ? "Show less" : "Read more..."}
+                  </Button>
+                    
                   </Typography >
 
 
