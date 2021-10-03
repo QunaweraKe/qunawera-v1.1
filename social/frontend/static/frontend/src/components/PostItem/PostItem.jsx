@@ -256,7 +256,7 @@ const PostItem = ({ expandReplies, postId }) => {
             timeout="auto"
             unmountOnExit
           >
-            <Card variant="outlined">
+            <Card variant="outlined" className={classes.postContainer}>
             <CardContent
               className={classes.replyContent}
 

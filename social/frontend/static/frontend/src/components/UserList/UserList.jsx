@@ -13,18 +13,13 @@ import Divider from '@material-ui/core/Divider';
 // Local
 import Avatar from '../Avatar';
 import TextLink from '../TextLink';
-
-
 import { route } from '../../constants';
-
 import { selectUser } from '../../redux/user';
-
 import useStyles from './styles';
 import FollowTextLink from '../FollowTextLink';
 
 const UserList = ({ list }) => {
   const classes = useStyles();
-
   const user = useSelector(selectUser);
 
   return (
@@ -42,7 +37,7 @@ const UserList = ({ list }) => {
             {profileUser.slug !== user.slug
               && (
                 <FollowTextLink
-                  className={classes.followButton}
+                  className={classes.followLink}
                   size="small"
                   user={profileUser}
                 />

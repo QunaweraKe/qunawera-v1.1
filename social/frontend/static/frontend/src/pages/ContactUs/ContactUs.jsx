@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 //local
 import BackButton from '../../components/BackButton';
+import AppName from '../../components/AppName';
 import ContactUsDialog from '../../components/ContactUsDialog';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,9 +32,12 @@ const ContactUs = () => {
         <div className={classes.heroContent}>
       
           <Container maxWidth="md">
+          <Typography component="h2" variant="h4" color="primary">
+          < AppName/> 
+            </Typography>
         
-            <Typography component="h7" variant="h4" align="center" color="primary" gutterBottom>
-              Support Center
+            <Typography component="subtitle1" variant="h5" align="center" color="primary">
+            Support Center
             </Typography>
               
           </Container>

@@ -15,7 +15,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Alert from '@material-ui/lab/Alert';
 //local
-import LinearProgressBar from '../../components/LinearProgressBar';
+import CircularProgress from '../../components/CircularProgress';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
 import {APP_NAME, route } from '../../constants';
@@ -61,7 +61,7 @@ const Login = () => {
 
 
   return (
-    <>
+    <div   className={classes.root} >
       <PageTitle title="Login" />
 
       <Container className={classes.container}>
@@ -85,7 +85,7 @@ const Login = () => {
               variant="h5"
 
             >
-              Sign In to <AppName/>
+              <AppName/>
             </Typography>
             {!isEmpty(errors)
               && (
@@ -174,7 +174,7 @@ const Login = () => {
                 size="large"
                 onClick={(e) => { setShowLogging(!logging) }}
               >
-                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>Signing in</span> {loading && <CircularProgressBar />}</>}
+                {logging ? <>Sign In</> : <><span style={{color:"primary"}}>Signing in</span> {loading && <CircularProgress />}</>}
 
 
               </Button>
@@ -205,7 +205,7 @@ const Login = () => {
          
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 

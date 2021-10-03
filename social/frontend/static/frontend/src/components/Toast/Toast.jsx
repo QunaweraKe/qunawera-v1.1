@@ -33,16 +33,16 @@ const Toast = ({ message, severity }) => {
       open={open}
       autoHideDuration={4500}
       onClose={handleClose}
-      style={{borderRadius:5,}}
+  
       >
       <Alert
         elevation={1}
         onClose={handleClose}
         severity={severity}
         icon={false} 
-        
+        style={{borderRadius:50,}}
       >
-        <Typography style={{fontFamily:"RobotoDraft",fontSize:"16px",textDecoration:"none",alignItems:"center",padding:"2px 4px",transitionDuration:"1s",}}>
+        <Typography style={{fontFamily:"RobotoDraft",fontSize:16,alignItems:"center",padding:"3px 4px",transitionDuration:"1s",}}>
         {message}
         </Typography>
        
@@ -52,7 +52,7 @@ const Toast = ({ message, severity }) => {
 };
 
 Toast.defaultProps = {
-  severity: 'success',
+  severity:   'info',
 };
 
 Toast.propTypes = {

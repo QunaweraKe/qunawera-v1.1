@@ -25,6 +25,7 @@ const EditProfile = () => {
 
   const user = useSelector(selectUser);
 
+  const [count, setCount] = React.useState(0);
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [formData, setFormData] = React.useState({
     bio: user.profile.bio,
@@ -34,14 +35,21 @@ const EditProfile = () => {
   });
 
   const { loading } = useUI(key.editProfile, null, false);
-
+  //For Payment field
+//const Numbers=(event)=>{event.target.value=event.target.value.replace(/[^0-9]/g,'')};
+  const handleAboutChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+    setCount(event.target.value.length)
+  };
   const handleChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
   };
-
   const handleClose = () => {
     setDialogOpen(false);
   };
@@ -86,6 +94,7 @@ const EditProfile = () => {
           <DialogCloseButton onClick={handleClose} />
         </DialogTitle>
         <DialogContent>
+        <Typography style={{fontSize:12,fontFamily:"monospace",fontWeight:"bold"}}>0/{count}</Typography>
           <TextField
             autoComplete="off"
             className={classes.formField}
@@ -93,13 +102,20 @@ const EditProfile = () => {
             id="bio"
             label="About"
             name="bio"
-            onChange={handleChange}
+            onChange={handleAboutChange}
             type="text"
             value={formData.bio}
-            rows={5}
+            rows={8}
             variant="filled"
             multiline
+           // inputProps={
+          //    {maxLength:10}
+             
+         //  }
+           //onInput={(event)=>Numbers(event)}
+           helperText="Max 500 characters"
           />
+         
           <br/>
           <TextField
             autoComplete="off"
@@ -112,6 +128,7 @@ const EditProfile = () => {
             value={formData.location}
             variant="filled"
             fullWidth
+            
           />
           <br/>
            <TextField

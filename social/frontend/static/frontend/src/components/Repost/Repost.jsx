@@ -109,12 +109,13 @@ onClick={handleOpen}
           <InputBase
               classes={{
                 root: classes.inputRoot,
+                input:classes.input
               }}
               fullWidth
               multiline
               onChange={handleChange}
             
-              placeholder="Tell us why you want to share this post(optional)"
+              placeholder="Say why you want to share this post(it's optional)"
               rowsMax={7}
               spellCheck
               value={body}

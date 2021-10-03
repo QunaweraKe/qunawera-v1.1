@@ -114,7 +114,6 @@ export const descriptor = {
     url: `/api/posts/open-post/${postId}/`,
   }),
   reportPost: (postId) => ({
-
     method: 'post',
     url: `/api/posts/report/${postId}/`,
   }),

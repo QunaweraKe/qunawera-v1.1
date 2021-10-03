@@ -164,3 +164,6 @@ AUTHENTICATION_BACKENDS = ["social.backends.UsernameOrEmailAuth"]
 REST_FRAMEWORK={
     'DATETIME_FORMAT':'%Y-%m-%dT%H:%M:%S',
 }
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

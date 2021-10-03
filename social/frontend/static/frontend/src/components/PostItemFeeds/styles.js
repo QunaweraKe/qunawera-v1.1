@@ -42,9 +42,9 @@ actionButton:{
     },
    
     status: {
-      fontSize: 10,
+      fontSize: 15,
       fontWeight: "600",
-      marginLeft: 2,
+      marginLeft: 1,
       marginTop: 6,
       fontFamily: "monospace"
     },

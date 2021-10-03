@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
   banner: {
     padding:4,
     backgroundColor: theme.palette.grey[100],
+    borderColor: theme.palette.grey[100],
+    border:"solid",
     backgroundImage: (profileUser) => (
       profileUser.profile?.banner
         ? `url(${profileUser.profile.banner})`

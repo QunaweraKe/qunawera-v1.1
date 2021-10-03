@@ -37,7 +37,7 @@ const FollowTextLink = ({ className, user, }) => {
       className={className}
       disabled={loading}
       onClick={handleFollow}
-     style={{fontSize:"15px"}}
+     style={{fontSize:"13px",fontWeight:"bold"}}
     >
       {following ? 'following' : 'follow'}
       {loading && <CircularProgress />}

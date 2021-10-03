@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     marginBottom: 0,
   },
-  followButton: {
+  followLink: {
     position: 'absolute',
     right: theme.spacing(2),
     top: theme.spacing(2),

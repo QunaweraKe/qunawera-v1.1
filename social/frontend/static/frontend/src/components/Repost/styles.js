@@ -6,7 +6,12 @@ const useStyles = makeStyles((theme) => ({
   avatarContainer: {
     marginRight: 14,
   },
-
+input:{
+  "&::placeholder":{
+    textOverflow:"ellipsis!important",
+    fontSize:13,
+  }
+},
   contentContainer: {
     flexGrow: 1,
   },
@@ -48,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   fontSize:13,
  },
  shareIcon:{
-  marginLeft:theme.spacing(4),
+  marginLeft:theme.spacing(2),
   display:"flex",
   position:"relative"
 }

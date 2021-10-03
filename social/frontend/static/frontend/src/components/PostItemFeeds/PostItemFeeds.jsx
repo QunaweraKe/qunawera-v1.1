@@ -193,10 +193,10 @@ const PostItemFeeds = ({ postId }) => {
                     {(post.body.length > 150)
                       ? (
                         <Button
-                          style={{ lineSpacing: "1px", fontWeight: 700, marginLeft: 10, fontSize: 12 }}
+                          style={{ lineSpacing: "1px", fontWeight: 500, marginLeft: 10, fontSize: 14 }}
                           color="primary"
                           onClick={() => { setShowMore(!showMore) }}>
-                          {showMore ? "Show less" : "Read more..."}
+                          {showMore ? "Show less" : "... Read more"}
                         </Button>
                       ) : (
                         <>
@@ -305,7 +305,7 @@ const PostItemFeeds = ({ postId }) => {
               ) : (
                 <>
                   <div className={classes.status} style={{ color: "green" }}>
-                     Status&middot;Pending  <AccessTimeIcon />  
+                     Pending  <AccessTimeIcon />  
                   </div>
                   <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
