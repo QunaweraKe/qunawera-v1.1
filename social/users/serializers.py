@@ -1,10 +1,6 @@
-from rest_framework import serializers, status
-from rest_framework.response import Response
+from rest_framework import serializers
 from .models import *
-from django.conf import settings
 from difflib import SequenceMatcher
-from django.core.cache import cache
-from datetime import datetime
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
@@ -73,11 +69,7 @@ class UserSerializer(serializers.ModelSerializer):
                     "password2": "Passwords do not match.",
                 }
             )
-        
-        if not password.check_password("password"):
-                raise serializers.ValidationError(
-                             {"password":"Password does not match any on our records."}
-                )
+    
         if User.objects.filter(username=username).exists():
     
              raise serializers.ValidationError(

@@ -139,6 +139,7 @@ class PostOpenAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         post.closed = False
         post.save()
         return Response(status=status.HTTP_204_NO_CONTENT)  
+        
 class ReportedAPIView(rest_generics.CreateAPIView):
     def post(self, request, pk):
         """ Report post. """

@@ -36,8 +36,11 @@ fontWeight:700,
   },
   card:{
     marginTop: theme.spacing(2),
+  },
+  root:{
+    backgroundColor:theme.palette.grey[50],
+    width:"100%",
   }
-
 }));
 
 export default useStyles;

@@ -160,6 +160,7 @@ const PostItemFeeds = ({ postId }) => {
                   <ReportPost
                     setAnchorEl={setAnchorEl}
                     postId={post.id}
+                    type="post"
                   />
                 )}
             </Menu>

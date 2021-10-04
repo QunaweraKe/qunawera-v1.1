@@ -20,7 +20,7 @@ import {
 } from '../../redux/post';
 
 const ReportPost = React.forwardRef((props, ref) => {
-  const { postId, setAnchorEl} = props;
+  const { postId, setAnchorEl,type } = props;
   const dispatch = useDispatch();
   const classes=useStyles();
   const post = useSelector((s) => selectPost(s, postId));
@@ -70,19 +70,18 @@ ref={ref}
 />
 </MenuItem>
     
-  
 
       <ConfirmationDialog
-        buttontext="Yes"
+        classes={{paper:classes.paper}}
+        buttontext="Yes,Report"
         loading={loading}
         open={dialogOpen}
         onclickfalse={handleClose}
         onclicktrue={handlereportPost }
         onClick={handleClose}
         onEntered={handleEntered}
-     
         text={`
-        Do you really want to report this post?
+        Do you really want to report this  ${type} as inappropiate?
         `}
   
       />
@@ -93,7 +92,7 @@ ref={ref}
 ReportPost.propTypes = {
   postId: PropTypes.number.isRequired,
   setAnchorEl: PropTypes.func.isRequired,
-  
+  type: PropTypes.oneOf(['post', 'comment']).isRequired,
 };
 
 export default ReportPost;

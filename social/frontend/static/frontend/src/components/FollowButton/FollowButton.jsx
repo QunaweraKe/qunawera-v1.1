@@ -44,8 +44,9 @@ const FollowButton = ({ className, user, size }) => {
       style={{ fontWeight:700,boxShadow: '2px 4px  rgba(0,0,0,.2)'}}
     >
       {following ? 'following' : 'follow'}
+    <span style={{margin:8,}}>  &middot;</span>
       {loading && <CircularProgress />}
-      <UserIcon style={{marginLeft:"2px"}}/>
+   <UserIcon style={{marginLeft:"2px"}}/>
     </Button>
   );
 };

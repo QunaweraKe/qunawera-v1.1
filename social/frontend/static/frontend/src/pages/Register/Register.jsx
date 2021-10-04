@@ -15,7 +15,7 @@ import Alert from '@material-ui/lab/Alert';
 import LinearProgressBar from '../../components/LinearProgressBar';
 import PageTitle from '../../components/PageTitle';
 import TextLink from '../../components/TextLink';
-import {APP_NAME, route } from '../../constants';
+import { APP_NAME, route } from '../../constants';
 import useUI from '../../hooks/useUI';
 import { createUser, key } from '../../redux/user';
 import { isEmpty } from '../../utils';
@@ -30,7 +30,7 @@ const Register = () => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
- 
+
   const { errors, loading } = useUI(key.createUser, null, false);
 
 
@@ -40,7 +40,7 @@ const Register = () => {
     password: '',
     password2: '',
     username: '',
-    
+
 
   });
 
@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <>
+    <div className={classes.root} >
       <PageTitle title="Register" />
 
       <Container className={classes.container}>
@@ -76,70 +76,70 @@ const Register = () => {
         }}>
           <CardContent>
 
-           <Typography color="primary"
-              variant="h5"> Join <AppName/></Typography>
-             
-         
+            <Typography color="primary"
+              variant="h5"> Join <AppName /></Typography>
 
-           
+
+
+
             {!isEmpty(errors)
               && (
                 <Alert
                   className={classes.alert}
                   severity="error"
                 >
-                 Form has invalid inputs.Try again.
+                  Form has invalid inputs.Try again.
                 </Alert>
               )}
             <form
               onSubmit={handleSubmit}
               noValidate
             >
-             <Grid container spacing={2}>
-             <Grid item xs={12} sm={6}>
-              <TextField
-               variant="filled"
-                required={true}
-                autoComplete="name"
-                className={classes.formField}
-                error={Boolean(errors.name)}
-                fullWidth
-                helperText={errors.name}
-                id="name"
-                label="Full  Name"
-                name="name"
-                onChange={handleChange}
-                type="text"
-                value={formData.name}
-                InputLabelProps={{style:{fontSize:14}}}
-                
-              />
-               </Grid >
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    variant="filled"
+                    required={true}
+                    autoComplete="name"
+                    className={classes.formField}
+                    error={Boolean(errors.name)}
+                    fullWidth
+                    helperText={errors.name}
+                    id="name"
+                    label="Full  Name"
+                    name="name"
+                    onChange={handleChange}
+                    type="text"
+                    value={formData.name}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
 
-            <Grid item xs={12} sm={6}>
+                  />
+                </Grid >
+
+                <Grid item xs={12} sm={6}>
 
                   <TextField
-                  variant="filled"
-                 required={true}
-                autoComplete="username"
-                className={classes.formField}
-                error={Boolean(errors.username)}
-                fullWidth
-                helperText={errors.username}
-                id="login"
-                label="Preferred Username"
-                name="username"
-                onChange={handleChange}
-                type="text"
-                value={formData.username}
-                InputLabelProps={{style:{fontSize:14}}}
-              />
-            </Grid>
-            </Grid>
+                    variant="filled"
+                    required={true}
+                    autoComplete="username"
+                    className={classes.formField}
+                    error={Boolean(errors.username)}
+                    fullWidth
+                    helperText={errors.username}
+                    id="login"
+                    label="Preferred Username"
+                    name="username"
+                    onChange={handleChange}
+                    type="text"
+                    value={formData.username}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
+                  />
+                </Grid>
+              </Grid>
 
 
               <TextField
-                 required={true}
+                required={true}
                 autoComplete="email"
                 className={classes.formField}
                 error={Boolean(errors.email)}
@@ -151,50 +151,50 @@ const Register = () => {
                 onChange={handleChange}
                 type="email"
                 value={formData.email}
-                InputLabelProps={{style:{fontSize:14}}}
+                InputLabelProps={{ style: { fontSize: 14 } }}
                 variant="filled"
               />
-            
+
               <Grid container spacing={2}>
-             <Grid item xs={12} sm={6}>
-              <TextField
-               required={true}
-                autoComplete="new-password"
-                className={classes.formField}
-                error={Boolean(errors.password)}
-                fullWidth
-                helperText={errors.password}
-                id="password"
-                label="Password"
-                name="password"
-                onChange={handleChange}
-                type="password"
-                value={formData.password}
-                InputLabelProps={{style:{fontSize:14}}}
-                variant="filled"
-              />
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required={true}
+                    autoComplete="new-password"
+                    className={classes.formField}
+                    error={Boolean(errors.password)}
+                    fullWidth
+                    helperText={errors.password}
+                    id="password"
+                    label="Password"
+                    name="password"
+                    onChange={handleChange}
+                    type="password"
+                    value={formData.password}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
+                    variant="filled"
+                  />
 
-              </Grid >
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required={true}
-                autoComplete="new-password"
-                className={classes.formField}
-                error={Boolean(errors.password2)}
-                fullWidth
-                helperText={errors.password2}
-                id="password2"
-                label="Repeat Password"
-                name="password2"
-                onChange={handleChange}
-                type="password"
-                value={formData.password2}
-                 InputLabelProps={{style:{fontSize:14}}}
-                  variant="filled"
-              />
-               </Grid >
                 </Grid >
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required={true}
+                    autoComplete="new-password"
+                    className={classes.formField}
+                    error={Boolean(errors.password2)}
+                    fullWidth
+                    helperText={errors.password2}
+                    id="password2"
+                    label="Repeat Password"
+                    name="password2"
+                    onChange={handleChange}
+                    type="password"
+                    value={formData.password2}
+                    InputLabelProps={{ style: { fontSize: 14 } }}
+                    variant="filled"
+                  />
+                </Grid >
+              </Grid >
               <Button
                 className={classes.button}
                 size="large"
@@ -212,29 +212,29 @@ const Register = () => {
           </CardContent>
         </Card>
 
-        <Card variant="outlined"  className={classes.card}>
-       <Typography className={classes.login}>
-        <span >Already a member </span> {'?'}  {'  '}
-       <TextLink to={route.login} className={classes.textLink}>
-      Sign In.</TextLink>
-        </Typography>
+        <Card variant="outlined" className={classes.card}>
+          <Typography className={classes.login}>
+            <span >Already a member </span> {'?'}  {'  '}
+            <TextLink to={route.login} className={classes.textLink}>
+              Sign In.</TextLink>
+          </Typography>
         </Card>
-        <div style={{ marginLeft: '20%',marginTop:"20%" }}>
-      
-          
-      <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8em" }}>
-  {'© '}
-  {new Date().getFullYear()}
-  {'  '}
-
-  {APP_NAME} {' ,'} LLC .All rights reserved.
+        <div style={{ marginLeft: '20%', marginTop: "20%" }}>
 
 
-</Typography>
-  </div>
+          <Typography className={classes.footer} color="textSecondary" style={{ fontSize: ".8em" }}>
+            {'© '}
+            {new Date().getFullYear()}
+            {'  '}
+
+            {APP_NAME} {' ,'} LLC .All rights reserved.
+
+
+          </Typography>
+        </div>
       </Container>
 
-    </>
+    </div>
   );
 };
 

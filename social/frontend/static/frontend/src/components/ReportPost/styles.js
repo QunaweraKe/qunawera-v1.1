@@ -12,7 +12,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize:15,
   
   },
- 
+ paper:{
+minWidth:450,
+height:"auto",
+padding:8,
+ },
 }));
 
 export default useStyles;

@@ -110,6 +110,7 @@ const ReplyItem = ({ replyId }) => {
                   <ReportPost
                     setAnchorEl={setAnchorEl}
                     postId={reply.id}
+                    type="comment"
                     
                   />
                 </Menu>

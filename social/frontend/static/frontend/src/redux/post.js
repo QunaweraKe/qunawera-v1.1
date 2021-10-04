@@ -471,7 +471,7 @@ export const reportPost = (postId) => async (dispatch) => {
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.reportPost(postId));
-    dispatch(setToast(' Report is under review ,kindly wait as we check in to the matter'));
+    dispatch(setToast(' Reported and  is under review '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

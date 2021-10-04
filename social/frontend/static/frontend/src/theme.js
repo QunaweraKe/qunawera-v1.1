@@ -116,8 +116,10 @@ theme.overrides = {
     root: {
       borderRadius: 2,
       textTransform: 'normal',
-      color: theme.palette.secondary.main
 
+      '&:hover': {
+        backgroundColor: "transparent",
+      },
     },
     sizeLarge: {
       lineHeight: 1,
