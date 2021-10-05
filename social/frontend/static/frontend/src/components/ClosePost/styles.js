@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
-
+import {yellow} from  '@material-ui/core/colors/yellow';
 const useStyles = makeStyles((theme) => ({
 
   ...theme.custom,
 
   Icon:{
-    color:theme.palette.primary.main
+    color:"yellow"
   },
   
   

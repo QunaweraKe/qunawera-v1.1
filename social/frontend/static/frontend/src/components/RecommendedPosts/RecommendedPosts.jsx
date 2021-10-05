@@ -109,7 +109,8 @@ const RecommendedPosts = () => {
           
           </CardContent>
 
-          <ShowMoreRecommended to={route.recommendedPosts} />
+          <ShowMoreRecommended to={route.recommendedPosts}
+           type="posts" />
         </>
       );
     } else {

@@ -1,19 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 
-function randomColor(){
-  let hex =Math.floor(Math.random()*0xFFFFF);
-  let randcolor ='#'+ hex.toString(16);
-  return randcolor
-}
 const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   root: {
 
-    borderColor: randomColor(),
+    borderColor: theme.palette.grey[100],
     borderRadius: '50%',
     border: 'solid',
-    borderWidth:3,
+    borderWidth:2,
     height: (size) => size,
     width: (size) => size,
     display: 'flex',

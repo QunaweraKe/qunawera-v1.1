@@ -25,7 +25,6 @@ const PostHeader = ({ post, repost,}) => {
         && (
           <Avatar
             className={classes.headerAvatar}
-            size={30}
             user={post.author}
           />
         )}

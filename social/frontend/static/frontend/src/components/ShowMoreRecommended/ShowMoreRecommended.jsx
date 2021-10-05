@@ -9,11 +9,11 @@ import TextLink from '../TextLink';
 
 import useStyles from './styles';
 
-const ShowMoreRecommended = ({ to }) => {
+const ShowMoreRecommended = ({ to ,type}) => {
   const classes = useStyles();
 
   return (
-   
+   <div>
     <TextLink
       className={classes.link}
       to={to}
@@ -21,15 +21,16 @@ const ShowMoreRecommended = ({ to }) => {
       
     
     >
-    See More  <ArrowForwardIcon style={{marginLeft:90,}}/>
+    See More  {type} 
     </TextLink>
-
-    
+   
+    </div>
   );
 };
 
 ShowMoreRecommended.propTypes = {
   to: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['posts', 'users']).isRequired,
 };
 
 export default ShowMoreRecommended;

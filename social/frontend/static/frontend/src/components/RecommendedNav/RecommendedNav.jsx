@@ -20,7 +20,7 @@ const RecommendedNav = ({ active }) => (
       active={active === 'posts'}
       to={route.recommendedPosts}
     >
-     Tasks
+     Posts
     </TabbedNavItem>
   </TabbedNav>
 );

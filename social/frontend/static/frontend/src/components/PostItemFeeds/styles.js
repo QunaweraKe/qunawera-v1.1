@@ -60,6 +60,12 @@ actionButton:{
       top: theme.spacing(-1),
       
     },
+    menuPaper:{
+          "& .MuiPaper-root":{
+            backgroundColor:theme.palette.grey[50]
+          }
+    
+    },
     postContainer: {
       display: 'flex',
       padding: theme.spacing(2),

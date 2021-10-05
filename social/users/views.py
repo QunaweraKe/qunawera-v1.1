@@ -1,6 +1,6 @@
-
+from rest_framework.throttling import SimpleRateThrottle
 from rest_framework import generics as rest_generics, status, views as rest_views
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,throttle_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, get_user_model, login, logout
@@ -15,9 +15,6 @@ from .serializers import (PasswordSerializer,
 from django.contrib.auth.decorators import login_required
 from .signals import logged_in
 User = get_user_model()
-
-
-
 
 class EditPasswordAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     """ Edit password. """
@@ -118,10 +115,66 @@ class FollowingAPIView(rest_views.APIView, PaginationMixin):
             )
 
         return Response(status=status.HTTP_201_CREATED)
+class UserLoginRateThrottle(SimpleRateThrottle):
+    scope = 'loginAttempts'
+
+    def get_cache_key(self, request, view):
+        user = User.objects.filter(username=request.data.get('username'))
+        ident = user[0].pk if user else self.get_ident(request)
+
+        return self.cache_format % {
+            'scope': self.scope,
+            'ident': ident
+        }
+
+    def allow_request(self, request, view):
+        """
+        Implement the check to see if the request should be throttled.
+        On success calls `throttle_success`.
+        On failure calls `throttle_failure`.
+        """
+        if self.rate is None:
+            return True
+
+        self.key = self.get_cache_key(request, view)
+        if self.key is None:
+            return True
+
+        self.history = self.cache.get(self.key, [])
+        self.now = self.timer()
+
+        while self.history and self.history[-1] <= self.now - self.duration:
+            self.history.pop()
+
+        if len(self.history) >= self.num_requests:
+            return self.throttle_failure()
+        
+        from collections import Counter
+        if len(self.history) >= 3:
+            data = Counter(self.history)
+            for key, value in data.items():
+                if value == 2:
+                    return self.throttle_failure()
+        return self.throttle_success(request)
+
+    def throttle_success(self, request):
+        """
+        Inserts the current request's timestamp along with the key
+        into the cache.
+        """
+        user = User.objects.filter(username=request.data.get('username'))
+        if user:
+            self.history.insert(0, user[0].id)
+        self.history.insert(0, self.now)
+        self.cache.set(self.key, self.history, self.duration)
+        return True
+
 
 
 @api_view(["post"])
+@throttle_classes([UserLoginRateThrottle])
 def login_view(request):
+   
     cred_login = request.data.get("login")
     cred_password = request.data.get("password")
     remember_me = request.data.get("rememberMe")
@@ -205,3 +258,6 @@ class UserDetailAPIView(rest_generics.RetrieveAPIView):
     def get_object(self):
         return get_object_or_404(User, slug=self.kwargs.get("slug"))
 
+
+
+#TODO:USER THROTTLE NOT WORKING

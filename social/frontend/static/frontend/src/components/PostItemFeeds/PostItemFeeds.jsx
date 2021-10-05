@@ -226,7 +226,23 @@ const PostItemFeeds = ({ postId }) => {
 
 
         </Card>
+ {post.parent
 
+? (<>
+</>
+) : (
+  <>
+
+    {post.closed
+
+      ? (
+       <Typography></Typography>) : (
+        <Typography></Typography>
+      )}
+
+
+  </>
+)}
 
         <div className={classes.likeContainer}>
 
@@ -237,7 +253,7 @@ const PostItemFeeds = ({ postId }) => {
               </Button>
             )}
           <Menu
-
+             classes={{paper:classes.menuPaper}}
             anchorEl={anchor}
             anchorOrigin={{
               horizontal: 'right',
@@ -306,7 +322,7 @@ const PostItemFeeds = ({ postId }) => {
               ) : (
                 <>
                   <div className={classes.status} style={{ color: "green" }}>
-                     Pending  <AccessTimeIcon />  
+                     Pending  Approval<AccessTimeIcon />  
                   </div>
                   <Typography color="green" style={{ fontSize: "16px", fontFamily: "monospace", position: "relative" }}>
                     This post is only visible to you as the author ,has limited functionality and will disappear on reload.
@@ -348,7 +364,7 @@ const PostItemFeeds = ({ postId }) => {
           {post.is_active
                 && (
             <ButtonGroup
-              size="large" disableElevation className={classes.buttonGroup}>
+              size="small" disableElevation className={classes.buttonGroup}>
               <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
               <Button
                 component={Link}
@@ -364,8 +380,8 @@ const PostItemFeeds = ({ postId }) => {
           <Grid item >
           {post.is_active
                 && (
-            <ButtonGroup disableElevation className={classes.buttonGroup}>
-              <Button variant="standard" size="large" style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
+            <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
+              <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
               <Button
                 component={Link}
                 to={route.postDetail(post.id)}
@@ -385,8 +401,8 @@ const PostItemFeeds = ({ postId }) => {
                 <>
              {post.is_active
                 && (
-                  <ButtonGroup disableElevation className={classes.buttonGroup}>
-                    <Button size="large" variant="standard" style={{ fontFamily: "monospace" }}>{pluralizeShares(post.repost_ids?.length)}</Button>
+                  <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
+                    <Button size="small" variant="standard" style={{ fontFamily: "monospace" }}>{pluralizeShares(post.repost_ids?.length)}</Button>
                     <Button
 
                       color="textSecondary" style={{ borderRadius: 6, marginLeft: "1%" }}>

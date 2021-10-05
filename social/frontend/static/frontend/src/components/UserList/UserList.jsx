@@ -31,7 +31,8 @@ const UserList = ({ list }) => {
           key={profileUser.id}
         >
           <ListItemAvatar className={classes.avatar}>
-            <Avatar user={profileUser} />
+            <Avatar user={profileUser} 
+            sx={{width:58,height:58}}/>
           </ListItemAvatar>
           <ListItemText className={classes.listItemText}>
             {profileUser.slug !== user.slug

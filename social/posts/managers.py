@@ -8,6 +8,12 @@ User = get_user_model()
 
 
 class PostManager(QuerySet):
+    def closed(self):
+        """Return all active posts.
+
+        Posts uses soft delete. If the post is not active, it was deleted.
+        """
+        return self.exclude(closed=True)
     def active(self):
         """Return all active posts.
 
@@ -22,7 +28,7 @@ class PostManager(QuerySet):
         :param user: User to retrieve feed from.
         """
         return (
-            self.posts().exclude(closed=True,author__is_active=False).filter(Q(author__followers=user) | Q(author=user)).distinct()
+            self.posts().closed().exclude(author__is_active=False).filter(Q(author__followers=user) | Q(author=user)|Q(closed=True)).distinct()
         )
 
     def posts(self):
@@ -43,6 +49,7 @@ class PostManager(QuerySet):
             .filter(is_reply=False)
             .prefetch_related("author__following")
             .prefetch_related("author__followers")
+           
             .prefetch_related("liked")
             .select_related("author__profile")
             .annotate(
@@ -75,7 +82,7 @@ class PostManager(QuerySet):
     
        )
         qs = (
-            self.posts().annotate(n_posts=Exists(has_item)).exclude(author__followers=user).filter(~Q(author=user),parent=None ,id__in=random_id_list)
+            self.posts().annotate(n_posts=Exists(has_item)).exclude(author__followers=user,closed=True).filter(~Q(author=user),parent=None ,id__in=random_id_list)
             .order_by("-n_posts")
         )
         if long is False:

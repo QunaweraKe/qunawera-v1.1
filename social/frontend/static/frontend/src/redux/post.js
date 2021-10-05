@@ -457,7 +457,7 @@ export const openPost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.openPost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Post Opened'));
+    dispatch(setToast('Your post is visible again'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

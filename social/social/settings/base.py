@@ -160,9 +160,16 @@ AUTH_USER_MODEL = "users.User"
 AUTHENTICATION_BACKENDS = ["social.backends.UsernameOrEmailAuth"]
 
 
-#rest_framework
+#rest_framework settings
 REST_FRAMEWORK={
-    'DATETIME_FORMAT':'%Y-%m-%dT%H:%M:%S',
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.UserRateThrottle',
+
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'loginAttempts': '6/min',
+        'user': '1000/min',
+    }
 }
 
 
