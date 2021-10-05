@@ -9,9 +9,8 @@ User = get_user_model()
 
 class PostManager(QuerySet):
     def closed(self):
-        """Return all active posts.
-
-        Posts uses soft delete. If the post is not active, it was deleted.
+        """
+        excludes closed posts on user feed timelines
         """
         return self.exclude(closed=True)
     def active(self):
@@ -82,7 +81,7 @@ class PostManager(QuerySet):
     
        )
         qs = (
-            self.posts().annotate(n_posts=Exists(has_item)).exclude(author__followers=user,closed=True).filter(~Q(author=user),parent=None ,id__in=random_id_list)
+            self.posts().annotate(n_posts=Exists(has_item)).closed().exclude(author__followers=user).filter(~Q(author=user),parent=None ,id__in=random_id_list)
             .order_by("-n_posts")
         )
         if long is False:
