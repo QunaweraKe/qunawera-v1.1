@@ -26,6 +26,7 @@ import { green } from '@material-ui/core/colors/green';
 import { red } from '@material-ui/core/colors/red';
 // Local
 import { route } from '../../constants';
+
 import {
   selectPost
 } from '../../redux/post';
@@ -366,6 +367,7 @@ const PostItemFeeds = ({ postId }) => {
             <ButtonGroup
               size="small" disableElevation className={classes.buttonGroup}>
               <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}>{pluralizeLikes(post.liked.length)}</Button>
+           
               <Button
                 component={Link}
                 to={route.postLikes(post.id)}
@@ -388,6 +390,9 @@ const PostItemFeeds = ({ postId }) => {
                 color="primary" style={{ borderRadius: 6, marginLeft: "1%" }}>
                 {post.reply_ids?.length || 0}
               </Button>
+              &middot;
+
+          
             </ButtonGroup>
             )}
           </Grid >

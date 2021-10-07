@@ -7,6 +7,7 @@ import TabbedNavItem from '../TabbedNavItem';
 
 // Local
 import { route } from '../../constants';
+import { Typography } from '@material-ui/core';
 
 const PostDetailNav = ({ active, postId }) => (
   <TabbedNav>
@@ -14,13 +15,7 @@ const PostDetailNav = ({ active, postId }) => (
       active={active === 'post'}
       to={route.postDetail(postId)}
     >
-      Post
-    </TabbedNavItem>
-    <TabbedNavItem
-      active={active === 'likes'}
-      to={route.postDetailLikes(postId)}
-    >
-     Likes
+     <Typography style={{fontWeight:"bolder",fontSize:20,}}> Post & Comments</Typography>
     </TabbedNavItem>
   </TabbedNav>
 );

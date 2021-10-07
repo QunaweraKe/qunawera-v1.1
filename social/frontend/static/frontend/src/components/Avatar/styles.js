@@ -5,10 +5,10 @@ const useStyles = makeStyles((theme) => ({
   ...theme.custom,
   root: {
 
-    borderColor: theme.palette.grey[100],
+    borderColor: theme.palette.grey[500],
     borderRadius: '50%',
     border: 'solid',
-    borderWidth:2,
+    borderWidth:3,
     height: (size) => size,
     width: (size) => size,
     display: 'flex',

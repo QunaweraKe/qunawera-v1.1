@@ -5,24 +5,15 @@ import { useHistory } from 'react-router-dom';
 //Material UI
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import { AccountCircleRounded } from '@material-ui/icons';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import Typography from '@material-ui/core/Typography';
 import RateReviewOutlinedIcon  from '@material-ui/icons/RateReviewOutlined';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-
-
-
-// Local
-import { route } from '../../constants';
+//Local 
 import useUI from '../../hooks/useUI';
 import {
   getReplies,
@@ -32,15 +23,12 @@ import {
 } from '../../redux/post';
 import Avatar from '../Avatar';
 import CircularProgress from '../CircularProgress';
-import DeletePost from '../DeletePost';
-import EditPost from '../EditPost';
 import LikePost from '../LikePost';
 import NextButton from '../NextButton';
 import PostHeader from '../PostHeader';
 import PostParent from '../PostParent';
 import ReplyForm from '../ReplyForm';
 import ReplyItem from '../ReplyItem';
-import Repost from '../Repost';
 import useStyles from './styles';
 
 
@@ -106,59 +94,7 @@ const PostItem = ({ expandReplies, postId }) => {
 
           <PostHeader post={post} />
         
-          <IconButton
-            className={classes.postAction}
-            onClick={handleMenuOpen}
-          >
-            <MoreHorizIcon />
-          </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              horizontal: 'right',
-              vertical: 'bottom',
-            }}
-           
-            getContentAnchorEl={null}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
-            transformOrigin={{
-              horizontal: 'right',
-              vertical: 'top',
-            }}
-          >
-            <Repost postId={postId} />
-            {post.is_author
-              && (
-                <EditPost
-                  setAnchorEl={setAnchorEl}
-                  postId={post.id}
-                />
-              )}
-        
-            <MenuItem
-              onClick={() => (
-                history.push(route.profilePosts(post.author.slug))
-              )}
-            >
-             <ListItemIcon>
-              <AccountCircleRounded />
-        </ListItemIcon>
-              <ListItemText primary="Author's Profile" classes={{ primary: classes.listItem }}  />
-
-            </MenuItem>
-        
-            {post.is_author
-              && (
-                <DeletePost
-                  setAnchorEl={setAnchorEl}
-                  postId={post.id}
-                  type="post"
-                />
-              )}
          
-          </Menu>
 
             <div className={classes.text}>
 
@@ -251,32 +187,22 @@ const PostItem = ({ expandReplies, postId }) => {
 
       {expanded && !loading
         && (
-          <Collapse
+          <>
+              <Collapse
             in={expanded}
             timeout="auto"
             unmountOnExit
           >
+         
+              <ReplyForm postId={postId} />
+          
+
+            </Collapse>
             <Card variant="outlined" className={classes.postContainer}>
             <CardContent
               className={classes.replyContent}
 
             >
-              <ReplyForm postId={postId} />
-              <CardHeader
-
-                className={classes.replyHeader}
-                title="All Comments"
-                
-                titleTypographyProps={{
-                  className: classes.title,
-                  variant: 'subtitle1',
-                  color: 'textSecondary',
-
-                }}
-              />
-            
-          
-
               {replies.results.map((replyId) => (
                 <ReplyItem
                   key={replyId}
@@ -291,9 +217,9 @@ const PostItem = ({ expandReplies, postId }) => {
               />
             </CardContent>
             </Card>
-          </Collapse>
+        </>
         )}
-     
+ 
     </div>
   );
 };

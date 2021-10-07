@@ -3,11 +3,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 // Material UI
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import Slide from '@material-ui/core/Slide';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
 import { Typography } from '@material-ui/core';
@@ -15,7 +15,7 @@ import { Typography } from '@material-ui/core';
 //local
 import { logoutUser } from '../../redux/user';
 import { APP_NAME } from '../../constants';
-
+import DialogCloseButton from '../DialogCloseButton'
 //Function to slide up
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -51,14 +51,22 @@ const LogOut = () => {
         onClose={handleClose}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
+        maxWidth="sm"
+      
 
       >
 
+  
+<Box position ="absolute" top={0} right={0}>
+  
+<DialogCloseButton onClick={handleClose}/>
+
+</Box>
         <DialogContent
         >
-          <DialogContentText id="alert-dialog-slide-description">
-            <Typography variant="subtitle1" style={{ fontWeight: "bolder" }} color="black">Are you sure you want to log out of {APP_NAME}{"?"}</Typography>
-          </DialogContentText>
+      
+            <Typography variant="subtitle1">Are you sure you want to log out of {APP_NAME}{"?"}</Typography>
+       
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}     color="textSecondary" size="small" variant="outlined"

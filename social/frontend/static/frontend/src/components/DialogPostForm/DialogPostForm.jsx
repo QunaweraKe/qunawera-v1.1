@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 // Material UI
-import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
+import Divider from '@material-ui/core/Divider';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
@@ -20,15 +20,16 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
+import Box from '@material-ui/core/Box';
 import red from '@material-ui/core/colors/red';
+import Fab from '@material-ui/core/Fab';
 // Local
-import Avatar from '../Avatar';
+
 import CircularProgress from '../CircularProgress';
 import DialogCloseButton from '../DialogCloseButton';
 import useUI from '../../hooks/useUI';
 import { isEmpty } from '../../utils';
 import { createPost, key } from '../../redux/post';
-import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
 import { DialogContentText } from '@material-ui/core';
@@ -62,14 +63,14 @@ const DialogPostForm = () => {
         raw: event.target.files[0]
       });
     }
-    
+
   };
   const handleBody = (event) => {
     event.preventDefault();
     console.log(event.target.value);
     setBody(event.target.value);
   };
-  const removeImage=(event) => {
+  const removeImage = (event) => {
     event.preventDefault();
     setImage('')
   };
@@ -81,7 +82,6 @@ const DialogPostForm = () => {
 
   const classes = useStyles();
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const { errors, loading } = useUI(key.createPost, null, false);
   const [open, setOpen] = React.useState(false);
@@ -92,7 +92,7 @@ const DialogPostForm = () => {
 
   const handleDialogClose = () => {
     setOpen(false);
- 
+
   };
 
   const handleClose = () => {
@@ -102,7 +102,7 @@ const DialogPostForm = () => {
 
   const handleOpen = () => {
     setDialogOpen(true);
-   
+
   };
 
   const handleSubmit = (event) => {
@@ -131,18 +131,21 @@ const DialogPostForm = () => {
     <>
       <div >
         <CustomTooltip title="create a new task listing" arrow disableFocusListener>
-          <Button color="primary"
-
-            aria-label="add"
-            id="header-post-button"
-            onClick={handleOpen}
-            variant="outlined">
+               <Fab className={classes.fab}
+                onClick={handleOpen}
+               size="small" 
+               variant="extended"
+               color="primary" aria-label="edit" 
+               sx={{ mr: 2}}
+               style={{margin:10,bottom:20,right:30,left:"auto",position:"fixed"}}>
             <EditIcon />
-          </Button>
+            Create New
+            </Fab>
         </CustomTooltip>
       </div>
 
       <Dialog
+        
         fullScreen
         open={dialogOpen}
         onClose={handleClose}
@@ -159,8 +162,13 @@ const DialogPostForm = () => {
             </Alert>
           )}
         <Container maxWidth="sm">
+      
           <DialogTitle>
-            <DialogCloseButton onClick={handleClose} />
+            <Box position="absolute" top={0} right={0}>
+
+              <DialogCloseButton onClick={handleClose} />
+
+            </Box>
             <Typography
               variant="h5"
               align="center"
@@ -168,124 +176,125 @@ const DialogPostForm = () => {
             >
               Create New Post
             </Typography>
-<Divider/>
+            <Divider fullWidth />
+            <Divider />
           </DialogTitle>
 
           <DialogContent>
             <div className={classes.avatarContainer}>
-              <Avatar user={user} />
+
             </div>
-<form onSubmit={handleSubmit}>
-            <TextField
-              required
-              error={Boolean(errors.title)}
-              autoComplete="off"
+            <form onSubmit={handleSubmit}>
+              <TextField
+                required
+                error={Boolean(errors.title)}
+                autoComplete="off"
 
-              fullWidth
-              id="title"
-              label="Role"
-              name="title"
-              onChange={handleTitle}
-              type="text"
-              value={title}
-              variant="outlined"
-
-
-            />
-
-            <TextField
-              className={classes.margin}
-              required
-              error={Boolean(errors.body)}
-              autoComplete="off"
-              multiline
-              fullWidth
-              id="body"
-              label="Description"
-              name="body"
-              onChange={handleBody}
-              type="text"
-              variant="outlined"
-              rows={7}
-              value={body}
-            
-            />
+                fullWidth
+                id="title"
+                label="Role"
+                name="title"
+                onChange={handleTitle}
+                type="text"
+                value={title}
+                variant="outlined"
 
 
-            <br/>
-       
-<Card variant="outlined" className={classes.imageCard} >
+              />
 
-<label>
+              <TextField
+                className={classes.margin}
+                required
+                error={Boolean(errors.body)}
+                autoComplete="off"
+                multiline
+                fullWidth
+                id="body"
+                label="Description"
+                name="body"
+                onChange={handleBody}
+                type="text"
+                variant="outlined"
+                rows={5}
+                value={body}
 
-  {image.preview ?<> <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} />
-  <IconButton onClick ={removeImage} ><DeleteIcon style={{color:'red'}}/></IconButton></> : (
-    
-      <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
+              />
 
-    )}
-</label>  
-<IconButton color="primary" onClick={handleClickOpen}>
-        <AddPhotoAlternateIcon/>
-      </IconButton>
-</Card>
 
-            <br />
-         
-      <Dialog
-        open={open}
-        onClose={handleDialogClose}
-        onChange={handleDialogClose}
-        fullWidth
-        maxWidth="xs"
-        
-      >
-         <br/>
-         <br/>
-        <DialogContent>
-          
-   
-              <label>
-                {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
-                  <>              
-    
-                  </>)}
-              </label>  
-          
+              <br />
 
-<label>
-  <label for="upload file">
-    </label>
-            <input
-              onChange={handleImage}
-              name="image"
-              id="image"
-              type="file"
-              capture="environment"
-            required
-            />
+              <Card variant="outlined" className={classes.imageCard} >
 
-</label>
-</DialogContent>
-<br/>
-<br/>
-</Dialog>
+                <label>
 
-            <br />
-            <Button
-            fullWidth
-              size="large"
-              color="primary"
-              disabled={loading}
-               type="submit"
-              variant="contained"
-              style={{ boxShadow: "none", borderRadius: "5px", }}
-            >
-              <span className="nav-button-text">Post</span>
+                  {image.preview ? <> <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} />
+                    <IconButton onClick={removeImage} ><DeleteIcon style={{ color: 'red' }} /></IconButton></> : (
 
-              {loading && <CircularProgress />}
-            </Button>
-</form>
+                    <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
+
+                  )}
+                </label>
+                <IconButton color="primary" onClick={handleClickOpen}>
+                  <AddPhotoAlternateIcon />
+                </IconButton>
+              </Card>
+
+              <br />
+
+              <Dialog
+                open={open}
+                onClose={handleDialogClose}
+                onChange={handleDialogClose}
+                fullWidth
+                maxWidth="xs"
+
+              >
+                <br />
+                <br />
+                <DialogContent>
+
+
+                  <label>
+                    {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
+                      <>
+
+                      </>)}
+                  </label>
+
+
+                  <label>
+                    <label for="upload file">
+                    </label>
+                    <input
+                      onChange={handleImage}
+                      name="image"
+                      id="image"
+                      type="file"
+                      capture="environment"
+                      required
+                    />
+
+                  </label>
+                </DialogContent>
+                <br />
+                <br />
+              </Dialog>
+
+              <br />
+              <Button
+                fullWidth
+                size="large"
+                color="primary"
+                disabled={loading}
+                type="submit"
+                variant="contained"
+                style={{ boxShadow: "none", borderRadius: "5px", }}
+              >
+                <span className="nav-button-text">Post</span>
+
+                {loading && <CircularProgress />}
+              </Button>
+            </form>
           </DialogContent>
           <DialogContentText>
             <Typography

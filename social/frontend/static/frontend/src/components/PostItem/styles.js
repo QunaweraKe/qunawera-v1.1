@@ -48,9 +48,13 @@ const useStyles = makeStyles((theme) => {
     },
     postContainer: {
       display: 'flex',
-      margin: 'auto',
-      marginTop: theme.spacing(3),
       padding: theme.spacing(2),
+      margin:8,
+      marginTop: theme.spacing(3),
+      borderColor: theme.palette.grey[150],
+      marginBottom: theme.spacing(2),
+      minWidth:350,
+      
     
     },
 

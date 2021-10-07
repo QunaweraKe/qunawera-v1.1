@@ -5,8 +5,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import { useSelector } from 'react-redux';
 // Material UI
 import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/green';
+
 // Local
 import Avatar from '../Avatar';
 import TextLink from '../TextLink';

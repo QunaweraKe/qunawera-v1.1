@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     paddingRight: 0,
+    marginLeft:0,
+    minWidth:"150%"
   },
   notchedOutline: {
     borderColor: theme.palette.grey[50],
@@ -18,17 +20,16 @@ const useStyles = makeStyles((theme) => ({
   replyForm: {
     alignItems: 'center',
     display: 'flex',
-    position:'sticky'
+    position:'sticky',
+    width:"100%"
   },
   textField: {
-    flexGrow: 1,
-    marginLeft: theme.spacing(1),
-    width:"97%"
+    flexGrow: 0,
     
   },
   backGround:{
-    backgroundColor: theme.palette.grey[50],
-    marginLeft:theme.spacing(2)
+    backgroundColor: "transparent",
+    marginLeft:theme.spacing(1)
   },
 }));
 

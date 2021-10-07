@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import { APP_NAME, route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
 import { selectUser } from '../../redux/user';
+import Box from '@material-ui/core/Box';
 // Local
 import PageTitle from '../PageTitle';
 import Avatar from '../Avatar';
@@ -32,15 +33,9 @@ import DeviceDetection from '../DeviceDetection';
 
 const MobileMenu = () => {
   const classes = useStyles();
-  const dispatch = useDispatch();
-
   const unreadNotificationsCount =  useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
-
-
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-
-
   const handleToggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -67,13 +62,18 @@ const MobileMenu = () => {
       >
         <div className={classes.titleContainer}>
         <PageTitle title="mobile" />
-          <IconButton
+        <Box position="absolute" top={1} right={2}>
+
+        <IconButton
             color="primary"
             onClick={handleToggleDrawer}
             size="small"
           >
             <CancelIcon />
           </IconButton>
+
+            </Box>
+         
           <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
             {APP_NAME}
           </Typography>

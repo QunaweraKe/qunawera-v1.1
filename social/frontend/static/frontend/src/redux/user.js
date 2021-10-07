@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import api, { descriptor } from '../api';
 import { route,APP_NAME  } from '../constants';
 
-import { setProfileData } from './profile';
+import { setProfileData, setProfileUser } from './profile';
 import {
   setErrors,
   setLoading,
@@ -186,13 +186,15 @@ export const follow = (slug, userId) => async (dispatch) => {
   }
 };
 
-export const loginUser = (payload, history, profileUser) => async (dispatch) => {
+export const loginUser = (payload, history) => async (dispatch) => {
   const thisKey = key.login;
   try {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.loginUser(payload));
     dispatch(setUser(data));
-    dispatch(setToast(`welcome back to ${APP_NAME}`));
+    const data2 = await api(descriptor.getUser(slug));
+    dispatch(setProfileUser(data2));
+    dispatch(setToast(`Welcome back to ${APP_NAME} ${profileUser.display_name}`));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));

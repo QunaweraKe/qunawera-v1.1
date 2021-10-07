@@ -72,6 +72,7 @@ const RecommendedPosts = () => {
                   <Avatar
                     className={classes.avatar}
                     user={post.author}
+                    size={50}
                   />
                 </ListItemAvatar>
                 <ListItemText
@@ -110,7 +111,7 @@ const RecommendedPosts = () => {
           </CardContent>
 
           <ShowMoreRecommended to={route.recommendedPosts}
-           type="posts" />
+           type="Posts" />
         </>
       );
     } else {

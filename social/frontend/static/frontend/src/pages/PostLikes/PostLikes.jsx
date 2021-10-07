@@ -4,26 +4,24 @@ import React from 'react';
 
 // Material UI
 import Typography from '@material-ui/core/Typography';
-
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListSubheader from '@material-ui/core/ListSubheader';
 // Local
-import AuthLayout from '../../components/AuthLayout';
-import BackButton from '../../components/BackButton';
-import SubHeading from '../../components/SubHeading';
+
 import Loading from '../../components/Loading';
 import NextButton from '../../components/NextButton';
 import NoData from '../../components/NoData';
 import PageTitle from '../../components/PageTitle';
-import PostDetailNav from '../../components/PostDetailNav';
 import UserList from '../../components/UserList';
 
 import useUI from '../../hooks/useUI';
 
 import { getPostLikes, key, selectPostLikes } from '../../redux/post';
 
-import useStyles from './styles';
-
 const PostLikes = () => {
-  const classes = useStyles();
+
+ 
   const dispatch = useDispatch();
   const { postId } = useParams();
 
@@ -69,32 +67,32 @@ const PostLikes = () => {
 
   return (
     <>
-      <PageTitle title="Post likes" />
 
-      <AuthLayout>
-        <SubHeading>
-          <BackButton />
-          <div>
-            <Typography
-              className={classes.heading}
-              variant="h6"
-              style={{fontWeight:"bold"}}
-            >
-              Post likes
-            </Typography>
-          </div>
-        </SubHeading>
-        <PostDetailNav
-          active="likes"
-          postId={postId}
-        />
+      <PageTitle title="Post likes" />
+   
+      <List
+      sx={{
+        width: '100%',
+        maxWidth: 360,
+        bgcolor: 'background.paper',
+        position: 'relative',
+        overflow: 'auto',
+        maxHeight: 300,
+        '& ul': { padding: 0 },
+      }}
+    
+    >
+        <ListSubheader>Liked Post</ListSubheader>
+        <ListItem>
         {render()}
         <NextButton
           callback={handleNext}
           loading={nextLoading}
           nextUrl={postLikes.next}
         />
-      </AuthLayout>
+        </ListItem>
+      
+    </List>
     </>
   );
 };

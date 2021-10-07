@@ -85,9 +85,7 @@ const PostDetail = () => {
           postId={postId}
         />
         {renderPost()}
-        <Heading>
-        <Link style={{fontFamily:"monospace",marginLeft:"30%"}}> View  More Related tasks</Link>
-          
+        <Heading>        
         </Heading>
       </AuthLayout>
     </>

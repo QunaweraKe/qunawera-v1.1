@@ -8,9 +8,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import SearchIcon from '@material-ui/icons/Search';
 import Tooltip from '@material-ui/core/Tooltip';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Paper from '@material-ui/core/Paper';
 
 
@@ -85,7 +83,7 @@ const Home = ( ) => {
             <AppName/>
           </Typography>
         </Box>
-        <DialogPostForm/>
+       
        
       </Box>
       </div>
@@ -141,13 +139,20 @@ const Home = ( ) => {
             </NoData>
           )}
         />
+    
 
+  
         <NextButton
           callback={handleNext}
           loading={nextLoading}
           nextUrl={feed.next}
         />
+       
       </AuthLayout>
+     
+      <DialogPostForm />
+       
+    
     </>
   );
 };

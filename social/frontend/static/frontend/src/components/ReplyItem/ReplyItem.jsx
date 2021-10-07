@@ -135,7 +135,7 @@ const ReplyItem = ({ replyId }) => {
                <LikePost
                  postId={reply.id}
                  size="small"
-                 type="reply"
+                 type="comment"
                />
              </div>
              </Grid>

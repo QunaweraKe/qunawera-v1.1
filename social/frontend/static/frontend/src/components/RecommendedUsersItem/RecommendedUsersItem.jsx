@@ -25,6 +25,7 @@ const RecommendedUserItem = ({ user }) => {
         <Avatar
           className={classes.avatar}
           user={user}
+          size={50}
         />
       </ListItemAvatar>
       <ListItemText

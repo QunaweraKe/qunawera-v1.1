@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import debounce from "lodash/debounce";
 // Material UI
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import SendIcon from '@material-ui/icons/Send';
 
@@ -19,11 +20,16 @@ import { createReply, key, selectReplies } from '../../redux/post';
 import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
+import { FormControl } from '@material-ui/core';
 
 const ReplyForm = ({ postId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-
+  const [isTyping, setIsTyping] = React.useState(false);
+  const handleIsTyping = debounce(function (event) {
+//controls the delay in user typing 
+    setIsTyping(false);
+  }, 2000);
   const user = useSelector(selectUser);
   const replies = useSelector((s) => selectReplies(s, postId));
 
@@ -42,10 +48,12 @@ const ReplyForm = ({ postId }) => {
   };
 
   return (
+    <>
     <form
       className={classes.replyForm}
       onSubmit={handleSubmit}
       noValidate
+      
     >
 
 
@@ -55,7 +63,16 @@ const ReplyForm = ({ postId }) => {
       />
  
       <Paper style={{padding:'0px',width:"100%"}} className={classes.backGround}>
-      <TextField
+ 
+<FormControl
+onChange={(e) => {
+  setIsTyping(true);
+  handleIsTyping();
+}}>
+   <Typography variant="body3">
+     {isTyping && `user is typing....`}
+   </Typography> 
+  <TextField
         className={classes.textField}
         color="textSecondary"
         InputProps={{
@@ -67,6 +84,7 @@ const ReplyForm = ({ postId }) => {
               className={classes.adornment}
               position="end"
             >
+             
               <IconButton
                 color="textSecondary"
                 disabled={loading || replyText.trim().length === 0}
@@ -91,8 +109,16 @@ const ReplyForm = ({ postId }) => {
         value={replyText}
         
       />
+           
+  </FormControl>
+
+      
         </Paper>
+  
+
     </form>
+   
+   </>
   );
 };
 

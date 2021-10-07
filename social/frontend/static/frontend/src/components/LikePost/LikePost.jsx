@@ -22,7 +22,7 @@ import { selectUser } from '../../redux/user';
 
 import useStyles from './styles';
 
-const LikePost = ({ postId, size }) => {
+const LikePost = ({ postId, size ,type}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const LikePost = ({ postId, size }) => {
     if (likedLength > 0) {
       if (isLiked) {
         if (likedLength === 1) {
-          result = `You liked `;
+          result = `You liked this ${type} `;
         } else {
           const subLength = likedLength - 1;
           result = `Liked by you and ${subLength} ${pluralizeOther(subLength)}...`;
@@ -56,7 +56,7 @@ const LikePost = ({ postId, size }) => {
         result = `Liked by ${likedLength} ${pluralizeOther(likedLength)}...`;
       }
     } else {
-      result = `Be the first to like `;
+      result = `Like ${type} `;
     }
     return result;
   };
@@ -90,7 +90,7 @@ const LikePost = ({ postId, size }) => {
 LikePost.propTypes = {
   postId: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
- 
+  type: PropTypes.oneOf(['post', 'comment']).isRequired,
 };
 
 export default LikePost;

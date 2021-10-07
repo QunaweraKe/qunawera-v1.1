@@ -10,7 +10,7 @@ const SkeletonLoader = () => {
 
 
   return (
-    <div style={{marginLeft:"5%", marginTop:8,}}>
+    <div style={{ marginTop:8,}}>
       <Card variant="outlined"
        style={{
         boxShadow:

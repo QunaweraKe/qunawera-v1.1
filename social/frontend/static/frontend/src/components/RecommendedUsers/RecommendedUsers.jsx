@@ -64,7 +64,7 @@ const RecommendedUsers = () => {
             ))}
           </List>
           <ShowMoreRecommended to={route.recommendedUsers} 
-           type="users"/>
+           type="Users"/>
         </>
       );
     } else {

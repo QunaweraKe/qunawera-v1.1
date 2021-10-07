@@ -3,7 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 // Material UI
-import LocationIcon from '@material-ui/icons/LocationOnOutlined';
+
+import Card from '@material-ui/core/Card';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -26,13 +27,15 @@ const UserList = ({ list }) => {
     <List className={classes.userList}>
       {list.map((profileUser) => (
         <>
+ <Card style={{display:"flex",minWidth:350,}}>
         <ListItem
           className={classes.userListItem}
           key={profileUser.id}
         >
+         
           <ListItemAvatar className={classes.avatar}>
             <Avatar user={profileUser} 
-            sx={{width:58,height:58}}/>
+            sx={{width:40,height:40}}/>
           </ListItemAvatar>
           <ListItemText className={classes.listItemText}>
             {profileUser.slug !== user.slug
@@ -58,17 +61,11 @@ const UserList = ({ list }) => {
                  About &middot; {profileUser.profile.bio}
                 </Typography>
               )}
-              {profileUser.profile.location
-              && (
-
-                <Typography color="textSecondary" style =
-                {{fontFamily:"monospace",fontSize:"12px"}}>
-                 <LocationIcon/> {profileUser.profile.location}
-                </Typography>
-              )}
+              
           </ListItemText>
-
+        
         </ListItem>
+        </Card>
         <Divider light/>
         </>
       ))}

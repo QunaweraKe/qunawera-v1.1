@@ -129,7 +129,7 @@ const ProfileInfo = ({ loading, profileUser }) => {
             <Card variant="outlined" square>
             <Typography variant="h6"
              style={{ fontFamily:"monospace"}}>
-            <span style={{ fontWeight: "bolder" }}>Profile info</span>
+            <span style={{ fontWeight: "bolder" }}>Profile Info</span>
             </Typography>
             <Paper square elevation={1} style={{ marginLeft: "2px" }}>
             
