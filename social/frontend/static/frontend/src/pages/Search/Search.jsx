@@ -70,8 +70,9 @@ const Search = () => {
             <div style={{marginLeft:20,}}>
             <SearchInput />
             </div>
+          
         </SubHeading>
-        
+        Looking for posts?
         {render()}
         <NextButton
           callback={handleNext}

@@ -29,13 +29,15 @@ const RecommendedUserItem = ({ user }) => {
         />
       </ListItemAvatar>
       <ListItemText
-        primary={user.display_name}
+        primary={user.display_name.charAt(0).toUpperCase() + user.display_name.slice(1)}
         primaryTypographyProps={{
           className: classes.displayName,
           component: Link,
           to: route.profilePosts(user.slug),
           variant: 'body2',
+          
         }}
+        style={{fontWeight:700,}}
       />
       <ListItemSecondaryAction>
         <FollowButton user={user} />

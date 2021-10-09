@@ -443,7 +443,7 @@ export const closePost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.closePost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Post Closed'));
+    dispatch(setToast('Post closing...'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -457,7 +457,7 @@ export const openPost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.openPost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Your post is visible again'));
+    dispatch(setToast('Post opening...  '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

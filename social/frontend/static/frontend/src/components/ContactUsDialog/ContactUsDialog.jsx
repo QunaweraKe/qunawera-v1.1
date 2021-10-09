@@ -1,31 +1,24 @@
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
+
 
 // MATERIAL UI
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Grid from '@material-ui/core/Grid';
 //local import
-import { createContactUs, key } from '../../redux/user';
-import PageTitle from '../../components/PageTitle';
 
+import { selectUser,createContactUs, key } from '../../redux/user';
+import PageTitle from '../../components/PageTitle';
+import Avatar from '../../components/Avatar';
 const ContactUsDialog= () => {
   const dispatch = useDispatch();
  const [description, setDescription] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [Screenshot, setScreenshot] = React.useState(null);
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-
   const handleScreenshot = (event) => {
     event.preventDefault();
     console.log(event.target.files);
@@ -61,25 +54,24 @@ const ContactUsDialog= () => {
     setEmail('');
   };
 
-
+  const user = useSelector(selectUser);
  
   return (
    <div>
       <PageTitle title="Reach Us" />
 
      <>
+     <div style={{display:"flex",marginLeft:5,marginBottom:8,}}>
+     <Avatar user={user} />
+<Typography align="center" style={{fontFamily:"monospace",marginTop:5,marginLeft:5,}}>
+  
+  Hi ,{user.display_name} talk to us
 
-     <Accordion
-          expanded={expanded === 'support'}
-          onChange={handleChange('support')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            id="support-header"
-          >
-            <Typography style={{fontFamily:"monospace"}}>Reach Us </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
+</Typography>
+     </div>
+     
+  
+         
           <form  onSubmit={handleSubmit}>
   
   <TextField
@@ -94,6 +86,9 @@ const ContactUsDialog= () => {
      fullWidth
      required="True"
   />
+  <br/>
+   <Grid container={true} spacing={4}>
+     <Grid item xs={12} sm={6}>
     <TextField
      style={{marginTop:"10px"}}
      variant="outlined"
@@ -102,24 +97,29 @@ const ContactUsDialog= () => {
     onChange={handleTitle}
     type="text"
     value={title}
-    fullWidth
     name="title"
     required="True"
   />
+       </Grid >
+<br/>
+<Grid item xs={12} sm={6}>
      <TextField
-     style={{marginTop:"10px"}}
+     style={{marginTop:10,}}
      variant="outlined"
      multiline
-    rows={6}
+    rows={2}
     id="description"
     label="Description"
     onChange={handleDescription}
     type="text"
     value={description}
-    fullWidth
     name="description"
     required="True"
+
   />
+    </Grid>
+              </Grid>
+
   <input
   onChange={handleScreenshot}
   name="Screenshot"
@@ -127,17 +127,15 @@ const ContactUsDialog= () => {
   type="file"
   />
   
-
-  <Button fullWidth  type="submit" color="primary" variant="contained" >
+<br/>
+  <Button  fullWidth  type="submit" color="primary" variant="outlined" >
     Submit
   </Button>
 
   
 </form>
-          </AccordionDetails>
-          </Accordion>
      
-     
+   
   </>
       
     </div>

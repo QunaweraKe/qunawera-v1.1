@@ -37,7 +37,7 @@ const ContactUs = () => {
             </Typography>
         
             <Typography component="subtitle1" variant="h5" align="center" color="primary">
-            Support Center
+            Help Center
             </Typography>
               
           </Container>

@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
   },
+  paper: {
+    margin:theme.spacing(1),  
+  },
   refreshButton: {
     color: theme.palette.primary.main,
     position: 'absolute',
@@ -56,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     marginBottom: theme.spacing(2),
     width:"100%",
+    padding:theme.spacing(1)
   },
   title: {
     fontWeight: 'bold',

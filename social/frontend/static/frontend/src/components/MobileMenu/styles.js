@@ -22,7 +22,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+ paper: {
+  height:'calc(100%- 64px)',
+  top:60,
+  bottom:0,
+  borderTopRightRadius:15,
  
+  },
   list: {
     width: 350,
     fontWeight:"bolder"
@@ -45,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3),
     padding: theme.spacing(1, 2),
 
-
+    borderBottomLeftRadius:5,
+    borderBottomRightRadius:5,
   },
   userInfoContainer: {
     marginBottom: theme.spacing(2),

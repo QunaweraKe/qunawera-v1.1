@@ -6,11 +6,9 @@ import { Link } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Tooltip from '@material-ui/core/Tooltip';
 import Paper from '@material-ui/core/Paper';
-
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
 // Local
 
@@ -32,17 +30,6 @@ import { getFeed, key, selectFeed } from '../../redux/post';
 import { route } from '../../constants';
 
 
-
-
-const CustomTooltip = withStyles((theme) => ({
-  tooltip: {
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.6)',
-    maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
-  },
-}))(Tooltip);
 
 const Home = ( ) => {
   const [open, setOpen] = React.useState(false);
@@ -83,7 +70,23 @@ const Home = ( ) => {
             <AppName/>
           </Typography>
         </Box>
-       
+       <Box>
+       <Button
+              fullWidth
+              color='primary'
+              component={Link}
+              size="large"
+              startIcon={
+               
+                <SearchOutlinedIcon />
+                
+              }
+              to={route.search}
+            >
+              <span className="nav-button-text">Search</span>
+            </Button>
+
+         </Box>
        
       </Box>
       </div>

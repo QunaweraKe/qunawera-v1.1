@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Material UI
 import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
@@ -56,12 +57,20 @@ const RecommendedUsers = () => {
             className={classes.list}
             disablePadding
           >
+          
             {users.map((user) => (
+                <Paper
+                variant="outlined"
+                className={classes.paper}
+              
+               >
               <RecommendedUsersItem
                 key={user.id}
                 user={user}
               />
+               </Paper>
             ))}
+           
           </List>
           <ShowMoreRecommended to={route.recommendedUsers} 
            type="Users"/>

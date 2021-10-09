@@ -13,11 +13,12 @@ import Typography from '@material-ui/core/Typography';
 import CancelIcon from '@material-ui/icons/Cancel';
 import ListIcon from '@material-ui/icons/List';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useTheme} from '@material-ui/core/styles';
 import NOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import PersonOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { APP_NAME, route } from '../../constants';
 import { selectUnreadNotificationsCount } from '../../redux/notifications';
@@ -32,6 +33,7 @@ import DeviceDetection from '../DeviceDetection';
 
 
 const MobileMenu = () => {
+  const theme=useTheme();
   const classes = useStyles();
   const unreadNotificationsCount =  useSelector(selectUnreadNotificationsCount);
   const user = useSelector(selectUser);
@@ -53,16 +55,15 @@ const MobileMenu = () => {
       </IconButton>
 
       <Drawer
-        anchor="bottom"
-        openSecondary={true}
+        anchor={theme.direction ==='rtl'? 'right':'left'}
         docked={true} 
         open={drawerOpen}
         onClose={handleToggleDrawer}
-       
+        classes={{paper:classes.paper}}
       >
         <div className={classes.titleContainer}>
         <PageTitle title="mobile" />
-        <Box position="absolute" top={1} right={2}>
+        <Box position="absolute" top={3} right={5}>
 
         <IconButton
             color="primary"

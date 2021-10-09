@@ -77,7 +77,7 @@ ref={ref}
         onEntered={handleEntered}
      
         text={`
-        This action will  change the status of the post to closed which means it wont be visible to you and those following you .Are you sure about this?
+        Closing a post means it will appear only on your profile.Are you sure about this?
         `}
   
       />

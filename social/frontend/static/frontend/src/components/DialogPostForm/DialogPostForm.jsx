@@ -30,7 +30,6 @@ import DialogCloseButton from '../DialogCloseButton';
 import useUI from '../../hooks/useUI';
 import { isEmpty } from '../../utils';
 import { createPost, key } from '../../redux/post';
-
 import useStyles from './styles';
 import { DialogContentText } from '@material-ui/core';
 //functions
@@ -125,8 +124,6 @@ const DialogPostForm = () => {
   };
 
 
-
-
   return (
     <>
       <div >
@@ -137,9 +134,9 @@ const DialogPostForm = () => {
                variant="extended"
                color="primary" aria-label="edit" 
                sx={{ mr: 2}}
-               style={{margin:10,bottom:20,right:30,left:"auto",position:"fixed"}}>
+               style={{margin:10,bottom:10,right:30,left:"auto",position:"fixed"}}>
             <EditIcon />
-            Create New
+            Post
             </Fab>
         </CustomTooltip>
       </div>

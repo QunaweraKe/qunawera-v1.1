@@ -192,9 +192,9 @@ export const loginUser = (payload, history) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.loginUser(payload));
     dispatch(setUser(data));
-    const data2 = await api(descriptor.getUser(slug));
-    dispatch(setProfileUser(data2));
-    dispatch(setToast(`Welcome back to ${APP_NAME} ${profileUser.display_name}`));
+    const user = await api(descriptor.getUser(slug));
+   
+    dispatch(setToast(`Welcome back to ${APP_NAME} ${user.name} `));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));

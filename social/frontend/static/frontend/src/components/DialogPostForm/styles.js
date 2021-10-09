@@ -18,7 +18,12 @@ const useStyles = makeStyles((theme) => ({
     margin:theme.spacing(1),
 
   },
+  fab:{
+    
+    padding:theme.spacing(3),
+    marginBottom:theme.spacing(1),
 
+  },
   addButton: {
     margin:theme.spacing(1),
     marginTop:25,
@@ -26,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
 imageCard:{
   border:'dotted',
   borderWidth:2,
-  borderColor:theme.palette.grey[500],
+  borderColor:theme.palette.grey[100],
    marginTop: 5,
    borderRadius: 5, 
    marginBottom: 5,
-     width: "250px" ,
+     width: "400px" ,
 },
 }));
 

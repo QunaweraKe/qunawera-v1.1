@@ -66,11 +66,14 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     marginBottom: theme.spacing(2),
     width:"100%",
+    border:"solid",
+  
   },
   title: {
     fontWeight: 'bold',
     textAlign:"center",
   },
+ 
 }));
 
 export default useStyles;
