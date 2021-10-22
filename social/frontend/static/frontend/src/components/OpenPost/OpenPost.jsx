@@ -55,7 +55,7 @@ ref={ref}
          </ListItemIcon>
 
 <ListItemText
-  primary=" Open "
+  primary=" Open Post "
   primaryTypographyProps={{
     
   }}

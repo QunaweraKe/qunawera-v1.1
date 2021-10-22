@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 // Local
 import api, { descriptor } from '../api';
 import { route,APP_NAME  } from '../constants';
@@ -194,7 +194,7 @@ export const loginUser = (payload, history) => async (dispatch) => {
     dispatch(setUser(data));
     const user = await api(descriptor.getUser(slug));
    
-    dispatch(setToast(`Welcome back to ${APP_NAME} ${user.name} `));
+    dispatch(setToast(`Glad to see you back to ${APP_NAME} $<SearchOutlinedIcon/>`));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));

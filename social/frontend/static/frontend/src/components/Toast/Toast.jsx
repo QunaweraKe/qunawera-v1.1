@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 // Material UI
 import Snackbar from '@material-ui/core/Snackbar';
 import Typography from '@material-ui/core/Typography';
-
+import IconButton from '@material-ui/core/IconButton';
 import Alert from '@material-ui/lab/Alert';
 
 // Local
@@ -39,10 +39,10 @@ const Toast = ({ message, severity }) => {
         elevation={1}
         onClose={handleClose}
         severity={severity}
-        icon={false} 
-        style={{borderRadius:50,}}
+       
+      
       >
-        <Typography style={{fontFamily:"RobotoDraft",fontSize:16,alignItems:"center",padding:"3px 4px",transitionDuration:"1s",}}>
+        <Typography style={{fontFamily:"RobotoDraft",fontSize:16,alignItems:"center",transitionDuration:"1s",}}>
         {message}
         </Typography>
        
@@ -52,7 +52,7 @@ const Toast = ({ message, severity }) => {
 };
 
 Toast.defaultProps = {
-  severity:   'info',
+  severity:   'success',
 };
 
 Toast.propTypes = {

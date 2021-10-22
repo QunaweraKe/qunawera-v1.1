@@ -6,6 +6,10 @@ from django.utils.text import slugify
 from django.utils.timezone import now
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import UserManager
+from PIL import Image
+
+
+
 
 
 class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
@@ -41,7 +45,8 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
     REQUIRED_FIELDS = ["email","name"]
     EMAIL_FIELD = "email"
 
-
+    
+   
     def display_name(self) -> str:
         """Get user's display name.
 
@@ -81,13 +86,12 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
         - Make sure the user's email is all lowercase.
         - Create a slug for the user.
         """
+
         self.email = self.email.lower()
         self.slug = slugify(self.username, allow_unicode=True)
         super().save(*args, **kwargs)
+       
 
-
-        
-    
 
 
     def unfollow(self, user: object) -> None:
@@ -113,8 +117,16 @@ class Profile(models.Model):
     )
     user = models.OneToOneField("users.User", on_delete=models.CASCADE)
     website = models.URLField(blank=True)
-    
-
+    def save(self,*args,**kwargs):
+        super(Profile,self).save(*args,**kwargs)
+        try:
+            image_var=Image.open(self.image.path)
+            if image_var.height >350 or image_var.width >350:
+                output=(350,350)
+                image_var.thumbnail(output)
+                image_var.save(self.image.path)
+        except:
+            pass
   
     def __str__(self):
         return self.user.username

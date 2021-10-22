@@ -30,7 +30,7 @@ import Avatar from '../Avatar';
 import LogOut from '../LogOut';
 import useStyles from './styles';
 import DeviceDetection from '../DeviceDetection';
-
+import APPNAME from '../AppName';
 
 const MobileMenu = () => {
   const theme=useTheme();
@@ -63,7 +63,7 @@ const MobileMenu = () => {
       >
         <div className={classes.titleContainer}>
         <PageTitle title="mobile" />
-        <Box position="absolute" top={3} right={5}>
+        <Box position="absolute" top={3} right={15}>
 
         <IconButton
             color="primary"
@@ -76,23 +76,25 @@ const MobileMenu = () => {
             </Box>
          
           <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
-            {APP_NAME}
+             <APPNAME/>
           </Typography>
         </div>
         <div className={classes.userInfoContainer}>
-        <Card  >
+        <Card variant="outlined"className={classes.paper} >
         <CardContent>
+          <div style={{display:"flex",padding:5,}}>
           <Avatar
             className={classes.avatar}
-            size={70}
+            size={50}
             user={user}
           />
          
 
-          <Typography variant="subtitle1">
-           {user.display_name}  
+          <Typography variant="subtitle1" style={{marginTop:5,marginLeft:5,fontWeight:"bold",fontSize:"1em"}}>
+           {user.display_name.charAt(0).toUpperCase() + user.display_name.slice(1)} 
+            
           </Typography>
-           
+           </div>
 
         </CardContent>
          </Card>

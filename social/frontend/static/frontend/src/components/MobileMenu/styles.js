@@ -24,9 +24,10 @@ const useStyles = makeStyles((theme) => ({
 
  paper: {
   height:'calc(100%- 64px)',
-  top:60,
+  top:50,
   bottom:0,
-  borderTopRightRadius:15,
+  backgroundColor:theme.palette.grey[50],
+  maxWidth:300,
  
   },
   list: {

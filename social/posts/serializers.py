@@ -23,10 +23,7 @@ class PostParentSerializer(serializers.ModelSerializer):
         ]
 
 class BasePostSerializer(serializers.ModelSerializer):
-    
-    image = serializers.ImageField(
-        use_url=True,required=False,allow_empty_file=True,allow_null=True
-    )  
+  
       
     author = UserSerializer(read_only=True)
     body = serializers.CharField(allow_blank=False,required=True)
@@ -58,6 +55,7 @@ class BasePostSerializer(serializers.ModelSerializer):
              "is_reported",
              "deleted",
            "report_statement",
+           "requirements",
             
         ]
 

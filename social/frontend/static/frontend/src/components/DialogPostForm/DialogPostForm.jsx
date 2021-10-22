@@ -50,6 +50,7 @@ const DialogPostForm = () => {
   const [image, setImage] = React.useState({ preview: "", raw: "" });
   const [body, setBody] = React.useState("");
   const [title, setTitle] = React.useState("");
+  const [requirements, setRequirement] = React.useState("");
 
 
 
@@ -64,11 +65,17 @@ const DialogPostForm = () => {
     }
 
   };
+  const handleRequirement = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setRequirement(event.target.value);
+  };
   const handleBody = (event) => {
     event.preventDefault();
     console.log(event.target.value);
     setBody(event.target.value);
   };
+
   const removeImage = (event) => {
     event.preventDefault();
     setImage('')
@@ -109,6 +116,7 @@ const DialogPostForm = () => {
 
     try {
       const formData = new FormData();
+      formData.append("requirements", requirements);
       formData.append("body", body);
       formData.append("title", title);
       formData.append("image", image.raw, image.name);
@@ -158,14 +166,14 @@ const DialogPostForm = () => {
               Form has invalid inputs.
             </Alert>
           )}
-        <Container maxWidth="sm">
-      
-          <DialogTitle>
-            <Box position="absolute" top={0} right={0}>
+        <Container maxWidth="md">
+        <Box position="absolute" top={0} right={0}>
 
               <DialogCloseButton onClick={handleClose} />
 
             </Box>
+          <DialogTitle>
+          
             <Typography
               variant="h5"
               align="center"
@@ -214,6 +222,25 @@ const DialogPostForm = () => {
                 variant="outlined"
                 rows={5}
                 value={body}
+
+              />
+
+
+              <br />
+              <TextField
+                className={classes.margin}
+              
+                autoComplete="off"
+                multiline
+                fullWidth
+                id="requirements"
+                label="Task Requirements"
+                name="requirements"
+                onChange={handleRequirement}
+                type="text"
+                variant="outlined"
+                rows={3}
+                value={requirements}
 
               />
 
@@ -279,7 +306,7 @@ const DialogPostForm = () => {
 
               <br />
               <Button
-                fullWidth
+           
                 size="large"
                 color="primary"
                 disabled={loading}

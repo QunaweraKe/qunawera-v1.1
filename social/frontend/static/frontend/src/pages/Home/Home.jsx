@@ -82,6 +82,7 @@ const Home = ( ) => {
                 
               }
               to={route.search}
+              style={{flexGrow:2,borderRadius:25,right:0,}}
             >
               <span className="nav-button-text">Search</span>
             </Button>

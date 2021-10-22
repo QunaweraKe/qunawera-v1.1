@@ -39,7 +39,7 @@ const FollowTextLink = ({ className, user, }) => {
       onClick={handleFollow}
      style={{fontSize:"13px",fontWeight:"bold"}}
     >
-      {following ? 'following' : 'follow'}
+      {following ? 'unfollow' : 'follow'}
       {loading && <CircularProgress />}
      
     </IconButton>

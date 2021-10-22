@@ -62,7 +62,8 @@ ref={ref}
          
 
 <ListItemText
-  primary=" Report "
+  primary={`Report  ${type} 
+  `}
   primaryTypographyProps={{
     
   }}
@@ -81,7 +82,7 @@ ref={ref}
         onClick={handleClose}
         onEntered={handleEntered}
         text={`
-        Do you really want to report this  ${type} as inappropiate?
+        Do you really want to report this  as inappropiate?
         `}
   
       />
@@ -92,7 +93,7 @@ ref={ref}
 ReportPost.propTypes = {
   postId: PropTypes.number.isRequired,
   setAnchorEl: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['post', 'comment']).isRequired,
+  type: PropTypes.oneOf(['Post', 'Comment']).isRequired,
 };
 
 export default ReportPost;

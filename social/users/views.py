@@ -42,12 +42,8 @@ class EditProfileAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
         return self.request.user.profile
 
     def delete (self, request):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            remove_image = serializer.validated_data.get("image")
-            remove_image.delete(save=False)
-            return Response(status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+         self.user.profile.image.delete(save=False)  # delete old image file
+
 
 
 class EditUserAPIView(rest_generics.RetrieveUpdateDestroyAPIView):

@@ -29,7 +29,7 @@ import { editPost, key, selectPost } from '../../redux/post';
 
 const EditPost = React.forwardRef((props, ref) => {
   const classes = useStyles();
-  const { postId, setAnchorEl } = props;
+  const { postId, setAnchorEl,type } = props;
   const dispatch = useDispatch();
 
   const originalBody = useSelector((s) => selectPost((s), postId)).body;
@@ -77,7 +77,12 @@ const EditPost = React.forwardRef((props, ref) => {
         <ListItemIcon>
          <BorderColorIcon/>
         </ListItemIcon>
-        <ListItemText primary="Edit " 
+
+
+        
+        <ListItemText 
+        primary={`Edit  ${type} 
+  `}
          classes={{primary:classes.listItem}}/>
       </MenuItem>
       <Dialog
@@ -91,7 +96,7 @@ const EditPost = React.forwardRef((props, ref) => {
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
           <Typography variant="h6">
-            Edit
+            Edit 
           </Typography>
         </DialogTitle>
         <br/>
@@ -147,6 +152,7 @@ const EditPost = React.forwardRef((props, ref) => {
 EditPost.propTypes = {
   postId: PropTypes.number.isRequired,
   setAnchorEl: PropTypes.func.isRequired,
+  type: PropTypes.oneOf(['Post', 'Comment']).isRequired,
 };
 
 export default EditPost;

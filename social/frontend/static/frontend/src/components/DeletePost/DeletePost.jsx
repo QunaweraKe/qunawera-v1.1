@@ -34,10 +34,10 @@ const DeletePost = React.forwardRef((props, ref) => {
   };
 
   const handleDelete = async () => {
-    if (type === 'post') {
+    if (type === 'Post') {
       await dispatch(removePost(postId, post.author.slug));
     }
-    if (type === 'reply') {
+    if (type === 'Comment') {
       await dispatch(removeReply(postId, post.parent.id));
     }
   };
@@ -59,7 +59,8 @@ const DeletePost = React.forwardRef((props, ref) => {
          
 
         <ListItemText
-          primary="Delete"
+          primary={`Delete  ${type} 
+          `}
           primaryTypographyProps={{
             
           }}
@@ -85,7 +86,7 @@ const DeletePost = React.forwardRef((props, ref) => {
 
 DeletePost.propTypes = {
   postId: PropTypes.number.isRequired,
-  type: PropTypes.oneOf(['post', 'reply']).isRequired,
+  type: PropTypes.oneOf(['Post', 'Comment']).isRequired,
 };
 
 export default DeletePost;

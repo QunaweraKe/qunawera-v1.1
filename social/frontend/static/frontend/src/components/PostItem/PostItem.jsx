@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory ,Link} from 'react-router-dom';
 //Material UI
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,7 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import RateReviewOutlinedIcon  from '@material-ui/icons/RateReviewOutlined';
 //Local 
@@ -30,6 +32,7 @@ import PostParent from '../PostParent';
 import ReplyForm from '../ReplyForm';
 import ReplyItem from '../ReplyItem';
 import useStyles from './styles';
+import { route } from '../../constants';
 
 
 
@@ -37,7 +40,9 @@ import useStyles from './styles';
 
 
 const PostItem = ({ expandReplies, postId }) => {
-
+  const pluralizeLikes = (length) => (length !== 1 ? 'Likes' : 'Like');
+  const pluralizeComments = (length) => (length !== 1 ? 'Comments' : 'Comment');
+  const pluralizeShares = (length) => (length !== 1 ? 'Shares' : 'Share');
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -159,7 +164,69 @@ const PostItem = ({ expandReplies, postId }) => {
 
         </div>
        
-       
+        <Grid container spacing={1}  >
+          <Grid item >
+            {post.is_active
+              && (
+                <ButtonGroup
+                  size="small" disableElevation className={classes.buttonGroup}>
+                  <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}
+                    component={Link}
+                    to={route.postLikes(post.id)}>{pluralizeLikes(post.liked.length)}</Button>
+
+                  <Button
+                    component={Link}
+                    to={route.postLikes(post.id)}
+                    style={{ borderRadius: 6, marginLeft: "1%", color: "red" }}>
+
+                    {post.liked.length || 0}
+                  </Button>
+                </ButtonGroup>
+              )}
+          </Grid >
+
+          <Grid item >
+            {post.is_active
+              && (<>
+
+                <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
+                  <Button variant="standard" size="small" style={{ fontFamily: "monospace" }}>{pluralizeComments(post.reply_ids?.length)}</Button>
+                  <Button
+                    component={Link}
+                    to={route.postDetail(post.id)}
+                    color="primary" style={{ borderRadius: 6, marginLeft: "1%" }}>
+                    {post.reply_ids?.length || 0}
+                  </Button>
+                  &middot;
+
+
+                </ButtonGroup>
+              </>
+              )}
+          </Grid >
+          <Grid item >
+
+            {post.parent
+
+              ? (<>
+              </>
+              ) : (
+                <>
+                  {post.is_active
+                    && (
+                      <ButtonGroup size="small" disableElevation className={classes.buttonGroup}>
+                        <Button size="small" variant="standard" style={{ fontFamily: "monospace" }}>{pluralizeShares(post.repost_ids?.length)}</Button>
+                        <Button
+
+                          color="textSecondary" style={{ borderRadius: 6, marginLeft: "1%" }}>
+                          {post.repost_ids?.length || 0}
+                        </Button>
+                      </ButtonGroup>
+                    )}
+                </>
+              )}
+          </Grid >
+        </Grid >  
           
         
 

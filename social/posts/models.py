@@ -1,10 +1,20 @@
 
+import random
 from django.db import models
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import PostManager
 from django.template.defaultfilters import truncatechars
 from django.contrib.auth import  get_user_model
+import string
+
+from PIL import Image
 User = get_user_model()
+
+def generate_unique_id(size=6,chars=string.ascii_uppercase +string.digits):
+
+    return ''.join(random.choice(chars) for _ in range (size))
+
+
 class Post(SoftDeleteMixin, TimestampMixin):
   
     """
@@ -32,13 +42,17 @@ class Post(SoftDeleteMixin, TimestampMixin):
     body = models.TextField(
         blank=True,
         max_length=1500,
+
     )
+            #CUSTOM post id
+    posts_id=models.CharField(max_length=8,default=generate_unique_id,unique=True,null=False)
     updated_at=models.DateTimeField(
         auto_now=True,
         db_index=True,
         null=True,
         editable=False
     )
+    requirements=models.TextField(max_length=800,null=True)
     deleted=models.BooleanField(default=False)
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -65,6 +79,23 @@ class Post(SoftDeleteMixin, TimestampMixin):
     is_reported=models.BooleanField(default=False)
     report_statement=models.TextField(max_length=450)
 
+
+    def save(self,*args,**kwargs):
+        super(Post,self).save(*args,**kwargs)
+        if not self.posts_id :
+            self.posts_id = generate_unique_id()
+            while Post.objects.filter(posts_id=self.posts_id).exists():
+                self.posts_id= generate_unique_id()
+               
+
+        try:
+            image_var=Image.open(self.image.path)
+            if image_var.height >350 or image_var.width >350:
+                output=(350,350)
+                image_var.thumbnail(output)
+                image_var.save(self.image.path)
+        except:
+            pass
     def __str__(self):
         ellipsis = "..." if len(self.body) > 60 else ""
         return f"{self.body[:100]}{ellipsis}"
@@ -89,7 +120,7 @@ class Post(SoftDeleteMixin, TimestampMixin):
     def short_title(self):
         return truncatechars(self.title,100)
     @property
-    def approved(self):
+    def published(self):
         return (self.is_active)
     @property
     def image_url(self):
@@ -98,4 +129,3 @@ class Post(SoftDeleteMixin, TimestampMixin):
 
     class Meta:
           verbose_name_plural="Active posts"
-

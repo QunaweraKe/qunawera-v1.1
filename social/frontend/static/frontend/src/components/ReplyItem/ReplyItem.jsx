@@ -100,17 +100,18 @@ const ReplyItem = ({ replyId }) => {
                   <DeletePost
                     setAnchorEl={setAnchorEl}
                     postId={reply.id}
-                    type="reply"
+                    type="Comment"
 
                   />
                   <EditPost
                     setAnchorEl={setAnchorEl}
                     postId={reply.id}
+                    type="Comment"
                   />
                   <ReportPost
                     setAnchorEl={setAnchorEl}
                     postId={reply.id}
-                    type="comment"
+                    type="Comment"
                     
                   />
                 </Menu>

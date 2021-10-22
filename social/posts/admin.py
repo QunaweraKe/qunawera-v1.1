@@ -20,7 +20,7 @@ class PostsAdmin(admin.ModelAdmin,ExportCsvMixin):
         return actions
     def activate_selected_post(modeladmin,request,queryset):
         queryset.update(is_active=True)
-    activate_selected_post.short_description = "Activate Selected Posts"
+    activate_selected_post.short_description = "Publish Selected Posts"
     def approve_reported(modeladmin,request,queryset):
         queryset.update(is_reported=True, is_active=False)
     approve_reported.short_description = "Approve Reported Posts"
@@ -35,9 +35,10 @@ class PostsAdmin(admin.ModelAdmin,ExportCsvMixin):
     open_selected_post.short_description = "Open All Selected Posts" 
     def deactivate_selected_post(modeladmin,request,queryset):
         queryset.update(is_active=False)
+    deactivate_selected_post.short_description = "Unpublish Selected Posts"
         
    # readonly_fields=("liked","is_reply","author","image","thumbnail")
-    list_display=("id","author","approved","parent","short_title","short_body","image_url","likes_count","deleted","closed","created_at","updated_at","is_reported","report_statement")
+    list_display=("posts_id","author","published","parent","short_title","short_body","requirements","image_url","likes_count","deleted","closed","created_at","updated_at","is_reported","report_statement")
     search_fields=["author__name"]
     list_filter=('is_active','closed',"is_reply",)
     list_display_links = ("author",)

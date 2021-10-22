@@ -26,10 +26,12 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1.5, 2),
   },
   banner: {
+
     padding:4,
-    backgroundColor: theme.palette.grey[100],
+    backgroundColor: theme.palette.grey[50],
     borderColor: theme.palette.grey[100],
     border:"solid",
+    borderWidth:1,
     backgroundImage: (profileUser) => (
       profileUser.profile?.banner
         ? `url(${profileUser.profile.banner})`
@@ -39,9 +41,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     height: 200,
     position: 'relative',
-    width: '100%',
     marginTop:5,
-    borderRadius:5,
+  
   
   },
   bio: {
