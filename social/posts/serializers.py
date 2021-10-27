@@ -29,7 +29,6 @@ class BasePostSerializer(serializers.ModelSerializer):
     body = serializers.CharField(allow_blank=False,required=True)
     title = serializers.CharField(allow_blank=True,required=False)
     is_author = serializers.SerializerMethodField()
-    
     parent = PostParentSerializer(read_only=True)
     parent_id = serializers.IntegerField(
         required=False, write_only=True, allow_null=True

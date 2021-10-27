@@ -136,6 +136,7 @@ const Index = () => {
           <Typography className={classes.ctaItem}
             color="secondary"
             variant="subtitle4"
+            style={{ textShadow: '#4A744D 1px 1px',textShadow:'#4A744D 0px 0px',textShadow:'#4A744D 1px 1px',textShadow:'#4A744D 2px 2px',textShadow:'#4A744D 3px 3px',textShadow:'#4A744D 4px 4px',textShadow:'#4A744D 5px 5px',textShadow:'#4A744D 6px 6px',textShadow:'#4A744D 7px 7px',textShadow:'#4A744D 8px 8px',textShadow:'#4A744D 9px 9px',textShadow:'#4A744D 10px 10px',textShadow:'#4A744D 11px 11px',textShadow:'#4A744D 12px 12px',textShadow:'#4A744D 13px 13px',textShadow:'#4A744D 14px 14px',textShadow:'#4A744D 15px 15px',textShadow:'#4A744D 16px 16px',textShadow: '#4A744D 1px 1px',textShadow:'#4A744D 0px 0px',textShadow:'#4A744D 1px 1px',textShadow:'#4A744D 2px 2px',textShadow:'#4A744D 3px 3px',textShadow:'#4A744D 4px 4px',textShadow:'#4A744D 5px 5px',textShadow:'#4A744D 6px 6px',textShadow:'#4A744D 7px 7px',textShadow:'#4A744D 8px 8px',textShadow:'#4A744D 9px 9px',textShadow:'#4A744D 10px 10px',textShadow:'#4A744D 11px 11px',textShadow:'#4A744D 12px 12px',textShadow:'#4A744D 13px 13px',textShadow:'#4A744D 14px 14px',textShadow:'#4A744D 15px 15px',textShadow:'#4A744D 16px 16px'}}
             >
 
              Stranded with a task?
