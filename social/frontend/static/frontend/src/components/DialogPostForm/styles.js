@@ -37,6 +37,13 @@ imageCard:{
    marginBottom: 5,
      width: "400px" ,
 },
+paper: {
+  height:'calc(100%- 64px)',
+  top:50,
+  bottom:10,
+  backgroundColor:"transparent",
+ 
+  },
 }));
 
 export default useStyles;

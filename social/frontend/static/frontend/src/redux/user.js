@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 // Local
 import api, { descriptor } from '../api';
 import { route,APP_NAME  } from '../constants';
@@ -192,9 +191,8 @@ export const loginUser = (payload, history) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     const data = await api(descriptor.loginUser(payload));
     dispatch(setUser(data));
-    const user = await api(descriptor.getUser(slug));
    
-    dispatch(setToast(`Glad to see you back to ${APP_NAME} $<SearchOutlinedIcon/>`));
+    dispatch(setToast(`Welcome back to ${APP_NAME}`));
   } catch (error) {
     if (error.response) {
       dispatch(setErrors(NAMESPACE, thisKey, error.response.data));
@@ -216,7 +214,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.logoutUser);
     dispatch(logout());
-    dispatch(setToast('You have been logged out,Bye! '));
+    dispatch(setToast('You have been logged out... '));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

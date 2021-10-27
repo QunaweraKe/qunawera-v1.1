@@ -57,7 +57,7 @@ ref={ref}
          </ListItemIcon>
 
 <ListItemText
-  primary=" Close Post"
+  primary=" Mark as Finished"
   primaryTypographyProps={{
     
   }}

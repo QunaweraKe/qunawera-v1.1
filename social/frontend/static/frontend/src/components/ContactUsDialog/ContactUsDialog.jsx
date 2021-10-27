@@ -61,11 +61,11 @@ const ContactUsDialog= () => {
       <PageTitle title="Reach Us" />
 
      <>
-     <div style={{display:"flex",marginLeft:5,marginBottom:8,}}>
+     <div style={{display:"flex",marginLeft:20,marginBottom:8,}}>
      <Avatar user={user} />
 <Typography align="center" style={{fontFamily:"monospace",marginTop:5,marginLeft:5,}}>
   
-  Hi ,{user.display_name} talk to us
+  Hi ,{user.display_name} talk to us...
 
 </Typography>
      </div>
@@ -99,6 +99,7 @@ const ContactUsDialog= () => {
     value={title}
     name="title"
     required="True"
+    fullWidth
   />
        </Grid >
 <br/>
@@ -107,7 +108,7 @@ const ContactUsDialog= () => {
      style={{marginTop:10,}}
      variant="outlined"
      multiline
-    rows={2}
+    rows={5}
     id="description"
     label="Description"
     onChange={handleDescription}
@@ -115,7 +116,7 @@ const ContactUsDialog= () => {
     value={description}
     name="description"
     required="True"
-
+    fullWidth
   />
     </Grid>
               </Grid>
@@ -128,7 +129,7 @@ const ContactUsDialog= () => {
   />
   
 <br/>
-  <Button  fullWidth  type="submit" color="primary" variant="outlined" >
+  <Button  fullWidth  type="submit" color="primary" variant="contained" >
     Submit
   </Button>
 

@@ -138,79 +138,6 @@ const PostItemFeeds = ({ postId }) => {
                   </>
                 )}
 
-              {post.is_author && post.is_active
-                && (
-                  <MenuItem className={classes.actionButton} color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-                    <ListItemIcon>
-                      < PersonAddIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="More Actions " classes={{ primary: classes.listItem }} />
-                  </MenuItem>
-                )}
-              <Menu
-                classes={{ paper: classes.menuPaper }}
-                anchorEl={anchor}
-                anchorOrigin={{
-                  horizontal: 'left',
-                  vertical: 'top',
-
-                }}
-
-                getContentAnchorEl={null}
-                keepMounted
-                open={Boolean(anchor)}
-                onClose={handleClose}
-                transformOrigin={{
-                  horizontal: 'right',
-                  vertical: 'bottom',
-                }}
-              >
-           
-                  
-                {post.is_author && post.is_active
-                  && (
-                    <>
-
-
-                      <EditPost
-                        setAnchorEl={setAnchorEl}
-                        postId={post.id}
-                        type="Post"
-                      />
-
-                      {post.parent
-
-                        ? (<>
-                        </>
-                        ) : (
-                          <>
-
-                            {post.closed
-
-                              ? (
-                                <OpenPost
-                                  setAnchorEl={setAnchorEl}
-                                  postId={post.id}
-                                />) : (
-                                <ClosePost
-                                  setAnchorEl={setAnchorEl}
-                                  postId={post.id}
-                                />
-
-                              )}
-
-
-                          </>
-                        )}
-                      <DeletePost
-                        setAnchorEl={setAnchorEl}
-                        postId={post.id}
-                        type="Post" />
-
-                    </>)}
-                <Divider/>
-                    <DialogCloseButton onClick={handleClose} top={2}style={{marginLeft:2,}}/>
-              </Menu>
 
               <MenuItem
 
@@ -264,7 +191,7 @@ const PostItemFeeds = ({ postId }) => {
                     {(post.body.length > 150)
                       ? (
                         <Button
-                        
+
                           style={{ lineSpacing: "2px", fontWeight: "bold", marginLeft: 10, fontSize: 11 }}
                           color="primary"
                           onClick={() => { setShowMore(!showMore) }}>
@@ -351,8 +278,10 @@ const PostItemFeeds = ({ postId }) => {
                     size="default"
                     type="post"
                   />
-                </>
+            
+             </>
               )}
+
             {post.parent
 
               ? (<>
@@ -361,18 +290,99 @@ const PostItemFeeds = ({ postId }) => {
                 <>
                   {post.is_active
                     && (
+                      <>
+                        <Divider orientation="vertical" style={{borderRadius:25,height:40,width:5,margin:15,}}/>
                       <Repost
                         postId={post.id}
                         type="post"
                         setAnchorEl={setAnchorEl}
                       />
+                      </>
                     )}
                 </>
               )}
+ 
+            {post.is_author && post.is_active
+              && (
+                <>
+                 <Divider orientation="vertical" style={{borderRadius:25,height:40,width:5,margin:15,}}/>
+                <IconButton color="primary" aria-haspopup="true" onClick={handleClick}>
+              
+                    < PersonAddIcon />
+
+                </IconButton>
+                <Typography  color="textSecondary" className={classes.actions}>Actions</Typography>
+                </>
+              )}
+            <Menu
+              classes={{ paper: classes.menuPaper }}
+              anchorEl={anchor}
+              anchorOrigin={{
+                horizontal: 'left',
+                vertical: 'top',
+
+              }}
+
+              getContentAnchorEl={null}
+              keepMounted
+              open={Boolean(anchor)}
+              onClose={handleClose}
+              transformOrigin={{
+                horizontal: 'right',
+                vertical: 'bottom',
+              }}
+            >
+
+
+              {post.is_author && post.is_active
+                && (
+                  <>
+                   
+                    <EditPost
+                      setAnchorEl={setAnchorEl}
+                      postId={post.id}
+                      type="Post"
+                    />
+
+                    {post.parent
+
+                      ? (<>
+                      </>
+                      ) : (
+                        <>
+
+                          {post.closed
+
+                            ? (
+                              <OpenPost
+                                setAnchorEl={setAnchorEl}
+                                postId={post.id}
+                              />) : (
+                              <ClosePost
+                                setAnchorEl={setAnchorEl}
+                                postId={post.id}
+                              />
+
+                            )}
+
+
+                        </>
+                      )}
+                    <DeletePost
+                      setAnchorEl={setAnchorEl}
+                      postId={post.id}
+                      type="Post" />
+
+                  </>)}
+                  <Divider variant="middle" />
+                  <DialogCloseButton onClick={handleClose}  style={{ marginLeft:0,marginTop:0, }} />
+
+
+            </Menu>
 
           </div>
         </Box>
-       
+
 
       </div>
     </>

@@ -177,6 +177,7 @@ def login_view(request):
     user = authenticate(request, login=cred_login, password=cred_password)
 
     if user is not None:
+     
         if not remember_me:
             # Session will expire when the user closes their browser.
             request.session.set_expiry(0)

@@ -46,9 +46,8 @@ input:{
     marginBottom: theme.spacing(2),
   },
  share:{
-   marginLeft:theme.spacing(1),
+  
    fontFamily:"monospace",
-   display:"flex",
    fontWeight:"bold",
   fontSize:13,
  },

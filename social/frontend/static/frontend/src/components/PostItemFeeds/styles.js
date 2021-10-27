@@ -26,14 +26,7 @@ const useStyles = makeStyles((theme) => {
       fontWeight: "bolder",
       fontSize: "25px",
     },
-actionButton:{
-  justifyContent: 'flex-start',
-  fontWeight:"bolder",
-  fontSize:15,
-   '&:hover': {
-    backgroundColor:"none",
-  },
-},
+
     likeContainer: {
       alignItems: 'center',
       display: 'flex',
@@ -121,7 +114,11 @@ actionButton:{
      position:"relative"
     
     },
-    
+    actions:{
+      fontFamily:"monospace",
+      fontWeight:"bold",
+     fontSize:13,
+    },
     root: {
       marginBottom:8,
       marginTop:6,

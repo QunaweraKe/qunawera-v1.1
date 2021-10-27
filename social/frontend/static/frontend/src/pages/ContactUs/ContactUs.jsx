@@ -13,8 +13,8 @@ import ContactUsDialog from '../../components/ContactUsDialog';
 const useStyles = makeStyles((theme) => ({
 
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    backgroundColor: theme.palette.grey[50],
+    padding: theme.spacing(5),
   },
  
 }));
@@ -31,7 +31,7 @@ const ContactUs = () => {
         <main>
         <div className={classes.heroContent}>
       
-          <Container maxWidth="md">
+          <Container maxWidth="lg">
           <Typography component="h2" variant="h4" color="primary">
           < AppName/> 
             </Typography>
@@ -42,7 +42,7 @@ const ContactUs = () => {
               
           </Container>
         </div>
-        <Container maxWidth="sm">
+        <Container style={{marginTop:6}}>
         
         <ContactUsDialog/>
        

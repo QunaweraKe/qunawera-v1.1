@@ -9,7 +9,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
-import Divider from '@material-ui/core/Divider';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
@@ -17,7 +16,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/EditOutlined';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
-import DeleteIcon from '@material-ui/icons/Delete';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
@@ -50,7 +49,7 @@ const DialogPostForm = () => {
   const [image, setImage] = React.useState({ preview: "", raw: "" });
   const [body, setBody] = React.useState("");
   const [title, setTitle] = React.useState("");
-  const [requirements, setRequirement] = React.useState("");
+  const[requirements,setRequirements]=React.useState("")
 
 
 
@@ -65,17 +64,15 @@ const DialogPostForm = () => {
     }
 
   };
-  const handleRequirement = (event) => {
-    event.preventDefault();
-    console.log(event.target.value);
-    setRequirement(event.target.value);
-  };
   const handleBody = (event) => {
     event.preventDefault();
     console.log(event.target.value);
     setBody(event.target.value);
   };
-
+  const handleRequirements=(event)=>{
+event.preventDefault();
+setRequirements(event.target.value);
+  };
   const removeImage = (event) => {
     event.preventDefault();
     setImage('')
@@ -116,14 +113,15 @@ const DialogPostForm = () => {
 
     try {
       const formData = new FormData();
-      formData.append("requirements", requirements);
       formData.append("body", body);
       formData.append("title", title);
+      formData.append("requirements",requirements);
       formData.append("image", image.raw, image.name);
       dispatch(createPost(formData));
       setImage('');
       setTitle('');
       setBody('');
+      setRequirements('')
       handleClose();
       return console.log("success")
     } catch (err) {
@@ -142,7 +140,7 @@ const DialogPostForm = () => {
                variant="extended"
                color="primary" aria-label="edit" 
                sx={{ mr: 2}}
-               style={{margin:10,bottom:10,right:30,left:"auto",position:"fixed"}}>
+               style={{textDcoration:"underline",margin:10,bottom:10,right:30,left:"auto",position:"fixed"}}>
             <EditIcon />
             Post
             </Fab>
@@ -155,36 +153,33 @@ const DialogPostForm = () => {
         open={dialogOpen}
         onClose={handleClose}
         TransitionComponent={Transition}
-
+        classes={{paper:classes.paper}}
       >
         {!isEmpty(errors)
           && (
             <Alert
-              className={classes.alert}
               severity="error"
             >
               Form has invalid inputs.
             </Alert>
           )}
-        <Container maxWidth="md">
-        <Box position="absolute" top={0} right={0}>
+        <Container maxWidth="sm">
+      <Card variant="outlined" style={{marginTop:20,}}>
+          <DialogTitle>
+            <Box position="absolute" top={15} right={5}>
 
-              <DialogCloseButton onClick={handleClose} />
+              <DialogCloseButton onClick={handleClose}   right={3} />
 
             </Box>
-          <DialogTitle>
-          
             <Typography
-              variant="h5"
               align="center"
-              color="textSecondary"
+             
             >
               Create New Post
             </Typography>
-            <Divider fullWidth />
-            <Divider />
+        
           </DialogTitle>
-
+    <Typography   style={{marginLeft:15,}}color="textSecondary"  variant="body4"><i>* required</i></Typography>
           <DialogContent>
             <div className={classes.avatarContainer}>
 
@@ -202,7 +197,7 @@ const DialogPostForm = () => {
                 onChange={handleTitle}
                 type="text"
                 value={title}
-                variant="outlined"
+                variant="filled"
 
 
               />
@@ -219,50 +214,40 @@ const DialogPostForm = () => {
                 name="body"
                 onChange={handleBody}
                 type="text"
-                variant="outlined"
+                variant="filled"
                 rows={5}
                 value={body}
 
               />
 
 
-              <br />
               <TextField
-                className={classes.margin}
-              
                 autoComplete="off"
-                multiline
                 fullWidth
                 id="requirements"
-                label="Task Requirements"
+                label="Requirements"
                 name="requirements"
-                onChange={handleRequirement}
+                onChange={handleRequirements}
                 type="text"
-                variant="outlined"
-                rows={3}
                 value={requirements}
-
+                variant="filled"
+                rows={5}
+                multiline
+                className={classes.margin}
               />
 
 
-              <br />
-
-              <Card variant="outlined" className={classes.imageCard} >
-
-                <label>
-
                   {image.preview ? <> <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} />
-                    <IconButton onClick={removeImage} ><DeleteIcon style={{ color: 'red' }} /></IconButton></> : (
+                    <IconButton onClick={removeImage} ><HighlightOffIcon style={{ color: 'red' }} /></IconButton></> : (
 
                     <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
 
                   )}
-                </label>
+           
                 <IconButton color="primary" onClick={handleClickOpen}>
                   <AddPhotoAlternateIcon />
                 </IconButton>
-              </Card>
-
+         
               <br />
 
               <Dialog
@@ -273,8 +258,7 @@ const DialogPostForm = () => {
                 maxWidth="xs"
 
               >
-                <br />
-                <br />
+                
                 <DialogContent>
 
 
@@ -286,8 +270,8 @@ const DialogPostForm = () => {
                   </label>
 
 
-                  <label>
-                    <label for="upload file">
+                    <label for="image" style={{textDecoration:"underline",color:"#002884"}}>
+                    <i> Click to select</i>
                     </label>
                     <input
                       onChange={handleImage}
@@ -296,42 +280,50 @@ const DialogPostForm = () => {
                       type="file"
                       capture="environment"
                       required
+                      style={{display:"none"}}
                     />
 
-                  </label>
+       
+
+          
                 </DialogContent>
+                        
+         
                 <br />
                 <br />
               </Dialog>
-
-              <br />
               <Button
-           
-                size="large"
-                color="primary"
-                disabled={loading}
-                type="submit"
-                variant="contained"
-                style={{ boxShadow: "none", borderRadius: "5px", }}
-              >
-                <span className="nav-button-text">Post</span>
+              fullWidth
+              size="large"
+              color="primary"
+              disabled={loading}
+              type="submit"
+              variant="contained"
+              style={{ boxShadow: "none", borderRadius: "5px", }}
+            >
+              <span className="nav-button-text">Post</span>
 
-                {loading && <CircularProgress />}
-              </Button>
+              {loading && <CircularProgress />}
+            </Button>
+              <br />
+            
             </form>
           </DialogContent>
-          <DialogContentText>
+       
+         
+          </Card>
+        </Container>
+        <DialogContentText>
             <Typography
-              align="center"
+            align="center"
               variant="body1"
               paragraph
-              style={{ fontFamily: "monospace", fontSize: "13px" }}
+              style={{ marginLeft:2,fontFamily: "monospace", fontSize: "12px" }}
             >
-              Remember this post will be moderated by admin.<Link>Learn more...</Link>
+                Moderated by admin.<Link>Learn more...</Link>
             </Typography>
 
           </DialogContentText>
-        </Container>
       </Dialog>
 
     </>
