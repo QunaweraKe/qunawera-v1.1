@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 
 // Material UI
@@ -22,6 +22,7 @@ import Card from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import red from '@material-ui/core/colors/red';
 import Fab from '@material-ui/core/Fab';
+import Divider from '@material-ui/core/Divider';
 // Local
 
 import CircularProgress from '../CircularProgress';
@@ -49,7 +50,7 @@ const DialogPostForm = () => {
   const [image, setImage] = React.useState({ preview: "", raw: "" });
   const [body, setBody] = React.useState("");
   const [title, setTitle] = React.useState("");
-  const[requirements,setRequirements]=React.useState("")
+  const [requirements, setRequirements] = React.useState("")
 
 
 
@@ -69,9 +70,9 @@ const DialogPostForm = () => {
     console.log(event.target.value);
     setBody(event.target.value);
   };
-  const handleRequirements=(event)=>{
-event.preventDefault();
-setRequirements(event.target.value);
+  const handleRequirements = (event) => {
+    event.preventDefault();
+    setRequirements(event.target.value);
   };
   const removeImage = (event) => {
     event.preventDefault();
@@ -87,17 +88,7 @@ setRequirements(event.target.value);
   const dispatch = useDispatch();
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const { errors, loading } = useUI(key.createPost, null, false);
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDialogClose = () => {
-    setOpen(false);
-
-  };
-
+ 
   const handleClose = () => {
     setDialogOpen(false);
     setImage('');
@@ -108,16 +99,16 @@ setRequirements(event.target.value);
 
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
 
     try {
       const formData = new FormData();
       formData.append("body", body);
       formData.append("title", title);
-      formData.append("requirements",requirements);
+      formData.append("requirements", requirements);
       formData.append("image", image.raw, image.name);
-      dispatch(createPost(formData));
+      await dispatch(createPost(formData));
       setImage('');
       setTitle('');
       setBody('');
@@ -134,26 +125,36 @@ setRequirements(event.target.value);
     <>
       <div >
         <CustomTooltip title="create a new task listing" arrow disableFocusListener>
-               <Fab className={classes.fab}
-                onClick={handleOpen}
-               size="small" 
-               variant="extended"
-               color="primary" aria-label="edit" 
-               sx={{ mr: 2}}
-               style={{textDcoration:"underline",margin:10,bottom:10,right:30,left:"auto",position:"fixed"}}>
+          <Fab className={classes.fab}
+            onClick={handleOpen}
+            size="small"
+            variant="extended"
+            color="primary" aria-label="edit"
+            sx={{ mr: 2 }}
+            style={{ textDcoration: "underline", margin: 10, bottom: 10, right: 30, left: "auto", position: "fixed" }}>
             <EditIcon />
             Post
-            </Fab>
+          </Fab>
         </CustomTooltip>
       </div>
 
       <Dialog
-        
-        fullScreen
+        style={{
+          left: "80",
+          height: "fit-content",
+          width: "fit-content",
+          bottom: 0
+
+
+        }}
         open={dialogOpen}
         onClose={handleClose}
         TransitionComponent={Transition}
-        classes={{paper:classes.paper}}
+        classes={{ paper: classes.paper }}
+        hideBackdrop
+        disableEnforceFocus
+        fullScreen
+
       >
         {!isEmpty(errors)
           && (
@@ -164,166 +165,140 @@ setRequirements(event.target.value);
             </Alert>
           )}
         <Container maxWidth="sm">
-      <Card variant="outlined" style={{marginTop:20,}}>
-          <DialogTitle>
-            <Box position="absolute" top={15} right={5}>
+          <Card variant="outlined" style={{ marginTop: 10, }}>
+            <DialogTitle>
+              <Box position="absolute" top={2} right={10}>
 
-              <DialogCloseButton onClick={handleClose}   right={3} />
+                <DialogCloseButton onClick={handleClose} />
 
-            </Box>
-            <Typography
-              align="center"
-             
-            >
-              Create New Post
-            </Typography>
-        
-          </DialogTitle>
-    <Typography   style={{marginLeft:15,}}color="textSecondary"  variant="body4"><i>* required</i></Typography>
-          <DialogContent>
-            <div className={classes.avatarContainer}>
-
-            </div>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                required
-                error={Boolean(errors.title)}
-                autoComplete="off"
-
-                fullWidth
-                id="title"
-                label="Role"
-                name="title"
-                onChange={handleTitle}
-                type="text"
-                value={title}
-                variant="filled"
-
-
-              />
-
-              <TextField
-                className={classes.margin}
-                required
-                error={Boolean(errors.body)}
-                autoComplete="off"
-                multiline
-                fullWidth
-                id="body"
-                label="Description"
-                name="body"
-                onChange={handleBody}
-                type="text"
-                variant="filled"
-                rows={5}
-                value={body}
-
-              />
-
-
-              <TextField
-                autoComplete="off"
-                fullWidth
-                id="requirements"
-                label="Requirements"
-                name="requirements"
-                onChange={handleRequirements}
-                type="text"
-                value={requirements}
-                variant="filled"
-                rows={5}
-                multiline
-                className={classes.margin}
-              />
-
-
-                  {image.preview ? <> <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} />
-                    <IconButton onClick={removeImage} ><HighlightOffIcon style={{ color: 'red' }} /></IconButton></> : (
-
-                    <Typography color="textSecondary" style={{ fontSize: 15 }} paragraph align="center" >Your upload will appear here... </Typography>
-
-                  )}
-           
-                <IconButton color="primary" onClick={handleClickOpen}>
-                  <AddPhotoAlternateIcon />
-                </IconButton>
-         
-              <br />
-
-              <Dialog
-                open={open}
-                onClose={handleDialogClose}
-                onChange={handleDialogClose}
-                fullWidth
-                maxWidth="xs"
+              </Box>
+              <Typography
+                align="center"
 
               >
-                
-                <DialogContent>
+                Create New Post
+              </Typography>
+
+            </DialogTitle>
+            <Typography style={{ marginLeft: 15, }} color="textSecondary" variant="body4"><i>* required</i></Typography>
+            <DialogContent>
+              <div className={classes.avatarContainer}>
+
+              </div>
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  required
+                  error={Boolean(errors.title)}
+                  autoComplete="off"
+
+                  fullWidth
+                  id="title"
+                  label="Role"
+                  name="title"
+                  onChange={handleTitle}
+                  type="text"
+                  value={title}
+                  variant="outlined"
 
 
-                  <label>
-                    {image.preview ? <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "150px", width: "150px" }} /> : (
-                      <>
+                />
 
-                      </>)}
-                  </label>
+                <TextField
+                  className={classes.margin}
+                  required
+                  error={Boolean(errors.body)}
+                  autoComplete="off"
+                  multiline
+                  fullWidth
+                  id="body"
+                  label="Description"
+                  name="body"
+                  onChange={handleBody}
+                  type="text"
+                  variant="outlined"
+                  rows={5}
+                  value={body}
+
+                />
 
 
-                    <label for="image" style={{textDecoration:"underline",color:"#002884"}}>
-                    <i> Click to select</i>
-                    </label>
-                    <input
-                      onChange={handleImage}
-                      name="image"
-                      id="image"
-                      type="file"
-                      capture="environment"
-                      required
-                      style={{display:"none"}}
-                    />
+                <TextField
+                  autoComplete="off"
+                  fullWidth
+                  id="requirements"
+                  label="Requirements"
+                  name="requirements"
+                  onChange={handleRequirements}
+                  type="text"
+                  value={requirements}
+                  variant="outlined"
+                  rows={2}
+                  multiline
+                  className={classes.margin}
+                  helperText="Copy of National ID,Tools e.t.c"
+                />
+                <Divider />
 
-       
+                {image.preview ? <> <img src={image.preview} style={{ marginTop: 5, marginLeft: 5, borderRadius: 5, marginBottom: 5, height: "50px", width: "50px" }} />
+                  <IconButton onClick={removeImage} ><HighlightOffIcon style={{ color: 'red' }} /></IconButton></> : (
 
-          
-                </DialogContent>
-                        
-         
+                  <> </> )}
+
+                <label for="image" style={{ color: "#002884" }}>
+                  <i> Add Photos</i>
+                </label>
+                <input
+                  onChange={handleImage}
+                  name="image"
+                  id="image"
+                  type="file"
+                  capture="environment"
+                  required
+                  style={{ display: "none" }}
+                />
+
+                <IconButton color="primary"  id="image" onClick={handleImage} >
+                  <AddPhotoAlternateIcon />
+                </IconButton>
+                <Divider />
                 <br />
-                <br />
-              </Dialog>
-              <Button
-              fullWidth
-              size="large"
-              color="primary"
-              disabled={loading}
-              type="submit"
-              variant="contained"
-              style={{ boxShadow: "none", borderRadius: "5px", }}
-            >
-              <span className="nav-button-text">Post</span>
 
-              {loading && <CircularProgress />}
-            </Button>
-              <br />
-            
-            </form>
-          </DialogContent>
-       
-         
+
+
+                <Button
+                  fullWidth
+                  size="large"
+                  color="primary"
+                  disabled={loading}
+                  type="submit"
+                  variant="contained"
+                  style={{ boxShadow: "none", borderRadius: "5px", }}
+                >
+                  <span className="nav-button-text">Post</span>
+
+                  {loading && <CircularProgress />}
+                </Button>
+
+
+                <br />
+
+              </form>
+            </DialogContent>
+
+
           </Card>
         </Container>
         <DialogContentText>
-            <Typography
+          <Typography
             align="center"
-              variant="body1"
-              paragraph
-              style={{ marginLeft:2,fontFamily: "monospace", fontSize: "12px" }}
-            >
-                Moderated by admin.<Link>Learn more...</Link>
-            </Typography>
+            variant="body1"
+            paragraph
+            style={{ marginLeft: 2, fontFamily: "monospace", fontSize: "12px" }}
+          >
+            Moderated by admin.<Link>Learn more...</Link>
+          </Typography>
 
-          </DialogContentText>
+        </DialogContentText>
       </Dialog>
 
     </>

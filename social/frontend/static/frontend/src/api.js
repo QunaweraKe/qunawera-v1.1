@@ -147,9 +147,10 @@ export const descriptor = {
     method: 'patch',
     url: '/api/users/edit-profile/',
   }),
-  removeImage: () => ({
+  
+  removeImage: ({
     method: 'delete',
-    url: '/api/users/edit-profile/',
+    url: '/api/users/remove-image/',
   }),
 
   editUser: (data) => ({

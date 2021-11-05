@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1.5, 2),
   },
   banner: {
-
+    borderRadius:5,
     padding:4,
     backgroundColor: theme.palette.grey[50],
     borderColor: theme.palette.grey[100],

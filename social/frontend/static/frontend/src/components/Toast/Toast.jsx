@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 // Material UI
 import Snackbar from '@material-ui/core/Snackbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import CheckIcon from '@material-ui/icons/Check';
 import Alert from '@material-ui/lab/Alert';
 
 // Local
@@ -39,7 +39,9 @@ const Toast = ({ message, severity }) => {
         elevation={1}
         onClose={handleClose}
         severity={severity}
-       
+       iconMapping={{
+         success:<CheckIcon/>
+       }}
       
       >
         <Typography style={{fontFamily:"RobotoDraft",fontSize:16,alignItems:"center",transitionDuration:"1s",}}>

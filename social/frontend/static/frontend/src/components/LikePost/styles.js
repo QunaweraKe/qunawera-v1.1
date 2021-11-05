@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
   likeText:{
-    fontFamily:"monospace",
+  fontFamily:"monospace",
   display:"flex",
-  marginLeft:"1%",
+  marginLeft:"0%",
   fontWeight:"bold",
-    fontSize:13,
+    fontSize:10,
   
     '&:hover, &:focus': {
       backgroundColor: "none",

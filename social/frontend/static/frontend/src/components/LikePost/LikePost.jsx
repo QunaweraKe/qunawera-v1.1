@@ -47,7 +47,7 @@ const LikePost = ({ postId, size ,type}) => {
     if (likedLength > 0) {
       if (isLiked) {
         if (likedLength === 1) {
-          result = `You liked this ${type} `;
+          result = `Liked ${type} `;
         } else {
           const subLength = likedLength - 1;
           result = `Liked by you and ${subLength} ${pluralizeOther(subLength)}...`;

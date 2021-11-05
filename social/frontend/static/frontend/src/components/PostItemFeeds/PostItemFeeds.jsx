@@ -225,8 +225,8 @@ const PostItemFeeds = ({ postId }) => {
               {post.closed
 
                 ? (
-                  <Typography></Typography>) : (
-                  <Typography></Typography>
+                  <Typography>finished task</Typography>) : (
+                  <Typography>open task</Typography>
                 )}
 
 
@@ -278,8 +278,8 @@ const PostItemFeeds = ({ postId }) => {
                     size="default"
                     type="post"
                   />
-            
-             </>
+
+                </>
               )}
 
             {post.parent
@@ -291,27 +291,27 @@ const PostItemFeeds = ({ postId }) => {
                   {post.is_active
                     && (
                       <>
-                        <Divider orientation="vertical" style={{borderRadius:25,height:40,width:5,margin:15,}}/>
-                      <Repost
-                        postId={post.id}
-                        type="post"
-                        setAnchorEl={setAnchorEl}
-                      />
+                        <Divider orientation="vertical" style={{ borderRadius: 25, height: 40, width: 5, margin: 15, }} />
+                        <Repost
+                          postId={post.id}
+                          type="post"
+                          setAnchorEl={setAnchorEl}
+                        />
                       </>
                     )}
                 </>
               )}
- 
+
             {post.is_author && post.is_active
               && (
                 <>
-                 <Divider orientation="vertical" style={{borderRadius:25,height:40,width:5,margin:15,}}/>
-                <IconButton color="primary" aria-haspopup="true" onClick={handleClick}>
-              
+                  <Divider orientation="vertical" style={{ borderRadius: 25, height: 40, width: 5, margin: 15, }} />
+                  <IconButton color="primary" aria-haspopup="true" onClick={handleClick}>
+
                     < PersonAddIcon />
 
-                </IconButton>
-                <Typography  color="textSecondary" className={classes.actions}>Actions</Typography>
+                  </IconButton>
+                  <Typography color="textSecondary" className={classes.actions}>Actions</Typography>
                 </>
               )}
             <Menu
@@ -332,12 +332,12 @@ const PostItemFeeds = ({ postId }) => {
                 vertical: 'bottom',
               }}
             >
-
-
+              <DialogCloseButton onClick={handleClose} style={{ marginLeft: 0, marginTop: 0, }} />
+              <Divider variant="middle" />
               {post.is_author && post.is_active
                 && (
                   <>
-                   
+
                     <EditPost
                       setAnchorEl={setAnchorEl}
                       postId={post.id}
@@ -374,8 +374,8 @@ const PostItemFeeds = ({ postId }) => {
                       type="Post" />
 
                   </>)}
-                  <Divider variant="middle" />
-                  <DialogCloseButton onClick={handleClose}  style={{ marginLeft:0,marginTop:0, }} />
+
+
 
 
             </Menu>
@@ -383,8 +383,9 @@ const PostItemFeeds = ({ postId }) => {
           </div>
         </Box>
 
-
+        <Divider />
       </div>
+
     </>
 
   );

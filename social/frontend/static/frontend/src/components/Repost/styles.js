@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
 input:{
   "&::placeholder":{
     textOverflow:"ellipsis!important",
-    fontSize:13,
+    fontSize:17,
+    color:theme.palette.grey[500],
   }
 },
   contentContainer: {

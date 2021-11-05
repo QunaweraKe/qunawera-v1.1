@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 // Material UI
 import Typography from '@material-ui/core/Typography';
-
+import Card from '@material-ui/core/Card';
 // Local
 import AuthLayout from '../../components/AuthLayout';
 import BackButton from '../../components/BackButton';
@@ -46,15 +46,14 @@ const PostDetail = () => {
       );
     } else {
       renderedPost = 
-      <div >
-        < Typography align="center" color="textSecondary"style={{marginTop:4,fontFamily:'monospace',fontSize:"26px"}}>
-        This post has been removed  .
+      <Card variant="outlined" style={{marginTop:4}}>
 
-        </Typography>
-      
-        <Removed style={{height:300,width:300}}/>
-        
-        </div>;
+      <Removed style={{height:300,width:300}}/>
+      < Typography align="center" color="textSecondary"style={{marginTop:4,fontFamily:'monospace',fontSize:"20px"}}>
+      Content not available  .
+
+      </Typography>
+      </Card>;
     }
     return renderedPost;
   };
@@ -66,15 +65,6 @@ const PostDetail = () => {
       <AuthLayout>
       <SubHeading >
       <BackButton />
-          <div>
-            <Typography
-            
-              variant="h6"
-              style={{fontWeight:"bolder"}}
-            >
-             Details
-            </Typography>
-          </div>
        
     
     </SubHeading>

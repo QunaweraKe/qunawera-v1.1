@@ -1,13 +1,13 @@
 from django.db import models
-
+from django.contrib.auth import  get_user_model
 #Key Qunawera Information resides here
 # Create your models here.
 
 
-#contact us
+#contact us,feedback
 #careers
 #Team from CEO ,MD,ETC
-
+User = get_user_model()
 class Careers(models.Model):
     Job_title=models.CharField(max_length=150)
     Description=models.TextField()
@@ -45,3 +45,22 @@ class  ContactUs(models.Model):
 
        class Meta:
         verbose_name_plural="Contact Us"
+
+class  Feedback(models.Model):
+       stars=(
+           (1,'one'),
+             (2,'two'),
+               (1,'three'),
+                 (1,'four'),
+                   (1,'five')
+       )
+       rater = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE
+    )
+       feedback_comment=models.TextField(blank=False,max_length=250)
+       rating=models.PositiveSmallIntegerField(choices=stars)
+        
+
+       class Meta:
+        verbose_name_plural="Feedbacks"

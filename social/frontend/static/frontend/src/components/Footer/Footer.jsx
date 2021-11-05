@@ -18,7 +18,7 @@ const footers = [
   },
   {
     title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
+    description: ['Community', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
   },
   {
     title: 'Resources',

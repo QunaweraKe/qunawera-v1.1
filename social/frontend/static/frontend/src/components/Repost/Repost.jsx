@@ -7,7 +7,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputBase from '@material-ui/core/InputBase';
@@ -23,7 +22,7 @@ import useStyles from './styles';
 import useUI from '../../hooks/useUI';
 import { createRepost, key, selectPost } from '../../redux/post';
 import { selectUser } from '../../redux/user';
-
+import Box from '@material-ui/core/Box';
 
 
 
@@ -87,13 +86,28 @@ onClick={handleOpen}
        <Dialog
         open={dialogOpen}
         onClose={handleClose}
-        fullScreen
+       
   
       >
          <Container maxWidth="sm">
         <DialogTitle>
           <DialogCloseButton onClick={handleClose} />
-          
+          <Box position="absolute" top={5} right={10}>
+
+          <Button
+          size="large"
+            color="primary"
+            disabled={loading}
+            onClick={handleSubmit}
+            variant="contained"
+            
+            style={{boxShadow:"none",borderRadius:"5px",}}
+          >
+           Post
+            {loading && <CircularProgress />}
+          </Button>
+
+</Box>
         </DialogTitle>
         <DialogContent
         
@@ -115,36 +129,15 @@ onClick={handleOpen}
               multiline
               onChange={handleChange}
             
-              placeholder="Say why you want to share this post(it's optional)"
-              rowsMax={7}
+              placeholder="Share your thoughts on this ( optional)"
+              rowsMax={2}
               spellCheck
               value={body}
             />
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleClose}
-            variant="outlined"
-            size="small"
-            color="textSecondary"
-            style={{boxShadow:"none",borderRadius:"5px",}}
-          >
-            Cancel
-          </Button>
-          <Button
-          size="small"
-            color="primary"
-            disabled={loading}
-            onClick={handleSubmit}
-            variant="contained"
-            
-            style={{boxShadow:"none",borderRadius:"5px",}}
-          >
-           Post
-            {loading && <CircularProgress />}
-          </Button>
-        </DialogActions>
+      
+       
         </Container>
       </Dialog>
     </>

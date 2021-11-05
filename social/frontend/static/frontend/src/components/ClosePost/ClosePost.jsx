@@ -57,7 +57,7 @@ ref={ref}
          </ListItemIcon>
 
 <ListItemText
-  primary=" Mark as Finished"
+  primary=" Close Post"
   primaryTypographyProps={{
     
   }}
@@ -77,7 +77,7 @@ ref={ref}
         onEntered={handleEntered}
      
         text={`
-        Closing a post means it will appear only on your profile.Are you sure about this?
+        Closing a post means that is done and will not be visible in your feed.Are you sure about this?
         `}
   
       />

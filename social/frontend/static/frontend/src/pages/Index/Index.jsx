@@ -8,16 +8,15 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
-import PublicIcon from '@material-ui/icons/Public';
 // Local
 import PageTitle from '../../components/PageTitle';
-import { APP_NAME, route } from '../../constants';
+import { route } from '../../constants';
 import './index.css';
 import useStyles from './styles';
 import DividerWithText from '../../components/DividerWithText';
 import Indeximg from '../../components/Files/Images/repair.svg';
 import Footer from '../../components/Footer';
-
+import AppName from '../../components/AppName';
 
 
 
@@ -62,7 +61,7 @@ const Index = () => {
 
             >
 
-             {APP_NAME}
+             <AppName/>
           </Typography>
         
 
@@ -133,23 +132,21 @@ const Index = () => {
       <div className="title">
         <span className="block"></span>
         <h1>
-          <Typography className={classes.ctaItem}
+          <Typography
             color="secondary"
             variant="subtitle4"
-            style={{ textShadow: '#4A744D 1px 1px',textShadow:'#4A744D 0px 0px',textShadow:'#4A744D 1px 1px',textShadow:'#4A744D 2px 2px',textShadow:'#4A744D 3px 3px',textShadow:'#4A744D 4px 4px',textShadow:'#4A744D 5px 5px',textShadow:'#4A744D 6px 6px',textShadow:'#4A744D 7px 7px',textShadow:'#4A744D 8px 8px',textShadow:'#4A744D 9px 9px',textShadow:'#4A744D 10px 10px',textShadow:'#4A744D 11px 11px',textShadow:'#4A744D 12px 12px',textShadow:'#4A744D 13px 13px',textShadow:'#4A744D 14px 14px',textShadow:'#4A744D 15px 15px',textShadow:'#4A744D 16px 16px',textShadow: '#4A744D 1px 1px',textShadow:'#4A744D 0px 0px',textShadow:'#4A744D 1px 1px',textShadow:'#4A744D 2px 2px',textShadow:'#4A744D 3px 3px',textShadow:'#4A744D 4px 4px',textShadow:'#4A744D 5px 5px',textShadow:'#4A744D 6px 6px',textShadow:'#4A744D 7px 7px',textShadow:'#4A744D 8px 8px',textShadow:'#4A744D 9px 9px',textShadow:'#4A744D 10px 10px',textShadow:'#4A744D 11px 11px',textShadow:'#4A744D 12px 12px',textShadow:'#4A744D 13px 13px',textShadow:'#4A744D 14px 14px',textShadow:'#4A744D 15px 15px',textShadow:'#4A744D 16px 16px'}}
+            style={{ textShadow: '#fff 2px 1px',fontFamily:"Arial"}}
             >
 
-             Stranded with a task?
+            <span style={{marginTop:5,float:"left",width:".6em",fontFamily:"monospace",fontSize:"250%",lineHeight:"80%"}}> S </span>tranded with a task &#x3f;
           </Typography>
         </h1>
       </div>
-      <div className="role">
-        <div className="block" ></div>
-        <p><Typography variant="subtitle4" style={{marginLeft:4,}} color="primary"  >
-          Meet people who can do it.
+    
+        <p><Typography variant="subtitle1"  color="primary"  >
+          Meet people around who can do it.
          </Typography></p>
-        
-      </div>
+      
 
     </div>
 

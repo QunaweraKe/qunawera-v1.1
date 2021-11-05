@@ -15,13 +15,13 @@ const PostDetailNav = ({ active, postId }) => (
       active={active === 'post'}
       to={route.postDetail(postId)}
     >
-     <Typography style={{fontWeight:"bolder",fontSize:20,}}> Post & Comments</Typography>
+     <Typography style={{fontWeight:"bold",fontSize:20,}}> Post   & Comments</Typography>
     </TabbedNavItem>
   </TabbedNav>
 );
 
 PostDetailNav.propTypes = {
-  active: PropTypes.oneOf(['post', 'likes']).isRequired,
+  active: PropTypes.oneOf(['post']).isRequired,
   postId: PropTypes.string.isRequired,
 };
 

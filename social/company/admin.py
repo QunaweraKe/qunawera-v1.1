@@ -15,6 +15,10 @@ class TeamAdmin (admin.ModelAdmin):
 admin.site.register(Team,TeamAdmin)
 
 
+class FeedbackAdmin (admin.ModelAdmin):
+    model=Feedback
+    list_display=('rater','feedback_comment','rating',)
+admin.site.register(Feedback,FeedbackAdmin)
 
 class ContactUsAdmin(admin.ModelAdmin):
     model=ContactUs

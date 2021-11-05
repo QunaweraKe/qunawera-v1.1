@@ -38,10 +38,12 @@ imageCard:{
      width: "400px" ,
 },
 paper: {
-  height:'calc(100%- 64px)',
-  top:50,
-  bottom:10,
-  backgroundColor:"transparent",
+  height:'calc(100%- 94px)',
+  borderRadius:5,
+  width:"fit-content",
+  right:"10",
+  top:10
+  
  
   },
 }));

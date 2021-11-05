@@ -66,25 +66,25 @@ const Home = ( ) => {
           <div style={{ width: '100%' }}>
       <Box display="flex" p={1}>
         <Box p={1} flexGrow={1} >
-        <Typography variant="h6" color="primary" style={{ fontWeight: "bold", marginLeft: ".5vw" }} >
+        <Typography variant="h6" color="primary" style={{ fontWeight: "bold",}} >
             <AppName/>
           </Typography>
         </Box>
        <Box>
        <Button
-              fullWidth
               color='primary'
               component={Link}
               size="large"
-              startIcon={
+              style={{borderRadius:50,}}
+              endIcon={
                
-                <SearchOutlinedIcon />
+                <SearchOutlinedIcon 
+                style={{flexGrow:2,fontSize:29,}}/>
                 
               }
               to={route.search}
-              style={{flexGrow:2,borderRadius:25,right:0,}}
+           
             >
-              <span className="nav-button-text">Search</span>
             </Button>
 
          </Box>

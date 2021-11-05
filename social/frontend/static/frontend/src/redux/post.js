@@ -443,7 +443,7 @@ export const closePost = (postId, slug) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.closePost(postId));
     dispatch(unsetPost({ postId, slug }));
-    dispatch(setToast('Post closing...'));
+    dispatch(setToast('Post Closing...'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);
@@ -486,7 +486,7 @@ export const removeReply = (postId, parentId) => async (dispatch) => {
     dispatch(setLoading(NAMESPACE, thisKey));
     await api(descriptor.removePost(postId));
     dispatch(unsetReply({ postId, parentId }));
-    dispatch(setToast('Review Removed'));
+    dispatch(setToast('Comment Removed'));
   } catch (error) {
     dispatch(setToast('Something went wrong', 'error'));
     console.error(error);

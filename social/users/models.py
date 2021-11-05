@@ -7,7 +7,7 @@ from django.utils.timezone import now
 from social.models import SoftDeleteMixin, TimestampMixin
 from .managers import UserManager
 from PIL import Image
-
+from users.countryname import CountryField
 
 
 
@@ -38,7 +38,7 @@ class User(SoftDeleteMixin, TimestampMixin, AbstractBaseUser,PermissionsMixin):
         max_length=32,
         unique=True,
     )
-
+    country = CountryField(null=False)
     objects = UserManager()
 
     USERNAME_FIELD = "username"
@@ -121,8 +121,8 @@ class Profile(models.Model):
         super(Profile,self).save(*args,**kwargs)
         try:
             image_var=Image.open(self.image.path)
-            if image_var.height >350 or image_var.width >350:
-                output=(350,350)
+            if image_var.height >450 or image_var.width >450:
+                output=(450,450)
                 image_var.thumbnail(output)
                 image_var.save(self.image.path)
         except:
@@ -134,4 +134,4 @@ class Profile(models.Model):
 
 
 
-#TODO :CREATING SUPERUSER HAS ERRORS.
+#TODO :ADD COUNTRYNAME CHOICES TO REGISTRATION

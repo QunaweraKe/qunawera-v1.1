@@ -161,7 +161,7 @@ const PostItem = ({ expandReplies, postId }) => {
             size="default"
             type="post"
           />
-
+       
         </div>
        
         <Grid container spacing={1}  >

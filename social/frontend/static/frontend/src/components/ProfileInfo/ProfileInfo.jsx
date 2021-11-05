@@ -48,8 +48,9 @@ const ProfileInfo = ({ loading, profileUser }) => {
     imageRef.current.click();
    
   };
- const removeProfileImage=() =>{
-  dispatch(removeImage());
+ const removeProfileImage=async (event) =>{
+  event.preventDefault();
+ await dispatch(removeImage());
  };
   const handleEditBanner = () => {
     bannerRef.current.click();

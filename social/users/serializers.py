@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import *
 from difflib import SequenceMatcher
+
+
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
@@ -48,6 +50,7 @@ class UserSerializer(serializers.ModelSerializer):
             "profile",
             "slug",
             "username",
+           # "country"
         ]
 
 #validation function to to validate password fields,username...

@@ -35,15 +35,8 @@
   position: relative;
 }
 
- .box .role {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  margin-top: -10px;
-}
-.box .role .block {
+
+.box .block {
   width: 0%;
   height: inherit;
 
@@ -52,13 +45,7 @@
   animation-delay: 2s;
   display: flex;
 }
- .box .role p {
-  animation: secFadeIn 2s forwards;
-  animation-delay: 3.2s;
-  opacity: 0;
-  color:gray;
-  letter-spacing: 5px;
-}
+
 
 @keyframes mainBlock {
   0% {

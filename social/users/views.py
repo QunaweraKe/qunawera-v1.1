@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.shortcuts import get_object_or_404
 from notifications.models import Notification
+from users.models import Profile
 from social.views import PaginationMixin
 from .pagination import UserPagination
 from .serializers import (PasswordSerializer,
@@ -41,11 +42,7 @@ class EditProfileAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     def get_object(self):
         return self.request.user.profile
 
-    def delete (self, request):
-         self.user.profile.image.delete(save=False)  # delete old image file
-
-
-
+        
 class EditUserAPIView(rest_generics.RetrieveUpdateDestroyAPIView):
     """ Edit user: username, email, etc. """
 
@@ -204,6 +201,14 @@ def remove_account(request):
     return Response(status=status.HTTP_200_OK)
 
 
+@login_required
+@api_view(["delete"])
+def remove_image(self):
+    self.user.profile.image.delete(save=True)# delete old image file
+    return Response( status=status.HTTP_200_OK)
+
+
+
     
 class LongRecommendedUsersAPIView(rest_generics.ListAPIView):
     """Get paginated recommended users for the recommended users page.
@@ -257,4 +262,4 @@ class UserDetailAPIView(rest_generics.RetrieveAPIView):
 
 
 
-#TODO:USER THROTTLE NOT WORKING
+#TODO:USER THROTTLE NOT WORKING,remove throttling

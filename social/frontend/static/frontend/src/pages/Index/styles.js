@@ -33,12 +33,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     maxWidth: 500,
   },
-  ctaItem: {
-    marginBottom: theme.spacing(2),
-    marginTop:10,
-    fontWeight:'bolder',
-
-  },
+ 
   Upper:{
      marginBottom: theme.spacing(5),
      textAlign:"center",

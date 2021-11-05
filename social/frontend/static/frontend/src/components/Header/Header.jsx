@@ -195,6 +195,13 @@ const Header = () => {
 
           </Typography>
           <DeviceDetection />
+          &middot;
+          <Typography color="textSecondary" style={{ fontSize: ".8em" }}>
+           feedback
+
+
+
+          </Typography>
 
         </div>
       </div>

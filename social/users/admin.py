@@ -13,7 +13,7 @@ class UserAdmin(admin.ModelAdmin):
         return actions
     def activate_users(modeladmin,request,queryset):
         queryset.update(is_active=True)
-    list_display = ('id', 'display_name','name', 'email','is_active','is_staff','created_at','last_login')
+    list_display = ('id', 'display_name','name', 'email','is_active','is_staff','created_at','last_login','country')
     list_editabl=('display_name',)
     exclude=('password',)
     inlines = [ProfileInline,]
